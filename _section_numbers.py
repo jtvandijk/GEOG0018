@@ -39,7 +39,7 @@ for htmlf in html_files:
                                         '<span class="menu-text">1 Programming for Data Analysis</span>')
     # update TOC chapter 2
     html_content = html_content.replace('<span class="menu-text">Statistical Analysis I</span>', \
-                                        '<span class="menu-text">2 Statistical Analysis II</span>')
+                                        '<span class="menu-text">2 Statistical Analysis I</span>')
     # update TOC chapter 3
     html_content = html_content.replace('<span class="menu-text">Statistical Analysis II</span>', \
                                         '<span class="menu-text">3 Statistical Analysis II</span>')
