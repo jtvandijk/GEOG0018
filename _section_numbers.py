@@ -30,7 +30,7 @@ for htmlf in html_files:
     # update headers
     html_content = html_content.replace('<span class="header-section-number">1', \
                                         '<span class="header-section-number">' + str(0 + cnt))
-
+    
     # update counter
     cnt += 1
     
@@ -50,6 +50,10 @@ for htmlf in html_files:
     # update TOC chapter 5
     html_content = html_content.replace('<span class="menu-text">Spatial Analysis II</span>', \
                                         '<span class="menu-text">5 Spatial Analysis II</span>')
+
+    # write
+    with open(htmlf, 'w') as file:
+        file.write(html_content)
 
 # fix index page redirect
 htmlredir = 'docs/index.html'
