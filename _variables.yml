@@ -1,0 +1,11 @@
+# global variables
+
+meta:
+  title: GEOG0018
+
+urls:
+  w01: "01-recap.html"
+  w02: "02-statistics1.html"
+  w03: "03-statistics2.html"
+  w04: "04-spatial1.html"
+  w05: "05-spatial2.html"
