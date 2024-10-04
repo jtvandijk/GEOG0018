@@ -234,7 +234,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><span class="header-section-number">1.5.1</span> Loading data</a></li>
   <li><a href="#exploring-data" id="toc-exploring-data" class="nav-link" data-scroll-target="#exploring-data"><span class="header-section-number">1.5.2</span> Exploring data</a></li>
+  <li><a href="#subsetting-data" id="toc-subsetting-data" class="nav-link" data-scroll-target="#subsetting-data"><span class="header-section-number">1.5.3</span> Subsetting data</a></li>
   </ul></li>
+  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">1.6</span> Homework task</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -986,7 +988,7 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 <p>Because all the data are stored in <a href="https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb">long format</a>, we need to transform the data to a <a href="https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb">wide format</a>. This means that instead of having multiple rows for an LSOA showing counts for different age groups, all the information for each LSOA will be consolidated into a single row. Additionally, we will clean up the column names to follow standard R naming conventions and make the data easier to work with. We can automate this process using the <code>janitor</code> package.</p>
 <p>We can do this as follows:</p>
-<div class="cell styled-output" data-hash="01-recap_cache/html/01-reformat-data-age_1882bbeb5561b3ab617ee8019d7fee0d">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-reformat-data-age_29f61fb33f20e898935d7cdb720c18ba">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -997,8 +999,8 @@ dbl (2): Age (5 categories) Code, Observation
 <span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co"># pivot</span></span>
 <span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">"lower_layer_super_output_areas_code"</span>, <span class="at">names_from =</span> <span class="st">"age_5_categories"</span>,</span>
-<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">values_from =</span> <span class="st">"observation"</span>)</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="fu">c</span>(<span class="st">"lower_layer_super_output_areas_code"</span>, <span class="st">"lower_layer_super_output_areas"</span>),</span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">names_from =</span> <span class="st">"age_5_categories"</span>, <span class="at">values_from =</span> <span class="st">"observation"</span>)</span>
 <span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a><span class="co"># clean names</span></span>
 <span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
@@ -1075,9 +1077,114 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 </div>
 </div>
-
-
+<div class="cell styled-output" data-hash="01-recap_cache/html/fig-01-plot-data-histogram_a182717853cbce85c044a57274e56bdb">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">xlab =</span> <span class="st">"Number of LSOAs"</span>, <span class="at">main =</span> <span class="st">"Number of people aged between 16 and 24"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output-display">
+<div id="fig-01-plot-data-histogram" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="01-recap_files/figure-html/fig-01-plot-data-histogram-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Quick histogram.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell styled-output" data-hash="01-recap_cache/html/fig-01-plot-data-bivariate_d13a65f02197a6e6959477ae238c570a">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bivariate plot</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years, lsoa_age<span class="sc">$</span>aged_50_years_and_over, <span class="at">xlab =</span> <span class="st">"Number of people aged between 16 and 24"</span>,</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">"Number of people aged 50 or over"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output-display">
+<div id="fig-01-plot-data-bivariate" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="01-recap_files/figure-html/fig-01-plot-data-bivariate-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;4: Quick bivariate plot.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
+<section id="subsetting-data" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="subsetting-data"><span class="header-section-number">1.5.3</span> Subsetting data</h3>
+<p>So far we have only looked at the dataset for London as a whole. So, let us zoom in to Camden by filtering our dataset:</p>
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-filter-data_04492384ce06a1e2dfc9c46afdbe65bf">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter out camden</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>lsoa_age_camden <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">str_detect</span>(lower_layer_super_output_areas, <span class="st">"Camden"</span>))</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect</span></span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lsoa_age_camden)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+  lower_layer_super_output_areas…¹ lower_layer_super_ou…² aged_15_years_and_un…³
+  &lt;chr&gt;                            &lt;chr&gt;                                   &lt;dbl&gt;
+1 E01000842                        Camden 011A                               211
+2 E01000843                        Camden 014A                               154
+3 E01000844                        Camden 011B                               312
+4 E01000845                        Camden 014B                               265
+5 E01000846                        Camden 014C                               303
+6 E01000847                        Camden 014D                               305
+# ℹ abbreviated names: ¹​lower_layer_super_output_areas_code,
+#   ²​lower_layer_super_output_areas, ³​aged_15_years_and_under
+# ℹ 4 more variables: aged_16_to_24_years &lt;dbl&gt;, aged_25_to_34_years &lt;dbl&gt;,
+#   aged_35_to_49_years &lt;dbl&gt;, aged_50_years_and_over &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>You can further inspect the results using the <code>View()</code> function.</p>
+</div>
+</div>
+</div>
+<p>We can save this dataset so that we can easily load it the next time we want to work with this by writing it to a <code>csv</code> file.</p>
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-write-csv_d9f4060e6f792664404f7f7cdb8ff534">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># write data</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="at">x =</span> lsoa_age_camden, <span class="at">file =</span> <span class="st">"data/Camden-LSOA-AgeGroup.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="homework-task" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">1.6</span> Homework task</h2>
+<p>This concludes our session. Please complete the following homework tasks:</p>
+<ol type="1">
+<li>Filter the LSOAs for a London borough of your choice.</li>
+<li>Create either a histogram or a boxplot showing the distribution of the number of people aged 25 to 34 years. Make sure to give your plot a clear title and label the axes appropriately for interpretation.</li>
+</ol>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Make sure to copy and paste the output of your homework task (i.e.&nbsp;histogram or boxplot) into the appendix of your assignment.</p>
+</div>
+</div>
+</div>
+
+
 </section>
 </section>
 

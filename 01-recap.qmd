@@ -584,7 +584,7 @@ lsoa_age <- lsoa_age |>
 
 # pivot
 lsoa_age <- lsoa_age |>
-  pivot_wider(id_cols = 'lower_layer_super_output_areas_code',
+  pivot_wider(id_cols = c('lower_layer_super_output_areas_code', 'lower_layer_super_output_areas'),
               names_from = 'age_5_categories',
               values_from = 'observation') 
 
@@ -637,3 +637,75 @@ We can also call some functions to quickly draw a boxplot, histogram, or scatter
 # boxplot 
 boxplot(lsoa_age$aged_16_to_24_years, horizontal = TRUE)
 ```
+
+```{r}
+#| label: fig-01-plot-data-histogram
+#| fig-cap: Quick histogram.
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# histogram
+hist(lsoa_age$aged_16_to_24_years, breaks = 50, xlab = 'Number of LSOAs', main = 'Number of people aged between 16 and 24')
+```
+
+
+```{r}
+#| label: fig-01-plot-data-bivariate
+#| fig-cap: Quick bivariate plot.
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# bivariate plot
+plot(lsoa_age$aged_16_to_24_years, lsoa_age$aged_50_years_and_over, 
+     xlab = 'Number of people aged between 16 and 24', ylab = 'Number of people aged 50 or over')
+```
+
+### Subsetting data
+So far we have only looked at the dataset for London as a whole. So, let us zoom in to Camden by filtering our dataset:
+
+```{r}
+#| label: 01-filter-data
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# filter out camden
+lsoa_age_camden <- lsoa_age |>
+  filter(str_detect(lower_layer_super_output_areas, 'Camden'))
+
+# inspect
+head(lsoa_age_camden)
+```
+
+::: {.callout-note}
+You can further inspect the results using the `View()` function. 
+:::
+
+
+We can save this dataset so that we can easily load it the next time we want to work with this by writing it to a `csv` file.
+
+```{r}
+#| label: 01-write-csv
+#| classes: styled-output
+#| echo: True
+#| eval: False
+#| tidy: True
+#| filename: "R code"
+# write data
+write_csv(x = lsoa_age_camden, file = 'data/Camden-LSOA-AgeGroup.csv')
+```
+
+## Homework task 
+This concludes our session. Please complete the following homework tasks:
+
+1. Filter the LSOAs for a London borough of your choice.
+2. Create either a histogram or a boxplot showing the distribution of the number of people aged 25 to 34 years. Make sure to give your plot a clear title and label the axes appropriately for interpretation.
+
+::: {.callout-warning}
+Make sure to copy and paste the output of your homework task (i.e. histogram or boxplot) into the appendix of your assignment.
+:::
