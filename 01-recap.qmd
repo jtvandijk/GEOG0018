@@ -6,7 +6,7 @@ R is a programming language originally designed for conducting statistical analy
 Installing R takes a few relatively simple steps involving two pieces of software. First there is the R programme itself. Follow these steps to get it installed on your computer:
 
 1.  Navigate in your browser to the download page: [[Link]](https://cran.r-project.org/)
-2.  If you use a Windows computer, click on *Download R for Windows*. Then click on *base*. Download and install **R 4.4.x for Windows**. If you use a Mac computer, click on *Download R for macOS* and download and install **R-4.4.x.arm64.pkg** for [Apple silicon Macs](https://support.apple.com/en-gb/HT211814) and **R-4.4.x.x86_64.pkg** for older [Intel-based Macs](https://support.apple.com/en-gb/HT211814).
+2.  If you use a Windows computer, click on *Download R for Windows*. Then click on *base*. Download and install **R 4.4.x for Windows**. If you use a Mac computer, click on *Download R for macOS* and download and install **R-4.4.x.arm64.pkg** for [Apple silicon Macs](https://support.apple.com/en-gb/HT211814) or **R-4.4.x.x86_64.pkg** for older [Intel-based Macs](https://support.apple.com/en-gb/HT211814).
 
 That is it! You now have successfully installed R onto your computer. To make working with the R language a little bit easier we also need to install something called an [Integrated Development Environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment). We will use [RStudio Desktop](https://posit.co/download/rstudio-desktop/):
 
@@ -14,7 +14,7 @@ That is it! You now have successfully installed R onto your computer. To make wo
 2.  Download and install RStudio on your computer.
 
 ::: {.callout-tip}
-In the event that you do not have access to a laptop or encounter issues with the installation process, RStudio is also available via [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) and can also be accessed on all UCL computers across campus.
+In case you do not have access to a laptop or encounter issues with the installation process, RStudio is also available through [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) as well as that it can be accessed on UCL computers across campus.
 :::
 
 After this, start **RStudio** to see if the installation was successful. Your screen should look something like what is shown in @fig-rstudio-interface.
@@ -44,7 +44,7 @@ The main windows that we will be using are:
 | *Plots*       | Where the outputs of our graphs, charts and maps are shown.         |
 
 ## Customisation of R
-Now we have installed R and RStudio, we need to customise R. Many useful R functions come in packages, these are free libraries of code written and made available by other R users. This includes packages specifically developed for data cleaning, data wrangling, visualisation, mapping, and spatial analysis. To save us some time, we will install **all R packages that we will need** during the module in one go. 
+Now we have installed R and RStudio, we need to customise R. Many useful R functions come in packages, these are free libraries of code written and made available by other R users. This includes packages specifically developed for data cleaning, data wrangling, visualisation, mapping, and spatial analysis. To save us some time, we will install the R packages that we will need during the module in one go. 
 
 Start RStudio, and copy and paste the following code into the **console** window. You can execute the code by pressing the **Return** button on your keyboard. Depending on your computer's specifications and the internet connection, this may take a short while.
 
@@ -61,7 +61,7 @@ install.packages(c('tidyverse', 'janitor'))
 ```
 
 ::: callout-warning
-R libraries installed through [CRAN](https://cran.r-project.org/) are typically pre-compiled, meaning that these packages can be easily installed on your machine without additional steps.However, when attempting to install an R library that requires [compilation](https://en.wikipedia.org/wiki/Compiler), additional software must be installed. For Windows users, it is essential to install [RTools](https://cran.r-project.org/), which provides the necessary tools for building R packages from source. MacOS users should install [Xcode](https://mac.r-project.org/tools/) as well as the [GNU Fortran compiler](https://mac.r-project.org/tools/).
+R libraries installed through [CRAN](https://cran.r-project.org/) are typically pre-compiled, meaning that these packages can be easily installed on your machine without additional steps. However, when attempting to install an R library that requires [compilation](https://en.wikipedia.org/wiki/Compiler), additional software must be installed. For Windows users, it is essential to install [RTools](https://cran.r-project.org/), which provides the necessary tools for building R packages from source. MacOS users should install [Xcode](https://mac.r-project.org/tools/) as well as the [GNU Fortran compiler](https://mac.r-project.org/tools/).
 :::
 
 Once you have installed the packages, we need to check whether we can in fact load them into R. Copy and paste the following code into the **console**, and execute by pressing **Return** on your keyboard again.
@@ -86,7 +86,7 @@ You will see some information printed to your console but as long as you do not 
 -   `Error: package '<packagename>' could not be loaded`
 -   `Error in library(<packagename>) : there is no package called '<packagename>'`
 
-::: callout-note
+::: {.callout-note}
 Many packages require additional software components, known as *dependencies*, to function properly. Occasionally, when you install a package, some of these dependencies are not installed automatically. When you then try to load a package, you might encounter error messages that relate to a package that you did not explicitly loaded or installed. If this is the case, it is likely due to a missing dependency. To resolve this, identify the missing dependency and install it using the command `install.packages('<dependencyname>')`. Afterwards, try loading your packages again.
 :::
 
@@ -95,7 +95,7 @@ Unlike traditional statistical analysis software like [Microsoft Excel](https://
 
 Let us begin by exploring some of R's built-in functionality through a simple exercise: creating a few variables and performing basic mathematical operations.
 
-::: callout-warning
+::: {.callout-tip}
 In your RStudio console, you will notice a prompt sign `>` on the left-hand side. This is where you can directly interact with R. If any text appears in red, it indicates an error or warning. When you see the `>`, it means R is ready for your next command. However, if you see a `+`, it means you have not completed the previous line of code. This often happens when brackets are left open or a command is not properly finished as R expected.
 :::
 
@@ -115,7 +115,7 @@ At its core, every programming language can be used as a powerful calculator. Ty
 Once you press return, you should see the answer of `120` returned below.
 
 ### Storing variables
-Instead of using raw numbers or standalone values, it is more effective to store these values in variables, which allows for easy reference later. In R, this process is known as **creating an object**, and the object is stored as a variable. To assign a value to a variable, use the `<-` symbol. Let us create two variables to experiment with this concept.
+Instead of using raw numbers or standalone values, it is more effective to store these values in variables, which allows for easy reference later. In R, this process is known as **creating an object**, and the object is stored as a variable. To assign a value to a variable, use the `<-` syntax. Let us create two variables to experiment with this
 
 Type in `ten <- 10` into the console and execute.
 
@@ -190,7 +190,7 @@ Type `output <- ten * twelve * 8` into the console and execute.
 output <- ten * twelve * 8
 ```
 
-Because we are storing the output of our maths to a new variable, the answer is not returned to the screen but is kept in memory.
+Because we are storing the output of our calculation to a new variable, the answer is not returned to the screen but is kept in memory.
 
 ### Accessing variables
 We can ask R to return the value of the `output` variable by simply typing its name into the console. You should see that it returns the same value as the earlier calculation.
@@ -222,7 +222,7 @@ Type in `str_variable <- "Hello GEOG0018"` into the console and execute.
 str_variable <- 'Hello GEOG0018'
 ```
 
-We have just stored our sentence made from a combination of characters. A variable that stores text is known as a string. A string is always denoted by the use of single (`''`) or double (`""`) quotation marks.
+We have just stored our sentence made from a combination of characters. A variable that stores text is known as a string or character variable. These variables are always denoted by the use of single (`''`) or double (`""`) quotation marks.
 
 Type in `str_variable` into the console and execute.
 
@@ -240,7 +240,7 @@ str_variable
 You should see our entire sentence returned, enclosed in quotation marks (`""`).
 
 ### Calling functions
-We can also call a function on our variable. For example, we can ask R to **print** our variable, which will give us the same output as accessing it directly via the console.
+We can call functions on our variable. For example, we can ask R to **print** our variable, which will give us the same output as accessing it directly via the console.
 
 Type in `print(str_variable)` into the console and execute.
 
@@ -255,7 +255,9 @@ Type in `print(str_variable)` into the console and execute.
 print(str_variable)
 ```
 
+::: {.callout-tip}
 You can type `?print` into the console to learn more about the `print()` function. This method works with any function, giving you access to its documentation. Understanding this documentation is crucial for using the function correctly and interpreting its output.
+::: 
 
 ```{r}
 #| label: 01-str4
@@ -268,7 +270,7 @@ You can type `?print` into the console to learn more about the `print()` functio
 ?print
 ```
 
-::: callout-note
+::: {.callout-note}
 In many cases, a function will take more than one argument or parameter, so it is important to know what you need to provide the function with in order for it to work. For now, we are using functions that only need one *required* argument although most functions will also have several *optional* or *default* parameters.
 :::
 
@@ -318,7 +320,7 @@ Type in `class(str_variable)` into the console and execute.
 class(str_variable)
 ```
 
-In this case, you will see the same result as before because, in R, both the `class` and `type` of a `string` are character. Other programming languages might use the term `string` instead, but it essentially means the same thing.
+In this case, you will see the same result as before because, in R, both the `class` and `type` of a `string` are `character`. Other programming languages might use the term `string` instead, but it essentially means the same thing.
 
 Type in `class(ten)` into the console and execute.
 
@@ -350,7 +352,7 @@ is.integer(ten)
 
 You should see the result `FALSE`. As we know from the `typeof()` function, the `ten` variable is stored as a `double`, so it cannot be an `integer`.
 
-::: callout-note
+::: {.callout-note}
 Whilst knowing how to distinguish between different data types might not seem important now, the difference betwee a `double` and an `integer` can quite easily lead to unexpected errors.
 :::
 
@@ -424,7 +426,7 @@ You should notice that the `length()` function now returned a `2` and the `nchar
 You may have noticed that each line of code in the examples includes a comment explaining its purpose. In R, comments are created using the hash symbol `#`. This symbol instructs R to ignore the commented line when executing the code. Comments are useful for understanding your code when you revisit it later or when sharing it with others.
 :::
 
-Extending the concept of multi-value objects to two dimensions results in a `dataframe.` A dataframe is the de facto data structure for most tabular data. We will use functions from the `tidyverse` library, a suite of packages to load a data file and conduct exploratory data analysis. 
+Extending the concept of multi-value objects to two dimensions results in a `dataframe.` A dataframe is the *de facto* data structure for most tabular data. We will use functions from the `tidyverse` library, a suite of packages to load a data file and conduct exploratory data analysis. 
 
 Within the `tidyverse`, `dataframes` are referred to as `tibbles.` Some of the most important and useful functions come from the `tidyr` and `dplyr` packages, including:
 
@@ -460,11 +462,15 @@ An LSOA is a geographic unit used in the UK for statistical analysis. It typical
 
 The dataset has been extracted using the [Custom Dataset Tool](https://www.ons.gov.uk/datasets/create), and you can download the file via the link provided below. Save the files in your project folder under `data`.
 
+::: {.callout-note}
+You will have to create a folder named `data` inside your **R Project**.
+:::
+
 | File                                        | Type   | Link |
 | :------                                     | :------| :------ |
 | London LSOA Census 2021 Age Groups          | `csv` | [Download](https://github.com/jtvandijk/GEOG0114/tree/master/data/London-LSOA-AgeGroup.csv) |
 
-To get started, let us create our first script. **File** -> **New File** -> **R Script**. Create a folder named `scripts`, and save your script as `w01-age-analysis.r`. 
+To get started, let us create our first script. **File** -> **New File** -> **R Script**. Save your script as `w01-age-analysis.r`. 
 
 We will start by loading the libraries that we will need:
 
@@ -582,7 +588,7 @@ We can do this as follows:
 lsoa_age <- lsoa_age |>
   clean_names()
 
-# pivot
+# pivot wider
 lsoa_age <- lsoa_age |>
   pivot_wider(id_cols = c('lower_layer_super_output_areas_code', 'lower_layer_super_output_areas'),
               names_from = 'age_5_categories',
@@ -624,7 +630,7 @@ range(lsoa_age$aged_16_to_24_years)
 summary(lsoa_age$aged_16_to_24_years)
 ```
 
-We can also call some functions to quickly draw a boxplot, histogram, or scatterplot:
+We can also call some functions to quickly draw a boxplot, histogram, or, when combining different variables, a bivariate plot:
 
 ```{r}
 #| label: fig-01-plot-data-boxplot
@@ -683,6 +689,10 @@ head(lsoa_age_camden)
 ```
 
 ::: {.callout-tip}
+The `str_detect()` function searches for a substring within a larger string and returns a logical value indicating whether the searched text is present. In turn, te `filter()` function uses this to subset the dataset.
+:::
+
+::: {.callout-tip}
 You can further inspect the results using the `View()` function. 
 :::
 
@@ -700,11 +710,14 @@ write_csv(x = lsoa_age_camden, file = 'data/Camden-LSOA-AgeGroup.csv')
 ```
 
 ## Homework task 
-This concludes our session. Please complete the following homework tasks:
+This concludes this week's tutorial Please complete the following homework tasks:
 
-1. Filter the LSOAs for a London borough of your choice.
+1. Filter the LSOAs for a [London borough](https://en.wikipedia.org/wiki/London_boroughs) of your choice.
 2. Create either a histogram or a boxplot showing the distribution of the number of people aged 25 to 34 years. Make sure to give your plot a clear title and label the axes appropriately for interpretation.
 
 ::: {.callout-warning}
-Make sure to copy and paste the output of your homework task (i.e. histogram or boxplot) into the appendix of your assignment.
+Make sure to copy and paste the output of this week's homework task into the appendix of your assignment.  Additionally, include a few sentences interpreting the results.
 :::
+
+## Before you leave
+This week, we revisited the basics of conducting quantitative analysis in R and RStudio, building on the material introduced last year in [Geography in the Field I](https://www.ucl.ac.uk/module-catalogue/modules/geography-in-the-field-1-GEOG0013) and [Geography in the Field II](https://www.ucl.ac.uk/module-catalogue/modules/geography-in-the-field-2-GEOG0014). Now that everyone is back up to speed, next week we will move on to using R for statistical analysis. But for now, it is [time to kick back and relax](https://www.youtube.com/watch?v=dmxJIc3M7LI)!

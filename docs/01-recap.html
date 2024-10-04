@@ -237,6 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#subsetting-data" id="toc-subsetting-data" class="nav-link" data-scroll-target="#subsetting-data"><span class="header-section-number">1.5.3</span> Subsetting data</a></li>
   </ul></li>
   <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">1.6</span> Homework task</a></li>
+  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">1.7</span> Before you leave</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -254,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Installing R takes a few relatively simple steps involving two pieces of software. First there is the R programme itself. Follow these steps to get it installed on your computer:</p>
 <ol type="1">
 <li>Navigate in your browser to the download page: <a href="https://cran.r-project.org/">[Link]</a></li>
-<li>If you use a Windows computer, click on <em>Download R for Windows</em>. Then click on <em>base</em>. Download and install <strong>R 4.4.x for Windows</strong>. If you use a Mac computer, click on <em>Download R for macOS</em> and download and install <strong>R-4.4.x.arm64.pkg</strong> for <a href="https://support.apple.com/en-gb/HT211814">Apple silicon Macs</a> and <strong>R-4.4.x.x86_64.pkg</strong> for older <a href="https://support.apple.com/en-gb/HT211814">Intel-based Macs</a>.</li>
+<li>If you use a Windows computer, click on <em>Download R for Windows</em>. Then click on <em>base</em>. Download and install <strong>R 4.4.x for Windows</strong>. If you use a Mac computer, click on <em>Download R for macOS</em> and download and install <strong>R-4.4.x.arm64.pkg</strong> for <a href="https://support.apple.com/en-gb/HT211814">Apple silicon Macs</a> or <strong>R-4.4.x.x86_64.pkg</strong> for older <a href="https://support.apple.com/en-gb/HT211814">Intel-based Macs</a>.</li>
 </ol>
 <p>That is it! You now have successfully installed R onto your computer. To make working with the R language a little bit easier we also need to install something called an <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">Integrated Development Environment (IDE)</a>. We will use <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a>:</p>
 <ol type="1">
@@ -267,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>In the event that you do not have access to a laptop or encounter issues with the installation process, RStudio is also available via <a href="https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere">Desktop@UCL Anywhere</a> and can also be accessed on all UCL computers across campus.</p>
+<p>In case you do not have access to a laptop or encounter issues with the installation process, RStudio is also available through <a href="https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere">Desktop@UCL Anywhere</a> as well as that it can be accessed on UCL computers across campus.</p>
 </div>
 </div>
 </div>
@@ -316,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="customisation-of-r" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="customisation-of-r"><span class="header-section-number">1.2</span> Customisation of R</h2>
-<p>Now we have installed R and RStudio, we need to customise R. Many useful R functions come in packages, these are free libraries of code written and made available by other R users. This includes packages specifically developed for data cleaning, data wrangling, visualisation, mapping, and spatial analysis. To save us some time, we will install <strong>all R packages that we will need</strong> during the module in one go.</p>
+<p>Now we have installed R and RStudio, we need to customise R. Many useful R functions come in packages, these are free libraries of code written and made available by other R users. This includes packages specifically developed for data cleaning, data wrangling, visualisation, mapping, and spatial analysis. To save us some time, we will install the R packages that we will need during the module in one go.</p>
 <p>Start RStudio, and copy and paste the following code into the <strong>console</strong> window. You can execute the code by pressing the <strong>Return</strong> button on your keyboard. Depending on your computer’s specifications and the internet connection, this may take a short while.</p>
 <div class="cell" data-warnings="true" data-hash="01-recap_cache/html/01-install-libaries_6995f1bcd73471c4779da4e74a827c0e">
 <div class="code-with-filename">
@@ -333,7 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>R libraries installed through <a href="https://cran.r-project.org/">CRAN</a> are typically pre-compiled, meaning that these packages can be easily installed on your machine without additional steps.However, when attempting to install an R library that requires <a href="https://en.wikipedia.org/wiki/Compiler">compilation</a>, additional software must be installed. For Windows users, it is essential to install <a href="https://cran.r-project.org/">RTools</a>, which provides the necessary tools for building R packages from source. MacOS users should install <a href="https://mac.r-project.org/tools/">Xcode</a> as well as the <a href="https://mac.r-project.org/tools/">GNU Fortran compiler</a>.</p>
+<p>R libraries installed through <a href="https://cran.r-project.org/">CRAN</a> are typically pre-compiled, meaning that these packages can be easily installed on your machine without additional steps. However, when attempting to install an R library that requires <a href="https://en.wikipedia.org/wiki/Compiler">compilation</a>, additional software must be installed. For Windows users, it is essential to install <a href="https://cran.r-project.org/">RTools</a>, which provides the necessary tools for building R packages from source. MacOS users should install <a href="https://mac.r-project.org/tools/">Xcode</a> as well as the <a href="https://mac.r-project.org/tools/">GNU Fortran compiler</a>.</p>
 </div>
 </div>
 </div>
@@ -369,7 +370,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1.3" class="anchored" data-anchor-id="getting-started-with-r"><span class="header-section-number">1.3</span> Getting started with R</h2>
 <p>Unlike traditional statistical analysis software like <a href="https://www.microsoft.com/en-us/microsoft-365/excel">Microsoft Excel</a> or <a href="https://www.ibm.com/products/spss-statistics">IBM SPSS Statistics</a>, which often rely on point-and-click interfaces, R requires users to input commands to perform tasks such as loading datasets and fitting models. This command-based approach is typically done by writing scripts, which not only document your workflow but also allow for easy repetition of tasks.</p>
 <p>Let us begin by exploring some of R’s built-in functionality through a simple exercise: creating a few variables and performing basic mathematical operations.</p>
-<div class="callout callout-style-simple callout-warning">
+<div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -395,7 +396,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Once you press return, you should see the answer of <code>120</code> returned below.</p>
 <section id="storing-variables" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="storing-variables"><span class="header-section-number">1.3.1</span> Storing variables</h3>
-<p>Instead of using raw numbers or standalone values, it is more effective to store these values in variables, which allows for easy reference later. In R, this process is known as <strong>creating an object</strong>, and the object is stored as a variable. To assign a value to a variable, use the <code>&lt;-</code> symbol. Let us create two variables to experiment with this concept.</p>
+<p>Instead of using raw numbers or standalone values, it is more effective to store these values in variables, which allows for easy reference later. In R, this process is known as <strong>creating an object</strong>, and the object is stored as a variable. To assign a value to a variable, use the <code>&lt;-</code> syntax. Let us create two variables to experiment with this</p>
 <p>Type in <code>ten &lt;- 10</code> into the console and execute.</p>
 <div class="cell styled-output" data-hash="01-recap_cache/html/01-math2_2f3f7e9588dd3390d0b15d29ec9f7169">
 <div class="code-with-filename">
@@ -456,7 +457,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> ten <span class="sc">*</span> twelve <span class="sc">*</span> <span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>Because we are storing the output of our maths to a new variable, the answer is not returned to the screen but is kept in memory.</p>
+<p>Because we are storing the output of our calculation to a new variable, the answer is not returned to the screen but is kept in memory.</p>
 </section>
 <section id="accessing-variables" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="accessing-variables"><span class="header-section-number">1.3.2</span> Accessing variables</h3>
@@ -487,7 +488,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>str_variable <span class="ot">&lt;-</span> <span class="st">"Hello GEOG0018"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>We have just stored our sentence made from a combination of characters. A variable that stores text is known as a string. A string is always denoted by the use of single (<code>''</code>) or double (<code>""</code>) quotation marks.</p>
+<p>We have just stored our sentence made from a combination of characters. A variable that stores text is known as a string or character variable. These variables are always denoted by the use of single (<code>''</code>) or double (<code>""</code>) quotation marks.</p>
 <p>Type in <code>str_variable</code> into the console and execute.</p>
 <div class="cell styled-output" data-hash="01-recap_cache/html/01-str2_9b26dddd7be98c76c2d198fdd77ccf38">
 <div class="code-with-filename">
@@ -505,7 +506,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="calling-functions" class="level3" data-number="1.3.4">
 <h3 data-number="1.3.4" class="anchored" data-anchor-id="calling-functions"><span class="header-section-number">1.3.4</span> Calling functions</h3>
-<p>We can also call a function on our variable. For example, we can ask R to <strong>print</strong> our variable, which will give us the same output as accessing it directly via the console.</p>
+<p>We can call functions on our variable. For example, we can ask R to <strong>print</strong> our variable, which will give us the same output as accessing it directly via the console.</p>
 <p>Type in <code>print(str_variable)</code> into the console and execute.</p>
 <div class="cell styled-output" data-hash="01-recap_cache/html/01-str3_d897aa1a1e7a2daf760e0b66972a4880">
 <div class="code-with-filename">
@@ -519,7 +520,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "Hello GEOG0018"</code></pre>
 </div>
 </div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
 <p>You can type <code>?print</code> into the console to learn more about the <code>print()</code> function. This method works with any function, giving you access to its documentation. Understanding this documentation is crucial for using the function correctly and interpreting its output.</p>
+</div>
+</div>
+</div>
 <div class="cell styled-output" data-hash="01-recap_cache/html/01-str4_d415845521157f36b1f886ab965b4f4d">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -584,7 +594,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
-<p>In this case, you will see the same result as before because, in R, both the <code>class</code> and <code>type</code> of a <code>string</code> are character. Other programming languages might use the term <code>string</code> instead, but it essentially means the same thing.</p>
+<p>In this case, you will see the same result as before because, in R, both the <code>class</code> and <code>type</code> of a <code>string</code> are <code>character</code>. Other programming languages might use the term <code>string</code> instead, but it essentially means the same thing.</p>
 <p>Type in <code>class(ten)</code> into the console and execute.</p>
 <div class="cell styled-output" data-hash="01-recap_cache/html/01-str8_e03331dedb024d803ecd8ac3b1b33a23">
 <div class="code-with-filename">
@@ -695,7 +705,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Extending the concept of multi-value objects to two dimensions results in a <code>dataframe.</code> A dataframe is the de facto data structure for most tabular data. We will use functions from the <code>tidyverse</code> library, a suite of packages to load a data file and conduct exploratory data analysis.</p>
+<p>Extending the concept of multi-value objects to two dimensions results in a <code>dataframe.</code> A dataframe is the <em>de facto</em> data structure for most tabular data. We will use functions from the <code>tidyverse</code> library, a suite of packages to load a data file and conduct exploratory data analysis.</p>
 <p>Within the <code>tidyverse</code>, <code>dataframes</code> are referred to as <code>tibbles.</code> Some of the most important and useful functions come from the <code>tidyr</code> and <code>dplyr</code> packages, including:</p>
 <table class="table">
 <colgroup>
@@ -789,6 +799,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The dataset has been extracted using the <a href="https://www.ons.gov.uk/datasets/create">Custom Dataset Tool</a>, and you can download the file via the link provided below. Save the files in your project folder under <code>data</code>.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>You will have to create a folder named <code>data</code> inside your <strong>R Project</strong>.</p>
+</div>
+</div>
+</div>
 <table class="table">
 <thead>
 <tr class="header">
@@ -805,7 +825,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p>To get started, let us create our first script. <strong>File</strong> -&gt; <strong>New File</strong> -&gt; <strong>R Script</strong>. Create a folder named <code>scripts</code>, and save your script as <code>w01-age-analysis.r</code>.</p>
+<p>To get started, let us create our first script. <strong>File</strong> -&gt; <strong>New File</strong> -&gt; <strong>R Script</strong>. Save your script as <code>w01-age-analysis.r</code>.</p>
 <p>We will start by loading the libraries that we will need:</p>
 <div class="cell styled-output" data-hash="01-recap_cache/html/01-load-libraries_eb7db3af1290906a2ff89090ad90f1fe">
 <div class="code-with-filename">
@@ -988,7 +1008,7 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 <p>Because all the data are stored in <a href="https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb">long format</a>, we need to transform the data to a <a href="https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb">wide format</a>. This means that instead of having multiple rows for an LSOA showing counts for different age groups, all the information for each LSOA will be consolidated into a single row. Additionally, we will clean up the column names to follow standard R naming conventions and make the data easier to work with. We can automate this process using the <code>janitor</code> package.</p>
 <p>We can do this as follows:</p>
-<div class="cell styled-output" data-hash="01-recap_cache/html/01-reformat-data-age_29f61fb33f20e898935d7cdb720c18ba">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-reformat-data-age_587ca802cd886f2e3c31017f11785877">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -997,7 +1017,7 @@ dbl (2): Age (5 categories) Code, Observation
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clean_names</span>()</span>
 <span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co"># pivot</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co"># pivot wider</span></span>
 <span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
 <span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="fu">c</span>(<span class="st">"lower_layer_super_output_areas_code"</span>, <span class="st">"lower_layer_super_output_areas"</span>),</span>
 <span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">names_from =</span> <span class="st">"age_5_categories"</span>, <span class="at">values_from =</span> <span class="st">"observation"</span>)</span>
@@ -1059,7 +1079,7 @@ dbl (2): Age (5 categories) Code, Observation
    48.0   143.0   180.5   196.0   227.0  1961.0 </code></pre>
 </div>
 </div>
-<p>We can also call some functions to quickly draw a boxplot, histogram, or scatterplot:</p>
+<p>We can also call some functions to quickly draw a boxplot, histogram, or, when combining different variables, a bivariate plot:</p>
 <div class="cell styled-output" data-hash="01-recap_cache/html/fig-01-plot-data-boxplot_5d45d66f2a1485e65716d8e1213c51cb">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1150,6 +1170,16 @@ dbl (2): Age (5 categories) Code, Observation
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
+<p>The <code>str_detect()</code> function searches for a substring within a larger string and returns a logical value indicating whether the searched text is present. In turn, te <code>filter()</code> function uses this to subset the dataset.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
 <p>You can further inspect the results using the <code>View()</code> function.</p>
 </div>
 </div>
@@ -1168,9 +1198,9 @@ dbl (2): Age (5 categories) Code, Observation
 </section>
 <section id="homework-task" class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">1.6</span> Homework task</h2>
-<p>This concludes our session. Please complete the following homework tasks:</p>
+<p>This concludes this week’s tutorial Please complete the following homework tasks:</p>
 <ol type="1">
-<li>Filter the LSOAs for a London borough of your choice.</li>
+<li>Filter the LSOAs for a <a href="https://en.wikipedia.org/wiki/London_boroughs">London borough</a> of your choice.</li>
 <li>Create either a histogram or a boxplot showing the distribution of the number of people aged 25 to 34 years. Make sure to give your plot a clear title and label the axes appropriately for interpretation.</li>
 </ol>
 <div class="callout callout-style-simple callout-warning">
@@ -1179,10 +1209,14 @@ dbl (2): Age (5 categories) Code, Observation
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Make sure to copy and paste the output of your homework task (i.e.&nbsp;histogram or boxplot) into the appendix of your assignment.</p>
+<p>Make sure to copy and paste the output of this week’s homework task into the appendix of your assignment. Additionally, include a few sentences interpreting the results.</p>
 </div>
 </div>
 </div>
+</section>
+<section id="before-you-leave" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">1.7</span> Before you leave</h2>
+<p>This week, we revisited the basics of conducting quantitative analysis in R and RStudio, building on the material introduced last year in <a href="https://www.ucl.ac.uk/module-catalogue/modules/geography-in-the-field-1-GEOG0013">Geography in the Field I</a> and <a href="https://www.ucl.ac.uk/module-catalogue/modules/geography-in-the-field-2-GEOG0014">Geography in the Field II</a>. Now that everyone is back up to speed, next week we will move on to using R for statistical analysis. But for now, it is <a href="https://www.youtube.com/watch?v=dmxJIc3M7LI">time to kick back and relax</a>!</p>
 
 
 </section>
