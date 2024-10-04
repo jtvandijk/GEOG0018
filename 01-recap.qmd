@@ -682,10 +682,9 @@ lsoa_age_camden <- lsoa_age |>
 head(lsoa_age_camden)
 ```
 
-::: {.callout-note}
+::: {.callout-tip}
 You can further inspect the results using the `View()` function. 
 :::
-
 
 We can save this dataset so that we can easily load it the next time we want to work with this by writing it to a `csv` file.
 
