@@ -4,7 +4,7 @@
     "href": "00-index.html",
     "title": "Methods in Human Geography",
     "section": "",
-    "text": "Welcome to the second half of Methods in Human Geography. In this part of the module, you will delve into essential statistical analysis techniques and gain a basic foundation in working with spatial data. We wil be utilising R and the RStudio environment for statistical analysis, and the open-source programme QGIS for handling spatial data.\n\n\n\nMoodle is the central point of contact for GEOG0018 and it is where all important information will be communicated such as key module and assessment information. This workbook contains links to all reading material as well as the contents for all computer tutorials.\n\n\n\nThe topics covered over the next five weeks are:\n\n\n\nWeek\nSection\nTopic\n\n\n\n\n1\nGetting Started\nR for Data Analysis\n\n\n2\nStatistical Analysis\nStatistical Analysis I\n\n\n3\nStatistical Analysis\nStatistical Analysis II\n\n\n4\nSpatial Analysis\nSpatial Analysis I\n\n\n5\nSpatial Analysis\nSpatial Analysis II\n\n\n\n\n\n\nThis year’s workbook is compiled using:\n\nThe GEOG0030: Geocomputation 2023-2024 workbook by Justin van Dijk\nPrevious GEOG018: Methods in Human Geography content created by Rory Coulter\n\nThe datasets used in this workbook contain:\n\nData from Office for National Statistics licensed under the Open Government Licence v.3.0\nOS data © Crown copyright and database right [2024]"
+    "text": "Welcome to the second half of Methods in Human Geography. In this part of the module, you will delve into essential statistical analysis techniques and gain a basic foundation in working with spatial data. We wil be utilising R and the RStudio environment for statistical analysis, and the open-source programme QGIS for handling spatial data.\n\n\n\nMoodle is the central point of contact for GEOG0018 and it is where all important information will be communicated such as key module and assessment information. This workbook contains links to all reading material as well as the contents for all computer tutorials.\n\n\n\nThe topics covered over the next five weeks are:\n\n\n\nWeek\nSection\nTopic\n\n\n\n\n1\nGetting Started\nR for Data Analysis\n\n\n2\nStatistical Analysis\nStatistical Analysis I\n\n\n3\nStatistical Analysis\nStatistical Analysis II\n\n\n4\nSpatial Analysis\nSpatial Analysis I\n\n\n5\nSpatial Analysis\nSpatial Analysis II\n\n\n\n\n\n\n\n\n\n\n\n\nThis year’s version features the following major updates:\n\nFull rewrite of the material using Quarto.\nFully updated content with Census 2021 data.\nMove to GeoPackage over shapefile.\nUsing QGIS for creating thematic maps.\n\n\n\n\n\n\n\nThis year’s workbook is compiled using:\n\nThe GEOG0030: Geocomputation 2023-2024 workbook by Justin van Dijk\nPrevious GEOG018: Methods in Human Geography content created by Rory Coulter\n\nThe datasets used in this workbook contain:\n\nData from Office for National Statistics licensed under the Open Government Licence v.3.0\nOS data © Crown copyright and database right [2024]"
   },
   {
     "objectID": "00-index.html#welcome",
@@ -26,6 +26,13 @@
     "title": "Methods in Human Geography",
     "section": "",
     "text": "The topics covered over the next five weeks are:\n\n\n\nWeek\nSection\nTopic\n\n\n\n\n1\nGetting Started\nR for Data Analysis\n\n\n2\nStatistical Analysis\nStatistical Analysis I\n\n\n3\nStatistical Analysis\nStatistical Analysis II\n\n\n4\nSpatial Analysis\nSpatial Analysis I\n\n\n5\nSpatial Analysis\nSpatial Analysis II"
+  },
+  {
+    "objectID": "00-index.html#major-updates",
+    "href": "00-index.html#major-updates",
+    "title": "Methods in Human Geography",
+    "section": "",
+    "text": "This year’s version features the following major updates:\n\nFull rewrite of the material using Quarto.\nFully updated content with Census 2021 data.\nMove to GeoPackage over shapefile.\nUsing QGIS for creating thematic maps."
   },
   {
     "objectID": "00-index.html#acknowledgements",

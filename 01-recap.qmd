@@ -1,5 +1,5 @@
 # R for Data Analysis
-This week, we will start easy with a refresher on how to use R and RStudio for working with quantitative data. Building on last year’s material, we will revisit key concepts but from next week we will takes these further by applying more advanced techniques. 
+This week, we will start easy with a refresher on how to use R and RStudio for working with quantitative data. Building on last year's material, we will revisit key concepts but from next week we will takes these further by applying more advanced techniques. 
 
 ## Lecture slides
 You can download the slides of this week's lecture here: [[Link]]({{< var slides.week06 >}}).

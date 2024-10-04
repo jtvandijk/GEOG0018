@@ -25,6 +25,16 @@ The topics covered over the next five weeks are:
 | 4    | Spatial Analysis              | [Spatial Analysis I]({{< var urls.w04 >}}) |
 | 5    | Spatial Analysis              | [Spatial Analysis II]({{< var urls.w05 >}}) |
 
+## Major updates {.unnumbered}
+::: {.callout-note}
+This year's version features the following **major** updates:
+
+- Full rewrite of the material using `Quarto`.
+- Fully updated content with Census 2021 data.
+- Move to `GeoPackage` over `shapefile`.
+- Using QGIS for creating thematic maps.
+:::
+
 ## Acknowledgements {.unnumbered}
 This year's workbook is compiled using:
 
