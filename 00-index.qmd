@@ -9,7 +9,7 @@ knitr::include_graphics('images/w00/methods-welcome.png')
 ```
 
 ## Welcome {.unnumbered}
-Welcome to the second half of **Methods in Human Geography**. In this part of the module, you will delve into essential statistical analysis techniques and gain a strong foundation in working with spatial data. We wil be utilising R and the RStudio environment for statistical analysis, and the open-source programme QGIS for handling spatial data.
+Welcome to the second half of **Methods in Human Geography**. In this part of the module, you will delve into essential statistical analysis techniques and gain a basic foundation in working with spatial data. We wil be utilising R and the RStudio environment for statistical analysis, and the open-source programme QGIS for handling spatial data.
 
 ## Moodle {.unnumbered}
 [Moodle](https://moodle.ucl.ac.uk/) is the central point of contact for GEOG0018 and it is where all important information will be communicated such as key module and assessment information. This workbook contains links to all reading material as well as the contents for all computer tutorials.

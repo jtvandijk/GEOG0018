@@ -470,6 +470,10 @@ You will have to create a folder named `data` inside your **R Project**.
 | :------                                     | :------| :------ |
 | London LSOA Census 2021 Age Groups          | `csv` | [Download](https://github.com/jtvandijk/GEOG0114/tree/master/data/London-LSOA-AgeGroup.csv) |
 
+::: {.callout-tip}
+To download a `csv` file that is hosted on GitHub, click on the `Download raw file` button on the top right of your screen and it should download directly to your computer.
+:::
+
 To get started, let us create our first script. **File** -> **New File** -> **R Script**. Save your script as `w01-age-analysis.r`. 
 
 We will start by loading the libraries that we will need:
@@ -710,9 +714,9 @@ write_csv(x = lsoa_age_camden, file = 'data/Camden-LSOA-AgeGroup.csv')
 ```
 
 ## Homework task 
-This concludes this week's tutorial Please complete the following homework tasks:
+This concludes this week's tutorial. Now complete the following homework tasks:
 
-1. Filter the LSOAs for a [London borough](https://en.wikipedia.org/wiki/London_boroughs) of your choice.
+1. Filter the London LSOAs to any of the [London boroughs](https://en.wikipedia.org/wiki/London_boroughs) other than Camden.
 2. Create either a histogram or a boxplot showing the distribution of the number of people aged 25 to 34 years. Make sure to give your plot a clear title and label the axes appropriately for interpretation.
 
 ::: {.callout-warning}
