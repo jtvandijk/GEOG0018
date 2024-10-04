@@ -466,7 +466,7 @@ Navigate to **File** -> **New Project** -> **New Directory**, and create a folde
 Please ensure that **folder names** and **file names** do not contain spaces or special characters such as `*` `.` `"` `/` `\` `[` `]` `:` `;` `|` `=` `,` `<` `?` `>` `&` `$` `#` `!` `'` `{` `}` `(` `)`. Different operating systems and programming languages deal differently with spaces and special characters and as such including these in your folder names and file names can cause many problems and unexpected errors. As an alternative to using white space you can use an underscore `_` or hyphen `-` if you like.
 :::
 
-## Age in Camden
+## Age group in Camden
 With the basics covered, let us dive into loading a real dataset, performing data cleaning, and conducting some exploratory data analysis on the distribution of age groups in Camden. The data covers all usual residents across London, as recorded in the 2021 Census for England and Wales, aggregated at the [Lower Super Output Area (LSOA)](https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeographies/census2021geographies) level.
 
 ::: {.callout-note}
