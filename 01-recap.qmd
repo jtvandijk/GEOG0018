@@ -1,4 +1,17 @@
 # R for Data Analysis
+This week, we will start easy with a refresher on how to use R and RStudio for working with quantitative data. Building on last year’s material, we will revisit key concepts but from next week we will takes these further by applying more advanced techniques. 
+
+## Lecture slides
+You can download the slides of this week's lecture here: [[Link]]({{< var slides.week06 >}}).
+
+## Reading list 
+#### Essential readings 
+- Brundson, C. and Comber, A. 2020. Opening practice: Supporting reproducibility and critical spatial data science. *Journal of Geographical Systems* 23: 477–496. [[Link]](https://doi.org/10.1007/s10109-020-00334-2)
+- Franklin, R. 2023. Quantitative methods III: Strength in numbers? *Progress in Human Geography*. Online First. [[Link]](https://doi.org/10.1177/03091325231210512).
+
+#### Suggested readings
+- Miller, H. and Goodchild, M. 2015. Data-driven geography. *GeoJournal* 80: 449–461. [[Link]](https://doi.org/10.1007/s10708-014-9602-6)
+- Hadley, W. 2017. R for Data Science. **Chapter 3**: *Workflow: basics*. [[Link]](https://r4ds.hadley.nz/workflow-basics)
 
 ## Installation of R
 R is a programming language originally designed for conducting statistical analysis and creating graphics. The major advantage of using R is that it can be used on any computer operating system, and is free for anyone to use and contribute to. Because of this, it has rapidly become the statistical language of choice for many academics and has a large user community with people constantly contributing new packages to carry out all manner of statistical, graphical, and importantly for us, geographical tasks.
