@@ -57,7 +57,7 @@ Start RStudio, and copy and paste the following code into the **console** window
 #| tidy: True
 #| filename: "R code"
 # install packages
-install.packages(c('tidyverse'))
+install.packages(c('tidyverse', 'janitor'))
 ```
 
 ::: callout-warning
@@ -77,6 +77,7 @@ Once you have installed the packages, we need to check whether we can in fact lo
 #| filename: "R code"
 # load packages
 library(tidyverse)
+library(janitor)
 ```
 
 You will see some information printed to your console but as long as you do not get any of the messages below, the installation was successful. If you do get any of the messages below it means that the package was not properly installed, so try to install the package in question again.
@@ -423,7 +424,9 @@ You should notice that the `length()` function now returned a `2` and the `nchar
 You may have noticed that each line of code in the examples includes a comment explaining its purpose. In R, comments are created using the hash symbol `#`. This symbol instructs R to ignore the commented line when executing the code. Comments are useful for understanding your code when you revisit it later or when sharing it with others.
 :::
 
-Extending the concept of multi-value objects to two dimensions results in a `dataframe.` A dataframe is the de facto data structure for most tabular data. We will use functions from the `tidyverse` library, a suite of packages—to load a data file and conduct exploratory data analysis. Within the `tidyverse`, `dataframes` are referred to as `tibbles.` Some of the most important and useful functions come from the `tidyr` and `dplyr` packages, including:
+Extending the concept of multi-value objects to two dimensions results in a `dataframe.` A dataframe is the de facto data structure for most tabular data. We will use functions from the `tidyverse` library, a suite of packages to load a data file and conduct exploratory data analysis. 
+
+Within the `tidyverse`, `dataframes` are referred to as `tibbles.` Some of the most important and useful functions come from the `tidyr` and `dplyr` packages, including:
 
 | Package   | Function          | Use to |
 | :-        | :--               | :------ |
@@ -448,3 +451,189 @@ Navigate to **File** -> **New Project** -> **New Directory**, and create a folde
 Please ensure that **folder names** and **file names** do not contain spaces or special characters such as `*` `.` `"` `/` `\` `[` `]` `:` `;` `|` `=` `,` `<` `?` `>` `&` `$` `#` `!` `'` `{` `}` `(` `)`. Different operating systems and programming languages deal differently with spaces and special characters and as such including these in your folder names and file names can cause many problems and unexpected errors. As an alternative to using white space you can use an underscore `_` or hyphen `-` if you like.
 :::
 
+## Age in Camden
+With the basics covered, let us dive into loading a real dataset, performing data cleaning, and conducting some exploratory data analysis on the distribution of age groups in Camden. The data covers all usual residents across London, as recorded in the 2021 Census for England and Wales, aggregated at the [Lower Super Output Area (LSOA)](https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeographies/census2021geographies) level.
+
+::: {.callout-note}
+An LSOA is a geographic unit used in the UK for statistical analysis. It typically represents small areas with populations of around 1,000 to 3,000 people and is designed to ensure consistent data reporting. LSOAs are commonly used to report on census data, deprivation indices, and other socio-economic statistics.
+:::
+
+The dataset has been extracted using the [Custom Dataset Tool](https://www.ons.gov.uk/datasets/create), and you can download the file via the link provided below. Save the files in your project folder under `data`.
+
+| File                                        | Type   | Link |
+| :------                                     | :------| :------ |
+| London LSOA Census 2021 Age Groups          | `csv` | [Download](https://github.com/jtvandijk/GEOG0114/tree/master/data/London-LSOA-AgeGroup.csv) |
+
+To get started, let us create our first script. **File** -> **New File** -> **R Script**. Create a folder named `scripts`, and save your script as `w01-age-analysis.r`. 
+
+We will start by loading the libraries that we will need:
+
+```{r}
+#| label: 01-load-libraries
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| output: False
+#| tidy: True
+#| filename: "R code"
+# load libraries
+library(tidyverse)
+library(janitor)
+```
+
+::: {.callout-tip}
+In RStudio, there are two primary ways to run a script: all at once or by executing individual lines or chunks of code. As a beginner, it is often beneficial to use the line-by-line approach, as it allows you to test your code interactively and catch errors early.
+
+To run line-by-line:
+
+- By clicking: Highlight the line or chunk of code you want to run, then go to **Code** and select **Run selected lines**.
+- By key commands: Highlight the code, then press `Ctl` (or `Cmd` on Mac) + `Return`.
+
+To run the whole script:
+
+- By clicking:  In the scripting window, click **Run** in the top-right corner and choose **Run All**.
+- By key commands: Press `Option` + `Ctrl` (or `Cmd`) + `R`.
+
+If a script gets stuck or you realise there is an error in your code, you may need to interrupt R. To do this, go to **Session** -> **Interrupt R**. If the interruption doesn't work, you might need to terminate and restart R.
+:::
+
+### Loading data
+Next, we can load the `London-LSOA-AgeGroup.csv` file into R. 
+
+```{r}
+#| label: 01-load-data
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# load age data
+lsoa_age <- read_csv('data/London-LSOA-AgeGroup.csv')
+```
+
+::: {.callout-warning}
+If using a Windows machine, you may need to substitute your forward-slashes (`/`) with two backslashes (`\\`) whenever you are dealing with file paths.
+:::
+
+Let us have a look at the dataframe:
+
+```{r}
+#| label: 01-inspect-data
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# inspect columns, rows
+ncol(lsoa_age)
+nrow(lsoa_age)
+
+# inspect data
+head(lsoa_age)
+
+# inspect column names
+names(lsoa_age)
+```
+::: {.callout-tip}
+You can further inspect the results using the `View()` function. 
+:::
+
+To access specific columns or rows in a dataframe, we can use indexing. Indexing refers to the numbering assigned to each element within a data structure, allowing us to precisely select and manipulate data.
+
+To access the first row of a dataframe, you would use `dataframe[1, ]`, and to access the first column, you would use `dataframe[, 1]`. The comma separates the row and column indices, with the absence of a number indicating all rows or columns respectively.
+
+::: {.callout-warning}
+In R, indexing begins at 1, meaning that the first element of any data structure is accessed with the index `[1]`. This is different from many other programming languages, such as Python or Java, where indexing typically starts at `0`. 
+:::
+
+```{r}
+#| label: 01-index-data
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# index columns
+lsoa_age[ ,1]
+
+# index rows
+lsoa_age[1, ]
+
+# index cell
+lsoa_age[1,1]
+```
+
+::: {.callout-tip}
+Alternatively, you can access the data within individual columns by referring to their names using the `$` operator. This allows you to easily extract and work with a specific column without needing to know its position in the dataframe. For example, if your dataframe is named `dataframe` and you want to access a column named `age`, you would use `dataframe$age`. This method is especially useful when your data has many columns or when the column positions may change, because it relies on the column names rather than their index numbers.
+:::
+
+Because all the data are stored in [long format](https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb), we need to transform the data to a [wide format](https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb). This means that instead of having multiple rows for an LSOA showing counts for different age groups, all the information for each LSOA will be consolidated into a single row. Additionally, we will clean up the column names to follow standard R naming conventions and make the data easier to work with. We can automate this process using the `janitor` package.
+
+We can do this as follows:
+
+```{r}
+#| label: 01-reformat-data-age
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# clean names 
+lsoa_age <- lsoa_age |>
+  clean_names()
+
+# pivot
+lsoa_age <- lsoa_age |>
+  pivot_wider(id_cols = 'lower_layer_super_output_areas_code',
+              names_from = 'age_5_categories',
+              values_from = 'observation') 
+
+# clean names
+lsoa_age <- lsoa_age |>
+  clean_names()
+```
+
+::: {.callout-note}
+The code above uses a pipe function: `|>`. The pipe operator allows you to pass the output of one function directly into the next, streamlining your code. While it might be a bit confusing at first, you will find that it makes your code faster to write and easier to read. More importantly, it reduces the need to create multiple intermediate variables to store outputs.
+:::
+
+::: {.callout-tip}
+You can inspect the results using the `View()` function. 
+:::
+
+### Exploring data
+Now that we have loaded and inspected our data, we can begin by examining its distribution. Let us take a look at the number of people aged 16 to 24 across London. This data is stored in the `aged_16_to_24_years` column.
+
+```{r}
+#| label: 01-explore-data
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# mean 
+mean(lsoa_age$aged_16_to_24_years)
+
+# median
+median(lsoa_age$aged_16_to_24_years)
+
+# range
+range(lsoa_age$aged_16_to_24_years)
+
+# summary
+summary(lsoa_age$aged_16_to_24_years)
+```
+
+We can also call some functions to quickly draw a boxplot, histogram, or scatterplot:
+
+```{r}
+#| label: fig-01-plot-data-boxplot
+#| fig-cap: Quick boxplot.
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# boxplot 
+boxplot(lsoa_age$aged_16_to_24_years, horizontal = TRUE)
+```

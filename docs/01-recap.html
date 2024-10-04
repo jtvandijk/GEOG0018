@@ -230,6 +230,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#creating-multi-value-objects" id="toc-creating-multi-value-objects" class="nav-link" data-scroll-target="#creating-multi-value-objects"><span class="header-section-number">1.3.6</span> Creating multi-value objects</a></li>
   </ul></li>
   <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects"><span class="header-section-number">1.4</span> RStudio projects</a></li>
+  <li><a href="#age-in-camden" id="toc-age-in-camden" class="nav-link" data-scroll-target="#age-in-camden"><span class="header-section-number">1.5</span> Age in Camden</a>
+  <ul class="collapse">
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><span class="header-section-number">1.5.1</span> Loading data</a></li>
+  <li><a href="#exploring-data" id="toc-exploring-data" class="nav-link" data-scroll-target="#exploring-data"><span class="header-section-number">1.5.2</span> Exploring data</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -311,13 +316,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1.2" class="anchored" data-anchor-id="customisation-of-r"><span class="header-section-number">1.2</span> Customisation of R</h2>
 <p>Now we have installed R and RStudio, we need to customise R. Many useful R functions come in packages, these are free libraries of code written and made available by other R users. This includes packages specifically developed for data cleaning, data wrangling, visualisation, mapping, and spatial analysis. To save us some time, we will install <strong>all R packages that we will need</strong> during the module in one go.</p>
 <p>Start RStudio, and copy and paste the following code into the <strong>console</strong> window. You can execute the code by pressing the <strong>Return</strong> button on your keyboard. Depending on your computer’s specifications and the internet connection, this may take a short while.</p>
-<div class="cell" data-warnings="true" data-hash="01-recap_cache/html/01-install-libaries_6887b4b47159f352ec0c8df3ca5ed55b">
+<div class="cell" data-warnings="true" data-hash="01-recap_cache/html/01-install-libaries_6995f1bcd73471c4779da4e74a827c0e">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"janitor"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-warning">
@@ -331,13 +336,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Once you have installed the packages, we need to check whether we can in fact load them into R. Copy and paste the following code into the <strong>console</strong>, and execute by pressing <strong>Return</strong> on your keyboard again.</p>
-<div class="cell" data-warnings="true" data-verbose="true" data-hash="01-recap_cache/html/01-load-libaries_46f255b59de847378f88989b817676d9">
+<div class="cell" data-warnings="true" data-verbose="true" data-hash="01-recap_cache/html/01-load-libaries_5426249097f831dfbf76b706eaf95373">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>You will see some information printed to your console but as long as you do not get any of the messages below, the installation was successful. If you do get any of the messages below it means that the package was not properly installed, so try to install the package in question again.</p>
@@ -687,7 +693,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Extending the concept of multi-value objects to two dimensions results in a <code>dataframe.</code> A dataframe is the de facto data structure for most tabular data. We will use functions from the <code>tidyverse</code> library, a suite of packages—to load a data file and conduct exploratory data analysis. Within the <code>tidyverse</code>, <code>dataframes</code> are referred to as <code>tibbles.</code> Some of the most important and useful functions come from the <code>tidyr</code> and <code>dplyr</code> packages, including:</p>
+<p>Extending the concept of multi-value objects to two dimensions results in a <code>dataframe.</code> A dataframe is the de facto data structure for most tabular data. We will use functions from the <code>tidyverse</code> library, a suite of packages to load a data file and conduct exploratory data analysis.</p>
+<p>Within the <code>tidyverse</code>, <code>dataframes</code> are referred to as <code>tibbles.</code> Some of the most important and useful functions come from the <code>tidyr</code> and <code>dplyr</code> packages, including:</p>
 <table class="table">
 <colgroup>
 <col style="width: 16%">
@@ -765,8 +772,312 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
+<section id="age-in-camden" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="age-in-camden"><span class="header-section-number">1.5</span> Age in Camden</h2>
+<p>With the basics covered, let us dive into loading a real dataset, performing data cleaning, and conducting some exploratory data analysis on the distribution of age groups in Camden. The data covers all usual residents across London, as recorded in the 2021 Census for England and Wales, aggregated at the <a href="https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeographies/census2021geographies">Lower Super Output Area (LSOA)</a> level.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>An LSOA is a geographic unit used in the UK for statistical analysis. It typically represents small areas with populations of around 1,000 to 3,000 people and is designed to ensure consistent data reporting. LSOAs are commonly used to report on census data, deprivation indices, and other socio-economic statistics.</p>
+</div>
+</div>
+</div>
+<p>The dataset has been extracted using the <a href="https://www.ons.gov.uk/datasets/create">Custom Dataset Tool</a>, and you can download the file via the link provided below. Save the files in your project folder under <code>data</code>.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">File</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">London LSOA Census 2021 Age Groups</td>
+<td style="text-align: left;"><code>csv</code></td>
+<td style="text-align: left;"><a href="https://github.com/jtvandijk/GEOG0114/tree/master/data/London-LSOA-AgeGroup.csv">Download</a></td>
+</tr>
+</tbody>
+</table>
+<p>To get started, let us create our first script. <strong>File</strong> -&gt; <strong>New File</strong> -&gt; <strong>R Script</strong>. Create a folder named <code>scripts</code>, and save your script as <code>w01-age-analysis.r</code>.</p>
+<p>We will start by loading the libraries that we will need:</p>
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-load-libraries_eb7db3af1290906a2ff89090ad90f1fe">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>In RStudio, there are two primary ways to run a script: all at once or by executing individual lines or chunks of code. As a beginner, it is often beneficial to use the line-by-line approach, as it allows you to test your code interactively and catch errors early.</p>
+<p>To run line-by-line:</p>
+<ul>
+<li>By clicking: Highlight the line or chunk of code you want to run, then go to <strong>Code</strong> and select <strong>Run selected lines</strong>.</li>
+<li>By key commands: Highlight the code, then press <code>Ctl</code> (or <code>Cmd</code> on Mac) + <code>Return</code>.</li>
+</ul>
+<p>To run the whole script:</p>
+<ul>
+<li>By clicking: In the scripting window, click <strong>Run</strong> in the top-right corner and choose <strong>Run All</strong>.</li>
+<li>By key commands: Press <code>Option</code> + <code>Ctrl</code> (or <code>Cmd</code>) + <code>R</code>.</li>
+</ul>
+<p>If a script gets stuck or you realise there is an error in your code, you may need to interrupt R. To do this, go to <strong>Session</strong> -&gt; <strong>Interrupt R</strong>. If the interruption doesn’t work, you might need to terminate and restart R.</p>
+</div>
+</div>
+</div>
+<section id="loading-data" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="loading-data"><span class="header-section-number">1.5.1</span> Loading data</h3>
+<p>Next, we can load the <code>London-LSOA-AgeGroup.csv</code> file into R.</p>
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-load-data_38fc309b77ff8ab01a0d46edc0bac999">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load age data</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/London-LSOA-AgeGroup.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 24970 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): Lower layer Super Output Areas Code, Lower layer Super Output Areas...
+dbl (2): Age (5 categories) Code, Observation
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If using a Windows machine, you may need to substitute your forward-slashes (<code>/</code>) with two backslashes (<code>\\</code>) whenever you are dealing with file paths.</p>
+</div>
+</div>
+</div>
+<p>Let us have a look at the dataframe:</p>
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-inspect-data_7c02f8e66cc96edaa774a6a90892a264">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect columns, rows</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(lsoa_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(lsoa_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 24970</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect data</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lsoa_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  Lower layer Super Output Areas…¹ Lower layer Super Ou…² Age (5 categories) C…³
+  &lt;chr&gt;                            &lt;chr&gt;                                   &lt;dbl&gt;
+1 E01000001                        City of London 001A                         1
+2 E01000001                        City of London 001A                         2
+3 E01000001                        City of London 001A                         3
+4 E01000001                        City of London 001A                         4
+5 E01000001                        City of London 001A                         5
+6 E01000002                        City of London 001B                         1
+# ℹ abbreviated names: ¹​`Lower layer Super Output Areas Code`,
+#   ²​`Lower layer Super Output Areas`, ³​`Age (5 categories) Code`
+# ℹ 2 more variables: `Age (5 categories)` &lt;chr&gt;, Observation &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect column names</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lsoa_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Lower layer Super Output Areas Code" "Lower layer Super Output Areas"     
+[3] "Age (5 categories) Code"             "Age (5 categories)"                 
+[5] "Observation"                        </code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>You can further inspect the results using the <code>View()</code> function.</p>
+</div>
+</div>
+</div>
+<p>To access specific columns or rows in a dataframe, we can use indexing. Indexing refers to the numbering assigned to each element within a data structure, allowing us to precisely select and manipulate data.</p>
+<p>To access the first row of a dataframe, you would use <code>dataframe[1, ]</code>, and to access the first column, you would use <code>dataframe[, 1]</code>. The comma separates the row and column indices, with the absence of a number indicating all rows or columns respectively.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>In R, indexing begins at 1, meaning that the first element of any data structure is accessed with the index <code>[1]</code>. This is different from many other programming languages, such as Python or Java, where indexing typically starts at <code>0</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-index-data_fa258238f8bd1a27dc184e2aeef09efa">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># index columns</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>lsoa_age[, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 24,970 × 1
+   `Lower layer Super Output Areas Code`
+   &lt;chr&gt;                                
+ 1 E01000001                            
+ 2 E01000001                            
+ 3 E01000001                            
+ 4 E01000001                            
+ 5 E01000001                            
+ 6 E01000002                            
+ 7 E01000002                            
+ 8 E01000002                            
+ 9 E01000002                            
+10 E01000002                            
+# ℹ 24,960 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># index rows</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>lsoa_age[<span class="dv">1</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+  Lower layer Super Output Areas…¹ Lower layer Super Ou…² Age (5 categories) C…³
+  &lt;chr&gt;                            &lt;chr&gt;                                   &lt;dbl&gt;
+1 E01000001                        City of London 001A                         1
+# ℹ abbreviated names: ¹​`Lower layer Super Output Areas Code`,
+#   ²​`Lower layer Super Output Areas`, ³​`Age (5 categories) Code`
+# ℹ 2 more variables: `Age (5 categories)` &lt;chr&gt;, Observation &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># index cell</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>lsoa_age[<span class="dv">1</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  `Lower layer Super Output Areas Code`
+  &lt;chr&gt;                                
+1 E01000001                            </code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Alternatively, you can access the data within individual columns by referring to their names using the <code>$</code> operator. This allows you to easily extract and work with a specific column without needing to know its position in the dataframe. For example, if your dataframe is named <code>dataframe</code> and you want to access a column named <code>age</code>, you would use <code>dataframe$age</code>. This method is especially useful when your data has many columns or when the column positions may change, because it relies on the column names rather than their index numbers.</p>
+</div>
+</div>
+</div>
+<p>Because all the data are stored in <a href="https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb">long format</a>, we need to transform the data to a <a href="https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb">wide format</a>. This means that instead of having multiple rows for an LSOA showing counts for different age groups, all the information for each LSOA will be consolidated into a single row. Additionally, we will clean up the column names to follow standard R naming conventions and make the data easier to work with. We can automate this process using the <code>janitor</code> package.</p>
+<p>We can do this as follows:</p>
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-reformat-data-age_1882bbeb5561b3ab617ee8019d7fee0d">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clean names</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clean_names</span>()</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co"># pivot</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">"lower_layer_super_output_areas_code"</span>, <span class="at">names_from =</span> <span class="st">"age_5_categories"</span>,</span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">values_from =</span> <span class="st">"observation"</span>)</span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a><span class="co"># clean names</span></span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The code above uses a pipe function: <code>|&gt;</code>. The pipe operator allows you to pass the output of one function directly into the next, streamlining your code. While it might be a bit confusing at first, you will find that it makes your code faster to write and easier to read. More importantly, it reduces the need to create multiple intermediate variables to store outputs.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>You can inspect the results using the <code>View()</code> function.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exploring-data" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="exploring-data"><span class="header-section-number">1.5.2</span> Exploring data</h3>
+<p>Now that we have loaded and inspected our data, we can begin by examining its distribution. Let us take a look at the number of people aged 16 to 24 across London. This data is stored in the <code>aged_16_to_24_years</code> column.</p>
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-explore-data_8e7688ae3959116d2a3503c9baf57090">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mean</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 195.978</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># median</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 180.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># range</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]   48 1961</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   48.0   143.0   180.5   196.0   227.0  1961.0 </code></pre>
+</div>
+</div>
+<p>We can also call some functions to quickly draw a boxplot, histogram, or scatterplot:</p>
+<div class="cell styled-output" data-hash="01-recap_cache/html/fig-01-plot-data-boxplot_5d45d66f2a1485e65716d8e1213c51cb">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output-display">
+<div id="fig-01-plot-data-boxplot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="01-recap_files/figure-html/fig-01-plot-data-boxplot-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Quick boxplot.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 </section>
 
