@@ -130,7 +130,35 @@
     "href": "04-spatial1.html",
     "title": "1 Spatial Analysis I",
     "section": "",
-    "text": "1 Spatial Analysis I"
+    "text": "This week’s lecture introduced foundational concepts in GIScience and GIS software, with a focus on how spatial data is represented. Building on these ideas, the practical component allows you to apply this knowledge by creating thematics using QGIS.\n\n\nYou can download the slides of this week’s lecture here: [Link].\n\n\n\n\n\n\nLongley, P. et al. 2015. Geographic Information Science & Systems, Chapter 2: The Nature of Geographic Data, pp. 33-54. [Link]\nLongley, P. et al. 2015. Geographic Information Science & Systems, Chapter 3: Representing Geography, pp. 55-76. [Link]\n\n\n\n\n\nSchurr, C., Müller, M. and Imhof, N. 2020. Who makes geographical knowledge? The gender of Geography’s gatekeepers. The Professional Geographer 72(3): 317-331. [Link]\nYuan, M. 2001. Representing complex geographic phenomena in GIS. Cartography and Geographic Information Science 28(2): 83-96. [Link]\n\n\n\n\n\nQGIS is an open-source graphic user interface GIS with many community developed add-on packages that provide additional functionality to the software. You can download and install QGIS on your personal machine by going to the QGIS website: [Link].\n\n\n\n\n\n\nWe recommend installing the Long Term Release (QGIS 3.34 LTR), as this version is the most current and stable. For Windows users, please note that the QGIS installation process may take some time, so be patient during the setup.\n\n\n\n\n\n\n\n\n\nIn case you do not have access to a laptop or encounter issues with the installation process, QGIS is also available through Desktop@UCL Anywhere as well as that it can be accessed on UCL computers across campus.\n\n\n\nAfter installation, launch QGIS to confirm that the installation was successful.\n\n\n\nIn this tutorial, we will map the population distribution in London using Census estimates from 2011 and 2021. When working with quantitative data, much of the effort goes into data preparation rather than analysis. It is often said that 80% of the time is spent on tasks like finding, retrieving, managing, and processing data. This is because the data you need is rarely in the format required for analysis. Before we can create our maps, we therefore have to go through several data preparation and cleaning steps.\nTo get started, download a copy of the 2011 and 2021 London LSOAs spatial boundaries via the links provided below. Save these files in your project folder under data.\n\n\n\nFile\nType\nLink\n\n\n\n\nLondon LSOA 2011 Spatial Boundaries\nGeoPackage\nDownload\n\n\nLondon LSOA 2021 Spatial Boundaries\nGeoPackage\nDownload\n\n\n\n\n\n\n\n\n\nAdministrative geographies, such as LSOAs, are typically updated as populations change, meaning their boundaries are subject to periodic or occasional adjustments. For this reason, we must use the 2011 LSOA boundaries to map the 2011 Census data and the 2021 LSOA boundaries for the 2021 Census data.\n\n\n\n\n\n\n\n\n\nFor the spatial boundaries of the London LSOAs, you may have noticed that, instead of providing a collection of files known as a shapefile, we have supplied a GeoPackage. While shapefiles remain in use, GeoPackage is a more modern and portable file format. Have a look at this article on towardsdatascience.com for an excellent explanation on why one should use GeoPackage files over shapefiles, where possible: [Link]"
+  },
+  {
+    "objectID": "04-spatial1.html#lecture-slides",
+    "href": "04-spatial1.html#lecture-slides",
+    "title": "1 Spatial Analysis I",
+    "section": "",
+    "text": "You can download the slides of this week’s lecture here: [Link]."
+  },
+  {
+    "objectID": "04-spatial1.html#reading-w02",
+    "href": "04-spatial1.html#reading-w02",
+    "title": "1 Spatial Analysis I",
+    "section": "",
+    "text": "Longley, P. et al. 2015. Geographic Information Science & Systems, Chapter 2: The Nature of Geographic Data, pp. 33-54. [Link]\nLongley, P. et al. 2015. Geographic Information Science & Systems, Chapter 3: Representing Geography, pp. 55-76. [Link]\n\n\n\n\n\nSchurr, C., Müller, M. and Imhof, N. 2020. Who makes geographical knowledge? The gender of Geography’s gatekeepers. The Professional Geographer 72(3): 317-331. [Link]\nYuan, M. 2001. Representing complex geographic phenomena in GIS. Cartography and Geographic Information Science 28(2): 83-96. [Link]"
+  },
+  {
+    "objectID": "04-spatial1.html#installation-of-qgis",
+    "href": "04-spatial1.html#installation-of-qgis",
+    "title": "1 Spatial Analysis I",
+    "section": "",
+    "text": "QGIS is an open-source graphic user interface GIS with many community developed add-on packages that provide additional functionality to the software. You can download and install QGIS on your personal machine by going to the QGIS website: [Link].\n\n\n\n\n\n\nWe recommend installing the Long Term Release (QGIS 3.34 LTR), as this version is the most current and stable. For Windows users, please note that the QGIS installation process may take some time, so be patient during the setup.\n\n\n\n\n\n\n\n\n\nIn case you do not have access to a laptop or encounter issues with the installation process, QGIS is also available through Desktop@UCL Anywhere as well as that it can be accessed on UCL computers across campus.\n\n\n\nAfter installation, launch QGIS to confirm that the installation was successful."
+  },
+  {
+    "objectID": "04-spatial1.html#population-in-london",
+    "href": "04-spatial1.html#population-in-london",
+    "title": "1 Spatial Analysis I",
+    "section": "",
+    "text": "In this tutorial, we will map the population distribution in London using Census estimates from 2011 and 2021. When working with quantitative data, much of the effort goes into data preparation rather than analysis. It is often said that 80% of the time is spent on tasks like finding, retrieving, managing, and processing data. This is because the data you need is rarely in the format required for analysis. Before we can create our maps, we therefore have to go through several data preparation and cleaning steps.\nTo get started, download a copy of the 2011 and 2021 London LSOAs spatial boundaries via the links provided below. Save these files in your project folder under data.\n\n\n\nFile\nType\nLink\n\n\n\n\nLondon LSOA 2011 Spatial Boundaries\nGeoPackage\nDownload\n\n\nLondon LSOA 2021 Spatial Boundaries\nGeoPackage\nDownload\n\n\n\n\n\n\n\n\n\nAdministrative geographies, such as LSOAs, are typically updated as populations change, meaning their boundaries are subject to periodic or occasional adjustments. For this reason, we must use the 2011 LSOA boundaries to map the 2011 Census data and the 2021 LSOA boundaries for the 2021 Census data.\n\n\n\n\n\n\n\n\n\nFor the spatial boundaries of the London LSOAs, you may have noticed that, instead of providing a collection of files known as a shapefile, we have supplied a GeoPackage. While shapefiles remain in use, GeoPackage is a more modern and portable file format. Have a look at this article on towardsdatascience.com for an excellent explanation on why one should use GeoPackage files over shapefiles, where possible: [Link]"
   },
   {
     "objectID": "05-spatial2.html",

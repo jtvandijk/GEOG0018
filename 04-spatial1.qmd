@@ -1,1 +1,46 @@
 # Spatial Analysis I
+This week's lecture introduced foundational concepts in GIScience and GIS software, with a focus on how spatial data is represented. Building on these ideas, the practical component allows you to apply this knowledge by creating thematics using [QGIS](https://qgis.org/).
+
+## Lecture slides
+You can download the slides of this week's lecture here: [[Link]]({{< var slides.week09 >}}).
+
+## Reading list {#reading-w02}
+#### Essential readings
+- Longley, P. *et al.* 2015. Geographic Information Science & Systems, **Chapter 2**: *The Nature of Geographic Data*, pp. 33-54. [[Link]](https://ucl.rl.talis.com/link?url=https%3A%2F%2Fapp.knovel.com%2Fhotlink%2Ftoc%2Fid%3AkpGISSE001%2Fgeographic-information-science%3Fkpromoter%3Dmarc&sig=e437927b963cc591dcb65491eccdd3869cc31aef80e1443cb2ba12d8f3bb031a)
+- Longley, P. *et al.* 2015. Geographic Information Science & Systems, **Chapter 3**: *Representing Geography*, pp. 55-76. [[Link]](https://ucl.rl.talis.com/link?url=https%3A%2F%2Fapp.knovel.com%2Fhotlink%2Ftoc%2Fid%3AkpGISSE001%2Fgeographic-information-science%3Fkpromoter%3Dmarc&sig=e437927b963cc591dcb65491eccdd3869cc31aef80e1443cb2ba12d8f3bb031a)
+
+#### Suggested readings 
+- Schurr, C., Müller, M. and Imhof, N. 2020. Who makes geographical knowledge? The gender of Geography’s gatekeepers. *The Professional Geographer* 72(3): 317-331. [[Link]](https://doi.org/10.1080/00330124.2020.1744169)
+- Yuan, M. 2001. Representing complex geographic phenomena in GIS. *Cartography and Geographic Information Science* 28(2): 83-96. [[Link]](https://doi.org/10.1559/152304001782173718)
+
+## Installation of QGIS
+QGIS is an open-source graphic user interface GIS with many community developed add-on packages that provide additional functionality to the software. You can download and install QGIS on your personal machine by going to the QGIS website: [[Link]](https://qgis.org/en/site/forusers/download.html). 
+
+::: {.callout-note}
+We recommend installing the **Long Term Release** (*QGIS 3.34 LTR*), as this version is the most current and stable. For Windows users, please note that the QGIS installation process may take some time, so be patient during the setup.
+:::
+
+::: {.callout-tip}
+In case you do not have access to a laptop or encounter issues with the installation process, QGIS is also available through [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) as well as that it can be accessed on UCL computers across campus.
+:::
+
+After installation, launch QGIS to confirm that the installation was successful.
+
+## Population in London
+In this tutorial, we will map the population distribution in London using Census estimates from 2011 and 2021. When working with quantitative data, much of the effort goes into data preparation rather than analysis. It is often said that 80% of the time is spent on tasks like finding, retrieving, managing, and processing data. This is because the data you need is rarely in the format required for analysis. Before we can create our maps, we therefore have to go through several data preparation and cleaning steps.
+
+To get started, download a copy of the 2011 and 2021 London LSOAs spatial boundaries via the links provided below. Save these files in your project folder under `data`.
+
+| File                                        | Type   | Link |
+| :------                                     | :------| :------ |
+| London LSOA 2011 Spatial Boundaries         | `GeoPackage` | [Download](https://github.com/jtvandijk/GEOG0114/raw/master/data/London-LSOA-2011.gpkg) |
+| London LSOA 2021 Spatial Boundaries         | `GeoPackage` | [Download](https://github.com/jtvandijk/GEOG0114/raw/master/data/London-LSOA-2021.gpkg) |
+
+::: {.callout-note}
+Administrative geographies, such as LSOAs, are typically updated as populations change, meaning their boundaries are subject to periodic or occasional adjustments. For this reason, we must use the 2011 LSOA boundaries to map the 2011 Census data and the 2021 LSOA boundaries for the 2021 Census data.
+:::
+
+::: {.callout-note}
+For the spatial boundaries of the London LSOAs, you may have noticed that, instead of providing a collection of files known as a `shapefile`, we have supplied a `GeoPackage`. While `shapefiles` remain in use, `GeoPackage` is a more modern and portable file format. Have a look at this article on *towardsdatascience.com* for an excellent explanation on why one should use `GeoPackage` files over `shapefiles`, where possible: [[Link]](https://towardsdatascience.com/why-you-need-to-use-geopackage-files-instead-of-shapefile-or-geojson-7cb24fe56416)
+:::
+
