@@ -54,7 +54,7 @@ To get the 2011 Census population counts, you should:
 4. Click on **KS101EW - Usual resident population**.
 5. Select **Geography** and set **2011 super output areas - lower layer** to **All**.
 7. Click on **Download data** at the left hand side of the screen.
-8. Once the data is ready for download, and save it to your computer in your `data` folder as `LSOA2011-population.xlsx`.
+8. Once the data is ready for download, save it to your computer in your `data` folder as `LSOA2011-population.xlsx`.
 
 To get the 2021 Census population counts, you should:
 

@@ -1,5 +1,5 @@
 # Spatial Analysis II
-Building on last week's introduction to creating thematic maps in [QGIS](https://qgis.org/), this week we take it a step further by conducting some basic spatial analysis. We will focus on aggregating point event data to administrative geographies and then mapping the results.
+Building on last week's introduction to creating thematic maps in [QGIS](https://qgis.org/), this week we take it a step further by conducting some basic spatial analysis. Our focus will be on aggregating point event data (such as crime incidents) to administrative geographies and then mapping the aggregated results.
 
 ## Lecture slides
 You can download the slides of this week's lecture here: [[Link]]({{< var slides.week10 >}}).
@@ -13,19 +13,19 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 - Longley, P. *et al.* 2015. Geographic Information Science & systems, **Chapter 12**: *Geovisualization*, pp. 266-289. [[Link]](https://ucl.rl.talis.com/link?url=https%3A%2F%2Fapp.knovel.com%2Fhotlink%2Ftoc%2Fid%3AkpGISSE001%2Fgeographic-information-science%3Fkpromoter%3Dmarc&sig=e437927b963cc591dcb65491eccdd3869cc31aef80e1443cb2ba12d8f3bb031a)
 
 ## Crime in London
-In this week's practical we will explore the spatial patterns of crime, specifically `theft from persons` across London boroughs in 2021. For our crime data, we will use data extracted from the **Police Data Portal**, which you can find at [data.polic.uk](https://data.police.uk/). This portal allows you to access and generate tabular data for crimes recorded in the UK by various police forces since 2017. You can download the file via the link provided below. Save the file in your project folder under `data`.
+In this week's practical we will explore the spatial patterns of crime, specifically `theft from persons` across London boroughs in 2021. For our crime data, we will use data extracted from the [Police Data Portal](https://data.police.uk/), which provides access to tabular data for crimes recorded by various UK police forces since 2017. You can download the relevant dataset via the link provided below. 
+
+Save the file inside your `data` folder.
 
 | File                            | Type     | Link |
 | :------                         | :------  | :------ |
-| Theft from persons in 2021      | `csv`    | [Download](https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Crime-2021.csv) |
+| Theft from persons in 2021      | `csv`    | [Download](https://github.com/jtvandijk/GEOG0018/tree/master/data/London-Crime-2021.csv) |
 
 ::: {.callout-note}
 You may remember that we used this data portal last year during [Geography in the Field II](https://www.ucl.ac.uk/module-catalogue/modules/geography-in-the-field-2-GEOG0014).
 :::
 
-In addition to the crime data, we will also need the spatial boundaries of the London boroughs. When studying phenomena such as crime and aggregating it to an areal unit, it is important to normalise the data using an appropriate denominator. We therefore also need the population figures for each borough.
-
-A lot of data about London is collated by the Greater London Authority and made available through the [London Datastore](https://data.london.gov.uk/about/). Whereas some of the data is a bit old, it is a good place to get some data specific to London. To get the spatial boundaries of the London boroughs, you should:
+In addition to the crime data, we will also need the spatial boundaries of the London boroughs. To access the spatial boundaries of the London boroughs, you should:
 
 1. Navigate to the London Datastore: [[Link]](https://data.london.gov.uk/).
 2. Click on **Data** in the navigation menu.
@@ -33,7 +33,11 @@ A lot of data about London is collated by the Greater London Authority and made 
 4. Download the `GeoPackage` containing the boundaries of each of London's 33 Boroughs.
 5. Rename the file to `London-Borough.gpkg` and save it in your `data` folder.
 
-To get the 2021 borough population counts, you should:
+::: {.callout-tip}
+A lot of data about London is collated by the [Greater London Authority](https://www.london.gov.uk/) and made available through the [London Datastore](https://data.london.gov.uk/about/). Whereas some of the data is a bit outdated, it is a good place to get some data specific to London. 
+:::
+
+When studying aggregated point event data, it is important to normalise the data using an appropriate denominator. We therefore also need the population figures for each borough. To get the 2021 borough population counts, you should:
 
 1. Navigate to the *Nomis* portal: [[Link]](https://www.nomisweb.co.uk/)
 2. Click on **Query data** in the **Data Downloads** panel.
@@ -42,19 +46,37 @@ To get the 2021 borough population counts, you should:
 5. Select **Geography** and set **Local authorities: district / unitary (as of April 2023)** to **Some**.
 6. Under **List areas within** select **London**. Click on **Tick all**.
 7. Click on **Download data** at the left hand side of the screen.
-8. Once the data is ready for download, download the file to your computer and save it as `London-Borough-Population.xlsx`.
-9. Open the dataset in your spreadsheet editing software and extract the relevant information: the borough names and associated population counts. Copy the data that you require into a new `csv` file and rename the columns as `BoroughNames` and `pop2021`.
-10. Now format the `pop2021` column so that it is recognised as being a **numeric** column. 
-11. Save the file as a new `csv` in your `data` folder: `London-Borough-Population.csv`.
+8. Once the data is ready for download, save it to your computer in your `data` folder as `London-Borough-Population.xlsx`.
+
+To prepare the data to be used in QGIS, you further should: 
+
+1. Open the dataset in your spreadsheet editing software. Locate the columns containing the borough names and their associated population counts. Copy these two columns into a new spreadsheet, and rename the columns to `BoroughNames` and `pop2021` respectively.
+2. Format the `pop2021` column so that it is recognised as being a **numeric** column. 
+3. Save the file as a new `csv` in your `data` folder as `London-Borough-Population.csv`.
 
 ::: {.callout-tip}
-If you are struggling with the data preparation of the borough population, refer back to [last week's data cleaning section](04-spatial1.html#cleaning-data.
+If you are struggling with the data preparation of the borough population, refer back to [last week's data cleaning section](04-spatial1.html#cleaning-data).
 :::
 
+### Aggregating data
+Now we have our datasets sorted out, we can move to QGIS to analyse our crime dataset.
 
+1. Start **QGIS**
+2. Click on **Project** -> **New**. Save your project as `w10-crime-analysis`. Remember to save your work throughout the practical. 
+3. Before we get started with adding data, we will first set the Coordinate Reference System of our Project. Click on **Project** -> **Properties -- CRS**. In the Filter box, type **British National Grid**. Select **OSGB 1936 / British National Grid - EPSG:27700** and click **Apply**. Click **OK**.
 
+We will start by adding the spatial layer containing the London boroughs.
 
+1. Click on **Layer** -> **Add Layer** -> **Add Vector Layer**.
+2. With **File** select as your source type, click on the small three dots button and navigate to your `London-Borough.gpkg` file in your `data` folder. Select the file, then click **Add**. You may need to close the box after adding the layer.
 
+To link the spatial data to the population data, we need to join the datasets. Since we covered the [steps for joining datasets last week](04-spatial1.html#joining-data), we will only provide a broad overview of the process:
 
+1. Load the `London-Borough-Population.csv` dataset you just created as a **Delimited Text File Layer** in QGIS.
+2. Join the two datasets together using the **Joins** tab in the **Properties** box of the borough layer. Use the `BoroughNames` field as the unique identifier for the join.
+
+::: {.callout-warning}
+Because the population file does not include Borough codes, we have to use Borough names to join the datasets together. While this approach works here (and is easy to manually verify since there are only 33 records), using codes is generally preferred to reduce the risk of errors or incomplete joins. It us often worth taking the time to find these codes, as they ensure more reliable and accurate data linking.
+:::
 
 

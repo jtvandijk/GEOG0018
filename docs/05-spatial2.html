@@ -185,7 +185,10 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides"><span class="header-section-number">5.1</span> Lecture slides</a></li>
   <li><a href="#reading-list" id="toc-reading-list" class="nav-link" data-scroll-target="#reading-list"><span class="header-section-number">5.2</span> Reading list</a></li>
-  <li><a href="#crime-in-london" id="toc-crime-in-london" class="nav-link" data-scroll-target="#crime-in-london"><span class="header-section-number">5.3</span> Crime in London</a></li>
+  <li><a href="#crime-in-london" id="toc-crime-in-london" class="nav-link" data-scroll-target="#crime-in-london"><span class="header-section-number">5.3</span> Crime in London</a>
+  <ul class="collapse">
+  <li><a href="#aggregating-data" id="toc-aggregating-data" class="nav-link" data-scroll-target="#aggregating-data"><span class="header-section-number">5.3.1</span> Aggregating data</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -197,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="spatial-analysis-ii" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">5</span> Spatial Analysis II</h1>
-<p>Building on last week’s introduction to creating thematic maps in <a href="https://qgis.org/">QGIS</a>, this week we take it a step further by conducting some basic spatial analysis. We will focus on aggregating point event data to administrative geographies and then mapping the results.</p>
+<p>Building on last week’s introduction to creating thematic maps in <a href="https://qgis.org/">QGIS</a>, this week we take it a step further by conducting some basic spatial analysis. Our focus will be on aggregating point event data (such as crime incidents) to administrative geographies and then mapping the aggregated results.</p>
 <section id="lecture-slides" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="lecture-slides"><span class="header-section-number">5.1</span> Lecture slides</h2>
 <p>You can download the slides of this week’s lecture here: <a href="https://github.com/jtvandijk/GEOG0018/tree/master/slides/w10-mhg.pdf">[Link]</a>.</p>
@@ -220,7 +223,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="crime-in-london" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="crime-in-london"><span class="header-section-number">5.3</span> Crime in London</h2>
-<p>In this week’s practical we will explore the spatial patterns of crime, specifically <code>theft from persons</code> across London boroughs in 2021. For our crime data, we will use data extracted from the <strong>Police Data Portal</strong>, which you can find at <a href="https://data.police.uk/">data.polic.uk</a>. This portal allows you to access and generate tabular data for crimes recorded in the UK by various police forces since 2017. You can download the file via the link provided below. Save the file in your project folder under <code>data</code>.</p>
+<p>In this week’s practical we will explore the spatial patterns of crime, specifically <code>theft from persons</code> across London boroughs in 2021. For our crime data, we will use data extracted from the <a href="https://data.police.uk/">Police Data Portal</a>, which provides access to tabular data for crimes recorded by various UK police forces since 2017. You can download the relevant dataset via the link provided below.</p>
+<p>Save the file inside your <code>data</code> folder.</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -233,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td style="text-align: left;">Theft from persons in 2021</td>
 <td style="text-align: left;"><code>csv</code></td>
-<td style="text-align: left;"><a href="https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Crime-2021.csv">Download</a></td>
+<td style="text-align: left;"><a href="https://github.com/jtvandijk/GEOG0018/tree/master/data/London-Crime-2021.csv">Download</a></td>
 </tr>
 </tbody>
 </table>
@@ -247,8 +251,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>In addition to the crime data, we will also need the spatial boundaries of the London boroughs. When studying phenomena such as crime and aggregating it to an areal unit, it is important to normalise the data using an appropriate denominator. We therefore also need the population figures for each borough.</p>
-<p>A lot of data about London is collated by the Greater London Authority and made available through the <a href="https://data.london.gov.uk/about/">London Datastore</a>. Whereas some of the data is a bit old, it is a good place to get some data specific to London. To get the spatial boundaries of the London boroughs, you should:</p>
+<p>In addition to the crime data, we will also need the spatial boundaries of the London boroughs. To access the spatial boundaries of the London boroughs, you should:</p>
 <ol type="1">
 <li>Navigate to the London Datastore: <a href="https://data.london.gov.uk/">[Link]</a>.</li>
 <li>Click on <strong>Data</strong> in the navigation menu.</li>
@@ -256,7 +259,17 @@ ul.task-list li input[type="checkbox"] {
 <li>Download the <code>GeoPackage</code> containing the boundaries of each of London’s 33 Boroughs.</li>
 <li>Rename the file to <code>London-Borough.gpkg</code> and save it in your <code>data</code> folder.</li>
 </ol>
-<p>To get the 2021 borough population counts, you should:</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A lot of data about London is collated by the <a href="https://www.london.gov.uk/">Greater London Authority</a> and made available through the <a href="https://data.london.gov.uk/about/">London Datastore</a>. Whereas some of the data is a bit outdated, it is a good place to get some data specific to London.</p>
+</div>
+</div>
+</div>
+<p>When studying aggregated point event data, it is important to normalise the data using an appropriate denominator. We therefore also need the population figures for each borough. To get the 2021 borough population counts, you should:</p>
 <ol type="1">
 <li>Navigate to the <em>Nomis</em> portal: <a href="https://www.nomisweb.co.uk/">[Link]</a></li>
 <li>Click on <strong>Query data</strong> in the <strong>Data Downloads</strong> panel.</li>
@@ -265,10 +278,13 @@ ul.task-list li input[type="checkbox"] {
 <li>Select <strong>Geography</strong> and set <strong>Local authorities: district / unitary (as of April 2023)</strong> to <strong>Some</strong>.</li>
 <li>Under <strong>List areas within</strong> select <strong>London</strong>. Click on <strong>Tick all</strong>.</li>
 <li>Click on <strong>Download data</strong> at the left hand side of the screen.</li>
-<li>Once the data is ready for download, download the file to your computer and save it as <code>London-Borough-Population.xlsx</code>.</li>
-<li>Open the dataset in your spreadsheet editing software and extract the relevant information: the borough names and associated population counts. Copy the data that you require into a new <code>csv</code> file and rename the columns as <code>BoroughNames</code> and <code>pop2021</code>.</li>
-<li>Now format the <code>pop2021</code> column so that it is recognised as being a <strong>numeric</strong> column.</li>
-<li>Save the file as a new <code>csv</code> in your <code>data</code> folder: <code>London-Borough-Population.csv</code>.</li>
+<li>Once the data is ready for download, save it to your computer in your <code>data</code> folder as <code>London-Borough-Population.xlsx</code>.</li>
+</ol>
+<p>To prepare the data to be used in QGIS, you further should:</p>
+<ol type="1">
+<li>Open the dataset in your spreadsheet editing software. Locate the columns containing the borough names and their associated population counts. Copy these two columns into a new spreadsheet, and rename the columns to <code>BoroughNames</code> and <code>pop2021</code> respectively.</li>
+<li>Format the <code>pop2021</code> column so that it is recognised as being a <strong>numeric</strong> column.</li>
+<li>Save the file as a new <code>csv</code> in your <code>data</code> folder as <code>London-Borough-Population.csv</code>.</li>
 </ol>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
@@ -276,12 +292,41 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>If you are struggling with the data preparation of the borough population, refer back to [last week’s data cleaning section](04-spatial1.html#cleaning-data.</p>
+<p>If you are struggling with the data preparation of the borough population, refer back to <a href="04-spatial1.html#cleaning-data">last week’s data cleaning section</a>.</p>
+</div>
+</div>
+</div>
+<section id="aggregating-data" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="aggregating-data"><span class="header-section-number">5.3.1</span> Aggregating data</h3>
+<p>Now we have our datasets sorted out, we can move to QGIS to analyse our crime dataset.</p>
+<ol type="1">
+<li>Start <strong>QGIS</strong></li>
+<li>Click on <strong>Project</strong> -&gt; <strong>New</strong>. Save your project as <code>w10-crime-analysis</code>. Remember to save your work throughout the practical.</li>
+<li>Before we get started with adding data, we will first set the Coordinate Reference System of our Project. Click on <strong>Project</strong> -&gt; <strong>Properties – CRS</strong>. In the Filter box, type <strong>British National Grid</strong>. Select <strong>OSGB 1936 / British National Grid - EPSG:27700</strong> and click <strong>Apply</strong>. Click <strong>OK</strong>.</li>
+</ol>
+<p>We will start by adding the spatial layer containing the London boroughs.</p>
+<ol type="1">
+<li>Click on <strong>Layer</strong> -&gt; <strong>Add Layer</strong> -&gt; <strong>Add Vector Layer</strong>.</li>
+<li>With <strong>File</strong> select as your source type, click on the small three dots button and navigate to your <code>London-Borough.gpkg</code> file in your <code>data</code> folder. Select the file, then click <strong>Add</strong>. You may need to close the box after adding the layer.</li>
+</ol>
+<p>To link the spatial data to the population data, we need to join the datasets. Since we covered the <a href="04-spatial1.html#joining-data">steps for joining datasets last week</a>, we will only provide a broad overview of the process:</p>
+<ol type="1">
+<li>Load the <code>London-Borough-Population.csv</code> dataset you just created as a <strong>Delimited Text File Layer</strong> in QGIS.</li>
+<li>Join the two datasets together using the <strong>Joins</strong> tab in the <strong>Properties</strong> box of the borough layer. Use the <code>BoroughNames</code> field as the unique identifier for the join.</li>
+</ol>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Because the population file does not include Borough codes, we have to use Borough names to join the datasets together. While this approach works here (and is easy to manually verify since there are only 33 records), using codes is generally preferred to reduce the risk of errors or incomplete joins. It us often worth taking the time to find these codes, as they ensure more reliable and accurate data linking.</p>
 </div>
 </div>
 </div>
 
 
+</section>
 </section>
 </section>
 
