@@ -1,1 +1,14 @@
 # Statistical Analysis I
+Following last week's refresher on using R and RStudio for quantitative data, this week we will focus on exploring the relationships between different variables. The basic idea is to assess to what extent two variables *covary* — in other words, how changes in one variable are associated with changes in another.
+
+## Lecture slides
+You can download the slides of this week's lecture here: [[Link]]({{< var slides.week07 >}}).
+
+## Reading list 
+#### Essential readings 
+- Field, A. Discovering Statistics using R, **Chapter 6**: *Correlation*, pp. 205-244. [[Link]](https://read.kortext.com/reader/epub/2039249?page=205)
+- Field, A. Discovering Statistics using R, **Chapter 7**: *Regression*, pp. 245-311. [[Link]](https://read.kortext.com/reader/epub/2039249?page=245)
+
+#### Suggested readings
+- Field, A. Discovering Statistics using R, **Chapter 2**: *Everything you ever wanted to know about statistics (well, sort of)*, pp. 32-61. [[Link]](https://read.kortext.com/reader/epub/2039249?page=32)
+

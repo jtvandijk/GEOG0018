@@ -10,6 +10,7 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 - Franklin, R. 2023. Quantitative methods III: Strength in numbers? *Progress in Human Geography*. Online First. [[Link]](https://doi.org/10.1177/03091325231210512).
 
 #### Suggested readings
+- Field, A. Discovering Statistics using R, **Chapter 1**: *Why is my evil lecturer forcing me to learn statistics?*, pp. 1-31. [[Link]](https://read.kortext.com/reader/epub/2039249?page=1)
 - Miller, H. and Goodchild, M. 2015. Data-driven geography. *GeoJournal* 80: 449–461. [[Link]](https://doi.org/10.1007/s10708-014-9602-6)
 - Hadley, W. 2017. R for Data Science. **Chapter 3**: *Workflow: basics*. [[Link]](https://r4ds.hadley.nz/workflow-basics)
 
@@ -44,7 +45,7 @@ options(max.print=50)
 #| echo: False
 #| cache: True
 #| fig-cap: "The RStudio interface."
-knitr::include_graphics('images/w01/rstudio-interface.png')
+knitr::include_graphics('images/w06/rstudio-interface.png')
 ```
 
 The main windows that we will be using are:
@@ -70,7 +71,7 @@ Start RStudio, and copy and paste the following code into the **console** window
 #| tidy: True
 #| filename: "R code"
 # install packages
-install.packages(c('tidyverse', 'janitor'))
+install.packages(c('tidyverse', 'janitor','stargazer'))
 ```
 
 ::: callout-warning
@@ -91,6 +92,7 @@ Once you have installed the packages, we need to check whether we can in fact lo
 # load packages
 library(tidyverse)
 library(janitor)
+library(stargazer)
 ```
 
 You will see some information printed to your console but as long as you do not get any of the messages below, the installation was successful. If you do get any of the messages below it means that the package was not properly installed, so try to install the package in question again.
@@ -466,7 +468,7 @@ Navigate to **File** -> **New Project** -> **New Directory**, and create a folde
 Please ensure that **folder names** and **file names** do not contain spaces or special characters such as `*` `.` `"` `/` `\` `[` `]` `:` `;` `|` `=` `,` `<` `?` `>` `&` `$` `#` `!` `'` `{` `}` `(` `)`. Different operating systems and programming languages deal differently with spaces and special characters and as such including these in your folder names and file names can cause many problems and unexpected errors. As an alternative to using white space you can use an underscore `_` or hyphen `-` if you like.
 :::
 
-## Age group in Camden
+## Age groups in Camden
 With the basics covered, let us dive into loading a real dataset, performing data cleaning, and conducting some exploratory data analysis on the distribution of age groups in Camden. The data covers all usual residents across London, as recorded in the 2021 Census for England and Wales, aggregated at the [Lower Super Output Area (LSOA)](https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeographies/census2021geographies) level.
 
 ::: {.callout-note}
@@ -647,7 +649,7 @@ range(lsoa_age$aged_16_to_24_years)
 summary(lsoa_age$aged_16_to_24_years)
 ```
 
-We can also call some functions to quickly draw a boxplot, histogram, or, when combining different variables, a bivariate plot:
+We can also call some functions to quickly draw a boxplot, histogram of frequencies, or, when combining different variables, a bivariate plot:
 
 ```{r}
 #| label: fig-01-plot-data-boxplot

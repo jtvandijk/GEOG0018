@@ -1,1 +1,13 @@
 # Statistical Analysis II
+Last week, we explored relationships between variables and how these can be quantified using correlation and regression methods. However, researchers are often more interested in examining differences between groups of people rather than relationships between variables. 
+
+## Lecture slides
+You can download the slides of this week's lecture here: [[Link]]({{< var slides.week08 >}}).
+
+## Reading list 
+#### Essential readings 
+- Field, A. Discovering Statistics using R, **Chapter 9**: *Comparing two means*, pp. 359-397. [[Link]](https://read.kortext.com/reader/epub/2039249?page=359)
+- Field, A. Discovering Statistics using R, **Chapter 10**: *Comparing several means: ANOVA (GLM1)*, pp. 398-461. [[Link]](https://read.kortext.com/reader/epub/2039249?page=398)
+
+#### Suggested readings
+- Field, A. Discovering Statistics using R, **Chapter 15**: *Non-parametric tests*, pp. 653-695. [[Link]](https://read.kortext.com/reader/epub/2039249?page=653)
