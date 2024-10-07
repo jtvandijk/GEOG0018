@@ -1,5 +1,5 @@
 # Spatial Analysis II
-Building on last week's introduction to creating thematic maps, this week we take it a step further by conducting some basic spatial analysis. Still using QGIS( [QGIS](https://qgis.org/), we will focus on aggregating point event data to administrative geographies and then mapping the results.
+Building on last week's introduction to creating thematic maps in [QGIS](https://qgis.org/), this week we take it a step further by conducting some basic spatial analysis. We will focus on aggregating point event data to administrative geographies and then mapping the results.
 
 ## Lecture slides
 You can download the slides of this week's lecture here: [[Link]]({{< var slides.week10 >}}).

@@ -273,4 +273,3 @@ Make sure to copy and paste the output of this week's homework task into the app
 
 ## Before you leave
 This week we spent a lot of time preparing and cleaning our datasets, followed by a simple visualisation of the population in London in 2011 and 2021. Next week, we will move forward with working in QGIS and conduct some basic spatial analysis. For today, however, [we are done](https://www.youtube.com/watch?v=Wmc8bQoL-J0)!
-
