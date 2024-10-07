@@ -33,8 +33,8 @@ To get started, download a copy of the 2011 and 2021 London LSOAs spatial bounda
 
 | File                                        | Type   | Link |
 | :------                                     | :------| :------ |
-| London LSOA 2011 Spatial Boundaries         | `GeoPackage` | [Download](https://github.com/jtvandijk/GEOG0114/raw/master/data/London-LSOA-2011.gpkg) |
-| London LSOA 2021 Spatial Boundaries         | `GeoPackage` | [Download](https://github.com/jtvandijk/GEOG0114/raw/master/data/London-LSOA-2021.gpkg) |
+| London LSOA 2011 Spatial Boundaries         | `GeoPackage` | [Download](https://github.com/jtvandijk/GEOG0018/raw/master/data/London-LSOA-2011.gpkg) |
+| London LSOA 2021 Spatial Boundaries         | `GeoPackage` | [Download](https://github.com/jtvandijk/GEOG0018/raw/master/data/London-LSOA-2021.gpkg) |
 
 ::: {.callout-note}
 Administrative geographies, such as LSOAs, are typically updated as populations change, meaning their boundaries are subject to periodic or occasional adjustments. For this reason, we must use the 2011 LSOA boundaries to map the 2011 Census data and the 2021 LSOA boundaries for the 2021 Census data.

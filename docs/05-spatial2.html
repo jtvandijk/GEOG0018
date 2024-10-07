@@ -185,6 +185,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides"><span class="header-section-number">5.1</span> Lecture slides</a></li>
   <li><a href="#reading-list" id="toc-reading-list" class="nav-link" data-scroll-target="#reading-list"><span class="header-section-number">5.2</span> Reading list</a></li>
+  <li><a href="#crime-in-london" id="toc-crime-in-london" class="nav-link" data-scroll-target="#crime-in-london"><span class="header-section-number">5.3</span> Crime in London</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -215,9 +216,72 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Longley, P. <em>et al.</em> 2015. Geographic Information Science &amp; systems, <strong>Chapter 12</strong>: <em>Geovisualization</em>, pp.&nbsp;266-289. <a href="https://ucl.rl.talis.com/link?url=https%3A%2F%2Fapp.knovel.com%2Fhotlink%2Ftoc%2Fid%3AkpGISSE001%2Fgeographic-information-science%3Fkpromoter%3Dmarc&amp;sig=e437927b963cc591dcb65491eccdd3869cc31aef80e1443cb2ba12d8f3bb031a">[Link]</a></li>
 </ul>
-
-
 </section>
+</section>
+<section id="crime-in-london" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="crime-in-london"><span class="header-section-number">5.3</span> Crime in London</h2>
+<p>In this week’s practical we will explore the spatial patterns of crime, specifically <code>theft from persons</code> across London boroughs in 2021. For our crime data, we will use data extracted from the <strong>Police Data Portal</strong>, which you can find at <a href="https://data.police.uk/">data.polic.uk</a>. This portal allows you to access and generate tabular data for crimes recorded in the UK by various police forces since 2017. You can download the file via the link provided below. Save the file in your project folder under <code>data</code>.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">File</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Theft from persons in 2021</td>
+<td style="text-align: left;"><code>csv</code></td>
+<td style="text-align: left;"><a href="https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Crime-2021.csv">Download</a></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>You may remember that we used this data portal last year during <a href="https://www.ucl.ac.uk/module-catalogue/modules/geography-in-the-field-2-GEOG0014">Geography in the Field II</a>.</p>
+</div>
+</div>
+</div>
+<p>In addition to the crime data, we will also need the spatial boundaries of the London boroughs. When studying phenomena such as crime and aggregating it to an areal unit, it is important to normalise the data using an appropriate denominator. We therefore also need the population figures for each borough.</p>
+<p>A lot of data about London is collated by the Greater London Authority and made available through the <a href="https://data.london.gov.uk/about/">London Datastore</a>. Whereas some of the data is a bit old, it is a good place to get some data specific to London. To get the spatial boundaries of the London boroughs, you should:</p>
+<ol type="1">
+<li>Navigate to the London Datastore: <a href="https://data.london.gov.uk/">[Link]</a>.</li>
+<li>Click on <strong>Data</strong> in the navigation menu.</li>
+<li>Type <em>London Boroughs</em> into the search field.</li>
+<li>Download the <code>GeoPackage</code> containing the boundaries of each of London’s 33 Boroughs.</li>
+<li>Rename the file to <code>London-Borough.gpkg</code> and save it in your <code>data</code> folder.</li>
+</ol>
+<p>To get the 2021 borough population counts, you should:</p>
+<ol type="1">
+<li>Navigate to the <em>Nomis</em> portal: <a href="https://www.nomisweb.co.uk/">[Link]</a></li>
+<li>Click on <strong>Query data</strong> in the <strong>Data Downloads</strong> panel.</li>
+<li>Click on <strong>Census 2021</strong> -&gt; <strong>Topic Summaries</strong>.</li>
+<li>Click on <strong>TS007A - Age by five-year age bands</strong>.</li>
+<li>Select <strong>Geography</strong> and set <strong>Local authorities: district / unitary (as of April 2023)</strong> to <strong>Some</strong>.</li>
+<li>Under <strong>List areas within</strong> select <strong>London</strong>. Click on <strong>Tick all</strong>.</li>
+<li>Click on <strong>Download data</strong> at the left hand side of the screen.</li>
+<li>Once the data is ready for download, download the file to your computer and save it as <code>London-Borough-Population.xlsx</code>.</li>
+<li>Open the dataset in your spreadsheet editing software and extract the relevant information: the borough names and associated population counts. Copy the data that you require into a new <code>csv</code> file and rename the columns as <code>BoroughNames</code> and <code>pop2021</code>.</li>
+<li>Now format the <code>pop2021</code> column so that it is recognised as being a <strong>numeric</strong> column.</li>
+<li>Save the file as a new <code>csv</code> in your <code>data</code> folder: <code>London-Borough-Population.csv</code>.</li>
+</ol>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If you are struggling with the data preparation of the borough population, refer back to [last week’s data cleaning section](04-spatial1.html#cleaning-data.</p>
+</div>
+</div>
+</div>
+
+
 </section>
 </section>
 

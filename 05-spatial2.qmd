@@ -11,3 +11,50 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 
 #### Suggested readings
 - Longley, P. *et al.* 2015. Geographic Information Science & systems, **Chapter 12**: *Geovisualization*, pp. 266-289. [[Link]](https://ucl.rl.talis.com/link?url=https%3A%2F%2Fapp.knovel.com%2Fhotlink%2Ftoc%2Fid%3AkpGISSE001%2Fgeographic-information-science%3Fkpromoter%3Dmarc&sig=e437927b963cc591dcb65491eccdd3869cc31aef80e1443cb2ba12d8f3bb031a)
+
+## Crime in London
+In this week's practical we will explore the spatial patterns of crime, specifically `theft from persons` across London boroughs in 2021. For our crime data, we will use data extracted from the **Police Data Portal**, which you can find at [data.polic.uk](https://data.police.uk/). This portal allows you to access and generate tabular data for crimes recorded in the UK by various police forces since 2017. You can download the file via the link provided below. Save the file in your project folder under `data`.
+
+| File                            | Type     | Link |
+| :------                         | :------  | :------ |
+| Theft from persons in 2021      | `csv`    | [Download](https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Crime-2021.csv) |
+
+::: {.callout-note}
+You may remember that we used this data portal last year during [Geography in the Field II](https://www.ucl.ac.uk/module-catalogue/modules/geography-in-the-field-2-GEOG0014).
+:::
+
+In addition to the crime data, we will also need the spatial boundaries of the London boroughs. When studying phenomena such as crime and aggregating it to an areal unit, it is important to normalise the data using an appropriate denominator. We therefore also need the population figures for each borough.
+
+A lot of data about London is collated by the Greater London Authority and made available through the [London Datastore](https://data.london.gov.uk/about/). Whereas some of the data is a bit old, it is a good place to get some data specific to London. To get the spatial boundaries of the London boroughs, you should:
+
+1. Navigate to the London Datastore: [[Link]](https://data.london.gov.uk/).
+2. Click on **Data** in the navigation menu.
+3. Type *London Boroughs* into the search field.
+4. Download the `GeoPackage` containing the boundaries of each of London's 33 Boroughs.
+5. Rename the file to `London-Borough.gpkg` and save it in your `data` folder.
+
+To get the 2021 borough population counts, you should:
+
+1. Navigate to the *Nomis* portal: [[Link]](https://www.nomisweb.co.uk/)
+2. Click on **Query data** in the **Data Downloads** panel.
+3. Click on **Census 2021** -> **Topic Summaries**.
+4. Click on **TS007A - Age by five-year age bands**.
+5. Select **Geography** and set **Local authorities: district / unitary (as of April 2023)** to **Some**.
+6. Under **List areas within** select **London**. Click on **Tick all**.
+7. Click on **Download data** at the left hand side of the screen.
+8. Once the data is ready for download, download the file to your computer and save it as `London-Borough-Population.xlsx`.
+9. Open the dataset in your spreadsheet editing software and extract the relevant information: the borough names and associated population counts. Copy the data that you require into a new `csv` file and rename the columns as `BoroughNames` and `pop2021`.
+10. Now format the `pop2021` column so that it is recognised as being a **numeric** column. 
+11. Save the file as a new `csv` in your `data` folder: `London-Borough-Population.csv`.
+
+::: {.callout-tip}
+If you are struggling with the data preparation of the borough population, refer back to [last week's data cleaning section](04-spatial1.html#cleaning-data.
+:::
+
+
+
+
+
+
+
+

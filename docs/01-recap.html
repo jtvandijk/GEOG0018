@@ -231,15 +231,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#inspecting-variables" id="toc-inspecting-variables" class="nav-link" data-scroll-target="#inspecting-variables"><span class="header-section-number">1.5.5</span> Inspecting variables</a></li>
   <li><a href="#creating-multi-value-objects" id="toc-creating-multi-value-objects" class="nav-link" data-scroll-target="#creating-multi-value-objects"><span class="header-section-number">1.5.6</span> Creating multi-value objects</a></li>
   </ul></li>
-  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects"><span class="header-section-number">1.6</span> RStudio projects</a></li>
-  <li><a href="#age-groups-in-camden" id="toc-age-groups-in-camden" class="nav-link" data-scroll-target="#age-groups-in-camden"><span class="header-section-number">1.7</span> Age groups in Camden</a>
+  <li><a href="#age-groups-in-camden" id="toc-age-groups-in-camden" class="nav-link" data-scroll-target="#age-groups-in-camden"><span class="header-section-number">1.6</span> Age groups in Camden</a>
   <ul class="collapse">
-  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><span class="header-section-number">1.7.1</span> Loading data</a></li>
-  <li><a href="#exploring-data" id="toc-exploring-data" class="nav-link" data-scroll-target="#exploring-data"><span class="header-section-number">1.7.2</span> Exploring data</a></li>
-  <li><a href="#subsetting-data" id="toc-subsetting-data" class="nav-link" data-scroll-target="#subsetting-data"><span class="header-section-number">1.7.3</span> Subsetting data</a></li>
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><span class="header-section-number">1.6.1</span> Loading data</a></li>
+  <li><a href="#exploring-data" id="toc-exploring-data" class="nav-link" data-scroll-target="#exploring-data"><span class="header-section-number">1.6.2</span> Exploring data</a></li>
+  <li><a href="#subsetting-data" id="toc-subsetting-data" class="nav-link" data-scroll-target="#subsetting-data"><span class="header-section-number">1.6.3</span> Subsetting data</a></li>
   </ul></li>
-  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">1.8</span> Homework task</a></li>
-  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">1.9</span> Before you leave</a></li>
+  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">1.7</span> Homework task</a></li>
+  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">1.8</span> Before you leave</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -796,8 +795,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="rstudio-projects" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="rstudio-projects"><span class="header-section-number">1.6</span> RStudio projects</h2>
+<section id="age-groups-in-camden" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="age-groups-in-camden"><span class="header-section-number">1.6</span> Age groups in Camden</h2>
 <p>In RStudio, scripts allow us to build and save code that can be run repeatedly. We can organise these scripts into RStudio projects, which consolidate all files related to an analysis such as input data, R scripts, results, figures, and more. This organisation helps keep track of all data, input, and output, while enabling us to create standalone scripts for each part of our analysis. Additionally, it simplifies managing <a href="https://en.wikipedia.org/wiki/Path_(computing)">directories and filepaths</a>.</p>
 <p>Navigate to <strong>File</strong> -&gt; <strong>New Project</strong> -&gt; <strong>New Directory</strong>, and create a folder with the name <code>GEOG0018</code>. Click on <strong>Create Project</strong>. You should now see your main window switch to this new project and when you check your <strong>files</strong> window, you should see a new <strong>R Project</strong> called <code>GEOG0018</code>.</p>
 <div class="callout callout-style-simple callout-warning">
@@ -810,10 +809,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="age-groups-in-camden" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="age-groups-in-camden"><span class="header-section-number">1.7</span> Age groups in Camden</h2>
-<p>With the basics covered, let us dive into loading a real dataset, performing data cleaning, and conducting some exploratory data analysis on the distribution of age groups in Camden. The data covers all usual residents across London, as recorded in the 2021 Census for England and Wales, aggregated at the <a href="https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeographies/census2021geographies">Lower Super Output Area (LSOA)</a> level.</p>
+<p>With the basics covered, let us dive into loading a real dataset, perform some data cleaning, and conduct some exploratory data analysis on the distribution of age groups in Camden. The data covers all usual residents across London, as recorded in the 2021 Census for England and Wales, aggregated at the <a href="https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeographies/census2021geographies">Lower Super Output Area (LSOA)</a> level.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -847,7 +843,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td style="text-align: left;">London LSOA Census 2021 Age Groups</td>
 <td style="text-align: left;"><code>csv</code></td>
-<td style="text-align: left;"><a href="https://github.com/jtvandijk/GEOG0114/tree/master/data/London-LSOA-AgeGroup.csv">Download</a></td>
+<td style="text-align: left;"><a href="https://github.com/jtvandijk/GEOG0018/tree/master/data/London-LSOA-AgeGroup.csv">Download</a></td>
 </tr>
 </tbody>
 </table>
@@ -894,8 +890,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="loading-data" class="level3" data-number="1.7.1">
-<h3 data-number="1.7.1" class="anchored" data-anchor-id="loading-data"><span class="header-section-number">1.7.1</span> Loading data</h3>
+<section id="loading-data" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="loading-data"><span class="header-section-number">1.6.1</span> Loading data</h3>
 <p>Next, we can load the <code>London-LSOA-AgeGroup.csv</code> file into R.</p>
 <div class="cell styled-output" data-hash="01-recap_cache/html/01-load-data_38fc309b77ff8ab01a0d46edc0bac999">
 <div class="code-with-filename">
@@ -1084,8 +1080,8 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 </div>
 </section>
-<section id="exploring-data" class="level3" data-number="1.7.2">
-<h3 data-number="1.7.2" class="anchored" data-anchor-id="exploring-data"><span class="header-section-number">1.7.2</span> Exploring data</h3>
+<section id="exploring-data" class="level3" data-number="1.6.2">
+<h3 data-number="1.6.2" class="anchored" data-anchor-id="exploring-data"><span class="header-section-number">1.6.2</span> Exploring data</h3>
 <p>Now that we have loaded and inspected our data, we can begin by examining its distribution. Let us take a look at the number of people aged 16 to 24 across London. This data is stored in the <code>aged_16_to_24_years</code> column.</p>
 <div class="cell styled-output" data-hash="01-recap_cache/html/01-explore-data_8e7688ae3959116d2a3503c9baf57090">
 <div class="code-with-filename">
@@ -1169,8 +1165,8 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 </div>
 </section>
-<section id="subsetting-data" class="level3" data-number="1.7.3">
-<h3 data-number="1.7.3" class="anchored" data-anchor-id="subsetting-data"><span class="header-section-number">1.7.3</span> Subsetting data</h3>
+<section id="subsetting-data" class="level3" data-number="1.6.3">
+<h3 data-number="1.6.3" class="anchored" data-anchor-id="subsetting-data"><span class="header-section-number">1.6.3</span> Subsetting data</h3>
 <p>So far we have only looked at the dataset for London as a whole. So, let us zoom in to Camden by filtering our dataset:</p>
 <div class="cell styled-output" data-hash="01-recap_cache/html/01-filter-data_04492384ce06a1e2dfc9c46afdbe65bf">
 <div class="code-with-filename">
@@ -1232,8 +1228,8 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 </section>
 </section>
-<section id="homework-task" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">1.8</span> Homework task</h2>
+<section id="homework-task" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">1.7</span> Homework task</h2>
 <p>This concludes this week’s tutorial. Now complete the following homework tasks:</p>
 <ol type="1">
 <li>Filter the London LSOAs to any of the <a href="https://en.wikipedia.org/wiki/London_boroughs">London boroughs</a> other than Camden.</li>
@@ -1250,8 +1246,8 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 </div>
 </section>
-<section id="before-you-leave" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">1.9</span> Before you leave</h2>
+<section id="before-you-leave" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">1.8</span> Before you leave</h2>
 <p>This week, we revisited the basics of conducting quantitative analysis in R and RStudio, building on the material introduced last year in <a href="https://www.ucl.ac.uk/module-catalogue/modules/geography-in-the-field-1-GEOG0013">Geography in the Field I</a> and <a href="https://www.ucl.ac.uk/module-catalogue/modules/geography-in-the-field-2-GEOG0014">Geography in the Field II</a>. Now that everyone is back up to speed, next week we will move on to using R for statistical analysis. But for now, it is <a href="https://www.youtube.com/watch?v=dmxJIc3M7LI">time to kick back and relax</a>!</p>
 
 
