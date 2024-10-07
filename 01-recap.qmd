@@ -489,7 +489,7 @@ You will have to create a folder named `data` inside your **R Project**.
 To download a `csv` file that is hosted on GitHub, click on the `Download raw file` button on the top right of your screen and it should download directly to your computer.
 :::
 
-To get started, let us create our first script. **File** -> **New File** -> **R Script**. Save your script as `w01-age-analysis.r`. 
+To get started, let us create our first script. **File** -> **New File** -> **R Script**. Save your script as `w06-age-analysis.r`. 
 
 We will start by loading the libraries that we will need:
 

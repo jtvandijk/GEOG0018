@@ -327,7 +327,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Open the <code>LSOA2011-population.xlsx</code> file in Excel. We have two main columns: one with identifying information that distinguishes each area from one another and one with population counts. In addition, there are some less informative rows at the top of the spreadsheet. To prepare the data we need to take several steps.</p>
 <ol type="1">
 <li>Open a new Excel spreadsheet.</li>
-<li>From the <code>LSOA2011-population.xlsx</code> spreadsheet, cut (<strong>Edit</strong> -&gt; <strong>Cut</strong>) all cells from columns <strong>A</strong> to <strong>B</strong> and rows <strong>9 to 4,651</strong> into this new spreadsheet. Row <strong>4,651</strong> denotes the end of the majority of the <em>Greater London</em> LSOAs.</li>
+<li>From the <code>LSOA2011-population.xlsx</code> spreadsheet, cut (<strong>Edit</strong> -&gt; <strong>Cut</strong>) all cells from columns <strong>A to B</strong> and rows <strong>9 to 4,651</strong> into this new spreadsheet. Row <strong>4,651</strong> denotes the end of the majority of the <em>Greater London</em> LSOAs.</li>
 <li>Now we need to identify the missing LSOAs that were not kept at the top of the file with the other London LSOAs. Unfortunately, we can only do this manually by searching for the name of each of the London Boroughs and subsequently cutting the associated rows of data from the spreadsheet and pasting these into the second spreadsheet.</li>
 <li>Go to <strong>Edit</strong> -&gt; <strong>Find</strong> -&gt; <strong>Find</strong>. Type in <strong>City of London</strong>. Cut (<strong>Edit</strong> -&gt; <strong>Cut</strong>) the two rows of data (<em>City of London 001F</em>, <em>City of London 001G</em>) and paste these at the bottom of the second spreadsheet.</li>
 <li>Repeat this process to find all missing LSOAs by searching the names of all <strong>32</strong> London Boroughs (see <a href="#tbl-boroughs">Table&nbsp;1</a>).</li>
@@ -513,11 +513,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="london-population-in-2021" class="level4">
 <h4 class="anchored" data-anchor-id="london-population-in-2021">London population in 2021</h4>
-<p>Now the 2011 data is prepared, we can move on to the 2021 data:</p>
+<p>Now the 2011 data is prepared, we can move on to the 2021 data. Open the <code>LSOA2021-population.xlsx</code> in Excel. You will notice that the file is formatted largely the same as the <code>LSOA2011-population.xlsx</code> file. However, this time the data for all Local Authority Districts are grouped together, with all data also grouped by region. This arrangement simplifies our task, as we can easily cut the data for each of the 32 Boroughs and the <em>City of London</em> in one go.</p>
 <ol type="1">
-<li>Open the <code>LSOA2021-population.xlsx</code> in Excel. You will notice that the file is formatted largely the same as the <code>LSOA2011-population.xlsx</code> file. However, this time the data for all Local Authority Districts are grouped together, with all data also grouped by region. This arrangement simplifies our task, as we can easily cut the data for each of the 32 Boroughs and the <em>City of London</em> in one go.</li>
 <li>Open a new Excel spreadsheet.</li>
-<li>From the <code>LSOA2021-population.xlsx</code> spreadsheet, cut (<strong>Edit</strong> -&gt; <strong>Cut</strong>) all cells from columns <strong>A</strong> to <strong>B</strong> and rows <strong>19,790 to 2,4783</strong> and paste these into this new spreadsheet.</li>
+<li>From the <code>LSOA2021-population.xlsx</code> spreadsheet, cut (<strong>Edit</strong> -&gt; <strong>Cut</strong>) all cells from columns <strong>A to B</strong> and rows <strong>19,790 to 2,4783</strong> and paste these into this new spreadsheet.</li>
 <li>Take the remaining steps to prepare the 2021 population steps: split the <code>lsoa</code> column, remove the trailing <code>whitespace</code> characters from the LSOA code column, and remove the decimal commas in the population count column.</li>
 <li>Save the file as <code>csv</code> into your <code>data</code> folder as <code>LSOA2021-population.csv</code> with the following column names: <code>lsoa21_code</code>, <code>lsoa21_name</code>, and <code>pop2021</code>.</li>
 </ol>
@@ -527,7 +526,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Again make sure you did not miss any LSOAs. You should end up with <strong>4,995</strong> rows of data in your second spreadsheet.</p>
+<p>Again make sure you did not miss any LSOAs. You should end up with <strong>4,995</strong> rows of data in this second spreadsheet.</p>
 </div>
 </div>
 </div>
@@ -573,14 +572,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>We can now join this table data to our spatial data using an <strong>Attribute Join</strong>.</p>
+<p>We can now join this table data to our spatial data using an <em>attribute join</em>.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>An <strong>Attribute Join</strong> is one of two types of data joins used in spatial analysis (the other being a <strong>Spatial Join</strong>, which we will cover next week). An Attribute Join allows you to link two datasets together based on a common attribute that facilitates the matching of rows.</p>
+<p>An <em>atribute join</em> allows you to link two datasets together based on a common attribute that facilitates the matching of rows. To perform an attribute join, you need a single unique identifying field for your records in both datasets. This can be a code, a name, or any other string of information. For the join to work, it is essential that the ID field is consistent across both datasets, meaning there should be no typos or spelling mistakes.</p>
 <div class="cell" data-hash="04-spatial1_cache/html/fig-join-those-attributes_5855ca4374ef5c543a21d282111ab8d6">
 <div class="cell-output-display">
 <div id="fig-join-those-attributes" class="quarto-figure quarto-figure-center anchored">
@@ -591,11 +590,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>To perform an Attribute Join, you need a single unique identifying field for your records in both datasets. This can be a code, a name, or any other string of information. For the join to work, it is essential that the ID field is consistent across both datasets, meaning there should be no typos or spelling mistakes. Computers follow strict instructions and do not recognise that <code>St. Thomas</code> in one dataset is the same as <code>St Thomas</code> in another.</p>
 </div>
 </div>
 </div>
-<p>While both our datasets contain both names (LSOA names) and codes (LSOA codes), we will always prefer to use the codes when creating the join. Unlike names, codes reduce the likelihood of errors and mismatches since they are not dependent on spelling.</p>
+<p>Because both our datasets contain both LSOA names and LSOA codes, we will use the LSOA codes as basis for our join. Unlike names, codes reduce the likelihood of errors and mismatches since they are not dependent on spelling.</p>
 <ol start="10" type="1">
 <li>Open up the <strong>Attribute Tables</strong> of each layer to confirm the columnnames that we can use for the join.</li>
 <li><em>Right-click</em> on your <code>LSOA2011</code> spatial layer, click on <strong>Properties</strong> and then click on the <strong>Joins</strong> tab.
@@ -641,7 +639,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>While the map above is acceptable for today, it is technically incorrect because it displays absolute numbers on a choropleth. This practice should never be used unless the spatial units are identical in size (e.g., a hexagonal tessellation), as larger areas will draw disproportionate attention and skew the visualisation.</p>
+<p>While the map above is acceptable for today, it is technically incorrect because it displays absolute numbers on a choropleth. This practice should never be used unless the spatial units are identical in size, as larger areas will draw disproportionate attention and skew the visualisation.</p>
 </div>
 </div>
 </div>
@@ -664,7 +662,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Make sure to copy and paste the output of this week’s homework task into the appendix of your assignment. Additionally, include a few sentences interpreting the results: are there any noticeable changes in terms of population distribution between 2011 and 2021?</p>
+<p>Make sure to copy and paste the output of this week’s homework task into the appendix of your assignment. Additionally, include a few sentences interpreting the results. Are there are any noticeable changes in the population distribution between 2011 and 2021.</p>
 </div>
 </div>
 </div>

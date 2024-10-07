@@ -73,7 +73,7 @@ When opening the LSOA spreadsheets in Excel, you will notice additional rows of 
 Open the `LSOA2011-population.xlsx` file in Excel. We have two main columns: one with identifying information that distinguishes each area from one another and one with population counts. In addition, there are some less informative rows at the top of the spreadsheet. To prepare the data we need to take several steps.
 
 1. Open a new Excel spreadsheet. 
-2. From the `LSOA2011-population.xlsx` spreadsheet, cut (**Edit** -> **Cut**) all cells from columns **A** to **B** and rows **9 to 4,651** into this new spreadsheet. Row **4,651** denotes the end of the majority of the *Greater London* LSOAs.
+2. From the `LSOA2011-population.xlsx` spreadsheet, cut (**Edit** -> **Cut**) all cells from columns **A to B** and rows **9 to 4,651** into this new spreadsheet. Row **4,651** denotes the end of the majority of the *Greater London* LSOAs.
 3. Now we need to identify the missing LSOAs that were not kept at the top of the file with the other London LSOAs. Unfortunately, we can only do this manually by searching for the name of each of the London Boroughs and subsequently cutting the associated rows of data from the spreadsheet and pasting these into the second spreadsheet.
 4. Go to **Edit** -> **Find** -> **Find**. Type in **City of London**. Cut (**Edit** -> **Cut**) the two rows of data (*City of London 001F*, *City of London 001G*) and paste these at the bottom of the second spreadsheet. 
 5. Repeat this process to find all missing LSOAs by searching the names of all **32** London Boroughs (see @tbl-boroughs).
@@ -161,16 +161,15 @@ Be aware that depending on your operating system's language settings (e.g. Windo
 :::
 
 #### London population in 2021
-Now the 2011 data is prepared, we can move on to the 2021 data:
+Now the 2011 data is prepared, we can move on to the 2021 data. Open the `LSOA2021-population.xlsx` in Excel. You will notice that the file is formatted largely the same as the `LSOA2011-population.xlsx` file. However, this time the data for all Local Authority Districts are grouped together, with all data also grouped by region. This arrangement simplifies our task, as we can easily cut the data for each of the 32 Boroughs and the *City of London* in one go.
 
-1. Open the `LSOA2021-population.xlsx` in Excel. You will notice that the file is formatted largely the same as the `LSOA2011-population.xlsx` file. However, this time the data for all Local Authority Districts are grouped together, with all data also grouped by region. This arrangement simplifies our task, as we can easily cut the data for each of the 32 Boroughs and the *City of London* in one go.
-2. Open a new Excel spreadsheet. 
-3. From the `LSOA2021-population.xlsx` spreadsheet, cut (**Edit** -> **Cut**) all cells from columns **A** to **B** and rows **19,790 to 2,4783** and paste these into this new spreadsheet.
-4. Take the remaining steps to prepare the 2021 population steps: split the `lsoa` column, remove the trailing `whitespace` characters from the LSOA code column, and remove the decimal commas in the population count column.
-5. Save the file as `csv` into your `data` folder as `LSOA2021-population.csv` with the following column names: `lsoa21_code`, `lsoa21_name`, and `pop2021`. 
+1. Open a new Excel spreadsheet. 
+2. From the `LSOA2021-population.xlsx` spreadsheet, cut (**Edit** -> **Cut**) all cells from columns **A to B** and rows **19,790 to 2,4783** and paste these into this new spreadsheet.
+3. Take the remaining steps to prepare the 2021 population steps: split the `lsoa` column, remove the trailing `whitespace` characters from the LSOA code column, and remove the decimal commas in the population count column.
+4. Save the file as `csv` into your `data` folder as `LSOA2021-population.csv` with the following column names: `lsoa21_code`, `lsoa21_name`, and `pop2021`. 
 
 ::: {.callout-warning}
-Again make sure you did not miss any LSOAs. You should end up with **4,995** rows of data in your second spreadsheet.
+Again make sure you did not miss any LSOAs. You should end up with **4,995** rows of data in this second spreadsheet.
 :::
 
 ### Joining data
@@ -204,10 +203,11 @@ Next, we will load our 2011 population `csv`.
 knitr::include_graphics('images/w09/all-lsoa-london.png')
 ```
 
-We can now join this table data to our spatial data using an **Attribute Join**.
+We can now join this table data to our spatial data using an *attribute join*.
 
 ::: {.callout-note}
-An **Attribute Join** is one of two types of data joins used in spatial analysis (the other being a **Spatial Join**, which we will cover next week). An Attribute Join allows you to link two datasets together based on a common attribute that facilitates the matching of rows.
+An *atribute join* allows you to link two datasets together based on a common attribute that facilitates the matching of rows. To perform an attribute join, you need a single unique identifying field for your records in both datasets. This can be a code, a name, or any other string of information. For the join to work, it is essential that the ID field is consistent across both datasets, meaning there should be no typos or spelling mistakes. 
+
 
 ```{r} 
 #| label: fig-join-those-attributes
@@ -216,11 +216,9 @@ An **Attribute Join** is one of two types of data joins used in spatial analysis
 #| fig-cap: "Attribute Joins."
 knitr::include_graphics('images/w09/attribute-joins.png')
 ```
-
-To perform an Attribute Join, you need a single unique identifying field for your records in both datasets. This can be a code, a name, or any other string of information. For the join to work, it is essential that the ID field is consistent across both datasets, meaning there should be no typos or spelling mistakes. Computers follow strict instructions and do not recognise that `St. Thomas` in one dataset is the same as `St Thomas` in another. 
 :::
 
-While both our datasets contain both names (LSOA names) and codes (LSOA codes), we will always prefer to use the codes when creating the join. Unlike names, codes reduce the likelihood of errors and mismatches since they are not dependent on spelling.
+Because both our datasets contain both LSOA names and LSOA codes, we will use the LSOA codes as basis for our join. Unlike names, codes reduce the likelihood of errors and mismatches since they are not dependent on spelling.
 
 10. Open up the **Attribute Tables** of each layer to confirm the columnnames that we can use for the join.
 11. *Right-click* on your `LSOA2011` spatial layer, click on **Properties** and then click on the **Joins** tab. 
@@ -255,7 +253,7 @@ knitr::include_graphics('images/w09/lsoa-population-2011.png')
 ```
 
 ::: {.callout-warning}
-While the map above is acceptable for today, it is technically incorrect because it displays absolute numbers on a choropleth. This practice should never be used unless the spatial units are identical in size (e.g., a hexagonal tessellation), as larger areas will draw disproportionate attention and skew the visualisation.
+While the map above is acceptable for today, it is technically incorrect because it displays absolute numbers on a choropleth. This practice should never be used unless the spatial units are identical in size, as larger areas will draw disproportionate attention and skew the visualisation.
 :::
 
 To export your map to an image, click on **Project** -> **Import/Export** -> **Export to Image**.
