@@ -66,7 +66,7 @@ To get the 2021 Census population counts, you should:
 7. Click on **Download data** at the left hand side of the screen.
 8. Once the data is ready for download, save it to your computer in your `data` folder as `LSOA2021-population.xlsx`.
 
-### Cleaning data
+### Data preparation
 When opening the LSOA spreadsheets in Excel, you will notice additional rows of information at the top. This extra data can cause issues in QGIS, so we need to clean the dataset. To avoid errors later on, we will also save the cleaned data in `csv` format.
 
 #### London population in 2011
@@ -172,7 +172,7 @@ Now the 2011 data is prepared, we can move on to the 2021 data. Open the `LSOA20
 Again make sure you did not miss any LSOAs. You should end up with **4,995** rows of data in this second spreadsheet.
 :::
 
-### Joining data
+### Data merging
 We will now use QGIS to map our prepared population data. To achieve this, we first need to join our table data to our spatial datasets.
 
 1. Start **QGIS**.
@@ -193,7 +193,7 @@ Next, we will load our 2011 population `csv`.
 
 7. Click on **Layer** -> **Add Layer** -> **Add Delimited Text Layer**.
 8. Click on the three dots button again and navigate to the `London-LSOA-2011.csv` file in your `data` folder. Your file format should be set to `csv`. You should further have the following boxes ticked under the **Record and Field options** menu: `Decimal separator is comma`, `First record has field names`, `Detect field types` and `Discard empty fields`.
-9. Set the Geometry to *No geometry (attribute only table)* under the **Geometry Definition** menu. Then click **Add** and **Close**. You should now see a table added to your `Layers` pane.
+9. Set the Geometry to *No geometry (attribute only table)* under the **Geometry Definition** menu. Then click **Add** and **Close**. You should now see a table added to your *Layers* pane.
 
 ```{r}
 #| label: fig-lsoa-london
@@ -232,7 +232,7 @@ Because both our datasets contain both LSOA names and LSOA codes, we will use th
     
 We can now check to see if our join has worked by opening up the **Attribute Table** of our `LSOA2011` spatial layer. We should see that the spatial layer has a new **Population** field attached to it.
 
-### Mapping data
+### Data mapping
 We can now finally map the 2011 population distribution of London.
 
 12. *Right-click* on the `London-LSOA-2011` layer and click on **Properties** -> **Symbology**.

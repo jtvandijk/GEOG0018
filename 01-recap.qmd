@@ -521,7 +521,7 @@ To run the whole script:
 If a script gets stuck or you realise there is an error in your code, you may need to interrupt R. To do this, go to **Session** -> **Interrupt R**. If the interruption doesn't work, you might need to terminate and restart R.
 :::
 
-### Loading data
+### Data loading
 Next, we can load the `London-LSOA-AgeGroup.csv` file into R. 
 
 ```{r}
@@ -625,7 +625,7 @@ The code above uses a pipe function: `|>`. The pipe operator allows you to pass 
 You can inspect the results using the `View()` function. 
 :::
 
-### Exploring data
+### Data exploration
 Now that we have loaded and inspected our data, we can begin by examining its distribution. Let us take a look at the number of people aged 16 to 24 across London. This data is stored in the `aged_16_to_24_years` column.
 
 ```{r}
@@ -688,7 +688,7 @@ plot(lsoa_age$aged_16_to_24_years, lsoa_age$aged_50_years_and_over,
      xlab = 'Number of people aged between 16 and 24', ylab = 'Number of people aged 50 or over')
 ```
 
-### Subsetting data
+### Data filtering
 So far we have only looked at the dataset for London as a whole. So, let us zoom in to Camden by filtering our dataset:
 
 ```{r}
