@@ -137,19 +137,19 @@ To ensure that our analysis is both accurate and efficient, it is best to reproj
 5. You can now also remove the original `London-Crime-2021` dataset, only keeping the reprojected version.
 
 ### Data aggregation
-The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the `Count Points in Polygons` in the `Analysis` toolset to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a *crime rate* statistic.
+The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the **Count Points in Polygons** in the **Analysis** toolset to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a *crime rate* statistic.
 
 1. Click on **Vector** -> **Analysis Tools** -> **Count Points in Polygons**.
 2. Within the toolbox, select the parameters as follows:
     - **Polygons:** `London-Borough`
-    - **Points:** `London-Crime-2021` [Note how both our data layers state the same CRS.]
+    - **Points:** `London-Crime-2021-BNG` [Note how both our data layers state the same CRS.]
     - **Weight field:** *leave blank*
     - **Class field:** *leave blank*
     - **Count field names:** `theft2021`
     - Click on the three dot button and select **Save to GeoPackage:**.
     - Save the output as `London-Borough-Crime.gpkg`, with `London-Borough-Crime` as **Layer Name**.
 3. Click **Run** and **Close** the dialogue box. You should now see the `London-Borough-Crime` layer added to your *Layers* panel 
-4. Right-click on the `borough-London-Borough-Crime` layer and open the **Attribute Table**. If all went well, you should see a `theft2021` column next to your `pop2021` column.
+4. Right-click on the `London-Borough-Crime` layer and open the **Attribute Table**. If all went well, you should see a `theft2021` column next to your `pop2021` column.
 
 We can now calculate the crime rate:
 
@@ -221,8 +221,74 @@ On the left-hand side of the window, you will find buttons to add various print 
 
 On the right-hand side of the window, there are two sets of panels. The upper panel contains the *Items* and *Undo History* panels, while the lower panel includes *Layout*, *Item Properties*, and *Guides*. For our purposes today, we will focus on the bottom panel, as the *Layout* panel controls the overall appearance of our map, while the *Item Properties* panel allows us to customise elements such as titles and legends that we may add to our map.
 
-::: {.callout-tip}
+::: {.callout-note}
 Working with maps in the *Print Layout* is relatively straightforward, but it can become a bit fiddly, especially when creating more complex maps. To effectively manage your layout, it is important to understand features like locking items to prevent accidental changes. If you get stuck, have a look at the [training manual](https://docs.qgis.org/3.34/en/docs/training_manual/map_composer/map_composer.html) or the detailed [documentation](https://docs.qgis.org/3.34/en/docs/user_manual/print_composer/index.html). 
 :::
 
+To begin creating your map, use the **Add Map** tool to draw a box where a snapshot of the currently active map displayed in your QGIS main window will be loaded.
 
+
+::: {.callout-tip}
+When you hover your cursor over the icons in the *Print Layout* toolbox, the names of the tools will appear after about a second.
+:::
+
+1. Click on the **Add Map** tool and draw a box on your canvas to to load the map layers that are active in the main QGIS window. You can easily move and resize the map box by clicking on it and dragging the corners, just like you would in Word or similar applications.
+
+```{r}
+#| label: fig-map-layout
+#| echo: False 
+#| cache: True
+#| fig-cap: "Current active map in the *Print Layout*."
+knitr::include_graphics('images/w10/map-layout.png')
+```
+
+2. With your map selected, head to the **Items Properties** panel and look for the **Scale** parameter. 
+    - Here we can manually edit the **scale** of our map to find the right zoom level.
+    - Have a go at entering different values and see what level you thin suits the size of your map.
+    - If you need to move the position of the map within the box, look for the **Move Item Content** tool in the left-hand side toolbar.
+
+3. Click on the **Add Legend** tool and draw a box on your canvas where you want the legend to appear. You will notice that the legend automatically generates an entry for every layer in the Layers panel of the main QGIS application.
+    - In the **Item Properties**, uncheck `Auto update` to prevent QGIS from automatically populating your legend, allowing you to customise it instead.
+    - Next, remove all layers from the legend except for the `London-Borough-Crime` layer by clicking the `-` (minus) button.
+    - Finally, change the label of the legend to *Crime Rate (per 10,000 people)*.
+    - Move the legend to an appropriate position on the canvas - resize if necessary.
+
+::: {.callout-tip}
+You can further customise the legend’s appearance, including the type, size, and alignment of the font.
+:::
+
+4. Now that we have our two maps ready, we can add the main map elements using the tools in the left-hand toolbar:
+    - Add a scale bar: Use the **Item Properties** to adjust the style, number of segments, font, and other settings.
+    - Add a north arrow: Use the **North Arrow** tool to draw a box where you want the arrow to appear, then customise its appearance using the **Item Properties** panel.
+    - Create a title at the top of the page using the **Add Label** tool. You can format the title as needed.
+    - Finally add a box detailing the data sources that have been used: *Contains data from Office for National Statistics licensed under the Open Government Licence v.3.0. Contains Ordnance Survey data © Crown copyright and database right [2024]. Crime data obtained from data.police.uk (Open Government Licence).* You can again use the **Add Label** tool for this.
+  
+Once you have added these map elements, you should have a map canvas that could look something like this:  
+
+```{r}
+#| label: fig-final-map
+#| echo: False 
+#| cache: True
+#| fig-cap: "Crime rates across London Boroughs."
+knitr::include_graphics('images/w10/map-styled.png') 
+```
+
+The only remaining step is to export our map as an image. Navigate to **Layout** -> **Export as Image** and then save it as `London-Borough-2021-crime-rate.png`. 
+
+## Homework task 
+This concludes this week's tutorial. Now complete the following homework tasks:
+
+1. Load last week's `London-LSOA2021.gpkg` into QGIS.
+2. Aggregate the `London-Crime-2021-BNG.gpkg` point dataset to the 2021 London LSOAs using the **Count Points in Polygons** tool.
+3. Calculate the crime rate per `1000` people using the **Field Calculator**.
+4. Decide on an appropriate data classification and colour scheme.
+5. Create a publishable map that includes all essential map elements.
+6. Export your map as an image. 
+
+::: {.callout-warning}
+Paste the exported map into the appendix of your assignment, include a few sentences interpreting the results. Consider how different levels of aggregation that we have used affect your perception of the data.
+:::
+
+## Before you leave
+[That is us all done](https://www.youtube.com/watch?v=3wxyN3z9PL4). Remember to save your project. Perhaps time to focus on your final assignment?
+   

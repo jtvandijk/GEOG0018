@@ -253,7 +253,7 @@ knitr::include_graphics('images/w09/lsoa-population-2011.png')
 ```
 
 ::: {.callout-warning}
-While the map above is acceptable for today, it is technically incorrect because it displays absolute numbers on a choropleth. This practice should never be used unless the spatial units are identical in size, as larger areas will draw disproportionate attention and skew the visualisation.
+While the map above is acceptable for today, it is technically incorrect because it displays absolute numbers on a choropleth. You should never do this unless the spatial units are identical in size, as larger areas will draw disproportionate attention and skew the visualisation.
 :::
 
 To export your map to an image, click on **Project** -> **Import/Export** -> **Export to Image**.
@@ -265,11 +265,11 @@ This concludes this week's tutorial. Now complete the following homework tasks:
 2. Load the `LSOA2021-population.csv` into QGIS.
 3. Join the two datasets together using an **Attribute Join**.
 4. Style your data appropriately.
-5. Export your map as an image.
+5. Export your map as an image. 
 
 ::: {.callout-warning}
-Make sure to copy and paste the output of this week's homework task into the appendix of your assignment.  Additionally, include a few sentences interpreting the results. Are there are any noticeable changes in the population distribution between 2011 and 2021.
+Paste the exported map into the appendix of your assignment, include a few sentences interpreting the results. Consider whether there are any noticeable changes in the population distribution between 2011 and 2021.
 :::
 
 ## Before you leave
-This week we spent a lot of time preparing and cleaning our datasets, followed by a simple visualisation of the population in London in 2011 and 2021. Next week, we will move forward with working in QGIS and conduct some basic spatial analysis. For today, however, [we are done](https://www.youtube.com/watch?v=Wmc8bQoL-J0)!
+This week we spent a lot of time preparing and cleaning our datasets, followed by a simple visualisation of the population in London in 2011 and 2021. Next week, we will move forward with working in QGIS and conduct some point data aggregation. For today, however, [we are done](https://www.youtube.com/watch?v=Wmc8bQoL-J0)!

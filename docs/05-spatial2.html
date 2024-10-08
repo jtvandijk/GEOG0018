@@ -191,6 +191,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#data-aggregation" id="toc-data-aggregation" class="nav-link" data-scroll-target="#data-aggregation"><span class="header-section-number">5.3.2</span> Data aggregation</a></li>
   <li><a href="#data-mapping" id="toc-data-mapping" class="nav-link" data-scroll-target="#data-mapping"><span class="header-section-number">5.3.3</span> Data mapping</a></li>
   </ul></li>
+  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">5.4</span> Homework task</a></li>
+  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">5.5</span> Before you leave</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -406,13 +408,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="data-aggregation" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="data-aggregation"><span class="header-section-number">5.3.2</span> Data aggregation</h3>
-<p>The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the <code>Count Points in Polygons</code> in the <code>Analysis</code> toolset to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a <em>crime rate</em> statistic.</p>
+<p>The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the <strong>Count Points in Polygons</strong> in the <strong>Analysis</strong> toolset to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a <em>crime rate</em> statistic.</p>
 <ol type="1">
 <li>Click on <strong>Vector</strong> -&gt; <strong>Analysis Tools</strong> -&gt; <strong>Count Points in Polygons</strong>.</li>
 <li>Within the toolbox, select the parameters as follows:
 <ul>
 <li><strong>Polygons:</strong> <code>London-Borough</code></li>
-<li><strong>Points:</strong> <code>London-Crime-2021</code> [Note how both our data layers state the same CRS.]</li>
+<li><strong>Points:</strong> <code>London-Crime-2021-BNG</code> [Note how both our data layers state the same CRS.]</li>
 <li><strong>Weight field:</strong> <em>leave blank</em></li>
 <li><strong>Class field:</strong> <em>leave blank</em></li>
 <li><strong>Count field names:</strong> <code>theft2021</code></li>
@@ -420,7 +422,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Save the output as <code>London-Borough-Crime.gpkg</code>, with <code>London-Borough-Crime</code> as <strong>Layer Name</strong>.</li>
 </ul></li>
 <li>Click <strong>Run</strong> and <strong>Close</strong> the dialogue box. You should now see the <code>London-Borough-Crime</code> layer added to your <em>Layers</em> panel</li>
-<li>Right-click on the <code>borough-London-Borough-Crime</code> layer and open the <strong>Attribute Table</strong>. If all went well, you should see a <code>theft2021</code> column next to your <code>pop2021</code> column.</li>
+<li>Right-click on the <code>London-Borough-Crime</code> layer and open the <strong>Attribute Table</strong>. If all went well, you should see a <code>theft2021</code> column next to your <code>pop2021</code> column.</li>
 </ol>
 <p>We can now calculate the crime rate:</p>
 <ol start="5" type="1">
@@ -524,7 +526,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>On the left-hand side of the window, you will find buttons to add various print layout items, including the current QGIS map canvas, text labels, images, legends, scale bars, basic shapes, arrows, attribute tables, and HTML frames. This toolbar also includes buttons for navigation, allowing you to zoom in on specific areas and pan the view within the layout, as well as tools to select and move layout items.</p>
 <p>On the right-hand side of the window, there are two sets of panels. The upper panel contains the <em>Items</em> and <em>Undo History</em> panels, while the lower panel includes <em>Layout</em>, <em>Item Properties</em>, and <em>Guides</em>. For our purposes today, we will focus on the bottom panel, as the <em>Layout</em> panel controls the overall appearance of our map, while the <em>Item Properties</em> panel allows us to customise elements such as titles and legends that we may add to our map.</p>
-<div class="callout callout-style-simple callout-tip">
+<div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -534,9 +536,105 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-
-
+<p>To begin creating your map, use the <strong>Add Map</strong> tool to draw a box where a snapshot of the currently active map displayed in your QGIS main window will be loaded.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>When you hover your cursor over the icons in the <em>Print Layout</em> toolbox, the names of the tools will appear after about a second.</p>
+</div>
+</div>
+</div>
+<ol type="1">
+<li>Click on the <strong>Add Map</strong> tool and draw a box on your canvas to to load the map layers that are active in the main QGIS window. You can easily move and resize the map box by clicking on it and dragging the corners, just like you would in Word or similar applications.</li>
+</ol>
+<div class="cell" data-hash="05-spatial2_cache/html/fig-map-layout_26f8ebea4a354423edd5baf3feeb3541">
+<div class="cell-output-display">
+<div id="fig-map-layout" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/w10/map-layout.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;8: Current active map in the <em>Print Layout</em>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>With your map selected, head to the <strong>Items Properties</strong> panel and look for the <strong>Scale</strong> parameter.
+<ul>
+<li>Here we can manually edit the <strong>scale</strong> of our map to find the right zoom level.</li>
+<li>Have a go at entering different values and see what level you thin suits the size of your map.</li>
+<li>If you need to move the position of the map within the box, look for the <strong>Move Item Content</strong> tool in the left-hand side toolbar.</li>
+</ul></li>
+<li>Click on the <strong>Add Legend</strong> tool and draw a box on your canvas where you want the legend to appear. You will notice that the legend automatically generates an entry for every layer in the Layers panel of the main QGIS application.
+<ul>
+<li>In the <strong>Item Properties</strong>, uncheck <code>Auto update</code> to prevent QGIS from automatically populating your legend, allowing you to customise it instead.</li>
+<li>Next, remove all layers from the legend except for the <code>London-Borough-Crime</code> layer by clicking the <code>-</code> (minus) button.</li>
+<li>Finally, change the label of the legend to <em>Crime Rate (per 10,000 people)</em>.</li>
+<li>Move the legend to an appropriate position on the canvas - resize if necessary.</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>You can further customise the legend’s appearance, including the type, size, and alignment of the font.</p>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Now that we have our two maps ready, we can add the main map elements using the tools in the left-hand toolbar:
+<ul>
+<li>Add a scale bar: Use the <strong>Item Properties</strong> to adjust the style, number of segments, font, and other settings.</li>
+<li>Add a north arrow: Use the <strong>North Arrow</strong> tool to draw a box where you want the arrow to appear, then customise its appearance using the <strong>Item Properties</strong> panel.</li>
+<li>Create a title at the top of the page using the <strong>Add Label</strong> tool. You can format the title as needed.</li>
+<li>Finally add a box detailing the data sources that have been used: <em>Contains data from Office for National Statistics licensed under the Open Government Licence v.3.0. Contains Ordnance Survey data © Crown copyright and database right [2024]. Crime data obtained from data.police.uk (Open Government Licence).</em> You can again use the <strong>Add Label</strong> tool for this.</li>
+</ul></li>
+</ol>
+<p>Once you have added these map elements, you should have a map canvas that could look something like this:</p>
+<div class="cell" data-hash="05-spatial2_cache/html/fig-final-map_45dc9746b76af9c0387eb3d55c16ee94">
+<div class="cell-output-display">
+<div id="fig-final-map" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/w10/map-styled.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;9: Crime rates across London Boroughs.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The only remaining step is to export our map as an image. Navigate to <strong>Layout</strong> -&gt; <strong>Export as Image</strong> and then save it as <code>London-Borough-2021-crime-rate.png</code>.</p>
 </section>
+</section>
+<section id="homework-task" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">5.4</span> Homework task</h2>
+<p>This concludes this week’s tutorial. Now complete the following homework tasks:</p>
+<ol type="1">
+<li>Load last week’s <code>London-LSOA2021.gpkg</code> into QGIS.</li>
+<li>Aggregate the <code>London-Crime-2021-BNG.gpkg</code> point dataset to the 2021 London LSOAs using the <strong>Count Points in Polygons</strong> tool.</li>
+<li>Calculate the crime rate per <code>1000</code> people using the <strong>Field Calculator</strong>.</li>
+<li>Decide on an appropriate data classification and colour scheme.</li>
+<li>Create a publishable map that includes all essential map elements.</li>
+<li>Export your map as an image.</li>
+</ol>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Paste the exported map into the appendix of your assignment, include a few sentences interpreting the results. Consider how different levels of aggregation that we have used affect your perception of the data.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="before-you-leave" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">5.5</span> Before you leave</h2>
+<p><a href="https://www.youtube.com/watch?v=3wxyN3z9PL4">That is us all done</a>. Remember to save your project. Perhaps time to focus on your final assignment?</p>
+
+
 </section>
 </section>
 
