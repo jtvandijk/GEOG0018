@@ -71,7 +71,7 @@ Start RStudio, and copy and paste the following code into the **console** window
 #| tidy: True
 #| filename: "R code"
 # install packages
-install.packages(c('tidyverse', 'janitor','stargazer'))
+install.packages(c('tidyverse', 'janitor','easystats'))
 ```
 
 ::: callout-warning
@@ -92,7 +92,7 @@ Once you have installed the packages, we need to check whether we can in fact lo
 # load packages
 library(tidyverse)
 library(janitor)
-library(stargazer)
+library(easystats)
 ```
 
 You will see some information printed to your console but as long as you do not get any of the messages below, the installation was successful. If you do get any of the messages below it means that the package was not properly installed, so try to install the package in question again.
@@ -591,6 +591,7 @@ lsoa_age[1,1]
 Alternatively, you can access the data within individual columns by referring to their names using the `$` operator. This allows you to easily extract and work with a specific column without needing to know its position in the dataframe. For example, if your dataframe is named `dataframe` and you want to access a column named `age`, you would use `dataframe$age`. This method is especially useful when your data has many columns or when the column positions may change, because it relies on the column names rather than their index numbers.
 :::
 
+### Data manipulation
 Because all the data are stored in [long format](https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb), we need to transform the data to a [wide format](https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb). This means that instead of having multiple rows for an LSOA showing counts for different age groups, all the information for each LSOA will be consolidated into a single row. Additionally, we will clean up the column names to follow standard R naming conventions and make the data easier to work with. We can automate this process using the `janitor` package.
 
 We can do this as follows:
@@ -622,11 +623,34 @@ The code above uses a pipe function: `|>`. The pipe operator allows you to pass 
 :::
 
 ::: {.callout-tip}
-You can inspect the results using the `View()` function. 
+You can further inspect the results using the `View()` function. 
+:::
+
+The next step we should consider is standardising our data. A common issue with spatial data is that spatial units, such as Lower Super Output Areas (LSOAs), often vary in size, meaning some areas will have more residents than others. This variation makes it challenging to compare absolute counts fairly across different areas. To address this, we can first sum the counts across all age groups to find the total number of residents in each LSOA, and then calculate the proportion of people within each age group for a more balanced comparison.
+
+```{r}
+#| label: 01-calc-prop-data-age
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# calculate total population
+lsoa_age <- lsoa_age |>
+    rowwise() |>
+    mutate(lsoa_pop = sum(across(3:7)))
+
+# calculate proportions
+lsoa_age <- lsoa_age |>
+    mutate(across(3:7, ~./lsoa_pop))
+```
+
+::: {.callout-tip}
+You can further inspect the results using the `View()` function. 
 :::
 
 ### Data exploration
-Now that we have loaded and inspected our data, we can begin by examining its distribution. Let us take a look at the number of people aged 16 to 24 across London. This data is stored in the `aged_16_to_24_years` column.
+Now that we have loaded and inspected our data, we can start by analysing its distribution. We'll begin by examining the proportion of people aged 16 to 24 across London, using basic descriptive statistics such as the mean, median, and range. These measures will provide an overview of the central tendency and spread of the data. The relevant information is stored in the `aged_16_to_24_years` column.
 
 ```{r}
 #| label: 01-explore-data
@@ -648,7 +672,25 @@ range(lsoa_age$aged_16_to_24_years)
 summary(lsoa_age$aged_16_to_24_years)
 ```
 
-We can also call some functions to quickly draw a boxplot, histogram of frequencies, or, when combining different variables, a bivariate plot:
+Graphs provide a useful visual summary of the distribution of values on a variable. This can help us assess whether it is [normally distributed](https://en.wikipedia.org/wiki/Normal_distribution), whether there are *outlying* values, and whether there are any missing values or errors we should deal with before running our analyses. Histograms are a good first step when looking at the distribution of values on a variable. We can create a boxplot as follows:
+
+```{r}
+#| label: fig-01-plot-data-histogram
+#| fig-cap: Quick histogram.
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# histogram
+hist(lsoa_age$aged_16_to_24_years, breaks = 30, xlab = 'Number of LSOAs', main = 'Proportion of people aged between 16 and 24')
+```
+
+::: {.callout-note}
+A histogram is further useful for checking whether a variable is [normally distributed](https://en.wikipedia.org/wiki/Normal_distribution) because it visually displays the frequency of data points across different intervals. In a normal distribution, the histogram will show a symmetric bell-shaped curve, with most data points clustering around the mean and fewer points in the tails.
+:::
+
+Boxplots provide another method for examining the distribution of values in a continuous variable. The *box* itself represents the interquartile range (IQR), bounded by the lower quartile (Q1) and upper quartile (Q3), with the median displayed as a line inside the box. The *whiskers* extend 1.5 times the IQR above Q3 and below Q1, indicating the range within which most of the data lies, while any points outside this range are plotted as outliers. A boxplot can be created as follows:
 
 ```{r}
 #| label: fig-01-plot-data-boxplot
@@ -660,32 +702,6 @@ We can also call some functions to quickly draw a boxplot, histogram of frequenc
 #| filename: "R code"
 # boxplot 
 boxplot(lsoa_age$aged_16_to_24_years, horizontal = TRUE)
-```
-
-```{r}
-#| label: fig-01-plot-data-histogram
-#| fig-cap: Quick histogram.
-#| classes: styled-output
-#| echo: True
-#| eval: True
-#| tidy: True
-#| filename: "R code"
-# histogram
-hist(lsoa_age$aged_16_to_24_years, breaks = 50, xlab = 'Number of LSOAs', main = 'Number of people aged between 16 and 24')
-```
-
-
-```{r}
-#| label: fig-01-plot-data-bivariate
-#| fig-cap: Quick bivariate plot.
-#| classes: styled-output
-#| echo: True
-#| eval: True
-#| tidy: True
-#| filename: "R code"
-# bivariate plot
-plot(lsoa_age$aged_16_to_24_years, lsoa_age$aged_50_years_and_over, 
-     xlab = 'Number of people aged between 16 and 24', ylab = 'Number of people aged 50 or over')
 ```
 
 ### Data filtering
@@ -731,7 +747,7 @@ write_csv(x = lsoa_age_camden, file = 'data/Camden-LSOA-AgeGroup.csv')
 This concludes this week's tutorial. Now complete the following homework tasks:
 
 1. Filter the London LSOAs to any of the [London boroughs](https://en.wikipedia.org/wiki/London_boroughs) other than Camden.
-2. Create either a histogram or a boxplot showing the distribution of the number of people *aged 25 to 34 years*. Make sure to give your plot a clear title and label the axes appropriately for interpretation.
+2. Create either a histogram or a boxplot showing the distribution of the proportion of people *aged 25 to 34 years*. Make sure to give your plot a clear title and label the axes appropriately for interpretation.
 3. Save your visualisation as an image and paste the image into the appendix of your assignment, include a few sentences interpreting the results.
 
 ## Before you leave

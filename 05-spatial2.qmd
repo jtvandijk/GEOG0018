@@ -286,7 +286,7 @@ This concludes this week's tutorial. Now complete the following homework tasks:
 6. Export your map as an image. 
 
 ::: {.callout-warning}
-Paste the exported map into the appendix of your assignment, include a few sentences interpreting the results. Consider how different levels of aggregation that we have used affect your perception of the data.
+Paste the exported map into the appendix of your assignment, include a few sentences interpreting the results. Consider how different levels of aggregation that we have used affect your perception of theft rates in London.
 :::
 
 ## Before you leave
