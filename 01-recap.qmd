@@ -626,7 +626,7 @@ The code above uses a pipe function: `|>`. The pipe operator allows you to pass 
 You can further inspect the results using the `View()` function. 
 :::
 
-The next step we should consider is standardising our data. A common issue with spatial data is that spatial units, such as Lower Super Output Areas (LSOAs), often vary in size, meaning some areas will have more residents than others. This variation makes it challenging to compare absolute counts fairly across different areas. To address this, we can first sum the counts across all age groups to find the total number of residents in each LSOA, and then calculate the proportion of people within each age group for a more balanced comparison.
+The next step we should consider is standardising our data. A common issue with spatial data is that spatial units, such as Lower Super Output Areas (LSOAs), often vary in size, meaning some areas will have more residents than others. This variation makes it challenging to compare absolute counts fairly across different areas. To address this, we can first sum the counts across all age groups to get the total number of residents in each LSOA, and then calculate the proportion of people within each age group by dividing the counts by the total number of people in each LSOA.
 
 ```{r}
 #| label: 01-calc-prop-data-age
@@ -650,7 +650,7 @@ You can further inspect the results using the `View()` function.
 :::
 
 ### Data exploration
-Now that we have loaded and inspected our data, we can start by analysing its distribution. We'll begin by examining the proportion of people aged 16 to 24 across London, using basic descriptive statistics such as the mean, median, and range. These measures will provide an overview of the central tendency and spread of the data. The relevant information is stored in the `aged_16_to_24_years` column.
+Now that we have loaded and inspected our data, we can start by analysing its distribution. We will begin by examining the proportion of people *aged 16 to 24* across London, using basic descriptive statistics such as the mean, median, and range. These measures will give us an idea of the central tendency and spread of the data. The relevant information is stored in the `aged_16_to_24_years` column.
 
 ```{r}
 #| label: 01-explore-data
@@ -672,7 +672,7 @@ range(lsoa_age$aged_16_to_24_years)
 summary(lsoa_age$aged_16_to_24_years)
 ```
 
-Graphs provide a useful visual summary of the distribution of values on a variable. This can help us assess whether it is [normally distributed](https://en.wikipedia.org/wiki/Normal_distribution), whether there are *outlying* values, and whether there are any missing values or errors we should deal with before running our analyses. Histograms are a good first step when looking at the distribution of values on a variable. We can create a boxplot as follows:
+Further to these standard descriptive statistics, graphs provide a useful visual summary of the distribution of values on a variable. Graphs can help us assess, for instance, whether it our data are [normally distributed](https://en.wikipedia.org/wiki/Normal_distribution), whether there are *outlying* values, and whether there are any missing values or errors we should deal with before running our analyses. Histograms are a good first step when it comes to looking at the distribution of values of a variable. We can create a histogram as follows:
 
 ```{r}
 #| label: fig-01-plot-data-histogram
@@ -723,7 +723,7 @@ head(lsoa_age_camden)
 ```
 
 ::: {.callout-tip}
-The `str_detect()` function searches for a substring within a larger string and returns a logical value indicating whether the searched text is present. In turn, te `filter()` function uses this to subset the dataset.
+The `str_detect()` function searches for a *substring* within a larger string and returns a logical value indicating whether the searched text is present. In turn, te `filter()` function uses this to subset the dataset.
 :::
 
 ::: {.callout-tip}

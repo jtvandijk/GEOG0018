@@ -1083,7 +1083,7 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 </div>
 </div>
-<p>The next step we should consider is standardising our data. A common issue with spatial data is that spatial units, such as Lower Super Output Areas (LSOAs), often vary in size, meaning some areas will have more residents than others. This variation makes it challenging to compare absolute counts fairly across different areas. To address this, we can first sum the counts across all age groups to find the total number of residents in each LSOA, and then calculate the proportion of people within each age group for a more balanced comparison.</p>
+<p>The next step we should consider is standardising our data. A common issue with spatial data is that spatial units, such as Lower Super Output Areas (LSOAs), often vary in size, meaning some areas will have more residents than others. This variation makes it challenging to compare absolute counts fairly across different areas. To address this, we can first sum the counts across all age groups to get the total number of residents in each LSOA, and then calculate the proportion of people within each age group by dividing the counts by the total number of people in each LSOA.</p>
 <div class="cell styled-output" data-hash="01-recap_cache/html/01-calc-prop-data-age_a1f30d49e096ce9ca05b134227134d96">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1112,7 +1112,7 @@ dbl (2): Age (5 categories) Code, Observation
 </section>
 <section id="data-exploration" class="level3" data-number="1.6.3">
 <h3 data-number="1.6.3" class="anchored" data-anchor-id="data-exploration"><span class="header-section-number">1.6.3</span> Data exploration</h3>
-<p>Now that we have loaded and inspected our data, we can start by analysing its distribution. We’ll begin by examining the proportion of people aged 16 to 24 across London, using basic descriptive statistics such as the mean, median, and range. These measures will provide an overview of the central tendency and spread of the data. The relevant information is stored in the <code>aged_16_to_24_years</code> column.</p>
+<p>Now that we have loaded and inspected our data, we can start by analysing its distribution. We will begin by examining the proportion of people <em>aged 16 to 24</em> across London, using basic descriptive statistics such as the mean, median, and range. These measures will give us an idea of the central tendency and spread of the data. The relevant information is stored in the <code>aged_16_to_24_years</code> column.</p>
 <div class="cell styled-output" data-hash="01-recap_cache/html/01-explore-data_8e7688ae3959116d2a3503c9baf57090">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1141,7 +1141,7 @@ dbl (2): Age (5 categories) Code, Observation
 0.03403 0.08679 0.10364 0.11013 0.12420 0.59243 </code></pre>
 </div>
 </div>
-<p>Graphs provide a useful visual summary of the distribution of values on a variable. This can help us assess whether it is <a href="https://en.wikipedia.org/wiki/Normal_distribution">normally distributed</a>, whether there are <em>outlying</em> values, and whether there are any missing values or errors we should deal with before running our analyses. Histograms are a good first step when looking at the distribution of values on a variable. We can create a boxplot as follows:</p>
+<p>Further to these standard descriptive statistics, graphs provide a useful visual summary of the distribution of values on a variable. Graphs can help us assess, for instance, whether it our data are <a href="https://en.wikipedia.org/wiki/Normal_distribution">normally distributed</a>, whether there are <em>outlying</em> values, and whether there are any missing values or errors we should deal with before running our analyses. Histograms are a good first step when it comes to looking at the distribution of values of a variable. We can create a histogram as follows:</p>
 <div class="cell styled-output" data-hash="01-recap_cache/html/fig-01-plot-data-histogram_8b3fa00298a2afc3a47f186ffa7c4d10">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1226,7 +1226,7 @@ dbl (2): Age (5 categories) Code, Observation
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>The <code>str_detect()</code> function searches for a substring within a larger string and returns a logical value indicating whether the searched text is present. In turn, te <code>filter()</code> function uses this to subset the dataset.</p>
+<p>The <code>str_detect()</code> function searches for a <em>substring</em> within a larger string and returns a logical value indicating whether the searched text is present. In turn, te <code>filter()</code> function uses this to subset the dataset.</p>
 </div>
 </div>
 </div>

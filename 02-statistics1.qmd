@@ -24,7 +24,7 @@ In this tutorial, we will explore unemployment rates in London as reported in th
 To download a `csv` file that is hosted on GitHub, click on the `Download raw file` button on the top right of your screen and it should download directly to your computer.
 :::
 
-To get started, let us create a new script. **File** -> **New File** -> **R Script**. Save your script as `w07-age-employment-analysis.r`. 
+To get started, open your `GEOG0018` **R Project**. Create a new script. **File** -> **New File** -> **R Script**. Save your script as `w07-age-employment-analysis.r`. 
 
 We will start by loading the libraries that we will need:
 
