@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -83,12 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -97,7 +92,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -115,13 +109,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-recap.html">Statistical Analysis</a></li><li class="breadcrumb-item"><a href="./01-recap.html">R for Data Analysis</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-recap.html">Statistical Analysis</a></li><li class="breadcrumb-item"><a href="./01-recap.html">R for Data Analysis</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -130,13 +124,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./assets/logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/jtvandijk/GEOG0018" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/jtvandijk/GEOG0018" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
     <div id="quarto-search" class="quarto-navigation-tool px-1" title="Search"></div>
 </div>
@@ -145,9 +139,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Module overview</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -162,9 +156,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Statistical Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -172,28 +166,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-recap.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">R for Data Analysis</span></a>
+ <span class="menu-text">1 R for Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-statistics1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistical Analysis I</span></a>
+ <span class="menu-text">2 Statistical Analysis I</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-statistics2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistical Analysis II</span></a>
+ <span class="menu-text">3 Statistical Analysis II</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Spatial Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -201,13 +195,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-spatial1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial Analysis I</span></a>
+ <span class="menu-text">4 Spatial Analysis I</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-spatial2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial Analysis II</span></a>
+ <span class="menu-text">5 Spatial Analysis II</span></a>
   </div>
 </li>
       </ul>
@@ -215,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -248,11 +242,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">1.8</span> Before you leave</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
-
 
 
 
@@ -304,23 +297,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>After this, start <strong>RStudio</strong> to see if the installation was successful. Your screen should look something like what is shown in <a href="#fig-rstudio-interface" class="quarto-xref">Figure&nbsp;1</a>.</p>
-<div class="cell">
+<p>After this, start <strong>RStudio</strong> to see if the installation was successful. Your screen should look something like what is shown in <a href="#fig-rstudio-interface">Figure&nbsp;1</a>.</p>
+<div class="cell" data-hash="01-recap_cache/html/fig-rstudio-interface_6d849ee6a7d5d22ad1698caa67da1a3b">
 <div class="cell-output-display">
-<div id="fig-rstudio-interface" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-rstudio-interface-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/w06/rstudio-interface.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rstudio-interface-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The RStudio interface.
-</figcaption>
+<div id="fig-rstudio-interface" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/w06/rstudio-interface.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: The RStudio interface.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>The main windows that we will be using are:</p>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 22%">
 <col style="width: 77%">
@@ -355,7 +344,7 @@ Figure&nbsp;1: The RStudio interface.
 <h2 data-number="1.4" class="anchored" data-anchor-id="customisation-of-r"><span class="header-section-number">1.4</span> Customisation of R</h2>
 <p>Now we have installed R and RStudio, we need to customise R. Many useful R functions come in packages, these are free libraries of code written and made available by other R users. This includes packages specifically developed for data cleaning, data wrangling, visualisation, mapping, and spatial analysis. To save us some time, we will install the R packages that we will need during the module in one go.</p>
 <p>Start RStudio, and copy and paste the following code into the <strong>console</strong> window. You can execute the code by pressing the <strong>Return</strong> button on your keyboard. Depending on your computer’s specifications and the internet connection, this may take a short while.</p>
-<div class="cell" data-warnings="true">
+<div class="cell" data-warnings="true" data-hash="01-recap_cache/html/01-install-libaries_ec1d6add286e76bfb7b77d52ad77e103">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -375,7 +364,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 </div>
 <p>Once you have installed the packages, we need to check whether we can in fact load them into R. Copy and paste the following code into the <strong>console</strong>, and execute by pressing <strong>Return</strong> on your keyboard again.</p>
-<div class="cell" data-warnings="true" data-verbose="true">
+<div class="cell" data-warnings="true" data-verbose="true" data-hash="01-recap_cache/html/01-load-libaries_4a3c4a36ddfbc818655eba1784143e43">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -418,7 +407,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 </div>
 <p>At its core, every programming language can be used as a powerful calculator. Type in <code>10 * 12</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-math1_2ae66f7f34175cd9352a00c6ede4f731">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -435,7 +424,7 @@ Figure&nbsp;1: The RStudio interface.
 <h3 data-number="1.5.1" class="anchored" data-anchor-id="storing-variables"><span class="header-section-number">1.5.1</span> Storing variables</h3>
 <p>Instead of using raw numbers or standalone values, it is more effective to store these values in variables, which allows for easy reference later. In R, this process is known as <strong>creating an object</strong>, and the object is stored as a variable. To assign a value to a variable, use the <code>&lt;-</code> syntax. Let us create two variables to experiment with this</p>
 <p>Type in <code>ten &lt;- 10</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-math2_2f3f7e9588dd3390d0b15d29ec9f7169">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -446,7 +435,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>You will see nothing is returned in the console. However, if you check your <strong>environment</strong> window, you will see that a new variable has appeared, containing the value you assigned.</p>
 <p>Type in <code>twelve &lt;- 12</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-math3_bdc499f92701b727f89de10b650c4c20">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -457,7 +446,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>Again, nothing will be returned to the console, but be sure to check your environment window for the newly created variable. We have now stored two numbers in our environment and assigned them variable names for easy reference. R stores these objects as variables in your computer’s <a href="https://en.wikipedia.org/wiki/Random-access_memory">RAM memory</a>, allowing for quick processing. Keep in mind that without saving your environment, these variables will be lost when you close R and you would need to run your code again.</p>
 <p>Now that we have our variables, let us proceed with a simple multiplication. Type in <code>ten * twelve</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-math4_63336e1197bc4d6739e96c5e8116e0b1">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -471,7 +460,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>You should see the output in the console of <code>120</code>. While this calculation may seem trivial, it demonstrates a powerful concept: these variables can be treated just like the values they contain.</p>
 <p>Next, type in <code>ten * twelve * 8</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-math5_baf6daa6890cc8f1b90d64f3043e8914">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -485,7 +474,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>You should get an answer of <code>960</code>. As you can see, we can mix variables with raw values without any problems. We can also store the output of variable calculations as a new variable.</p>
 <p>Type <code>output &lt;- ten * twelve * 8</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-math6_c033ddbd8fb7a971007e43f806db9f53">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -499,7 +488,7 @@ Figure&nbsp;1: The RStudio interface.
 <section id="accessing-variables" class="level3" data-number="1.5.2">
 <h3 data-number="1.5.2" class="anchored" data-anchor-id="accessing-variables"><span class="header-section-number">1.5.2</span> Accessing variables</h3>
 <p>We can ask R to return the value of the <code>output</code> variable by simply typing its name into the console. You should see that it returns the same value as the earlier calculation.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-math7_fbea7535f7942f07ecfb5b2fb20c3fb6">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -516,7 +505,7 @@ Figure&nbsp;1: The RStudio interface.
 <h3 data-number="1.5.3" class="anchored" data-anchor-id="text-variables"><span class="header-section-number">1.5.3</span> Text variables</h3>
 <p>We can also store variables of different data types, not just numbers but text as well.</p>
 <p>Type in <code>str_variable &lt;- "Hello GEOG0018"</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-str1_b10cf5a1a42e75a1078d780245264f10">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -527,7 +516,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>We have just stored our sentence made from a combination of characters. A variable that stores text is known as a string or character variable. These variables are always denoted by the use of single (<code>''</code>) or double (<code>""</code>) quotation marks.</p>
 <p>Type in <code>str_variable</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-str2_9b26dddd7be98c76c2d198fdd77ccf38">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -545,7 +534,7 @@ Figure&nbsp;1: The RStudio interface.
 <h3 data-number="1.5.4" class="anchored" data-anchor-id="calling-functions"><span class="header-section-number">1.5.4</span> Calling functions</h3>
 <p>We can call functions on our variable. For example, we can ask R to <strong>print</strong> our variable, which will give us the same output as accessing it directly via the console.</p>
 <p>Type in <code>print(str_variable)</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-str3_d897aa1a1e7a2daf760e0b66972a4880">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -567,7 +556,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 </div>
 </div>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-str4_d415845521157f36b1f886ab965b4f4d">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -591,7 +580,7 @@ Figure&nbsp;1: The RStudio interface.
 <h3 data-number="1.5.5" class="anchored" data-anchor-id="inspecting-variables"><span class="header-section-number">1.5.5</span> Inspecting variables</h3>
 <p>Within the base R language, there are various functions that have been written to help us examine and find out information about our variables. For example, we can use the <code>typeof()</code> function to check what data type our variable is.</p>
 <p>Type in <code>typeof(str_variable)</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-str5_ce4bd4c3497f1fafcdf7c1977f50d13d">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -605,7 +594,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>You should see the answer: <code>character</code>. As evident, our <code>str_variable</code> is a <code>character</code> data type. We can try testing this out on one of our earlier variables too.</p>
 <p>Type in <code>typeof(ten)</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-str6_8ef1481f3c458bb93089d6026dac74d1">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -619,7 +608,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>You should see the answer: <code>double</code>. Alternatively, we can check the <code>class</code> of a variable by using the <code>class()</code> function.</p>
 <p>Type in <code>class(str_variable)</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-str7_9eb783af761c1a9d9c0bfd45f36b7ffd">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -633,7 +622,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>In this case, you will see the same result as before because, in R, both the <code>class</code> and <code>type</code> of a <code>string</code> are <code>character</code>. Other programming languages might use the term <code>string</code> instead, but it essentially means the same thing.</p>
 <p>Type in <code>class(ten)</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-str8_e03331dedb024d803ecd8ac3b1b33a23">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -647,7 +636,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>In this case, you will get a different result because the <code>class</code> of this variable is <code>numeric</code>. Numeric objects in R can be either <code>doubles</code> (decimals) or <code>integers</code> (whole numbers). You can test whether the <code>ten</code> variable is an integer by using specific functions designed for this purpose.</p>
 <p>Type in <code>is.integer(ten)</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-var1_a158d5e00acb809e17f24277a8c315e2">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -672,7 +661,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>We can also check the length of our a variable.</p>
 <p>Type in <code>length(str_variable)</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-var2_f7c4f3f98c4aa204c5407de112be6a58">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -686,7 +675,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>You should get the answer <code>1</code> because we only have one <em>set</em> of characters. We can also determine the length of each set of characters, which tells us the length of the string contained in the variable.</p>
 <p>Type in <code>nchar(str_variable)</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-var3_eaccba061eb77d8544c5166e77828d80">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -703,7 +692,7 @@ Figure&nbsp;1: The RStudio interface.
 <section id="creating-multi-value-objects" class="level3" data-number="1.5.6">
 <h3 data-number="1.5.6" class="anchored" data-anchor-id="creating-multi-value-objects"><span class="header-section-number">1.5.6</span> Creating multi-value objects</h3>
 <p>Variables are not constricted to one value, but can be combined to create larger objects. Type in <code>two_str_variable &lt;- c("This is our second variable", "It has two parts to it")</code> into the console and execute.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-var4_780149baacece33a0ed1239bab5184a8">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -714,7 +703,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>In this code, we have created a new variable using the <code>c()</code> function, which combines values into a <code>vector</code> or <code>list</code>. We provided the <code>c()</code> function with two sets of strings, separated by a comma and enclosed within the function’s parentheses.</p>
 <p>Let us now try both our <code>length()</code> and <code>nchar()</code> on our new variable and see what the results are:</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-var5_3c6944caf921b41603c3a4ec334f42d5">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -744,7 +733,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>Extending the concept of multi-value objects to two dimensions results in a <code>dataframe.</code> A dataframe is the <em>de facto</em> data structure for most tabular data. We will use functions from the <code>tidyverse</code> library, a suite of packages to load a data file and conduct exploratory data analysis.</p>
 <p>Within the <code>tidyverse</code>, <code>dataframes</code> are referred to as <code>tibbles.</code> Some of the most important and useful functions come from the <code>tidyr</code> and <code>dplyr</code> packages, including:</p>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 16%">
 <col style="width: 25%">
@@ -843,7 +832,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 </div>
 </div>
-<table class="caption-top table">
+<table class="table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">File</th>
@@ -871,7 +860,7 @@ Figure&nbsp;1: The RStudio interface.
 </div>
 <p>To get started, let us create our first script. <strong>File</strong> -&gt; <strong>New File</strong> -&gt; <strong>R Script</strong>. Save your script as <code>w06-age-group-analysis.r</code>.</p>
 <p>We will start by loading the libraries that we will need:</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-load-libraries_eb7db3af1290906a2ff89090ad90f1fe">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -905,7 +894,7 @@ Figure&nbsp;1: The RStudio interface.
 <section id="data-loading" class="level3" data-number="1.6.1">
 <h3 data-number="1.6.1" class="anchored" data-anchor-id="data-loading"><span class="header-section-number">1.6.1</span> Data loading</h3>
 <p>Next, we can load the <code>London-LSOA-AgeGroup.csv</code> file into R.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-load-data_38fc309b77ff8ab01a0d46edc0bac999">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -935,7 +924,7 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 </div>
 <p>Let us have a look at the dataframe:</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-inspect-data_7c02f8e66cc96edaa774a6a90892a264">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -996,7 +985,7 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 </div>
 </div>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-index-data_fa258238f8bd1a27dc184e2aeef09efa">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -1055,7 +1044,7 @@ dbl (2): Age (5 categories) Code, Observation
 <h3 data-number="1.6.2" class="anchored" data-anchor-id="data-manipulation"><span class="header-section-number">1.6.2</span> Data manipulation</h3>
 <p>Because all the data are stored in <a href="https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb">long format</a>, we need to transform the data to a <a href="https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb">wide format</a>. This means that instead of having multiple rows for an LSOA showing counts for different age groups, all the information for each LSOA will be consolidated into a single row. Additionally, we will clean up the column names to follow standard R naming conventions and make the data easier to work with. We can automate this process using the <code>janitor</code> package.</p>
 <p>We can do this as follows:</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-reformat-data-age_587ca802cd886f2e3c31017f11785877">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -1095,7 +1084,7 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 </div>
 <p>The next step we should consider is standardising our data. A common issue with spatial data is that spatial units, such as Lower Super Output Areas (LSOAs), often vary in size, meaning some areas will have more residents than others. This variation makes it challenging to compare absolute counts fairly across different areas. To address this, we can first sum the counts across all age groups to find the total number of residents in each LSOA, and then calculate the proportion of people within each age group for a more balanced comparison.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-calc-prop-data-age_a1f30d49e096ce9ca05b134227134d96">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -1124,7 +1113,7 @@ dbl (2): Age (5 categories) Code, Observation
 <section id="data-exploration" class="level3" data-number="1.6.3">
 <h3 data-number="1.6.3" class="anchored" data-anchor-id="data-exploration"><span class="header-section-number">1.6.3</span> Data exploration</h3>
 <p>Now that we have loaded and inspected our data, we can start by analysing its distribution. We’ll begin by examining the proportion of people aged 16 to 24 across London, using basic descriptive statistics such as the mean, median, and range. These measures will provide an overview of the central tendency and spread of the data. The relevant information is stored in the <code>aged_16_to_24_years</code> column.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-explore-data_8e7688ae3959116d2a3503c9baf57090">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -1153,7 +1142,7 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 </div>
 <p>Graphs provide a useful visual summary of the distribution of values on a variable. This can help us assess whether it is <a href="https://en.wikipedia.org/wiki/Normal_distribution">normally distributed</a>, whether there are <em>outlying</em> values, and whether there are any missing values or errors we should deal with before running our analyses. Histograms are a good first step when looking at the distribution of values on a variable. We can create a boxplot as follows:</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/fig-01-plot-data-histogram_8b3fa00298a2afc3a47f186ffa7c4d10">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -1162,14 +1151,10 @@ dbl (2): Age (5 categories) Code, Observation
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">xlab =</span> <span class="st">"Number of LSOAs"</span>, <span class="at">main =</span> <span class="st">"Proportion of people aged between 16 and 24"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output-display">
-<div id="fig-01-plot-data-histogram" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-01-plot-data-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-recap_files/figure-html/fig-01-plot-data-histogram-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-01-plot-data-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Quick histogram.
-</figcaption>
+<div id="fig-01-plot-data-histogram" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="01-recap_files/figure-html/fig-01-plot-data-histogram-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Quick histogram.</figcaption>
 </figure>
 </div>
 </div>
@@ -1185,7 +1170,7 @@ Figure&nbsp;2: Quick histogram.
 </div>
 </div>
 <p>Boxplots provide another method for examining the distribution of values in a continuous variable. The <em>box</em> itself represents the interquartile range (IQR), bounded by the lower quartile (Q1) and upper quartile (Q3), with the median displayed as a line inside the box. The <em>whiskers</em> extend 1.5 times the IQR above Q3 and below Q1, indicating the range within which most of the data lies, while any points outside this range are plotted as outliers. A boxplot can be created as follows:</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/fig-01-plot-data-boxplot_5d45d66f2a1485e65716d8e1213c51cb">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -1194,14 +1179,10 @@ Figure&nbsp;2: Quick histogram.
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output-display">
-<div id="fig-01-plot-data-boxplot" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-01-plot-data-boxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-recap_files/figure-html/fig-01-plot-data-boxplot-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-01-plot-data-boxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Quick boxplot.
-</figcaption>
+<div id="fig-01-plot-data-boxplot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="01-recap_files/figure-html/fig-01-plot-data-boxplot-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Quick boxplot.</figcaption>
 </figure>
 </div>
 </div>
@@ -1210,7 +1191,7 @@ Figure&nbsp;3: Quick boxplot.
 <section id="data-filtering" class="level3" data-number="1.6.4">
 <h3 data-number="1.6.4" class="anchored" data-anchor-id="data-filtering"><span class="header-section-number">1.6.4</span> Data filtering</h3>
 <p>So far we have only looked at the dataset for London as a whole. So, let us zoom in to Camden by filtering our dataset:</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-filter-data_04492384ce06a1e2dfc9c46afdbe65bf">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -1260,7 +1241,7 @@ Figure&nbsp;3: Quick boxplot.
 </div>
 </div>
 <p>We can save this dataset so that we can easily load it the next time we want to work with this by writing it to a <code>csv</code> file.</p>
-<div class="cell styled-output">
+<div class="cell styled-output" data-hash="01-recap_cache/html/01-write-csv_d9f4060e6f792664404f7f7cdb8ff534">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
@@ -1342,33 +1323,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -1435,15 +1389,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1478,7 +1430,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1510,50 +1473,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1563,17 +1487,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1585,130 +1500,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -1752,7 +1544,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1778,32 +1569,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1865,12 +1630,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./00-index.html" class="pagination-link" aria-label="Welcome">
+      <a href="./00-index.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-statistics1.html" class="pagination-link" aria-label="Statistical Analysis I">
+      <a href="./02-statistics1.html" class="pagination-link">
         <span class="nav-page-text">Statistical Analysis I</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1881,15 +1646,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">
-<p>Course material by <a href="https://www.mappingdutchman.com">Justin van Dijk</a>. Available under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-center">Course material by <a href="https://www.mappingdutchman.com">Justin van Dijk</a>. Available under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-
 
 
 

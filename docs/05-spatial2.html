@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -48,12 +48,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -62,7 +57,6 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -80,13 +74,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-spatial1.html">Spatial Analysis</a></li><li class="breadcrumb-item"><a href="./05-spatial2.html">Spatial Analysis II</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-spatial1.html">Spatial Analysis</a></li><li class="breadcrumb-item"><a href="./05-spatial2.html">Spatial Analysis II</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -95,13 +89,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./assets/logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/jtvandijk/GEOG0018" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/jtvandijk/GEOG0018" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
     <div id="quarto-search" class="quarto-navigation-tool px-1" title="Search"></div>
 </div>
@@ -110,9 +104,9 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Module overview</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -127,9 +121,9 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Statistical Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -137,28 +131,28 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-recap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R for Data Analysis</span></a>
+ <span class="menu-text">1 R for Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-statistics1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistical Analysis I</span></a>
+ <span class="menu-text">2 Statistical Analysis I</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-statistics2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Statistical Analysis II</span></a>
+ <span class="menu-text">3 Statistical Analysis II</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Spatial Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -166,13 +160,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-spatial1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Spatial Analysis I</span></a>
+ <span class="menu-text">4 Spatial Analysis I</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-spatial2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Spatial Analysis II</span></a>
+ <span class="menu-text">5 Spatial Analysis II</span></a>
   </div>
 </li>
       </ul>
@@ -180,44 +174,43 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#spatial-analysis-ii" id="toc-spatial-analysis-ii" class="nav-link active" data-scroll-target="#spatial-analysis-ii"><span class="header-section-number">1</span> Spatial Analysis II</a>
+  <li><a href="#spatial-analysis-ii" id="toc-spatial-analysis-ii" class="nav-link active" data-scroll-target="#spatial-analysis-ii"><span class="header-section-number">5</span> Spatial Analysis II</a>
   <ul class="collapse">
-  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides"><span class="header-section-number">1.1</span> Lecture slides</a></li>
-  <li><a href="#reading-list" id="toc-reading-list" class="nav-link" data-scroll-target="#reading-list"><span class="header-section-number">1.2</span> Reading list</a></li>
-  <li><a href="#crime-in-london" id="toc-crime-in-london" class="nav-link" data-scroll-target="#crime-in-london"><span class="header-section-number">1.3</span> Crime in London</a>
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides"><span class="header-section-number">5.1</span> Lecture slides</a></li>
+  <li><a href="#reading-list" id="toc-reading-list" class="nav-link" data-scroll-target="#reading-list"><span class="header-section-number">5.2</span> Reading list</a></li>
+  <li><a href="#crime-in-london" id="toc-crime-in-london" class="nav-link" data-scroll-target="#crime-in-london"><span class="header-section-number">5.3</span> Crime in London</a>
   <ul class="collapse">
-  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation"><span class="header-section-number">1.3.1</span> Data preparation</a></li>
-  <li><a href="#data-aggregation" id="toc-data-aggregation" class="nav-link" data-scroll-target="#data-aggregation"><span class="header-section-number">1.3.2</span> Data aggregation</a></li>
-  <li><a href="#data-mapping" id="toc-data-mapping" class="nav-link" data-scroll-target="#data-mapping"><span class="header-section-number">1.3.3</span> Data mapping</a></li>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation"><span class="header-section-number">5.3.1</span> Data preparation</a></li>
+  <li><a href="#data-aggregation" id="toc-data-aggregation" class="nav-link" data-scroll-target="#data-aggregation"><span class="header-section-number">5.3.2</span> Data aggregation</a></li>
+  <li><a href="#data-mapping" id="toc-data-mapping" class="nav-link" data-scroll-target="#data-mapping"><span class="header-section-number">5.3.3</span> Data mapping</a></li>
   </ul></li>
-  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">1.4</span> Homework task</a></li>
-  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">1.5</span> Before you leave</a></li>
+  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">5.4</span> Homework task</a></li>
+  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">5.5</span> Before you leave</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-
 <section id="spatial-analysis-ii" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Spatial Analysis II</h1>
+<h1 data-number="1"><span class="header-section-number">5</span> Spatial Analysis II</h1>
 <p>Building on last week’s introduction to creating thematic maps in <a href="https://qgis.org/">QGIS</a>, this week we take it a step further by conducting some basic spatial analysis. Our focus will be on aggregating point event data (such as crime incidents) to administrative geographies and then mapping the aggregated results.</p>
 <section id="lecture-slides" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="lecture-slides"><span class="header-section-number">1.1</span> Lecture slides</h2>
+<h2 data-number="1.1" class="anchored" data-anchor-id="lecture-slides"><span class="header-section-number">5.1</span> Lecture slides</h2>
 <p>You can download the slides of this week’s lecture here: <a href="https://github.com/jtvandijk/GEOG0018/tree/master/slides/w10-mhg.pdf">[Link]</a>.</p>
 </section>
 <section id="reading-list" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="reading-list"><span class="header-section-number">1.2</span> Reading list</h2>
+<h2 data-number="1.2" class="anchored" data-anchor-id="reading-list"><span class="header-section-number">5.2</span> Reading list</h2>
 <section id="essential-readings" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="essential-readings">Essential readings</h4>
 <ul>
@@ -233,10 +226,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="crime-in-london" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="crime-in-london"><span class="header-section-number">1.3</span> Crime in London</h2>
+<h2 data-number="1.3" class="anchored" data-anchor-id="crime-in-london"><span class="header-section-number">5.3</span> Crime in London</h2>
 <p>In this week’s practical we will explore the spatial patterns of crime, specifically <code>theft from persons</code> across London boroughs in 2021. For our crime data, we will use data extracted from the <a href="https://data.police.uk/">Police Data Portal</a>, which provides access to tabular data for crimes recorded by various UK police forces since 2017. You can download the relevant dataset via the link provided below.</p>
 <p>Save the file inside your <code>data</code> folder.</p>
-<table class="caption-top table">
+<table class="table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">File</th>
@@ -291,38 +284,30 @@ ul.task-list li input[type="checkbox"] {
 <li>Click on <strong>Download data</strong> at the left hand side of the screen.</li>
 <li>Once the data is ready for download, save it to your computer in your <code>data</code> folder as <code>London-Borough-Population.xlsx</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-hash="05-spatial2_cache/html/fig-borough-population-excel_1cc294dd2e1c8adb2acbd3b7dc6d03f7">
 <div class="cell-output-display">
-<div id="fig-borough-population-excel" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-borough-population-excel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/w10/london-borough-excel.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-borough-population-excel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The downloaded London Borough population dataset.
-</figcaption>
+<div id="fig-borough-population-excel" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/w10/london-borough-excel.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: The downloaded London Borough population dataset.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <section id="data-preparation" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="data-preparation"><span class="header-section-number">1.3.1</span> Data preparation</h3>
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="data-preparation"><span class="header-section-number">5.3.1</span> Data preparation</h3>
 <p>To prepare the borough population data for use in QGIS, you should:</p>
 <ol type="1">
 <li>Open the dataset in your spreadsheet editing software. Locate the columns containing the borough names and their associated population counts. Copy these two columns into a new spreadsheet, and rename the columns to <code>BoroughNames</code> and <code>pop2021</code> respectively.</li>
 <li>Format the <code>pop2021</code> column so that it is recognised as being a <strong>numeric</strong> column.</li>
 <li>Save the file as a new <code>csv</code> in your <code>data</code> folder as <code>London-Borough-Population.csv</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-hash="05-spatial2_cache/html/fig-borough-population-csv_f0a3ea147d48c655a80f05c8ca200e0d">
 <div class="cell-output-display">
-<div id="fig-borough-population-csv" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-borough-population-csv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/w10/london-borough-csv.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-borough-population-csv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: The prepared London Borough population dataset.
-</figcaption>
+<div id="fig-borough-population-csv" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/w10/london-borough-csv.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: The prepared London Borough population dataset.</figcaption>
 </figure>
 </div>
 </div>
@@ -348,16 +333,12 @@ Figure&nbsp;2: The prepared London Borough population dataset.
 <li>Click on <strong>Layer</strong> -&gt; <strong>Add Layer</strong> -&gt; <strong>Add Vector Layer</strong>.</li>
 <li>With <strong>File</strong> select as your source type, click on the small three dots button and navigate to your <code>London-Borough.gpkg</code> file in your <code>data</code> folder. Select the file, then click <strong>Add</strong>. You may need to close the box after adding the layer.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-hash="05-spatial2_cache/html/fig-borough-london_0e4d3563a2de26c219088f44ea54ea52">
 <div class="cell-output-display">
-<div id="fig-borough-london" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-borough-london-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/w10/london-borough.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-borough-london-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: The London boroughs.
-</figcaption>
+<div id="fig-borough-london" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/w10/london-borough.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: The London boroughs.</figcaption>
 </figure>
 </div>
 </div>
@@ -399,16 +380,12 @@ Figure&nbsp;3: The London boroughs.
 <ol start="2" type="1">
 <li>Click <strong>OK</strong> to accept QGIS’ suggested on-the-fly projection. You should now see your crime dataset displayed as points, layered on top of the London borough polygons.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-hash="05-spatial2_cache/html/fig-borough-crime_4aa558b0fa2fa2a5dc196e6664f6dec8">
 <div class="cell-output-display">
-<div id="fig-borough-crime" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-borough-crime-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/w10/london-borough-crime.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-borough-crime-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: The London boroughs together with the crime dataset.
-</figcaption>
+<div id="fig-borough-crime" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/w10/london-borough-crime.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;4: The London boroughs together with the crime dataset.</figcaption>
 </figure>
 </div>
 </div>
@@ -430,7 +407,7 @@ Figure&nbsp;4: The London boroughs together with the crime dataset.
 </ol>
 </section>
 <section id="data-aggregation" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="data-aggregation"><span class="header-section-number">1.3.2</span> Data aggregation</h3>
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="data-aggregation"><span class="header-section-number">5.3.2</span> Data aggregation</h3>
 <p>The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the <strong>Count Points in Polygons</strong> in the <strong>Analysis</strong> toolset to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a <em>crime rate</em> statistic.</p>
 <ol type="1">
 <li>Click on <strong>Vector</strong> -&gt; <strong>Analysis Tools</strong> -&gt; <strong>Count Points in Polygons</strong>.</li>
@@ -481,16 +458,12 @@ Figure&nbsp;4: The London boroughs together with the crime dataset.
 </ul></li>
 <li>Click on the <strong>Save</strong> button to save these edits. Click again on the <strong>Pencil</strong> button to exit <em>Editing</em> mode.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-hash="05-spatial2_cache/html/fig-borough-crime-rate_92007ed71e7be00d49bdb94fa445f1e2">
 <div class="cell-output-display">
-<div id="fig-borough-crime-rate" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-borough-crime-rate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/w10/london-borough-crime-rate.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-borough-crime-rate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: The attribute table of the <code>London-Borough-Crime</code> layer after the crime rate calculation.
-</figcaption>
+<div id="fig-borough-crime-rate" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/w10/london-borough-crime-rate.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;5: The attribute table of the <code>London-Borough-Crime</code> layer after the crime rate calculation.</figcaption>
 </figure>
 </div>
 </div>
@@ -507,8 +480,8 @@ Figure&nbsp;5: The attribute table of the <code>London-Borough-Crime</code> laye
 </div>
 </section>
 <section id="data-mapping" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="data-mapping"><span class="header-section-number">1.3.3</span> Data mapping</h3>
-<p>Now the dataset has been prepared, it is time to make a map. First thing we need to do is symbolise the map with an appropriate colour scheme. Go to <strong>Properties</strong> and symbolise your map with <strong>Graduated</strong> colours. You need to decide on an appropriate data classification and colour scheme. For reference, <a href="#fig-map-styled" class="quarto-xref">Figure&nbsp;6</a> shows an example of a possible classification and colour scheme.</p>
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="data-mapping"><span class="header-section-number">5.3.3</span> Data mapping</h3>
+<p>Now the dataset has been prepared, it is time to make a map. First thing we need to do is symbolise the map with an appropriate colour scheme. Go to <strong>Properties</strong> and symbolise your map with <strong>Graduated</strong> colours. You need to decide on an appropriate data classification and colour scheme. For reference, <a href="#fig-map-styled">Figure&nbsp;6</a> shows an example of a possible classification and colour scheme.</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -519,16 +492,12 @@ Figure&nbsp;5: The attribute table of the <code>London-Borough-Crime</code> laye
 </div>
 </div>
 </div>
-<div class="cell">
+<div class="cell" data-hash="05-spatial2_cache/html/fig-map-styled_11dd8209017f738128db8a221ab1e9b5">
 <div class="cell-output-display">
-<div id="fig-map-styled" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-map-styled-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/w10/london-borough-crime-cat.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-map-styled-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: An example of how you can style your crime rate map.
-</figcaption>
+<div id="fig-map-styled" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/w10/london-borough-crime-cat.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;6: An example of how you can style your crime rate map.</figcaption>
 </figure>
 </div>
 </div>
@@ -545,16 +514,12 @@ Figure&nbsp;6: An example of how you can style your crime rate map.
 </div>
 </div>
 <p>From the main QGIS window, click on <strong>Project</strong> -&gt; <strong>New Print Layout</strong>. In the small box that first appears, call your new print layout: <code>crime-map-borough</code>. A new window should open up that shows a blank canvas.</p>
-<div class="cell">
+<div class="cell" data-hash="05-spatial2_cache/html/fig-print-layout_03da4231501400cd6711cc354f16b738">
 <div class="cell-output-display">
-<div id="fig-print-layout" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-print-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/w10/print-layout.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-print-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7: The <em>Print Layout</em> workspace in QGIS.
-</figcaption>
+<div id="fig-print-layout" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/w10/print-layout.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;7: The <em>Print Layout</em> workspace in QGIS.</figcaption>
 </figure>
 </div>
 </div>
@@ -585,16 +550,12 @@ Figure&nbsp;7: The <em>Print Layout</em> workspace in QGIS.
 <ol type="1">
 <li>Click on the <strong>Add Map</strong> tool and draw a box on your canvas to to load the map layers that are active in the main QGIS window. You can easily move and resize the map box by clicking on it and dragging the corners, just like you would in Word or similar applications.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-hash="05-spatial2_cache/html/fig-map-layout_26f8ebea4a354423edd5baf3feeb3541">
 <div class="cell-output-display">
-<div id="fig-map-layout" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-map-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/w10/map-layout.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-map-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8: Current active map in the <em>Print Layout</em>.
-</figcaption>
+<div id="fig-map-layout" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/w10/map-layout.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;8: Current active map in the <em>Print Layout</em>.</figcaption>
 </figure>
 </div>
 </div>
@@ -634,16 +595,12 @@ Figure&nbsp;8: Current active map in the <em>Print Layout</em>.
 </ul></li>
 </ol>
 <p>Once you have added these map elements, you should have a map canvas that could look something like this:</p>
-<div class="cell">
+<div class="cell" data-hash="05-spatial2_cache/html/fig-final-map_45dc9746b76af9c0387eb3d55c16ee94">
 <div class="cell-output-display">
-<div id="fig-final-map" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-final-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/w10/map-styled.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-final-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9: Crime rates across London Boroughs.
-</figcaption>
+<div id="fig-final-map" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/w10/map-styled.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;9: Crime rates across London Boroughs.</figcaption>
 </figure>
 </div>
 </div>
@@ -652,7 +609,7 @@ Figure&nbsp;9: Crime rates across London Boroughs.
 </section>
 </section>
 <section id="homework-task" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">1.4</span> Homework task</h2>
+<h2 data-number="1.4" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">5.4</span> Homework task</h2>
 <p>This concludes this week’s tutorial. Now complete the following homework tasks:</p>
 <ol type="1">
 <li>Load last week’s <code>London-LSOA2021.gpkg</code> into QGIS.</li>
@@ -674,7 +631,7 @@ Figure&nbsp;9: Crime rates across London Boroughs.
 </div>
 </section>
 <section id="before-you-leave" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">1.5</span> Before you leave</h2>
+<h2 data-number="1.5" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">5.5</span> Before you leave</h2>
 <p><a href="https://www.youtube.com/watch?v=3wxyN3z9PL4">That is us all done</a>. Remember to save your project. Perhaps time to focus on your final assignment?</p>
 
 
@@ -723,33 +680,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -818,15 +748,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -861,7 +789,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -893,50 +832,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -946,17 +846,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -968,130 +859,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -1135,7 +903,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1161,32 +928,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1248,7 +989,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-spatial1.html" class="pagination-link" aria-label="Spatial Analysis I">
+      <a href="./04-spatial1.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Spatial Analysis I</span>
       </a>          
   </div>
@@ -1261,15 +1002,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">
-<p>Course material by <a href="https://www.mappingdutchman.com">Justin van Dijk</a>. Available under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-center">Course material by <a href="https://www.mappingdutchman.com">Justin van Dijk</a>. Available under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
-
 
 
 
