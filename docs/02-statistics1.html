@@ -261,6 +261,8 @@ window.Quarto = {
   <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation"><span class="header-section-number">1.3.2</span> Data manipulation</a></li>
   <li><a href="#data-comparison" id="toc-data-comparison" class="nav-link" data-scroll-target="#data-comparison"><span class="header-section-number">1.3.3</span> Data comparison</a></li>
   </ul></li>
+  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">1.4</span> Homework task</a></li>
+  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">1.5</span> Before you leave</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jtvandijk/GEOG0030/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -280,15 +282,15 @@ window.Quarto = {
 </section>
 <section id="reading-list" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="reading-list"><span class="header-section-number">1.2</span> Reading list</h2>
-<section id="essential-readings" class="level4">
-<h4 class="anchored" data-anchor-id="essential-readings">Essential readings</h4>
+<section id="essential-readings" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="essential-readings">Essential readings</h4>
 <ul>
 <li>Field, A. Discovering Statistics using R, <strong>Chapter 9</strong>: <em>Comparing two means</em>, pp.&nbsp;359-397. <a href="https://read.kortext.com/reader/epub/2039249?page=359">[Link]</a></li>
 <li>Field, A. Discovering Statistics using R, <strong>Chapter 10</strong>: <em>Comparing several means: ANOVA (GLM1)</em>, pp.&nbsp;398-461. <a href="https://read.kortext.com/reader/epub/2039249?page=398">[Link]</a></li>
 </ul>
 </section>
-<section id="suggested-readings" class="level4">
-<h4 class="anchored" data-anchor-id="suggested-readings">Suggested readings</h4>
+<section id="suggested-readings" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="suggested-readings">Suggested readings</h4>
 <ul>
 <li>Field, A. Discovering Statistics using R, <strong>Chapter 15</strong>: <em>Non-parametric tests</em>, pp.&nbsp;653-695. <a href="https://read.kortext.com/reader/epub/2039249?page=653">[Link]</a></li>
 </ul>
@@ -296,7 +298,7 @@ window.Quarto = {
 </section>
 <section id="unemployment-in-london" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="unemployment-in-london"><span class="header-section-number">1.3</span> Unemployment in London</h2>
-<p>In this tutorial, we will explore unemployment rates in London as reported in the 2021 Census. In addition, we will make use of <a href="01-recap.html#age-groups-in-camden">last week’s dataset</a> on age groups in London. You can download both files using the link provided below. Make sure to save the files in your project folder under the <code>data</code> directory for easy access during analysis.</p>
+<p>In this tutorial, we will explore unemployment rates in London as reported in the 2021 Census. In addition, we will make use of <a href="01-recap.html#age-groups-in-camden">last week’s dataset</a> on age groups in London in the homework task. You can download both files using the link provided below. Make sure to save the files in your project folder in the <code>data</code> directory.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -374,45 +376,15 @@ dbl (2): Economic activity status (4 categories) Code, Observation
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
-<p>Let us have a look at both dataframes:</p>
+<p>Let us focus on the <code>lsoa_emp</code> dataset in first instance. We will start by inspecting the dataset:</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lsoa_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lsoa_emp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 5
-  Lower layer Super Output Areas…¹ Lower layer Super Ou…² Age (5 categories) C…³
-  &lt;chr&gt;                            &lt;chr&gt;                                   &lt;dbl&gt;
-1 E01000001                        City of London 001A                         1
-2 E01000001                        City of London 001A                         2
-3 E01000001                        City of London 001A                         3
-4 E01000001                        City of London 001A                         4
-5 E01000001                        City of London 001A                         5
-6 E01000002                        City of London 001B                         1
-# ℹ abbreviated names: ¹​`Lower layer Super Output Areas Code`,
-#   ²​`Lower layer Super Output Areas`, ³​`Age (5 categories) Code`
-# ℹ 2 more variables: `Age (5 categories)` &lt;chr&gt;, Observation &lt;dbl&gt;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect column names</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lsoa_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Lower layer Super Output Areas Code" "Lower layer Super Output Areas"     
-[3] "Age (5 categories) Code"             "Age (5 categories)"                 
-[5] "Observation"                        </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect age categories</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(lsoa_age<span class="sc">$</span><span class="st">`</span><span class="at">Age (5 categories)</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Aged 15 years and under" "Aged 16 to 24 years"    
-[3] "Aged 25 to 34 years"     "Aged 35 to 49 years"    
-[5] "Aged 50 years and over" </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lsoa_emp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   Lower layer Super Output Areas…¹ Lower layer Super Ou…² Economic activity st…³
@@ -429,8 +401,8 @@ dbl (2): Economic activity status (4 categories) Code, Observation
 # ℹ 2 more variables: `Economic activity status (4 categories)` &lt;chr&gt;,
 #   Observation &lt;dbl&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect column names</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lsoa_emp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect column names</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lsoa_emp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Lower layer Super Output Areas Code"         
 [2] "Lower layer Super Output Areas"              
@@ -438,8 +410,8 @@ dbl (2): Economic activity status (4 categories) Code, Observation
 [4] "Economic activity status (4 categories)"     
 [5] "Observation"                                 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect employment categories</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(lsoa_emp<span class="sc">$</span><span class="st">`</span><span class="at">Economic activity status (4 categories)</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect employment categories</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(lsoa_emp<span class="sc">$</span><span class="st">`</span><span class="at">Economic activity status (4 categories)</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Does not apply"                                                   
 [2] "Economically active: In employment (including full-time students)"
@@ -470,32 +442,24 @@ dbl (2): Economic activity status (4 categories) Code, Observation
 </section>
 <section id="data-manipulation" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="data-manipulation"><span class="header-section-number">1.3.2</span> Data manipulation</h3>
-<p>Since we loaded the original age group dataset extracted using the <a href="https://www.ons.gov.uk/datasets/create">Custom Dataset Tool</a>, we need to convert the data once more from long to wide format. The same process applies to the employment dataset. We can do this again by pivoting each of the tables:</p>
+<p>Since the <code>lsoa_emp</code> dataset was extracted using the <a href="https://www.ons.gov.uk/datasets/create">Custom Dataset Tool</a>, we need to convert the data once more from long to wide format. We can do this again by pivoting each of the tables:</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clean names</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clean_names</span>()</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>lsoa_emp <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clean_names</span>()</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># pivot wider</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="fu">c</span>(<span class="st">"lower_layer_super_output_areas_code"</span>, <span class="st">"lower_layer_super_output_areas"</span>),</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">names_from =</span> <span class="st">"age_5_categories"</span>, <span class="at">values_from =</span> <span class="st">"observation"</span>)</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>lsoa_emp <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="fu">c</span>(<span class="st">"lower_layer_super_output_areas_code"</span>, <span class="st">"lower_layer_super_output_areas"</span>),</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">names_from =</span> <span class="st">"economic_activity_status_4_categories"</span>, <span class="at">values_from =</span> <span class="st">"observation"</span>)</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co"># clean names</span></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clean_names</span>()</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>lsoa_emp <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clean names</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>lsoa_emp <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clean_names</span>()</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># pivot wider</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>lsoa_emp <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="fu">c</span>(<span class="st">"lower_layer_super_output_areas_code"</span>, <span class="st">"lower_layer_super_output_areas"</span>),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">names_from =</span> <span class="st">"economic_activity_status_4_categories"</span>, <span class="at">values_from =</span> <span class="st">"observation"</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># clean names</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>lsoa_emp <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>The new column names of the <code>lsoa_emp</code> data are quite lengthy, so let us manually assign more concise column names for ease of use. This will help simplify our code and make it easier to reference the columns in subsequent analyses. Here’s how we can do that:</p>
@@ -504,9 +468,9 @@ dbl (2): Economic activity status (4 categories) Code, Observation
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># names</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lsoa_emp)[<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"not_applicable"</span>, <span class="st">"active_employed"</span>, <span class="st">"active_unemployed"</span>,</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"inactive"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># names</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lsoa_emp)[<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"not_applicable"</span>, <span class="st">"active_employed"</span>, <span class="st">"active_unemployed"</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"inactive"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>To account for the non-uniformity of the areal units, we further need to convert the observations to proportions again:</p>
@@ -515,19 +479,14 @@ dbl (2): Economic activity status (4 categories) Code, Observation
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate total population</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">lsoa_pop =</span> <span class="fu">sum</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>)))</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>lsoa_emp <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">lsoa_pop =</span> <span class="fu">sum</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>)))</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate proportions</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>, <span class="sc">~</span>.<span class="sc">/</span>lsoa_pop))</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>lsoa_emp <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>, <span class="sc">~</span>.<span class="sc">/</span>lsoa_pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate total population</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>lsoa_emp <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">lsoa_pop =</span> <span class="fu">sum</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>)))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate proportions</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>lsoa_emp_prop <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>, <span class="sc">~</span>.<span class="sc">/</span>lsoa_pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip">
@@ -555,9 +514,9 @@ dbl (2): Economic activity status (4 categories) Code, Observation
 </div>
 </div>
 </div>
-<p>When we want to compare two or more groups, the Analysis of Variance (ANOVA) test is appropriate. ANOVA evaluates whether there are any statistically significant differences between the means of multiple groups. If the assumptions of ANOVA are violated, we can use the Kruskal-Wallis test, which is a non-parametric method that compares the ranks across the groups.</p>
-<section id="comparing-two-groups" class="level4">
-<h4 class="anchored" data-anchor-id="comparing-two-groups">Comparing two groups</h4>
+<p>When we want to compare more than two groups, we can use the Analysis of Variance (ANOVA) test. ANOVA evaluates whether there are any statistically significant differences between the means of multiple groups. If the assumptions of ANOVA are violated, we can use the Kruskal-Wallis test, which is a non-parametric method that compares the ranks across the groups.</p>
+<section id="comparing-two-groups" class="level4" data-number="1.3.3.1">
+<h4 data-number="1.3.3.1" class="anchored" data-anchor-id="comparing-two-groups"><span class="header-section-number">1.3.3.1</span> Comparing two groups</h4>
 <p>Two compare two groups with continuous data, we can run an independent samples <a href="https://en.wikipedia.org/wiki/Student%27s_t-test">t-test</a>, which allows us to statistically assess whether the means of the two groups differ significantly. For instance, we might be interested in whether the proportion of the population that is unemployed in Lower Super Output Areas (LSOAs) in Camden is different, on average, from the proportion in Sutton.</p>
 <p>Let’s begin by creating two separate datasets to facilitate our comparison: one containing the LSOAs for Camden and another for Sutton We can do this by filtering the <code>lsoa_emp</code> dataset:</p>
 <div class="cell styled-output">
@@ -565,23 +524,23 @@ dbl (2): Economic activity status (4 categories) Code, Observation
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter out camden</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>lsoa_emp_camden <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">str_detect</span>(lower_layer_super_output_areas, <span class="st">"Camden"</span>))</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># filter out sutton</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>lsoa_emp_sutton <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">str_detect</span>(lower_layer_super_output_areas, <span class="st">"Sutton"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter out camden</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>lsoa_emp_camden <span class="ot">&lt;-</span> lsoa_emp_prop <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">str_detect</span>(lower_layer_super_output_areas, <span class="st">"Camden"</span>))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># filter out sutton</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>lsoa_emp_sutton <span class="ot">&lt;-</span> lsoa_emp_prop <span class="sc">|&gt;</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">str_detect</span>(lower_layer_super_output_areas, <span class="st">"Sutton"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>We can use the <code>t.test()</code> function in R to conduct a two-tailed test, assessing whether the mean proportion of unemployed people in Camden differs from that in Westminster. The null hypothesis for this test states that there is no difference in the mean proportions of unemployed individuals between the two areas. We can run the test as follows:</p>
+<p>We can use the <code>t.test()</code> function in R to conduct a two-tailed test, assessing whether the mean proportion of unemployed people in Camden differs from that in Sutton The null hypothesis for this test states that there is no difference in the mean proportions of unemployed individuals between the two areas. We can run the test as follows:</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run t-test</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(lsoa_emp_camden<span class="sc">$</span>active_unemployed, lsoa_emp_sutton<span class="sc">$</span>active_unemployed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run t-test</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(lsoa_emp_camden<span class="sc">$</span>active_unemployed, lsoa_emp_sutton<span class="sc">$</span>active_unemployed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -615,8 +574,8 @@ sample estimates:
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run mann-whitney</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(lsoa_emp_camden<span class="sc">$</span>active_unemployed, lsoa_emp_sutton<span class="sc">$</span>active_unemployed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run mann-whitney</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(lsoa_emp_camden<span class="sc">$</span>active_unemployed, lsoa_emp_sutton<span class="sc">$</span>active_unemployed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -634,20 +593,144 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>To determine if a variable is normally distributed, visual inspection can be helpful, but the Shapiro-Wilk test (<code>shapiro.test()</code>) offers a more formal statistical assessment. This test compares the distribution of your variable to a normal distribution, with the null hypothesis stating that they are the same. If the test returns a small <span class="math inline">\(p\)</span>-value (typically <code>&lt; 0.05</code>), you can conclude that the variable is not normally distributed. However, it’s important to note that the test is significantly influenced by sample size; in large datasets, even minor deviations from normality can yield a low <span class="math inline">\(p\)</span>-value. Therefore, the Shapiro-Wilk test should not be considered definitive and should be used alongside visual assessments.</p>
+<p>To determine if a variable is normally distributed, visual inspection can be helpful, but the <a href="https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test">Shapiro-Wilk test</a> (<code>shapiro.test()</code>) offers a more formal statistical assessment. This test compares the distribution of your variable to a normal distribution, with the null hypothesis stating that they are the same. If the test returns a small <span class="math inline">\(p\)</span>-value (typically <code>&lt; 0.05</code>), you can conclude that the variable is not normally distributed. However, it is important to note that the test is significantly influenced by sample size; in large datasets, even minor deviations from normality can yield a low <span class="math inline">\(p\)</span>-value. The Shapiro-Wilk test should therefore not be considered definitive and should be used alongside visual assessment of the data.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="comparing-more-than-two-groups" class="level4">
-<h4 class="anchored" data-anchor-id="comparing-more-than-two-groups">Comparing more than two groups</h4>
+<section id="comparing-more-than-two-groups" class="level4" data-number="1.3.3.2">
+<h4 data-number="1.3.3.2" class="anchored" data-anchor-id="comparing-more-than-two-groups"><span class="header-section-number">1.3.3.2</span> Comparing more than two groups</h4>
+<p>If we want to compare more than two, we can use an <a href="https://en.wikipedia.org/wiki/Analysis_of_variance">Analysis of Variance (ANOVA) test</a>. An ANOVA is a statistical method used to compare the means of three or more groups to determine if at least one group mean significantly differs from the others. For instance, if we extend our analysis from Camden and Sutton to include Hammersmith and Fulham, we can test for differences in means among these three areas.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The null hypothesis of the ANOVA is that all group means are equal, while the alternative hypothesis posits that at least one group mean is different. ANOVA assesses the variance within groups and between groups to calculate the <em>F-statistic</em>, which is the ratio of the variance between the groups to the variance within the groups. A higher F-statistic indicates that group means are not all the same. The <span class="math inline">\(p\)</span>-value derived from the F-statistic tells us whether we can reject the null hypothesis.</p>
+</div>
+</div>
+</div>
+<p>To run an ANOVA in R, we first need to ensure that all the groups we are comparing are contained within the same dataframe. We need a dataframe where one column represents the dependent variable (e.g.&nbsp;unemployment rates) and another column represents the independent grouping variable (e.g.&nbsp;borough names).</p>
+<p>We can do this by filtering our LSOA dataframe to include only those LSOAs that fall within Camden, Sutton, and Hammersmith and Fulham. Next, we need to extract the borough name from the <code>lower_layer_super_output_areas</code> column. We can accomplish this by creating a new variable that excludes the last five characters of the <code>lower_layer_super_output_areas</code> variable.</p>
+<div class="cell styled-output">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>lsoa_subset <span class="ot">&lt;-</span> lsoa_emp_prop <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">str_detect</span>(lower_layer_super_output_areas, <span class="st">"Camden"</span>) <span class="sc">|</span> <span class="fu">str_detect</span>(lower_layer_super_output_areas,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Sutton"</span>) <span class="sc">|</span> <span class="fu">str_detect</span>(lower_layer_super_output_areas, <span class="st">"Hammersmith and Fulham"</span>))</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># extract borough</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>lsoa_subset <span class="ot">&lt;-</span> lsoa_subset <span class="sc">|&gt;</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">borough_name =</span> <span class="fu">substr</span>(lower_layer_super_output_areas, <span class="dv">1</span>, <span class="fu">nchar</span>(lower_layer_super_output_areas) <span class="sc">-</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>        <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>We can now run the ANOVA:</p>
+<div class="cell styled-output">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run anova</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(active_unemployed <span class="sc">~</span> borough_name, <span class="at">data =</span> lsoa_subset)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summary</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Df  Sum Sq  Mean Sq F value Pr(&gt;F)    
+borough_name   2 0.01968 0.009842   75.31 &lt;2e-16 ***
+Residuals    365 0.04770 0.000131                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>The ANOVA output shows the F-statistic with a value 75.31, with a <span class="math inline">\(p\)</span>-value <code>&lt; 0.001</code>. We can conclude that there are significant differences in unemployment rates across the boroughs. This means we reject the null hypothesis that all group means are equal.</p>
+<p>What this does not tell us is which group are significantly different from another. We can conduct a post hoc Tukey test to identify which specific groups differ from another:</p>
+<div class="cell styled-output">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run post hoc tukey test</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>tukey_result <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(anova_result)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summary</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>tukey_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = active_unemployed ~ borough_name, data = lsoa_subset)
+
+$borough_name
+                                       diff          lwr          upr     p adj
+Hammersmith and Fulham-Camden -0.0006520551 -0.004096128  0.002792018 0.8964024
+Sutton-Camden                 -0.0158000776 -0.019184199 -0.012415956 0.0000000
+Sutton-Hammersmith and Fulham -0.0151480225 -0.018637794 -0.011658251 0.0000000</code></pre>
+</div>
+</div>
+<p>The output presents pairwise comparisons between the groups, with the null hypothesis stating that the group means are equal. Our analysis indicates significant differences in unemployment rates between Sutton and Camden, as well as between Sutton and Hammersmith and Fulham. However, there is no evidence of a difference in unemployment rates between Camden and Hammersmith and Fulham.</p>
+<p>If we think our data violates any of the assumption underlying the ANOVA, we can run the non-parametric <a href="https://en.wikipedia.org/wiki/Kruskal%E2%80%93Wallis_test">Kruskal-Wallis test</a> instead.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The Kruskal-Wallis test is a non-parametric statistical method used to compare the <em>medians</em> of three or more independent groups. It is an alternative to one-way ANOVA when the assumptions of normality and homogeneity of variances are not met. The test ranks all the data points and evaluates whether the rank sums of the groups differ significantly.</p>
+</div>
+</div>
+</div>
+<div class="cell styled-output">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run kruskal-wallis</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(active_unemployed <span class="sc">~</span> borough_name, <span class="at">data =</span> lsoa_subset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Kruskal-Wallis rank sum test
+
+data:  active_unemployed by borough_name
+Kruskal-Wallis chi-squared = 117.37, df = 2, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>The results of the Kruskal-Wallis test suggest that the differences in <em>medians</em> among these three London boroughs are statistically significant.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>To further investigate which specific groups differ, we can conduct a series of pairwise Mann-Whitney U tests for comparisons between each pair of boroughs.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="comparing-categorical-data" class="level4">
-<h4 class="anchored" data-anchor-id="comparing-categorical-data">Comparing categorical data</h4>
+</section>
+</section>
+<section id="homework-task" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">1.4</span> Homework task</h2>
+<p>This concludes this week’s tutorial. Now complete the following homework tasks:</p>
+<ol type="1">
+<li>Use an appropriate statistical test to determine whether the average proportion of the employed population differs between LSOAs in <em>Bexley</em> and <em>Harrow</em>.</li>
+<li>Apply the relevant test to compare the proportion of the proportion of people <em>aged 50 years and over</em> across the boroughs of Lambeth, Southwark, and Westminster.</li>
+<li>Include the test outputs in the appendix of your assignment and provide a brief interpretation of the results in a few sentences.</li>
+</ol>
+</section>
+<section id="before-you-leave" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">1.5</span> Before you leave</h2>
+<p>This week, we explored how to statistically compare different groups to assess whether they are different, using both parametric and non-parametric methods. Next week, we’ll shift our focus from group comparisons to analysing associations and relationships between variables. Looking forward? For now, take <a href="https://www.youtube.com/watch?v=KMxucpLOF5s">some time to unwind</a> and get ready for what’s next!</p>
 
 
-</section>
-</section>
 </section>
 </section>
 

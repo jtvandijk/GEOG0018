@@ -5,15 +5,15 @@ Building on last week's refresher on using R and RStudio for quantitative data a
 You can download the slides of this week's lecture here: [[Link]]({{< var slides.week07 >}}).
 
 ## Reading list 
-#### Essential readings 
+#### Essential readings {.unnumbered}
 - Field, A. Discovering Statistics using R, **Chapter 9**: *Comparing two means*, pp. 359-397. [[Link]](https://read.kortext.com/reader/epub/2039249?page=359)
 - Field, A. Discovering Statistics using R, **Chapter 10**: *Comparing several means: ANOVA (GLM1)*, pp. 398-461. [[Link]](https://read.kortext.com/reader/epub/2039249?page=398)
 
-#### Suggested readings
+#### Suggested readings {.unnumbered}
 - Field, A. Discovering Statistics using R, **Chapter 15**: *Non-parametric tests*, pp. 653-695. [[Link]](https://read.kortext.com/reader/epub/2039249?page=653)
 
 ## Unemployment in London
-In this tutorial, we will explore unemployment rates in London as reported in the 2021 Census. In addition, we will make use of [last week's dataset](01-recap.html#age-groups-in-camden) on age groups in London. You can download both files using the link provided below. Make sure to save the files in your project folder under the `data` directory for easy access during analysis.
+In this tutorial, we will explore unemployment rates in London as reported in the 2021 Census. In addition, we will make use of [last week's dataset](01-recap.html#age-groups-in-camden) on age groups in London in the homework task. You can download both files using the link provided below. Make sure to save the files in your project folder in the `data` directory.
 
 | File                                        | Type   | Link |
 | :------                                     | :------| :------ |
@@ -58,7 +58,7 @@ lsoa_age <- read_csv('data/London-LSOA-AgeGroup.csv')
 lsoa_emp <- read_csv('data/London-LSOA-EconomicStatus.csv')
 ```
 
-Let us have a look at both dataframes:
+Let us focus on the `lsoa_emp` dataset in first instance. We will start by inspecting the dataset:
 
 ```{r}
 #| label: 02-inspect-data
@@ -67,15 +67,6 @@ Let us have a look at both dataframes:
 #| eval: True
 #| tidy: True
 #| filename: "R code"
-# inspect 
-head(lsoa_age)
-
-# inspect column names
-names(lsoa_age)
-
-# inspect age categories
-unique(lsoa_age$`Age (5 categories)`)
-
 # inspect
 head(lsoa_emp)
 
@@ -95,7 +86,7 @@ You can further inspect the results using the `View()` function.
 :::
 
 ### Data manipulation
-Since we loaded the original age group dataset extracted using the [Custom Dataset Tool](https://www.ons.gov.uk/datasets/create), we need to convert the data once more from long to wide format. The same process applies to the employment dataset. We can do this again by pivoting each of the tables:
+Since the `lsoa_emp` dataset was extracted using the [Custom Dataset Tool](https://www.ons.gov.uk/datasets/create), we need to convert the data once more from long to wide format. We can do this again by pivoting each of the tables:
 
 ```{r}
 #| label: 02-reformat-data
@@ -105,30 +96,21 @@ Since we loaded the original age group dataset extracted using the [Custom Datas
 #| tidy: True
 #| filename: "R code"
 # clean names 
-lsoa_age <- lsoa_age |>
-  clean_names()
 lsoa_emp <- lsoa_emp |>
   clean_names()
 
 # pivot wider
-lsoa_age <- lsoa_age |>
-  pivot_wider(id_cols = c('lower_layer_super_output_areas_code', 'lower_layer_super_output_areas'),
-              names_from = 'age_5_categories',
-              values_from = 'observation') 
-
 lsoa_emp <- lsoa_emp |>
   pivot_wider(id_cols = c('lower_layer_super_output_areas_code', 'lower_layer_super_output_areas'),
               names_from = 'economic_activity_status_4_categories',
               values_from = 'observation') 
 
 # clean names
-lsoa_age <- lsoa_age |>
-  clean_names()
 lsoa_emp <- lsoa_emp |>
   clean_names()
 ```
 
-The new column names of the `lsoa_emp` data are quite lengthy, so let us manually assign more concise column names for ease of use. This will help simplify our code and make it easier to reference the columns in subsequent analyses. Here’s how we can do that:
+The new column names of the `lsoa_emp` data are quite lengthy, so let us manually assign more concise column names for ease of use. This will help simplify our code and make it easier to reference the columns in subsequent analyses. Here's how we can do that:
 
 ```{r}
 #| label: 02-rename-emp
@@ -143,7 +125,6 @@ names(lsoa_emp)[3:6] <- c('not_applicable', 'active_employed', 'active_unemploye
 
 To account for the non-uniformity of the areal units, we further need to convert the observations to proportions again:
 
-
 ```{r}
 #| label: 02-calc-prop-data
 #| classes: styled-output
@@ -152,17 +133,12 @@ To account for the non-uniformity of the areal units, we further need to convert
 #| tidy: True
 #| filename: "R code"
 # calculate total population
-lsoa_age <- lsoa_age |>
-  rowwise() |>
-  mutate(lsoa_pop = sum(across(3:7)))
 lsoa_emp <- lsoa_emp |>
   rowwise() |>
   mutate(lsoa_pop = sum(across(3:6)))
 
 # calculate proportions
-lsoa_age <- lsoa_age |>
-  mutate(across(3:7, ~./lsoa_pop))
-lsoa_emp <- lsoa_emp |>
+lsoa_emp_prop <- lsoa_emp |>
   mutate(across(3:6, ~./lsoa_pop))
 ```
 
@@ -179,7 +155,7 @@ For comparing two groups with continuous data, we can use the t-test, which asse
 Parametric tests assume that the data follows a specific distribution, usually normal, and rely on parameters such as mean and variance. They are typically more powerful when these assumptions are met. In contrast, non-parametric tests do not assume a particular distribution and are used for ordinal data or when assumptions of parametric tests are violated.
 :::
 
-When we want to compare two or more groups, the Analysis of Variance (ANOVA) test is appropriate. ANOVA evaluates whether there are any statistically significant differences between the means of multiple groups. If the assumptions of ANOVA are violated, we can use the Kruskal-Wallis test, which is a non-parametric method that compares the ranks across the groups.
+When we want to compare more than two groups, we can use the Analysis of Variance (ANOVA) test. ANOVA evaluates whether there are any statistically significant differences between the means of multiple groups. If the assumptions of ANOVA are violated, we can use the Kruskal-Wallis test, which is a non-parametric method that compares the ranks across the groups.
 
 #### Comparing two groups
 Two compare two groups with continuous data, we can run an independent samples [t-test](https://en.wikipedia.org/wiki/Student%27s_t-test), which allows us to statistically assess whether the means of the two groups differ significantly. For instance, we might be interested in whether the proportion of the population that is unemployed in Lower Super Output Areas (LSOAs) in Camden is different, on average, from the proportion in Sutton. 
@@ -194,15 +170,15 @@ Let's begin by creating two separate datasets to facilitate our comparison: one 
 #| tidy: True
 #| filename: "R code"
 # filter out camden
-lsoa_emp_camden <- lsoa_emp |>
+lsoa_emp_camden <- lsoa_emp_prop |>
   filter(str_detect(lower_layer_super_output_areas, 'Camden'))
 
 # filter out sutton
-lsoa_emp_sutton <- lsoa_emp |>
+lsoa_emp_sutton <- lsoa_emp_prop |>
   filter(str_detect(lower_layer_super_output_areas, 'Sutton'))
 ```
 
-We can use the `t.test()` function in R to conduct a two-tailed test, assessing whether the mean proportion of unemployed people in Camden differs from that in Westminster. The null hypothesis for this test states that there is no difference in the mean proportions of unemployed individuals between the two areas. We can run the test as follows:
+We can use the `t.test()` function in R to conduct a two-tailed test, assessing whether the mean proportion of unemployed people in Camden differs from that in Sutton The null hypothesis for this test states that there is no difference in the mean proportions of unemployed individuals between the two areas. We can run the test as follows:
 
 ```{r}
 #| label: 02-t-test
@@ -239,7 +215,103 @@ wilcox.test(lsoa_emp_camden$active_unemployed, lsoa_emp_sutton$active_unemployed
 Also the results of the Mann-Whitney U test suggest that the difference in means in these two London boroughs is statistically significant.
 
 ::: {.callout-tip}
-To determine if a variable is normally distributed, visual inspection can be helpful, but the Shapiro-Wilk test (`shapiro.test()`) offers a more formal statistical assessment. This test compares the distribution of your variable to a normal distribution, with the null hypothesis stating that they are the same. If the test returns a small $p$-value (typically `< 0.05`), you can conclude that the variable is not normally distributed. However, it’s important to note that the test is significantly influenced by sample size; in large datasets, even minor deviations from normality can yield a low $p$-value. Therefore, the Shapiro-Wilk test should not be considered definitive and should be used alongside visual assessments.
+To determine if a variable is normally distributed, visual inspection can be helpful, but the [Shapiro-Wilk test](https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test) (`shapiro.test()`) offers a more formal statistical assessment. This test compares the distribution of your variable to a normal distribution, with the null hypothesis stating that they are the same. If the test returns a small $p$-value (typically `< 0.05`), you can conclude that the variable is not normally distributed. However, it is important to note that the test is significantly influenced by sample size; in large datasets, even minor deviations from normality can yield a low $p$-value. The Shapiro-Wilk test should therefore not be considered definitive and should be used alongside visual assessment of the data.
 :::
 
 #### Comparing more than two groups
+If we want to compare more than two, we can use an [Analysis of Variance (ANOVA) test](https://en.wikipedia.org/wiki/Analysis_of_variance). An ANOVA is a statistical method used to compare the means of three or more groups to determine if at least one group mean significantly differs from the others. For instance, if we extend our analysis from Camden and Sutton to include Hammersmith and Fulham, we can test for differences in means among these three areas.
+
+::: {.callout-note}
+The null hypothesis of the ANOVA is that all group means are equal, while the alternative hypothesis posits that at least one group mean is different. ANOVA assesses the variance within groups and between groups to calculate the *F-statistic*, which is the ratio of the variance between the groups to the variance within the groups. A higher F-statistic indicates that group means are not all the same. The $p$-value derived from the F-statistic tells us whether we can reject the null hypothesis.
+:::
+
+To run an ANOVA in R, we first need to ensure that all the groups we are comparing are contained within the same dataframe. We need a dataframe where one column represents the dependent variable (e.g. unemployment rates) and another column represents the independent grouping variable (e.g. borough names).
+
+We can do this by filtering our LSOA dataframe to include only those LSOAs that fall within Camden, Sutton, and Hammersmith and Fulham. Next, we need to extract the borough name from the `lower_layer_super_output_areas` column. We can accomplish this by creating a new variable that excludes the last five characters of the `lower_layer_super_output_areas` variable. 
+
+```{r}
+#| label: 02-anova-filter
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# filter 
+lsoa_subset <- lsoa_emp_prop |>
+  filter(str_detect(lower_layer_super_output_areas, 'Camden') |
+         str_detect(lower_layer_super_output_areas, 'Sutton') |
+         str_detect(lower_layer_super_output_areas, 'Hammersmith and Fulham'))
+
+# extract borough
+lsoa_subset <- lsoa_subset |>
+  mutate(borough_name = substr(lower_layer_super_output_areas, 1, nchar(lower_layer_super_output_areas) - 5))
+```
+
+We can now run the ANOVA:
+
+```{r}
+#| label: 02-anova-run
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# run anova
+anova_result <- aov(active_unemployed ~ borough_name, data = lsoa_subset)
+
+# summary
+summary(anova_result)
+```
+
+The ANOVA output shows the F-statistic with a value 75.31, with a $p$-value `< 0.001`. We can conclude that there are significant differences in unemployment rates across the boroughs. This means we reject the null hypothesis that all group means are equal. 
+
+What this does not tell us is which group are significantly different from another. We can conduct a post hoc Tukey test to identify which specific groups differ from another:
+
+```{r}
+#| label: 02-tukey-run
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# run post hoc tukey test
+tukey_result <- TukeyHSD(anova_result)
+
+# summary
+tukey_result
+```
+
+The output presents pairwise comparisons between the groups, with the null hypothesis stating that the group means are equal. Our analysis indicates significant differences in unemployment rates between Sutton and Camden, as well as between Sutton and Hammersmith and Fulham. However, there is no evidence of a difference in unemployment rates between Camden and Hammersmith and Fulham.
+
+If we think our data violates any of the assumption underlying the ANOVA, we can run the non-parametric [Kruskal-Wallis test](https://en.wikipedia.org/wiki/Kruskal%E2%80%93Wallis_test) instead.
+
+::: {.callout-note}
+The Kruskal-Wallis test is a non-parametric statistical method used to compare the *medians* of three or more independent groups. It is an alternative to one-way ANOVA when the assumptions of normality and homogeneity of variances are not met. The test ranks all the data points and evaluates whether the rank sums of the groups differ significantly. 
+:::
+
+```{r}
+#| label: 03-kruskal-wallis
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: "R code"
+# run kruskal-wallis
+kruskal.test(active_unemployed ~ borough_name, data = lsoa_subset)
+```
+
+The results of the Kruskal-Wallis test suggest that the differences in *medians* among these three London boroughs are statistically significant. 
+
+::: {.callout-tip}
+To further investigate which specific groups differ, we can conduct a series of pairwise Mann-Whitney U tests for comparisons between each pair of boroughs. 
+:::
+
+## Homework task 
+This concludes this week's tutorial. Now complete the following homework tasks:
+
+1. Use an appropriate statistical test to determine whether the average proportion of the employed population differs between LSOAs in *Bexley* and *Harrow*.
+2. Apply the relevant test to compare the proportion of the proportion of people *aged 50 years and over* across the boroughs of Lambeth, Southwark, and Westminster.
+3. Include the test outputs in the appendix of your assignment and provide a brief interpretation of the results in a few sentences.
+
+## Before you leave
+This week, we explored how to statistically compare different groups to assess whether they are different, using both parametric and non-parametric methods. Next week, we'll shift our focus from group comparisons to analysing associations and relationships between variables. Looking forward? For now, take [some time to unwind](https://www.youtube.com/watch?v=KMxucpLOF5s) and get ready for what's next!

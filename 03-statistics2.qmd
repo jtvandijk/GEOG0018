@@ -5,10 +5,10 @@ Last week, we explored methods for comparing groups. This week, our focus shifts
 You can download the slides of this week's lecture here: [[Link]]({{< var slides.week08 >}}).
 
 ## Reading list 
-#### Essential readings 
+#### Essential readings {.unnumbered}
 - Field, A. Discovering Statistics using R, **Chapter 6**: *Correlation*, pp. 205-244. [[Link]](https://read.kortext.com/reader/epub/2039249?page=205)
 - Field, A. Discovering Statistics using R, **Chapter 7**: *Regression*, pp. 245-311. [[Link]](https://read.kortext.com/reader/epub/2039249?page=245)
 
-#### Suggested readings
+#### Suggested readings {.unnumbered}
 - Field, A. Discovering Statistics using R, **Chapter 2**: *Everything you ever wanted to know about statistics (well, sort of)*, pp. 32-61. [[Link]](https://read.kortext.com/reader/epub/2039249?page=32)
 

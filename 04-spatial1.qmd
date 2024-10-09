@@ -5,11 +5,11 @@ This week's lecture introduced foundational concepts in GIScience and GIS softwa
 You can download the slides of this week's lecture here: [[Link]]({{< var slides.week09 >}}).
 
 ## Reading list
-#### Essential readings
+#### Essential readings {.unnumbered}
 - Longley, P. *et al.* 2015. Geographic Information Science & Systems, **Chapter 2**: *The Nature of Geographic Data*, pp. 33-54. [[Link]](https://ucl.rl.talis.com/link?url=https%3A%2F%2Fapp.knovel.com%2Fhotlink%2Ftoc%2Fid%3AkpGISSE001%2Fgeographic-information-science%3Fkpromoter%3Dmarc&sig=e437927b963cc591dcb65491eccdd3869cc31aef80e1443cb2ba12d8f3bb031a)
 - Longley, P. *et al.* 2015. Geographic Information Science & Systems, **Chapter 3**: *Representing Geography*, pp. 55-76. [[Link]](https://ucl.rl.talis.com/link?url=https%3A%2F%2Fapp.knovel.com%2Fhotlink%2Ftoc%2Fid%3AkpGISSE001%2Fgeographic-information-science%3Fkpromoter%3Dmarc&sig=e437927b963cc591dcb65491eccdd3869cc31aef80e1443cb2ba12d8f3bb031a)
 
-#### Suggested readings 
+#### Suggested readings {.unnumbered}
 - Schurr, C., Müller, M. and Imhof, N. 2020. Who makes geographical knowledge? The gender of Geography’s gatekeepers. *The Professional Geographer* 72(3): 317-331. [[Link]](https://doi.org/10.1080/00330124.2020.1744169)
 - Yuan, M. 2001. Representing complex geographic phenomena in GIS. *Cartography and Geographic Information Science* 28(2): 83-96. [[Link]](https://doi.org/10.1559/152304001782173718)
 
@@ -69,7 +69,7 @@ To get the 2021 Census population counts, you should:
 ### Data preparation
 When opening the LSOA spreadsheets in Excel, you will notice additional rows of information at the top. This extra data can cause issues in QGIS, so we need to clean the dataset. To avoid errors later on, we will also save the cleaned data in `csv` format.
 
-#### London population in 2011
+#### London population in 2011 {.unnumbered}
 Open the `LSOA2011-population.xlsx` file in Excel. We have two main columns: one with identifying information that distinguishes each area from one another and one with population counts. In addition, there are some less informative rows at the top of the spreadsheet. To prepare the data we need to take several steps.
 
 1. Open a new Excel spreadsheet. 
@@ -160,7 +160,7 @@ After saving the file, Excel may prompt a warning about possible data loss. You 
 Be aware that depending on your operating system's language settings (e.g. Windows, macOS, Linux), `csv` files might use different characters instead of commas. While this may seem trivial, it can lead to issues when importing data into another program. Therefore, it is wise to check your `csv` file in a plain text editor (e.g. **TextEdit** on macOS or **Notepad** on Windows). If you see semicolons (`;`) instead of commas (`,`), you can quickly fix this by finding and replacing every semicolon with a comma, just as we did with the `whitespace` characters in Excel.
 :::
 
-#### London population in 2021
+#### London population in 2021 {.unnumbered}
 Now the 2011 data is prepared, we can move on to the 2021 data. Open the `LSOA2021-population.xlsx` in Excel. You will notice that the file is formatted largely the same as the `LSOA2011-population.xlsx` file. However, this time the data for all Local Authority Districts are grouped together, with all data also grouped by region. This arrangement simplifies our task, as we can easily cut the data for each of the 32 Boroughs and the *City of London* in one go.
 
 1. Open a new Excel spreadsheet. 
