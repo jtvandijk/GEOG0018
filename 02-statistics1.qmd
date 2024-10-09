@@ -310,8 +310,11 @@ To further investigate which specific groups differ, we can conduct a series of 
 This concludes this week's tutorial. Now complete the following homework tasks:
 
 1. Use an appropriate statistical test to determine whether the average proportion of the *employed population* differs between LSOAs in *Bexley* and *Harrow*.
-2. Apply the relevant test to compare the proportion of the proportion of people *aged 50 years and over* across the boroughs of *Lambeth*, *Southwark*, and *Westminster*.
-3. Include the test outputs in the appendix of your assignment and provide a brief interpretation of the results.
+2. Apply the relevant test to compare the proportion of people *aged 50 years and over* across the boroughs of *Lambeth*, *Southwark*, and *Westminster*.
+
+::: {.callout-warning}
+Paste the test outputs in the appendix of your assignment, include a few sentences interpreting the results. 
+:::
 
 ## Before you leave
-This week, we explored how to statistically compare different groups to assess whether they are different, using both parametric and non-parametric methods. Next week, we'll shift our focus from group comparisons to analysing associations and relationships between variables. Looking forward? For now, take [some time to unwind](https://www.youtube.com/watch?v=KMxucpLOF5s) and get ready for what's next!
+This week, we explored how to statistically compare different groups to assess whether they are different, using both parametric and non-parametric methods. Next week, we will shift our focus from group comparisons to analysing associations and relationships between variables. Looking forward? For now, take [some time to unwind](https://www.youtube.com/watch?v=KMxucpLOF5s) and get ready for what's next!

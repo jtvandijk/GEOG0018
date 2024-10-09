@@ -748,7 +748,11 @@ This concludes this week's tutorial. Now complete the following homework tasks:
 
 1. Filter the London LSOAs to any of the [London boroughs](https://en.wikipedia.org/wiki/London_boroughs) other than Camden.
 2. Create either a histogram or a boxplot showing the distribution of the proportion of people *aged 25 to 34 years*. Make sure to give your plot a clear title and label the axes appropriately for interpretation.
-3. Save your visualisation as an image and paste the image into the appendix of your assignment, include a few sentences interpreting the results.
+3. Save your visualisation as an image.
+
+::: {.callout-warning}
+Paste your visualisation output in the appendix of your assignment, include a few sentences interpreting the results. 
+:::
 
 ## Before you leave
 This week, we revisited the basics of conducting quantitative analysis in R and RStudio, building on the material introduced last year in [Geography in the Field I](https://www.ucl.ac.uk/module-catalogue/modules/geography-in-the-field-1-GEOG0013) and [Geography in the Field II](https://www.ucl.ac.uk/module-catalogue/modules/geography-in-the-field-2-GEOG0014). Now that everyone is back up to speed, next week we will move on to using R for statistical analysis. But for now, it is [time to kick back and relax](https://www.youtube.com/watch?v=dmxJIc3M7LI)!

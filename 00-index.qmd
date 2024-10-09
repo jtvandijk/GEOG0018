@@ -30,7 +30,8 @@ The topics covered over the next five weeks are:
 This year's version features the following **major** updates:
 
 - Full rewrite of the module material using `Quarto`.
-- Update to using 2021 Census data.
+- More emphasis on data cleaning and data preparation.
+- Using the `tidyverse` over `base` R where appropriate.
 - Move to `GeoPackage` over `shapefile`.
 - Using QGIS for creating thematic maps.
 :::
