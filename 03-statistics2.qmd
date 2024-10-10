@@ -1,5 +1,5 @@
 # Statistical Analysis II
-Last week, we explored methods for comparing groups. This week, our focus shifts to examining relationships between variables, aiming to assess the extent to which two variables *covary* — in other words, how changes in one variable are associated with changes in another.
+Last week, we explored methods for comparing groups. This week, our focus shifts to examining relationships between variables, aiming to assess the extent to which two variables *covary* — in other words, how changes in one variable are associated with changes in another. For example, what is the link between greenhouse gas emissions (`x`) and global mean temperature (`y`)? What effect does spending longer in education (`x`) have on earnings (`y`)? To what extent are house prices or local health outcomes (`y`) increased by proximity to urban greenspace (`x`)? To answer these sorts of questions we need techniques for unpacking relationships between variables.
 
 ## Lecture slides
 You can download the slides of this week's lecture here: [[Link]]({{< var slides.week08 >}}).
@@ -12,3 +12,31 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 #### Suggested readings {.unnumbered}
 - Field, A. Discovering Statistics using R, **Chapter 2**: *Everything you ever wanted to know about statistics (well, sort of)*, pp. 32-61. [[Link]](https://read.kortext.com/reader/epub/2039249?page=32)
 
+## Elections results in England and Wales
+Today, we will investigate the political geography of England and Wales, focusing on the results of the July 2024 General Election, which was won by the Labour Party led by Keir Starmer. You will work with data extracted from two data sources: the [constituency results from the election](https://commonslibrary.parliament.uk/research-briefings/cbp-10009/) and socio-demographic information from the 2021 Census, extracted using the [Custom Dataset Tool](https://www.ons.gov.uk/datasets/create). These datasets have been prepared and merged. Please download the file using the link below and save it in your project folder within the `data` directory.
+
+| File                                                        | Type   | Link |
+| :------                                                     | :------| :------ |
+| England and Wales Parliamentary Constituencies GE2024       | `csv` | [Download](https://github.com/jtvandijk/GEOG0018/tree/master/data/EW-GE2024-Constituency-Vars.csv) |
+
+::: {.callout-tip}
+To download a `csv` file that is hosted on GitHub, click on the `Download raw file` button on the top right of your screen and it should download directly to your computer.
+:::
+
+To get started, open your `GEOG0018` **R Project** and create a new script: **File** -> **New File** -> **R Script**. Save your script as `w08-election-analysis.r`. 
+
+We will start by loading the libraries that we will need:
+
+```{r}
+#| label: 03-load-libraries
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| output: False
+#| tidy: True
+#| filename: "R code"
+# load libraries
+library(tidyverse)
+library(janitor)
+library(easystats)
+```
