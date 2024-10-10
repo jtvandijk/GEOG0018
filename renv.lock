@@ -379,6 +379,20 @@
       ],
       "Hash": "39b2e002522bfd258039ee4e889e0fd1"
     },
+    "descr": {
+      "Package": "descr",
+      "Version": "1.1.8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "grDevices",
+        "graphics",
+        "stats",
+        "utils",
+        "xtable"
+      ],
+      "Hash": "1573a47804c275fabba9062c1c37bcde"
+    },
     "digest": {
       "Package": "digest",
       "Version": "0.6.37",
@@ -1714,6 +1728,18 @@
         "rlang"
       ],
       "Hash": "1d0336142f4cd25d8d23cd3ba7a8fb61"
+    },
+    "xtable": {
+      "Package": "xtable",
+      "Version": "1.8-4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "stats",
+        "utils"
+      ],
+      "Hash": "b8acdf8af494d9ec19ccb2481a9b11c2"
     },
     "yaml": {
       "Package": "yaml",

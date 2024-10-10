@@ -71,7 +71,7 @@ Start RStudio, and copy and paste the following code into the **console** window
 #| tidy: True
 #| filename: "R code"
 # install packages
-install.packages(c('tidyverse', 'janitor','easystats'))
+install.packages(c('tidyverse', 'janitor', 'descr', 'easystats'))
 ```
 
 ::: callout-warning
@@ -92,6 +92,7 @@ Once you have installed the packages, we need to check whether we can in fact lo
 # load packages
 library(tidyverse)
 library(janitor)
+library(descr)
 library(easystats)
 ```
 

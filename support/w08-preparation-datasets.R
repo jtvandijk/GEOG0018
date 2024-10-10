@@ -12,13 +12,18 @@ eth <- read_csv('data/EW-PC2024-EthnicGroup.csv')
 elec <- elec |>
   clean_names() |>
   filter(country_name == 'Wales' | country_name == 'England') |>
-  select(1, 3, 5, 13, 15, 16)
+  select(1, 3, 5, 13, 15, 16, 19, 20, 21)
 names(elec) <- c('constituency_code','constituency_name', 
-                 'region_name', 'winning_party', 'eligible_voters', 'valid_votes')
+                 'region_name', 'winning_party', 'eligible_voters', 'valid_votes',
+                 'conservative_votes', 'labour_votes', 'libdem_votes')
+elec <- elec |>
+  mutate(conservative_vote_share = conservative_votes/valid_votes,
+         labour_vote_share = labour_votes/valid_votes,
+         libdem_vote_share = libdem_votes/valid_votes)
 
 # update parties
 elec <- elec |>
-  mutate(winning_party = if_else(winning_party == 'Con' | winning_party == 'Lab', winning_party, 'Other'))
+  mutate(winning_party = if_else(winning_party == 'Con' | winning_party == 'Lab' | winning_party == 'LD', winning_party, 'Other'))
 write_csv(elec, 'data/EW-GE2024-Results.csv')
 
 # age variable - pivot
