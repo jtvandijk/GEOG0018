@@ -71,7 +71,7 @@ Start RStudio, and copy and paste the following code into the **console** window
 #| tidy: True
 #| filename: "R code"
 # install packages
-install.packages(c('tidyverse', 'janitor', 'descr', 'ggcorrplot','easystats'))
+install.packages(c('tidyverse', 'janitor', 'descr', 'ggcorrplot','patchwork','easystats'))
 ```
 
 ::: callout-warning
@@ -94,6 +94,7 @@ library(tidyverse)
 library(janitor)
 library(descr)
 library(ggcorrplot)
+library(patchwork)
 library(easystats)
 ```
 

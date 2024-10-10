@@ -88,4 +88,3 @@ write_csv(att, 'data/EW-GE2024-Demographics.csv')
 elec_att <- elec |>
   left_join(att[,c(1,3:18)], by = 'constituency_code')
 write_csv(elec_att, 'data/EW-GE2024-Constituency-Vars.csv')
-
