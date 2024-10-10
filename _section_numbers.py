@@ -1,6 +1,4 @@
 # libraries
-# conda env: html
-import pandas as pd
 import os
 import glob
 

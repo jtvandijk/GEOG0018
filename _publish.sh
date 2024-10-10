@@ -7,7 +7,6 @@ rm -r *_cache *_files
 quarto render
 
 # fix section numbers
-source activate simple
 python _section_numbers.py
 
 # track changes

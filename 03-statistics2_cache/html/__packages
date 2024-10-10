@@ -10,6 +10,7 @@ forcats
 lubridate
 janitor
 descr
+ggcorrplot
 easystats
 bayestestR
 correlation
