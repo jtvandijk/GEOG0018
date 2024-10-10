@@ -9,6 +9,7 @@ stringr
 forcats
 lubridate
 janitor
+descr
 easystats
 bayestestR
 correlation
@@ -20,4 +21,3 @@ performance
 parameters
 report
 see
-descr
