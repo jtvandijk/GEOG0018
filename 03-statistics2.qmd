@@ -152,7 +152,7 @@ cor.test(elec_vars$aged_50_years_and_over, elec_vars$conservative_vote_share, me
 ```
 
 ::: {.callout-tip}
-The Pearson test is parametric and requires interval or ratio variables with a linear relationship. If the data are ordinal or skewed, Spearman's rank correlation (`method = 'spearman'`) is a better option, as it provides a non-parametric alternative.
+The Pearson test is parametric and requires interval or ratio variables with a linear relationship. If the data are *ordinal* or *skewed*, Spearman's rank correlation (`method = 'spearman'`) is a better option, as it provides a non-parametric alternative.
 :::
 
 It can be useful to look at a matrix of correlation coefficients between a selection of variables within your dataset. To generate this, we can use the `cor()` function and subsequently visualise the results:
@@ -244,7 +244,7 @@ elec_vars <- elec_vars |>
 boxplot(elec_vars$conservative_vote_share ~ elec_vars$region_name, xlab = 'Region', ylab = 'Conservative vote share')
 ```
 
-The boxplots suggest some regional variation and so we will  add the `region_name` variable to our regression model. To do this, we need to transform the categorical variable into dummy variables, one for each region, resulting in 10 new variables. Each observation will be coded as 1 for its corresponding region and 0 for all other regions.
+The boxplots suggest some regional variation and so we will  add the `region_name` variable to our regression model. To do this, we need to transform the categorical variable into [dummy variables](https://en.wikipedia.org/wiki/Dummy_variable_(statistics)), one for each region, resulting in 10 new variables. Each observation will be coded as 1 for its corresponding region and 0 for all other regions.
 
 ::: {.callout-note}
 By including all but one of the regional dummy variables in the regression model, we control for regional differences, with the omitted category serving as the *reference category*. R will detect that you have a categorical variable if it is stored as a character or factor and will do the dummy generation for you. The coefficients for the included dummy variables indicate how much the predicted value of the dependent variable differs for constituencies in that region compared to the *reference* region. 
@@ -285,7 +285,7 @@ Check for normality of the residuals:
 performance::check_model(lm_voteshare, check = c('qq', 'normality'))
 ```
 
-Another important assumption is homoscedasticity, which occurs when the residuals exhibit constant variance across all levels of the independent variable(s). In contrast, heteroscedasticity arises when the variance of the residuals is not constant. Linearity, of course, is another key assumption in linear regression, signifying that a straight-line relationship exists between the independent and dependent variables.
+Another important assumption is [homoscedasticity](https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity), which occurs when the residuals exhibit constant variance across all levels of the independent variable(s). In contrast, [heteroscedasticity](https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity) arises when the variance of the residuals is not constant. Linearity, of course, is another key assumption in linear regression, signifying that a straight-line relationship exists between the independent and dependent variables.
 
 Check for linearity and heteroscedasticity:
 
@@ -306,6 +306,10 @@ The diagnostics indicate that the relationship between the independent and depen
 :::
 
 Multicollinearity is another potential issue. Multicollinearity arises when independent variables are highly correlated with each other. This situation can complicate regression analysis, as it makes it challenging to isolate the individual effects of each correlated variable on the dependent variable. Finally, outliers can skew the results and affect the overall model fit.
+
+::: {.callout-note}
+Multicollinearity can be assessed using Variance Inflation Factors (VIF). VIF measures how much the variance of an estimated regression coefficient increases when your predictors are correlated. It is calculated by fitting a regression model for each independent variable against all the other independent variables and then assessing how much the R-squared value increases. A VIF value greater than 10 typically indicates problematic multicollinearity, suggesting that the independent variables are highly correlated with one another.
+:::
 
 We can check for influential observations and multicollinearity as follows:
 
@@ -329,7 +333,7 @@ If you encounter multicollinearity issues, you have several options to address t
 This concludes this week's tutorial. Now complete the following homework tasks making use of `elec_vars` dataset:
 
 1. Analyse the association between the `pop_white_90percent` and `winning_party` variable.
-2. Build a *multiple* regression model with the `labour_vote_share` as dependent variable for constituencies in England. 
+2. Build a *multiple* regression model with the `labour_vote_share` as dependent variable for constituencies in *England*. 
 
 ::: {.callout-warning}
 Paste the test outputs in the appendix of your assignment, include a few sentences summarising what your model shows. 

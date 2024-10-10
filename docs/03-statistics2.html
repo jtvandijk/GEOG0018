@@ -555,7 +555,7 @@ sample estimates:
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>The Pearson test is parametric and requires interval or ratio variables with a linear relationship. If the data are ordinal or skewed, Spearman’s rank correlation (<code>method = 'spearman'</code>) is a better option, as it provides a non-parametric alternative.</p>
+<p>The Pearson test is parametric and requires interval or ratio variables with a linear relationship. If the data are <em>ordinal</em> or <em>skewed</em>, Spearman’s rank correlation (<code>method = 'spearman'</code>) is a better option, as it provides a non-parametric alternative.</p>
 </div>
 </div>
 </div>
@@ -712,7 +712,7 @@ F-statistic: 166.8 on 3 and 571 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
-<p>The boxplots suggest some regional variation and so we will add the <code>region_name</code> variable to our regression model. To do this, we need to transform the categorical variable into dummy variables, one for each region, resulting in 10 new variables. Each observation will be coded as 1 for its corresponding region and 0 for all other regions.</p>
+<p>The boxplots suggest some regional variation and so we will add the <code>region_name</code> variable to our regression model. To do this, we need to transform the categorical variable into <a href="https://en.wikipedia.org/wiki/Dummy_variable_(statistics)">dummy variables</a>, one for each region, resulting in 10 new variables. Each observation will be coded as 1 for its corresponding region and 0 for all other regions.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -800,7 +800,7 @@ F-statistic: 65.71 on 11 and 502 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
-<p>Another important assumption is homoscedasticity, which occurs when the residuals exhibit constant variance across all levels of the independent variable(s). In contrast, heteroscedasticity arises when the variance of the residuals is not constant. Linearity, of course, is another key assumption in linear regression, signifying that a straight-line relationship exists between the independent and dependent variables.</p>
+<p>Another important assumption is <a href="https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity">homoscedasticity</a>, which occurs when the residuals exhibit constant variance across all levels of the independent variable(s). In contrast, <a href="https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity">heteroscedasticity</a> arises when the variance of the residuals is not constant. Linearity, of course, is another key assumption in linear regression, signifying that a straight-line relationship exists between the independent and dependent variables.</p>
 <p>Check for linearity and heteroscedasticity:</p>
 <div class="cell styled-output" data-hash="03-statistics2_cache/html/fig-03-diagnose-linearity_da1d2bfe57200294042ba2be07955636">
 <div class="code-with-filename">
@@ -830,6 +830,16 @@ F-statistic: 65.71 on 11 and 502 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>Multicollinearity is another potential issue. Multicollinearity arises when independent variables are highly correlated with each other. This situation can complicate regression analysis, as it makes it challenging to isolate the individual effects of each correlated variable on the dependent variable. Finally, outliers can skew the results and affect the overall model fit.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Multicollinearity can be assessed using Variance Inflation Factors (VIF). VIF measures how much the variance of an estimated regression coefficient increases when your predictors are correlated. It is calculated by fitting a regression model for each independent variable against all the other independent variables and then assessing how much the R-squared value increases. A VIF value greater than 10 typically indicates problematic multicollinearity, suggesting that the independent variables are highly correlated with one another.</p>
+</div>
+</div>
+</div>
 <p>We can check for influential observations and multicollinearity as follows:</p>
 <div class="cell styled-output" data-hash="03-statistics2_cache/html/fig-03-diagnose-vif_777c1f8e58de6778b7d563c2d8ec2722">
 <div class="code-with-filename">
@@ -866,7 +876,7 @@ F-statistic: 65.71 on 11 and 502 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>This concludes this week’s tutorial. Now complete the following homework tasks making use of <code>elec_vars</code> dataset:</p>
 <ol type="1">
 <li>Analyse the association between the <code>pop_white_90percent</code> and <code>winning_party</code> variable.</li>
-<li>Build a <em>multiple</em> regression model with the <code>labour_vote_share</code> as dependent variable for constituencies in England.</li>
+<li>Build a <em>multiple</em> regression model with the <code>labour_vote_share</code> as dependent variable for constituencies in <em>England</em>.</li>
 </ol>
 <div class="callout callout-style-simple callout-warning">
 <div class="callout-body d-flex">
