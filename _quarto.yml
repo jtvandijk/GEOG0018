@@ -41,8 +41,10 @@ website:
     contents:
       - section: "Module overview"
         contents:
-          text: "Welcome"
-          file: 00-index.qmd
+          - text: "Welcome"
+            file: 00-index.qmd
+          - text: "Getting Started"
+            file: 00-installation.qmd
       - section: "Statistical Analysis"
         contents:
           - 01-recap.qmd

@@ -19,7 +19,8 @@ The topics covered over the next five weeks are:
 
 | Week | Section  | Topic |
 | :--- |:---------|:------------------ |
-| 1    | Getting Started               | [R for Data Analysis]({{< var urls.w01 >}}) |
+| 1    | Getting Started               | [Getting Started]({{< var urls.w00 >}}) |
+| 1    | R for Data Analysis           | [R for Data Analysis]({{< var urls.w01 >}}) |
 | 2    | Statistical Analysis          | [Statistical Analysis I]({{< var urls.w02 >}}) | 
 | 3    | Statistical Analysis          | [Statistical Analysis II]({{< var urls.w03 >}}) | 
 | 4    | Spatial Analysis              | [Spatial Analysis I]({{< var urls.w04 >}}) |

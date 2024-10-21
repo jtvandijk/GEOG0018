@@ -4,6 +4,7 @@ meta:
   title: GEOG0018
 
 urls:
+  w00: "00-installation.html"
   w01: "01-recap.html"
   w02: "02-statistics1.html"
   w03: "03-statistics2.html" 
