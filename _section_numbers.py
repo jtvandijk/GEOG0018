@@ -13,7 +13,7 @@ for f in files:
 
 # only keep chapters
 html_files.remove('docs/index.html')
-html_files.remove('docs/installation.html')
+html_files.remove('docs/00-installation.html')
 html_files.sort()
 
 # set counter
@@ -35,20 +35,20 @@ for htmlf in html_files:
     
     # update TOC chapter 1
     html_content = html_content.replace('<span class="menu-text">R for Data Analysis</span>', \
-                                        '<span class="menu-text">W01 R for Data Analysis</span>')
+                                        '<span class="menu-text">1 R for Data Analysis</span>')
     # update TOC chapter 2
     html_content = html_content.replace('<span class="menu-text">Statistical Analysis I</span>', \
-                                        '<span class="menu-text">W02 Statistical Analysis I</span>')
+                                        '<span class="menu-text">2 Statistical Analysis I</span>')
     # update TOC chapter 3
     html_content = html_content.replace('<span class="menu-text">Statistical Analysis II</span>', \
-                                        '<span class="menu-text">W03 Statistical Analysis II</span>')
+                                        '<span class="menu-text">3 Statistical Analysis II</span>')
     # update TOC chapter 4
     html_content = html_content.replace('<span class="menu-text">Spatial Analysis I</span>', \
-                                        '<span class="menu-text">W04 Spatial Analysis I</span>')
+                                        '<span class="menu-text">4 Spatial Analysis I</span>')
     
     # update TOC chapter 5
     html_content = html_content.replace('<span class="menu-text">Spatial Analysis II</span>', \
-                                        '<span class="menu-text">W05 Spatial Analysis II</span>')
+                                        '<span class="menu-text">5 Spatial Analysis II</span>')
 
     # write
     with open(htmlf, 'w') as file:
