@@ -646,13 +646,13 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 <p>Boxplots provide another method for examining the distribution of values in a continuous variable. The <em>box</em> itself represents the interquartile range (IQR), bounded by the lower quartile (Q1) and upper quartile (Q3), with the median displayed as a line inside the box. The <em>whiskers</em> extend 1.5 times the IQR above Q3 and below Q1, indicating the range within which most of the data lies, while any points outside this range are plotted as outliers.</p>
 <p>A boxplot can be created as follows:</p>
-<div class="cell styled-output" data-hash="01-recap_cache/html/fig-01-plot-data-boxplot_5d45d66f2a1485e65716d8e1213c51cb">
+<div class="cell styled-output" data-hash="01-recap_cache/html/fig-01-plot-data-boxplot_0472778a69629203338a00b85e69d363">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">"Proportions"</span>, <span class="at">main =</span> <span class="st">"Proportion of people aged between 16 and 24"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output-display">
 <div id="fig-01-plot-data-boxplot" class="quarto-figure quarto-figure-center anchored">

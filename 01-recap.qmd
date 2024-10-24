@@ -264,7 +264,8 @@ A boxplot can be created as follows:
 #| filename: "R code"
 # boxplot 
 boxplot(lsoa_age$aged_16_to_24_years, horizontal = TRUE,
-        xlab = 'Proportions', main = 'Proportion of people aged between 16 and 24')
+        xlab = 'Proportions', 
+        main = 'Proportion of people aged between 16 and 24')
 ```
 
 ### Data filtering
