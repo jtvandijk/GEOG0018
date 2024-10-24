@@ -617,13 +617,13 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 <p>Further to these standard descriptive statistics, graphs provide a useful visual summary of the distribution of values on a variable. Graphs can help us assess, for instance, whether it our data are <a href="https://en.wikipedia.org/wiki/Normal_distribution">normally distributed</a>, whether there are <em>outlying</em> values, and whether there are any missing values or errors we should deal with before running our analyses. Histograms are a good first step when it comes to looking at the distribution of values of a variable.</p>
 <p>We can create a histogram as follows:</p>
-<div class="cell styled-output" data-hash="01-recap_cache/html/fig-01-plot-data-histogram_8b3fa00298a2afc3a47f186ffa7c4d10">
+<div class="cell styled-output" data-hash="01-recap_cache/html/fig-01-plot-data-histogram_271d58c571332010062bc77d980b21ac">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">xlab =</span> <span class="st">"Number of LSOAs"</span>, <span class="at">main =</span> <span class="st">"Proportion of people aged between 16 and 24"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">xlab =</span> <span class="st">"Proportions"</span>, <span class="at">main =</span> <span class="st">"Proportion of people aged between 16 and 24"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell-output-display">
 <div id="fig-01-plot-data-histogram" class="quarto-figure quarto-figure-center anchored">

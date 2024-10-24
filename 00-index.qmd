@@ -40,7 +40,7 @@ This year's version features the following **major** updates:
 ## Acknowledgements {.unnumbered}
 This workbook is created using the [Quarto](https://quarto.org/) publishing system. Elements of this workbook are partially based on and modified from:
 
-- The [GEOG0030: Geocomputation 2023-2024](https://jtvandijk.github.io/GEOG0030_20232024/) workbook by [Justin van Dijk](https://www.mappingdutchman.com)
+- The [GEOG0014: Geocomputation 2023-2024](https://jtvandijk.github.io/GEOG0030_20232024/) workbook by [Justin van Dijk](https://www.mappingdutchman.com)
 - Previous [GEOG018: Methods in Human Geography](https://www.ucl.ac.uk/module-catalogue/modules/methods-in-human-geography-GEOG0018) content created by [Rory Coulter](https://www.ucl.ac.uk/geography/rory-coulter)
 
 The datasets used in this workbook contain:

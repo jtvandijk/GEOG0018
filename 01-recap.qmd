@@ -243,7 +243,7 @@ We can create a histogram as follows:
 #| tidy: True
 #| filename: "R code"
 # histogram
-hist(lsoa_age$aged_16_to_24_years, breaks = 30, xlab = 'Number of LSOAs', main = 'Proportion of people aged between 16 and 24')
+hist(lsoa_age$aged_16_to_24_years, breaks = 30, xlab = 'Proportions', main = 'Proportion of people aged between 16 and 24')
 ```
 
 ::: {.callout-note}
@@ -263,7 +263,8 @@ A boxplot can be created as follows:
 #| tidy: True
 #| filename: "R code"
 # boxplot 
-boxplot(lsoa_age$aged_16_to_24_years, horizontal = TRUE)
+boxplot(lsoa_age$aged_16_to_24_years, horizontal = TRUE,
+        xlab = 'Proportions', main = 'Proportion of people aged between 16 and 24')
 ```
 
 ### Data filtering
