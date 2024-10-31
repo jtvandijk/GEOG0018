@@ -1,3 +1,7 @@
+# library
+library(stargazer)
+library(easystats)
+
 # set seed
 set.seed(123)
 
@@ -43,7 +47,10 @@ plot(x_real, y_real, xlab = 'X', ylab = 'Y',
 # covariance, regression parameters
 c <- 20
 p <- 14
+l_pos  <- lm(y_pos ~ x_pos)
+l_none <- lm(y_none ~ x_none)
 l_real <- lm(y_real ~ x_real)
+l_mult <- lm(y_pos ~ x_pos + x_none)
 x_real <- seq(0, 50, length.out = c)
 y_real <- x_real + rnorm(c, mean = 10, sd = 10)  
 x_mean <- mean(x_real)
@@ -99,3 +106,25 @@ plot(x_real, y_real, xlab = 'X', ylab = 'Y',
 abline(l_real, col = '#A1112A', lty = 2)
 arrows(x_real[p], y_real[p], x_real[p], l_pred[p], length = 0.10)
 points(x_real[p], y_real[p], pch = 19, col = '#A1112A', cex = 2)
+
+# model fit - none
+plot(x_none, y_none, xlab = 'X', ylab = 'Y', 
+     xlim = x_range, ylim = y_range, pch = 19, lwd = 5)
+abline(l_none, col = '#A1112A', lty = 2)
+
+# model fit - positive
+plot(x_pos, y_pos, xlab = 'X', ylab = 'Y',
+     xlim = x_range, ylim = y_range, pch = 19, lwd = 5)
+abline(l_pos, col = '#A1112A', lty = 2)
+
+# model fit
+stargazer(l_none, type = 'latex', out = 'support/w08-lm-none.tex')
+stargazer(l_pos, type = 'latex', out = 'support/w08-lm-pos.tex')
+stargazer(l_mult, type = 'latex', out = 'support/w08-lm-mult.tex')
+
+# assumptions
+y <- y_pos
+x <- x_pos
+z <- x_none
+l_multi <- lm(y ~ x + z)
+performance::check_model(l_mult, check = c('linearity','homogeneity'))

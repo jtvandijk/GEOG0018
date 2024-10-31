@@ -42,7 +42,7 @@ This workbook is created using the [Quarto](https://quarto.org/) publishing syst
 
 - The [GEOG0014: Geocomputation 2023-2024](https://jtvandijk.github.io/GEOG0030_20232024/) workbook by [Justin van Dijk](https://www.mappingdutchman.com)
 - Previous [GEOG018: Methods in Human Geography](https://www.ucl.ac.uk/module-catalogue/modules/methods-in-human-geography-GEOG0018) content created by [Rory Coulter](https://www.ucl.ac.uk/geography/rory-coulter)
-- Previous [POLS0008: Introduction to Quantitative Research Methods](https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-quantitative-research-methods-POLS0008) content created by [Stephen Jivraj](https://profiles.ucl.ac.uk/44867-stephen-jivraj).
+- Previous [POLS0008: Introduction to Quantitative Research Methods](https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-quantitative-research-methods-POLS0008) content created by [Stephen Jivraj](https://profiles.ucl.ac.uk/44867-stephen-jivraj)
 
 The datasets used in this workbook contain:
 
