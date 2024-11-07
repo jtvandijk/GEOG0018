@@ -21,7 +21,7 @@ In this week's tutorial, we will explore unemployment rates in London as reporte
 | London LSOA Census 2021 Economic Status     | `csv` | [Download](https://github.com/jtvandijk/GEOG0018/tree/master/data/London-LSOA-EconomicStatus.csv) |
 
 ::: {.callout-tip}
-To download a `csv` file that is hosted on GitHub, click on the `Download raw file` button on the top right of your screen and it should download directly to your computer.
+To download a `csv` file that is hosted on GitHub, click on the **Download raw file** button on the top right of your screen and it should download directly to your computer.
 :::
 
 To get started, open your `GEOG0018` **R Project** and create a new script: **File** -> **New File** -> **R Script**. Save your script as `w07-employment-age-analysis.r`. 
@@ -191,7 +191,9 @@ We can use the `t.test()` function in R to conduct a two-tailed test, assessing 
 t.test(lsoa_emp_camden$active_unemployed, lsoa_emp_sutton$active_unemployed)
 ```
 
-We can see that the mean in Sutton LSOAs (2.64%) is lower than in Camden LSOAs (4.22%). Since the $p$-value is `< 0.05` we can conclude the difference in means is statistically significant.
+::: {.callout-important}
+We can see that the mean in Sutton LSOAs (2.64%) is lower than in Camden LSOAs (4.22%). Since the $p$-value is `< 0.05` we can conclude reject the null hypothesis that means for Sutton and Camden are the same, and accept the alternative hypothesis.
+:::
 
 The non-parametric alternative to the t-test is the [Mann-Whitney U test](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test) (also known as the Wilcoxon rank-sum test). This test is used to compare differences between two independent groups when the assumptions of the t-test (such as normality of the data) are not met.
 
@@ -213,6 +215,10 @@ wilcox.test(lsoa_emp_camden$active_unemployed, lsoa_emp_sutton$active_unemployed
 ```
 
 Also the results of the Mann-Whitney U test suggest that the difference in means in these two London boroughs is statistically significant.
+
+::: {.callout-important}
+Since the $p$-value is `< 0.05` we can conclude reject the null hypothesis that means for Sutton and Camden are the same, and accept the alternative hypothesis.
+:::
 
 ::: {.callout-tip}
 To determine if a variable is normally distributed, visual inspection can be helpful, but the [Shapiro-Wilk test](https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test) (`shapiro.test()`) offers a more formal statistical assessment. This test compares the distribution of your variable to a normal distribution, with the *null hypothesis* stating that they are the same. If the test returns a small $p$-value (typically `< 0.05`), you can conclude that the variable is not normally distributed. However, it is important to note that the test is significantly influenced by sample size; in large datasets, even minor deviations from normality can yield a low $p$-value. The Shapiro-Wilk test should therefore not be considered definitive and should be used alongside visual assessment of the data.
@@ -267,7 +273,9 @@ anova_result <- aov(active_unemployed ~ borough_name, data = lsoa_subset)
 summary(anova_result)
 ```
 
+::: {.callout-important}
 The ANOVA output shows the F-statistic with a value 75.31, with a $p$-value `< 0.001`. We can conclude that there are significant differences in unemployment rates between the boroughs. This means we reject the *null hypothesis* that all group means are equal. 
+:::
 
 What this does not tell us is which group are significantly different from another. We can conduct a post hoc Tukey test to identify which specific groups differ from another:
 

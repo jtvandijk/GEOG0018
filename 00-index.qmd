@@ -34,7 +34,7 @@ This year's version features the following **major** updates:
 - Stronger emphasis on data cleaning and data preparation.
 - Using the `tidyverse` over `base` R where appropriate.
 - Replacing `shapefile` with `GeoPackage`.
-- Using QGIS for creating thematic maps.
+- Using QGIS to make thematic maps.
 :::
 
 ## Acknowledgements {.unnumbered}

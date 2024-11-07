@@ -298,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>To download a <code>csv</code> file that is hosted on GitHub, click on the <code>Download raw file</code> button on the top right of your screen and it should download directly to your computer.</p>
+<p>To download a <code>csv</code> file that is hosted on GitHub, click on the <strong>Download raw file</strong> button on the top right of your screen and it should download directly to your computer.</p>
 </div>
 </div>
 </div>
@@ -528,7 +528,16 @@ sample estimates:
 0.04220920 0.02640912 </code></pre>
 </div>
 </div>
-<p>We can see that the mean in Sutton LSOAs (2.64%) is lower than in Camden LSOAs (4.22%). Since the <span class="math inline">\(p\)</span>-value is <code>&lt; 0.05</code> we can conclude the difference in means is statistically significant.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>We can see that the mean in Sutton LSOAs (2.64%) is lower than in Camden LSOAs (4.22%). Since the <span class="math inline">\(p\)</span>-value is <code>&lt; 0.05</code> we can conclude reject the null hypothesis that means for Sutton and Camden are the same, and accept the alternative hypothesis.</p>
+</div>
+</div>
+</div>
 <p>The non-parametric alternative to the t-test is the <a href="https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test">Mann-Whitney U test</a> (also known as the Wilcoxon rank-sum test). This test is used to compare differences between two independent groups when the assumptions of the t-test (such as normality of the data) are not met.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -559,6 +568,16 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
 <p>Also the results of the Mann-Whitney U test suggest that the difference in means in these two London boroughs is statistically significant.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Since the <span class="math inline">\(p\)</span>-value is <code>&lt; 0.05</code> we can conclude reject the null hypothesis that means for Sutton and Camden are the same, and accept the alternative hypothesis.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -631,7 +650,16 @@ Residuals    365 0.04770 0.000131
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
 <p>The ANOVA output shows the F-statistic with a value 75.31, with a <span class="math inline">\(p\)</span>-value <code>&lt; 0.001</code>. We can conclude that there are significant differences in unemployment rates between the boroughs. This means we reject the <em>null hypothesis</em> that all group means are equal.</p>
+</div>
+</div>
+</div>
 <p>What this does not tell us is which group are significantly different from another. We can conduct a post hoc Tukey test to identify which specific groups differ from another:</p>
 <div class="cell styled-output" data-hash="02-statistics1_cache/html/02-tukey-run_afd426edb49cf78f9b8c1aeb35753a97">
 <div class="code-with-filename">

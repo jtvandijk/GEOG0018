@@ -20,7 +20,7 @@ Today, we will investigate the political geography of England and Wales, focusin
 | England and Wales Parliamentary Constituencies GE2024       | `csv` | [Download](https://github.com/jtvandijk/GEOG0018/tree/master/data/EW-GE2024-Constituency-Vars.csv) |
 
 ::: {.callout-tip}
-To download a `csv` file that is hosted on GitHub, click on the `Download raw file` button on the top right of your screen and it should download directly to your computer.
+To download a `csv` file that is hosted on GitHub, click on the **Download raw file** button on the top right of your screen and it should download directly to your computer.
 :::
 
 To get started, open your `GEOG0018` **R Project** and create a new script: **File** -> **New File** -> **R Script**. Save your script as `w08-election-analysis.r`. 
@@ -110,7 +110,9 @@ crosstab(elec_vars$winning_party, elec_vars$pop_50plus_40percent, expected = TRU
 The Chi-square test is a statistical method used to assess whether there is a significant association between two categorical variables.It compares the observed frequencies in each category to the expected frequencies, which are based on the assumption that there is no relationship between the variables (the *null hypothesis*). If the differences between observed and expected values are large enough, we reject the null hypothesis, indicating a significant association between the variables.
 :::
 
+::: {.callout-important}
 The $p$-value of the Chi-square test is `< 0.001`, so the association is statistically significant.
+:::
 
 ::: {.callout-tip}
 Crosstabulations are very useful if you have gathered your own survey data, where many variables will often be categorical.
@@ -177,6 +179,7 @@ cor_mat <- cor(elec_vars_sel)
 # correlation plot
 ggcorrplot(cor_mat, outline.col = '#ffffff', tl.cex = 8, legend.title = 'Correlation')
 ```
+
 ### Regression
 #### Univeriate regression
 A Pearson’s correlation describes the strength and direction of a linear relationship, but we can also quantify the change in the dependent variable (`y`) for a one-unit change in the independent variable (`x`) with an Ordinary Least Squares (OLS) regression.
@@ -220,7 +223,9 @@ lm_voteshare <- lm(conservative_vote_share ~ aged_50_years_and_over + eco_active
 summary(lm_voteshare)
 ```
 
+::: {.callout-important}
 The model $R^2$ has increased to 46%, indicating that adding both `eco_active_employed` and `eth_white` has improved our ability to predict Conservative vote share in 2024.
+:::
 
 ::: {.callout-note}
 The coefficients in a multivariate regression model represent the predicted change in the dependent variable (`y`) with a one-unit increase in each independent variable (`x`), while holding all other variables in the model constant. This makes the coefficients *partial* regression coefficients, meaning they show the effect of each predictor after accounting for the influence of the others.
