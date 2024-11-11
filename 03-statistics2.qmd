@@ -182,7 +182,7 @@ ggcorrplot(cor_mat, outline.col = '#ffffff', tl.cex = 8, legend.title = 'Correla
 
 ### Regression
 #### Univeriate regression
-A Pearson’s correlation describes the strength and direction of a linear relationship, but we can also quantify the change in the dependent variable (`y`) for a one-unit change in the independent variable (`x`) with an Ordinary Least Squares (OLS) regression.
+A Pearson's correlation describes the strength and direction of a linear relationship, but we can also quantify the change in the dependent variable (`y`) for a one-unit change in the independent variable (`x`) with an Ordinary Least Squares (OLS) regression.
 
 Let us run a model with the proportion of the population that is over 50 years old as `x` and the Conservative vote share as `y`:
 
