@@ -15,12 +15,12 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 ## Installation of QGIS
 QGIS is an open-source graphic user interface GIS with many community developed add-on packages that provide additional functionality to the software. You can download and install QGIS on your personal machine by going to the QGIS website: [[Link]](https://qgis.org/en/site/forusers/download.html). 
 
-::: {.callout-note}
-We recommend installing the **Long Term Release** (*QGIS 3.34 LTR*), as this version is the most current and stable. For Windows users, please note that the QGIS installation process may take some time, so be patient during the setup.
+::: {.callout-important}
+QGIS is available through [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) as well as that it can be accessed on UCL computers across campus. Instead of installing the software, you may want to consider using this version. 
 :::
 
-::: {.callout-tip}
-In case you do not have access to a laptop or encounter issues with the installation process, QGIS is also available through [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) as well as that it can be accessed on UCL computers across campus.
+::: {.callout-note}
+If you want to install QGIS on your personal computer, we recommend installing the **Long Term Release** (*QGIS 3.34 LTR*), as this version is the most current and stable. For Windows users, please note that the QGIS installation process may take some time, so be patient during the setup.
 :::
 
 After installation, launch QGIS to confirm that the installation was successful.
