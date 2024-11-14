@@ -18,7 +18,11 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 In RStudio, scripts allow us to build and save code that can be run repeatedly. We can organise these scripts into RStudio projects, which consolidate all files related to an analysis such as input data, R scripts, results, figures, and more. This organisation helps keep track of all data, input, and output, while enabling us to create standalone scripts for each part of our analysis. Additionally, it simplifies managing [directories and filepaths](https://en.wikipedia.org/wiki/Path_(computing)).
 
 Navigate to **File** -> **New Project** -> **New Directory**, and create a folder with the name `GEOG0018`. Click on **Create Project**. You should now see your main RStudio window switch to this new project and when you check your **files** pane, you should see a new **R Project** called `GEOG0018`.
-  
+
+::: {.callout-important}
+Ensure you select an appropriate folder to store your `GEOG0018` project. For example, you might use your *Methods in Human Geography* folder, if you have one, or another location within your `Documents` directory on your computer. You can select a location by clicking on **Browse**. If you are using iCloud Drive, avoid saving your project there, as syncing can sometimes cause issues. 
+:::
+
 ::: {.callout-warning}
 Please ensure that **folder names** and **file names** do not contain spaces or special characters such as `*` `.` `"` `/` `\` `[` `]` `:` `;` `|` `=` `,` `<` `?` `>` `&` `$` `#` `!` `'` `{` `}` `(` `)`. Different operating systems and programming languages deal differently with spaces and special characters and as such including these in your folder names and file names can cause many problems and unexpected errors. As an alternative to using white space you can use an underscore (`_`) or hyphen (`-`) if you like.
 :::

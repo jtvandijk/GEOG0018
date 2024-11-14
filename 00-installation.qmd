@@ -448,7 +448,7 @@ For more information on the `tidyverse` you can refer to [www.tidyverse.org](htt
 :::
 
 ::: {.callout-warning}
-We will be using these functions in the coming weeks, so ensure you are familiar with they do and how they work.
+We will be using these functions in the coming weeks, so ensure you are familiar with what they do and how they work.
 :::
 
 ## Before you leave {.unnumbered}
