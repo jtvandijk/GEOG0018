@@ -38,3 +38,6 @@ boxplot(height ~ year, data = student_heights,
 
 # anova
 summary(aov(height ~ year, data = student_heights))
+
+# tukey
+TukeyHSD(aov(height ~ year, data = student_heights))
