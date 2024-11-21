@@ -435,6 +435,16 @@ dbl (2): Economic activity status (4 categories) Code, Observation
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If your <code>clean_names()</code> function returns an error, it is likely due to a conflict with another library that also includes a clean_names() function. In such cases, R cannot determine which one to use. To resolve this, you can specify the library explicitly by using <code>janitor::clean_names()</code>.</p>
+</div>
+</div>
+</div>
 <p>The new column names of the <code>lsoa_emp</code> data are quite lengthy, so let us manually assign more concise column names for ease of use. This will help simplify our code and make it easier to reference the columns in subsequent analyses. Here is how we can do that:</p>
 <div class="cell styled-output" data-hash="02-statistics1_cache/html/02-rename-emp_942ed9393932fd1183afecf262fb33f8">
 <div class="code-with-filename">

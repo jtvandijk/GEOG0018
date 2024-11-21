@@ -110,6 +110,10 @@ lsoa_emp <- lsoa_emp |>
   clean_names()
 ```
 
+::: {.callout-note}
+If your `clean_names()` function returns an error, it is likely due to a conflict with another library that also includes a clean_names() function. In such cases, R cannot determine which one to use. To resolve this, you can specify the library explicitly by using `janitor::clean_names()`.
+:::
+
 The new column names of the `lsoa_emp` data are quite lengthy, so let us manually assign more concise column names for ease of use. This will help simplify our code and make it easier to reference the columns in subsequent analyses. Here is how we can do that:
 
 ```{r}

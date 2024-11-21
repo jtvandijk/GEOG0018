@@ -554,6 +554,16 @@ dbl (2): Age (5 categories) Code, Observation
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
+<p>If your <code>clean_names()</code> function returns an error, it is likely due to a conflict with another library that also includes a <code>clean_names()</code> function. In such cases, R cannot determine which one to use. To resolve this, you can specify the library explicitly by using <code>janitor::clean_names()</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
 <p>The code above uses a pipe function: <code>|&gt;</code>. The pipe operator allows you to pass the output of one function directly into the next, streamlining your code. While it might be a bit confusing at first, you will find that it makes your code faster to write and easier to read. More importantly, it reduces the need to create multiple intermediate variables to store outputs.</p>
 </div>
 </div>

@@ -181,6 +181,10 @@ lsoa_age <- lsoa_age |>
 ```
 
 ::: {.callout-note}
+If your `clean_names()` function returns an error, it is likely due to a conflict with another library that also includes a `clean_names()` function. In such cases, R cannot determine which one to use. To resolve this, you can specify the library explicitly by using `janitor::clean_names()`.
+:::
+
+::: {.callout-note}
 The code above uses a pipe function: `|>`. The pipe operator allows you to pass the output of one function directly into the next, streamlining your code. While it might be a bit confusing at first, you will find that it makes your code faster to write and easier to read. More importantly, it reduces the need to create multiple intermediate variables to store outputs.
 :::
 
