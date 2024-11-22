@@ -196,7 +196,7 @@ t.test(lsoa_emp_camden$active_unemployed, lsoa_emp_sutton$active_unemployed)
 ```
 
 ::: {.callout-important}
-We can see that the mean in Sutton LSOAs (2.64%) is lower than in Camden LSOAs (4.22%). Since the $p$-value is `< 0.05` we can conclude reject the null hypothesis that means for Sutton and Camden are the same, and accept the alternative hypothesis.
+We can see that the mean in Sutton LSOAs (2.64%) is lower than in Camden LSOAs (4.22%). Since the $p$-value is `< 0.05` we can conclude reject the *null hypothesis* that means for Sutton and Camden are the same, and accept the alternative hypothesis.
 :::
 
 The non-parametric alternative to the t-test is the [Mann-Whitney U test](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test) (also known as the Wilcoxon rank-sum test). This test is used to compare differences between two independent groups when the assumptions of the t-test (such as normality of the data) are not met.
@@ -221,7 +221,7 @@ wilcox.test(lsoa_emp_camden$active_unemployed, lsoa_emp_sutton$active_unemployed
 Also the results of the Mann-Whitney U test suggest that the difference in means in these two London boroughs is statistically significant.
 
 ::: {.callout-important}
-Since the $p$-value is `< 0.05` we can conclude reject the null hypothesis that means for Sutton and Camden are the same, and accept the alternative hypothesis.
+Since the $p$-value is `< 0.05` we can reject the *null hypothesis* that means for Sutton and Camden are the same, and accept the alternative hypothesis.
 :::
 
 ::: {.callout-tip}
@@ -232,7 +232,7 @@ To determine if a variable is normally distributed, visual inspection can be hel
 If we want to compare more than two groups, we can use an [Analysis of Variance (ANOVA) test](https://en.wikipedia.org/wiki/Analysis_of_variance). An ANOVA is a statistical method used to compare the means of three or more groups to determine if at least one group mean significantly differs from the others. For instance, if we extend our analysis from Camden and Sutton to include the London Borough of Hammersmith and Fulham, we can test for differences in means among these three areas.
 
 ::: {.callout-note}
-The *null hypothesis* of the ANOVA is that all group means are equal, while the alternative hypothesis posits that at least one group mean is different. ANOVA assesses the variance within groups and between groups to calculate the *F-statistic*, which is the ratio of the variance between the groups to the variance within the groups. A higher F-statistic indicates that group means are not all the same. The $p$-value derived from the F-statistic tells us whether we can reject the *null hypothesis*.
+The *null hypothesis* of the ANOVA is that all group means are equal, while the alternative hypothesis posits that at least one group mean is different. ANOVA assesses the variance within groups and between groups to calculate the *F-statistic*, which is the ratio of the variance between the groups to the variance within the groups. A higher *F-statistic* indicates that group means are not all the same. The $p$-value derived from the *F-statistic* tells us whether we can reject the *null hypothesis*.
 :::
 
 To run an ANOVA in R, we first need to ensure that all the groups we are comparing are contained within the same dataframe. We need a dataframe where one column represents the dependent variable (e.g. unemployment rates) and another column represents the independent grouping variable (e.g. borough names).
@@ -278,7 +278,7 @@ summary(anova_result)
 ```
 
 ::: {.callout-important}
-The ANOVA output shows the F-statistic with a value 75.31, with a $p$-value `< 0.001`. We can conclude that there are significant differences in unemployment rates between the boroughs. This means we reject the *null hypothesis* that all group means are equal. 
+The ANOVA output shows the *F-statistic* with a value 75.31, with a $p$-value `< 0.001`. We can conclude that there are significant differences in unemployment rates between the boroughs. This means we reject the *null hypothesis* that all group means are equal. 
 :::
 
 What this does not tell us is which group are significantly different from another. We can conduct a post hoc Tukey test to identify which specific groups differ from another:

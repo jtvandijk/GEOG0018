@@ -107,7 +107,7 @@ crosstab(elec_vars$winning_party, elec_vars$pop_50plus_40percent, expected = TRU
 ```
 
 ::: {.callout-note}
-The Chi-square test is a statistical method used to assess whether there is a significant association between two categorical variables.It compares the observed frequencies in each category to the expected frequencies, which are based on the assumption that there is no relationship between the variables (the *null hypothesis*). If the differences between observed and expected values are large enough, we reject the null hypothesis, indicating a significant association between the variables.
+The Chi-square test is a statistical method used to assess whether there is a significant association between two categorical variables.It compares the observed frequencies in each category to the expected frequencies, which are based on the assumption that there is no relationship between the variables (the *null hypothesis*). If the differences between observed and expected values are large enough, we reject the *null hypothesis*, indicating a significant association between the variables.
 :::
 
 ::: {.callout-important}
