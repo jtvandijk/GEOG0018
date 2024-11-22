@@ -23,7 +23,7 @@ format:
     pagetitle: "{{< var meta.title >}}"
 
 website:
-  repo-url: https://github.com/jtvandijk/GEOG0030
+  repo-url: https://github.com/jtvandijk/GEOG0018
   repo-actions: [issue]
   page-navigation: true
   page-footer:
