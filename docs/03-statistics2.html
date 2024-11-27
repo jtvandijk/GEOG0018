@@ -708,14 +708,14 @@ F-statistic: 166.8 on 3 and 571 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>This is a good start, but as geographers, we should also consider whether regional patterns influence voter share. We can use a boxplot to split out the vote shares by region to see whether there is any evidence of regional differentiation:</p>
-<div class="cell styled-output" data-hash="03-statistics2_cache/html/fig-03-plot-data-boxplot_6f8b6c04cebb3ea610a9cfe633ef69e8">
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/fig-03-plot-data-boxplot_8b10b5f12c480836bad63beaa2984dec">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change region variable order </span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>elec_vars <span class="ot">&lt;-</span> elec_vars <span class="sc">|&gt;</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region_name =</span> <span class="fu">factor</span>(region_name, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'London'</span>,<span class="st">'South East'</span>, <span class="st">'South West'</span>, <span class="st">'North East'</span>, <span class="st">'North West'</span>, <span class="st">'East Midlands'</span>, <span class="st">'West Midlands'</span>, <span class="st">'Esat of England'</span>, <span class="st">'Yorkshire and The Humber'</span>, <span class="st">'Wales'</span>)))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region_name =</span> <span class="fu">factor</span>(region_name, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">'London'</span>,<span class="st">'South East'</span>, <span class="st">'South West'</span>, <span class="st">'North East'</span>, <span class="st">'North West'</span>, <span class="st">'East Midlands'</span>, <span class="st">'West Midlands'</span>, <span class="st">'East of England'</span>, <span class="st">'Yorkshire and The Humber'</span>, <span class="st">'Wales'</span>)))</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot </span></span>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(elec_vars<span class="sc">$</span>conservative_vote_share <span class="sc">~</span> elec_vars<span class="sc">$</span>region_name, <span class="at">xlab =</span> <span class="st">'Region'</span>, <span class="at">ylab =</span> <span class="st">'Conservative vote share'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -759,29 +759,29 @@ lm(formula = conservative_vote_share ~ aged_50_years_and_over +
 
 Residuals:
       Min        1Q    Median        3Q       Max 
--0.210629 -0.040603 -0.000481  0.037388  0.247906 
+-0.212739 -0.040914 -0.000956  0.036534  0.251386 
 
 Coefficients:
                                      Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                         -0.366015   0.052547  -6.966 1.03e-11 ***
-aged_50_years_and_over               1.128505   0.069421  16.256  &lt; 2e-16 ***
-eco_active_employed                  0.689713   0.109229   6.314 5.98e-10 ***
-eth_white                           -0.187672   0.039399  -4.763 2.50e-06 ***
-region_nameSouth East                0.053017   0.013972   3.794 0.000166 ***
-region_nameSouth West                0.009161   0.016291   0.562 0.574152    
-region_nameNorth East               -0.026995   0.021232  -1.271 0.204172    
-region_nameNorth West               -0.043580   0.015978  -2.728 0.006605 ** 
-region_nameEast Midlands             0.042069   0.016063   2.619 0.009084 ** 
-region_nameWest Midlands             0.037464   0.015229   2.460 0.014229 *  
-region_nameYorkshire and The Humber -0.007686   0.016611  -0.463 0.643768    
-region_nameWales                    -0.059038   0.020063  -2.943 0.003405 ** 
+(Intercept)                         -0.387395   0.049488  -7.828 2.48e-14 ***
+aged_50_years_and_over               1.096071   0.065739  16.673  &lt; 2e-16 ***
+eco_active_employed                  0.747208   0.101295   7.377 5.86e-13 ***
+eth_white                           -0.183626   0.037209  -4.935 1.06e-06 ***
+region_nameSouth East                0.056109   0.013387   4.191 3.22e-05 ***
+region_nameSouth West                0.013635   0.015542   0.877  0.38067    
+region_nameNorth East               -0.020671   0.020219  -1.022  0.30705    
+region_nameNorth West               -0.039032   0.015201  -2.568  0.01049 *  
+region_nameEast Midlands             0.046112   0.015404   2.993  0.00288 ** 
+region_nameWest Midlands             0.042555   0.014559   2.923  0.00361 ** 
+region_nameEast of England           0.059563   0.014387   4.140 4.00e-05 ***
+region_nameYorkshire and The Humber -0.002996   0.015842  -0.189  0.85006    
+region_nameWales                    -0.053131   0.019101  -2.782  0.00559 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.06632 on 502 degrees of freedom
-  (61 observations deleted due to missingness)
-Multiple R-squared:  0.5902,    Adjusted R-squared:  0.5812 
-F-statistic: 65.71 on 11 and 502 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 0.06529 on 562 degrees of freedom
+Multiple R-squared:  0.5925,    Adjusted R-squared:  0.5838 
+F-statistic:  68.1 on 12 and 562 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip">

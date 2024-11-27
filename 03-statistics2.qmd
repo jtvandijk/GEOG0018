@@ -243,7 +243,7 @@ This is a good start, but as geographers, we should also consider whether region
 #| filename: "R code"
 # change region variable order 
 elec_vars <- elec_vars |>
-  mutate(region_name = factor(region_name, levels = c('London','South East', 'South West', 'North East', 'North West', 'East Midlands', 'West Midlands', 'Esat of England', 'Yorkshire and The Humber', 'Wales')))
+  mutate(region_name = factor(region_name, levels = c('London','South East', 'South West', 'North East', 'North West', 'East Midlands', 'West Midlands', 'East of England', 'Yorkshire and The Humber', 'Wales')))
   
 # boxplot 
 boxplot(elec_vars$conservative_vote_share ~ elec_vars$region_name, xlab = 'Region', ylab = 'Conservative vote share')
