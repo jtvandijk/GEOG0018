@@ -163,7 +163,7 @@ Be aware that depending on your operating system's language settings (e.g. Windo
 Now the 2011 data is prepared, we can move on to the 2021 data. Open the `LSOA2021-population.xlsx` in Excel. You will notice that the file is formatted largely the same as the `LSOA2011-population.xlsx` file. However, this time the data for all Local Authority Districts are grouped together, with all data also grouped by region. This arrangement simplifies our task, as we can easily cut the data for each of the 32 Boroughs and the *City of London* in one go.
 
 1. Open a new Excel spreadsheet. 
-2. From the `LSOA2021-population.xlsx` spreadsheet, cut (**Edit** -> **Cut**) all cells from columns **A to B** and rows **19,790 to 2,4783** and paste these into this new spreadsheet.
+2. From the `LSOA2021-population.xlsx` spreadsheet, cut (**Edit** -> **Cut**) all cells from columns **A to B** and rows **19,790 to 24,783** and paste these into this new spreadsheet.
 3. Take the remaining steps to prepare the 2021 population steps: split the `lsoa` column, remove the trailing `whitespace` characters from the LSOA code column, and remove the decimal commas in the population count column.
 4. Save the file as `csv` into your `data` folder as `LSOA2021-population.csv` with the following column names: `lsoa21_code`, `lsoa21_name`, and `pop2021`. 
 
