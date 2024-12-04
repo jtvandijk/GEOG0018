@@ -260,7 +260,7 @@ To export your map to an image, click on **Project** -> **Import/Export** -> **E
 ## Homework task 
 This concludes this week's tutorial. Now complete the following homework tasks:
 
-1. Load the `London-LSOA2011.gpkg` into QGIS.
+1. Load the `London-LSOA2021.gpkg` into QGIS.
 2. Load the `LSOA2021-population.csv` into QGIS.
 3. Join the two datasets together using an **Attribute Join**.
 4. Style your data appropriately.
