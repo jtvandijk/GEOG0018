@@ -1,6 +1,6 @@
 # GEOG0018 Research Methods in Human Geography
 
-This GitHub repository generates the GEOG0018 Research Methods in Human Geography workbook for the 2024-2025 academic year which can be found at: https://jtvandijk.github.io/GEOG0018/
+This GitHub repository generates the GEOG0018 Research Methods in Human Geography workbook for the 2025-2026 academic year which can be found at: https://jtvandijk.github.io/GEOG0018/
 
 This work is licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].

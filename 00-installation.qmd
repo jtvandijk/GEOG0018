@@ -5,7 +5,7 @@ R is a programming language originally designed for conducting statistical analy
 Installing R takes a few relatively simple steps involving two pieces of software. First there is the R programming language itself. Follow these steps to get it installed on your computer:
 
 1.  Navigate in your browser to the download page: [[Link]](https://cran.r-project.org/)
-2.  If you use a Windows computer, click on *Download R for Windows*. Then click on *base*. Download and install **R 4.4.x for Windows**. If you use a Mac computer, click on *Download R for macOS* and download and install **R-4.4.x.arm64.pkg** for [Apple silicon Macs](https://support.apple.com/en-gb/HT211814) or **R-4.4.x.x86_64.pkg** for older [Intel-based Macs](https://support.apple.com/en-gb/HT211814).
+2.  If you use a Windows computer, click on *Download R for Windows*. Then click on *base*. Download and install **R 4.5.x for Windows**. If you use a Mac computer, click on *Download R for macOS* and download and install **R-4.5.x.arm64.pkg** for [Apple silicon Macs](https://support.apple.com/en-gb/HT211814) or **R-4.5.x.x86_64.pkg** for older [Intel-based Macs](https://support.apple.com/en-gb/HT211814).
 
 That is it! You now have successfully installed R onto your computer. To make working with the R language a little bit easier we also need to install something called an [Integrated Development Environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment). We will use [RStudio Desktop](https://posit.co/download/rstudio-desktop/):
 
@@ -56,7 +56,7 @@ Start RStudio, and copy and paste the following code into the **console** window
 #| tidy: True
 #| filename: "R code"
 # install packages
-install.packages(c('tidyverse', 'janitor', 'descr', 'ggcorrplot','patchwork','easystats'))
+install.packages(c('tidyverse', 'janitor', 'descr', 'ggcorrplot', 'patchwork', 'easystats'))
 ```
 
 ::: callout-warning
