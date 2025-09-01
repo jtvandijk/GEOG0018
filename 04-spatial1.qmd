@@ -1,0 +1,274 @@
+# Spatial Analysis I
+This week's lecture introduced foundational concepts in GIScience and GIS software, with a focus on how spatial data is represented. Building on these ideas, the practical component allows you to apply this knowledge by creating thematic maps using [QGIS](https://qgis.org/).
+
+## Lecture slides
+You can download the slides of this week's lecture here: [[Link]]({{< var slides.week09 >}}).
+
+## Reading list
+#### Essential readings {.unnumbered}
+- Longley, P. *et al.* 2015. Geographic Information Science & Systems, **Chapter 2**: *The Nature of Geographic Data*, pp. 33-54. [[Link]](https://ucl.rl.talis.com/link?url=https%3A%2F%2Fapp.knovel.com%2Fhotlink%2Ftoc%2Fid%3AkpGISSE001%2Fgeographic-information-science%3Fkpromoter%3Dmarc&sig=e437927b963cc591dcb65491eccdd3869cc31aef80e1443cb2ba12d8f3bb031a)
+- Longley, P. *et al.* 2015. Geographic Information Science & Systems, **Chapter 3**: *Representing Geography*, pp. 55-76. [[Link]](https://ucl.rl.talis.com/link?url=https%3A%2F%2Fapp.knovel.com%2Fhotlink%2Ftoc%2Fid%3AkpGISSE001%2Fgeographic-information-science%3Fkpromoter%3Dmarc&sig=e437927b963cc591dcb65491eccdd3869cc31aef80e1443cb2ba12d8f3bb031a)
+
+#### Suggested readings {.unnumbered}
+- Yuan, M. 2001. Representing complex geographic phenomena in GIS. *Cartography and Geographic Information Science* 28(2): 83-96. [[Link]](https://doi.org/10.1559/152304001782173718)
+
+## Installation of QGIS
+QGIS is an open-source graphic user interface GIS with many community developed add-on packages that provide additional functionality to the software. You can download and install QGIS on your personal machine by going to the QGIS website: [[Link]](https://qgis.org/en/site/forusers/download.html). 
+
+::: {.callout-important}
+QGIS is available through [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) as well as that it can be accessed on UCL computers across campus. Instead of installing the software, you may want to consider using this version. 
+:::
+
+::: {.callout-note}
+If you want to install QGIS on your personal computer, we recommend installing the **Long Term Release** (*QGIS 3.34 LTR*), as this version is the most current and stable. For Windows users, please note that the QGIS installation process may take some time, so be patient during the setup.
+:::
+
+After installation, launch QGIS to confirm that the installation was successful.
+
+## Population in London
+In this tutorial, we will map the population distribution in London using Census estimates from 2011 and 2021. When working with quantitative data, much of the effort goes into data preparation rather than analysis. It is often said that 80% of the time is spent on tasks like finding, retrieving, managing, and processing data. This is because the data you need is rarely in the format required for analysis. Before we can create our maps, we therefore have to go through several data preparation and cleaning steps.
+
+To get started, download a copy of the 2011 and 2021 London LSOAs spatial boundaries via the links provided below. Save these files in your project folder under `data`.
+
+| File                                        | Type   | Link |
+| :------                                     | :------| :------ |
+| London LSOA 2011 Spatial Boundaries         | `GeoPackage` | [Download](https://github.com/jtvandijk/GEOG0018/raw/master/data/London-LSOA-2011.gpkg) |
+| London LSOA 2021 Spatial Boundaries         | `GeoPackage` | [Download](https://github.com/jtvandijk/GEOG0018/raw/master/data/London-LSOA-2021.gpkg) |
+
+::: {.callout-note}
+Administrative geographies, such as LSOAs, are typically updated as populations change, meaning their boundaries are subject to periodic or occasional adjustments. For this reason, we must use the 2011 LSOA boundaries to map the 2011 Census data and the 2021 LSOA boundaries for the 2021 Census data.
+:::
+
+::: {.callout-note}
+For the spatial boundaries of the London LSOAs, you may have noticed that, instead of providing a collection of files known as a `shapefile`, we have supplied a `GeoPackage`. While `shapefiles` remain in use, `GeoPackage` is a more modern and portable file format. Have a look at this article on *towardsdatascience.com* for an excellent explanation on why one should use `GeoPackage` files over `shapefiles`, where possible: [[Link]](https://towardsdatascience.com/why-you-need-to-use-geopackage-files-instead-of-shapefile-or-geojson-7cb24fe56416)
+:::
+
+For our population data, we will use the 2011 and 2021 Census population counts that are made available by the Office for National Statistics through their [Nomis](https://www.nomisweb.co.uk/) portal.
+
+To get the 2011 Census population counts, you should:
+
+1. Navigate to the *Nomis* portal: [[Link]](https://www.nomisweb.co.uk/)
+2. Click on **Query data** in the **Data Downloads** panel.
+3. Click on **Census 2011** -> **Key Statistics**.
+4. Click on **KS101EW - Usual resident population**.
+5. Select **Geography** and set **2011 super output areas - lower layer** to **All**.
+7. Click on **Download data** at the left hand side of the screen.
+8. Once the data is ready for download, save it to your computer in your `data` folder as `LSOA2011-population.xlsx`.
+
+To get the 2021 Census population counts, you should:
+
+1. Navigate to the *Nomis* portal: [[Link]](https://www.nomisweb.co.uk/)
+2. Click on **Query data** in the **Data Downloads** panel.
+3. Click on **Census 2021** -> **Topic Summaries**.
+4. Click on **TS007A - Age by five-year age bands**.
+5. Select **Geography** and set **2021 super output areas - lower layer** to **All**.
+7. Click on **Download data** at the left hand side of the screen.
+8. Once the data is ready for download, save it to your computer in your `data` folder as `LSOA2021-population.xlsx`.
+
+### Data preparation
+When opening the LSOA spreadsheets in Excel, you will notice additional rows of information at the top. This extra data can cause issues in QGIS, so we need to clean the dataset. To avoid errors later on, we will also save the cleaned data in `csv` format.
+
+#### London population in 2011 {.unnumbered}
+Open the `LSOA2011-population.xlsx` file in Excel. We have two main columns: one with identifying information that distinguishes each area from one another and one with population counts. In addition, there are some less informative rows at the top of the spreadsheet. To prepare the data we need to take several steps.
+
+1. Open a new Excel spreadsheet. 
+2. From the `LSOA2011-population.xlsx` spreadsheet, cut (**Edit** -> **Cut**) all cells from columns **A to B** and rows **9 to 4,651** into this new spreadsheet. Row **4,651** denotes the end of the majority of the *Greater London* LSOAs.
+3. Now we need to identify the missing LSOAs that were not kept at the top of the file with the other London LSOAs. Unfortunately, we can only do this manually by searching for the name of each of the London Boroughs and subsequently cutting the associated rows of data from the spreadsheet and pasting these into the second spreadsheet.
+4. Go to **Edit** -> **Find** -> **Find**. Type in **City of London**. Cut (**Edit** -> **Cut**) the two rows of data (*City of London 001F*, *City of London 001G*) and paste these at the bottom of the second spreadsheet. 
+5. Repeat this process to find all missing LSOAs by searching the names of all **32** London Boroughs (see @tbl-boroughs).
+
+::: {.callout-tip}
+You can make this process a bit less tedious by using keyboard shortcuts. On MacOS you can use: `cmd + f` to open up the find menu, `cmd + x` to cut data, and `cmd + v` to paste data. On Windows you can use: `ctrl + f` to open up the find menu, `ctrl + x` to cut data, and `ctrl + v` to paste date.
+:::
+
+::: {.callout-warning}
+Not all of the **32** London Boroughs have missing LSOAs whilst in other cases the missing LSOAs are not grouped together (e.g. *Wandsworth* and *Southwark*) so after cutting the data, try **Find** again to make sure you did not miss any LSOAs. Once you are done cutting and pasting, you should have **4,836** rows of data in your second spreadsheet.
+:::
+
+| London Boroughs                               |
+| :----                   | :----               |
+| Westminster             | Sutton              |
+| Kensington and Chelsea  | Crodyon             |
+| Hammersmith and Fulham  | Bromley             |
+| Wandsworth              | Lewisham            |
+| Lambeth                 | Greenwich           |
+| Southwark               | Bexley              |
+| Tower Hamlets           | Havering            |
+| Hackney                 | Barking and Dagenham|
+| Islington               | Redbridge           |
+| Camden                  | Newham              |
+| Brent                   | Waltham Forest      |
+| Ealing                  | Haringey            |
+| Hounslow                | Enfield             |
+| Richmond upon Thames    | Barnet              |
+| Kingston upon Thames    | Harrow              |
+| Merton                  | Hillingdon          |
+
+: The names of all London Boroughs. {#tbl-boroughs}
+
+6. Once you copied all the rows of data, rename the columns in the new spreadsheet to `lsoa` and `pop2011`, respectively. 
+7. Cut all the data from the `pop2011` column that is stored in column **B** and paste these into column **C**. You now should have a column *without* any data sat between the `lsoa` and `pop2011` columns.
+8. Highlight the entire `lsoa` column and in the **Data** menu click on the **Text to Columns** menu button.
+
+```{r}
+#| label: fig-text-to-columns
+#| echo: False 
+#| cache: True
+#| fig-cap: "Highlight the `lsoa` columns and find the **Text to Columns** menu option. Note that column **B** does not contain any data."
+knitr::include_graphics('images/w09/text-to-columns.png')
+```
+
+::: {.callout-warning}
+Note that the **Text to Columns** function might be elsewhere in the menu depending on your version of Excel and/or your operating system.
+:::
+
+9. In the **Text to Columns** menu, select the **Delimited** radio button and click **Next**.
+10. Uncheck the checkbox for **Tab** and put `:` (colon) into the **Other** box. Click **Finish**. 
+11. Change the name of the `lsoa` column to `lsoa11_code` and change the name of the now populated column **B** to `lsoa11_name`.
+
+```{r}
+#| label: fig-almost-there
+#| echo: False 
+#| cache: True
+#| fig-cap: "Your spreadsheet should now look something like this."
+knitr::include_graphics('images/w09/almost-there.png')
+```
+
+12. One potential issue when linking the population data to the spatial data is the presence of [trailing spaces]((https://stackoverflow.com/questions/22273233/what-is-meant-by-trailing-space-and-whats-the-difference-between-it-and-a-blank)) in the `lsoa11_code` column. These spaces are not immediately noticeable, as they appear at the end of the LSOA codes without any visible characters following them. Although this may seem minor, it can cause problems when using the data. To fix this, highlight the entire `lsoa11_code` column, go to the **Home** menu, and select **Replace** under the **Find & Select** menu.
+
+```{r}
+#| label: fig-find-replace
+#| echo: False 
+#| cache: True
+#| fig-cap: "Accessing the **Replace** option."
+knitr::include_graphics('images/w09/find-replace.png')
+```
+
+13. In the **Find what** box put in a singular `whitespace`, using the *spacebar* on your keyboard, keep the **Replace with** box empty, and click on **Replace all**. You should get a message that **4,835** replacements have been made. 
+
+Before saving your data, one final bit of formatting is needed for the population field. Currently, commas are used to separate the thousands in the values. If we leave these commas, QGIS will interpret them as decimal points, resulting in incorrect population figures. 
+
+14. To format the `pop2011` column, highlight the entire column and *right-click* on the `C` cell.  Click on **Format Cells** and set the cells to **Number** with **0** decimal places. You should see that the commas are now removed from your population values.
+15. Save your spreadsheet as a `csv` file into your `data` folder as `LSOA2011-population.csv`.
+
+::: {.callout-tip}
+After saving the file, Excel may prompt a warning about possible data loss. You can safely ignore this message, as it typically relates to lost markup information (e.g., fonts, colours, bold items) or Excel formulas (e.g., means, medians). If prompted, choose to save as `CSV UTF-8 (Comma-delimited) (.csv)`.
+:::
+
+::: {.callout-warning}
+Be aware that depending on your operating system's language settings (e.g. Windows, macOS, Linux), `csv` files might use different characters instead of commas. While this may seem trivial, it can lead to issues when importing data into another program. Therefore, it is wise to check your `csv` file in a plain text editor (e.g. **TextEdit** on macOS or **Notepad** on Windows). If you see semicolons (`;`) instead of commas (`,`), you can quickly fix this by finding and replacing every semicolon with a comma, just as we did with the `whitespace` characters in Excel.
+:::
+
+#### London population in 2021 {.unnumbered}
+Now the 2011 data is prepared, we can move on to the 2021 data. Open the `LSOA2021-population.xlsx` in Excel. You will notice that the file is formatted largely the same as the `LSOA2011-population.xlsx` file. However, this time the data for all Local Authority Districts are grouped together, with all data also grouped by region. This arrangement simplifies our task, as we can easily cut the data for each of the 32 Boroughs and the *City of London* in one go.
+
+1. Open a new Excel spreadsheet. 
+2. From the `LSOA2021-population.xlsx` spreadsheet, cut (**Edit** -> **Cut**) all cells from columns **A to B** and rows **19,790 to 24,783** and paste these into this new spreadsheet.
+3. Take the remaining steps to prepare the 2021 population steps: split the `lsoa` column, remove the trailing `whitespace` characters from the LSOA code column, and remove the decimal commas in the population count column.
+4. Save the file as `csv` into your `data` folder as `LSOA2021-population.csv` with the following column names: `lsoa21_code`, `lsoa21_name`, and `pop2021`. 
+
+::: {.callout-warning}
+Again make sure you did not miss any LSOAs. You should end up with **4,995** rows of data in this second spreadsheet.
+:::
+
+### Data merging
+We will now use QGIS to map our prepared population data. To achieve this, we first need to join our table data to our spatial datasets.
+
+1. Start **QGIS**.
+2. Click on **Project** -> **New**. Save your project as `w09-population-analysis`. Remember to save your work throughout the practical. 
+3. Before we add our data, we will first set the Coordinate Reference System (CRS) of our Project. Click on **Project** -> **Properties -- CRS**. In the Filter box, type **British National Grid**. Select **OSGB 1936 / British National Grid - EPSG:27700** and click **Apply**. Click **OK**.
+
+::: {.callout-note}
+A CRS is a framework that defines how spatial data is represented in relation to the Earth's surface. It includes both a coordinate system (which specifies how points in space are represented using numbers) and a set of parameters that define the relationship between those coordinates and actual locations on the Earth.
+:::
+
+Now the project is set up, we can start by loading our 2011 spatial layer.
+
+4. Click on **Layer** -> **Add Layer** -> **Add Vector Layer**.
+5. With **File** as your source type, click on the small three dots button and navigate to your `data` 
+6. Highlight the `London-LSOA2011.gpkg` file and click **Open**. Then click **Add**. You may need to close the box after adding the layer. 
+
+Next, we will load our 2011 population `csv`.
+
+7. Click on **Layer** -> **Add Layer** -> **Add Delimited Text Layer**.
+8. Click on the three dots button again and navigate to the `London-LSOA-2011.csv` file in your `data` folder. Your file format should be set to `csv`. You should further have the following boxes ticked under the **Record and Field options** menu: `Decimal separator is comma`, `First record has field names`, `Detect field types` and `Discard empty fields`.
+9. Set the Geometry to *No geometry (attribute only table)* under the **Geometry Definition** menu. Then click **Add** and **Close**. You should now see a table added to your *Layers* pane.
+
+```{r}
+#| label: fig-lsoa-london
+#| echo: False 
+#| cache: True
+#| fig-cap: "The 2011 London LSOAs."
+knitr::include_graphics('images/w09/all-lsoa-london.png')
+```
+
+We can now join this table data to our spatial data using an *attribute join*.
+
+::: {.callout-note}
+An *atribute join* allows you to link two datasets together based on a common attribute that facilitates the matching of rows. To perform an attribute join, you need a single unique identifying field for your records in both datasets. This can be a code, a name, or any other string of information. For the join to work, it is essential that the ID field is consistent across both datasets, meaning there should be no typos or spelling mistakes. 
+
+
+```{r} 
+#| label: fig-join-those-attributes
+#| echo: False 
+#| cache: True
+#| fig-cap: "Attribute Joins."
+knitr::include_graphics('images/w09/attribute-joins.png')
+```
+:::
+
+Because both our datasets contain both LSOA names and LSOA codes, we will use the LSOA codes as basis for our join. Unlike names, codes reduce the likelihood of errors and mismatches since they are not dependent on spelling.
+
+10. Open up the **Attribute Tables** of each layer to confirm the columnnames that we can use for the join.
+11. *Right-click* on your `LSOA2011` spatial layer, click on **Properties** and then click on the **Joins** tab. 
+    - Click on the **+** button. Make sure the **Join Layer** is set to `LSOA2011-population`.
+    - Set the **Join field** to `lsoa11_code`.
+    - Set the **Target field** to `lsoa11cd`.
+    - Click the **Joined Fields** box and click to only select the `pop2011` field.
+    - Click on the **Custom Field Name Prefix** and **remove** the pre-entered text to leave it blank.
+    - Click on **OK**.
+    - Click on **Apply** in the main Join tab and then click **OK** to return to the main QGIS window.
+    
+We can now check to see if our join has worked by opening up the **Attribute Table** of our `LSOA2011` spatial layer. We should see that the spatial layer has a new **Population** field attached to it.
+
+### Data mapping
+We can now finally map the 2011 population distribution of London.
+
+12. *Right-click* on the `London-LSOA-2011` layer and click on **Properties** -> **Symbology**.
+    - In the dropdown menu at the top of the window, select **Graduated** as symbology.
+    - Under **Value** choose `pop2011` as your column. 
+    - We can then change the color ramp to suit our aesthetic preferences. In the **Colour ramp** dropdown menu select *Magma*. 
+    - The final step is to classify our data, which involves deciding how to group the values in our dataset to create a graduated representation. Today we will use the **Natural Breaks** option. Open the drop-down menu next to **Mode**, select **Natural Breaks**, change it to **7** classes and then click **Classify**.
+    - Finally click **Apply** to style your dataset.
+
+You should now be looking at something like this:
+
+```{r} 
+#| label: fig-lsoa-pop-2011
+#| echo: False
+#| cache: True
+#| fig-cap: "The population distribution of London in 2011."
+knitr::include_graphics('images/w09/lsoa-population-2011.png')
+```
+
+::: {.callout-warning}
+While the map above is acceptable for today, it is technically incorrect because it displays absolute numbers on a choropleth. You should never do this unless the spatial units are identical in size, as larger areas will draw disproportionate attention and skew the visualisation.
+:::
+
+To export your map to an image, click on **Project** -> **Import/Export** -> **Export to Image**.
+
+## Homework task 
+This concludes this week's tutorial. Now complete the following homework tasks:
+
+1. Load the `London-LSOA2021.gpkg` into QGIS.
+2. Load the `LSOA2021-population.csv` into QGIS.
+3. Join the two datasets together using an **Attribute Join**.
+4. Style your data appropriately.
+5. Export your map as an image. 
+
+::: {.callout-warning}
+Paste the exported map into the appendix of your assignment, include a few sentences interpreting the results. Consider whether there are any noticeable changes in the population distribution between 2011 and 2021.
+:::
+
+## Before you leave
+This week we spent a lot of time preparing and cleaning our datasets, followed by a simple visualisation of the population in London in 2011 and 2021. Next week, we will move forward with working in QGIS and conduct some point data aggregation. For today, however, [we are done](https://www.youtube.com/watch?v=Wmc8bQoL-J0)!

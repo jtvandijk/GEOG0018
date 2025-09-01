@@ -1,0 +1,58 @@
+project:
+  type: website
+  output-dir: docs
+
+lang: en
+
+execute:
+  freeze: false
+  cache: true
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark:  darkly
+    callout-appearance: simple
+    css: assets/styles.css
+    toc: true
+    smooth-scroll: true
+    highlight-style: atom-one
+    number-sections: true
+    number-depth: 4
+    pagetitle: "{{< var meta.title >}}"
+
+website:
+  repo-url: https://github.com/jtvandijk/GEOG0018
+  repo-actions: [issue]
+  page-navigation: true
+  page-footer:
+    center: "Course material by [Justin van Dijk](https://www.mappingdutchman.com). Available under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)."
+  search:
+    location: sidebar
+    type: overlay
+  sidebar:
+    style: floating
+    collapse-level: 2
+    logo: assets/logo.svg
+    tools:
+      - icon: github
+        href: https://github.com/jtvandijk/GEOG0018
+    contents:
+      - section: "Module overview"
+        contents:
+          - text: "Welcome"
+            file: 00-index.qmd
+          - text: "Getting Started"
+            file: 00-installation.qmd
+      - section: "Statistical Analysis"
+        contents:
+          - 01-recap.qmd
+          - 02-statistics1.qmd
+          - 03-statistics2.qmd
+      - section: "Spatial Analysis"
+        contents:
+          - 04-spatial1.qmd
+          - 05-spatial2.qmd
+          
+editor: source

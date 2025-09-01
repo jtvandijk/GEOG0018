@@ -1,0 +1,50 @@
+# Methods in Human Geography {.unnumbered}
+
+```{r} 
+#| label: 00-welcome
+#| echo: False
+#| cache: True
+#| out.width: "100%"
+knitr::include_graphics('images/w00/methods-welcome.png') 
+```
+
+## Welcome {.unnumbered}
+Welcome to the second half of **Methods in Human Geography**. In this part of the module, you will delve into essential statistical analysis techniques and gain a basic foundation in creating thematic maps. We will be using R and the RStudio environment for statistical analysis, and the open-source programme QGIS for handling spatial data.
+
+## Moodle {.unnumbered}
+[Moodle](https://moodle.ucl.ac.uk/) is the central point of contact for GEOG0018 and it is where all important information will be communicated such as key module and assessment information. This workbook provides links to all reading materials and includes the content for all computer tutorials.
+
+## Module overview {.unnumbered}
+The topics covered over the next five weeks are:
+
+| Week | Section  | Topic |
+| :--- |:---------|:------------------ |
+| 1    | Getting Started               | [Getting Started]({{< var urls.w00 >}}) |
+| 1    | R for Data Analysis           | [R for Data Analysis]({{< var urls.w01 >}}) |
+| 2    | Statistical Analysis          | [Statistical Analysis I]({{< var urls.w02 >}}) | 
+| 3    | Statistical Analysis          | [Statistical Analysis II]({{< var urls.w03 >}}) | 
+| 4    | Spatial Analysis              | [Spatial Analysis I]({{< var urls.w04 >}}) |
+| 5    | Spatial Analysis              | [Spatial Analysis II]({{< var urls.w05 >}}) |
+
+## Major updates {.unnumbered}
+::: {.callout-note}
+This year's version features the following **major** updates:
+
+- Full rewrite of the module material using `Quarto`.
+- Stronger emphasis on data cleaning and data preparation.
+- Using the `tidyverse` over `base` R where appropriate.
+- Replacing `shapefile` with `GeoPackage`.
+- Using QGIS to make thematic maps.
+:::
+
+## Acknowledgements {.unnumbered}
+This workbook is created using the [Quarto](https://quarto.org/) publishing system. Elements of this workbook and module material are partially based on and modified from:
+
+- The [GEOG0014: Geocomputation 2023-2024](https://jtvandijk.github.io/GEOG0030_20232024/) workbook by [Justin van Dijk](https://www.mappingdutchman.com)
+- Previous [GEOG018: Methods in Human Geography](https://www.ucl.ac.uk/module-catalogue/modules/methods-in-human-geography-GEOG0018) content created by [Rory Coulter](https://www.ucl.ac.uk/geography/rory-coulter)
+- Previous [POLS0008: Introduction to Quantitative Research Methods](https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-quantitative-research-methods-POLS0008) content created by [Stephen Jivraj](https://profiles.ucl.ac.uk/44867-stephen-jivraj)
+
+The datasets used in this workbook contain:
+
+- Data from Office for National Statistics licensed under the Open Government Licence v.3.0
+- OS data © Crown copyright and database right [2024]

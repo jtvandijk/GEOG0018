@@ -1,0 +1,19 @@
+# global variables
+
+meta:
+  title: GEOG0018
+
+urls:
+  w00: "00-installation.html"
+  w01: "01-recap.html"
+  w02: "02-statistics1.html"
+  w03: "03-statistics2.html" 
+  w04: "04-spatial1.html"
+  w05: "05-spatial2.html"
+
+slides:
+  week06: "https://github.com/jtvandijk/GEOG0018/raw/master/slides/w06-mhg.pdf"
+  week07: "https://github.com/jtvandijk/GEOG0018/raw/master/slides/w07-mhg.pdf"
+  week08: "https://github.com/jtvandijk/GEOG0018/raw/master/slides/w08-mhg.pdf"
+  week09: "https://github.com/jtvandijk/GEOG0018/raw/master/slides/w09-mhg.pdf"
+  week10: "https://github.com/jtvandijk/GEOG0018/raw/master/slides/w10-mhg.pdf"
