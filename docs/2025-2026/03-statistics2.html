@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>GEOG0018</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04-spatial1.html" rel="next">
+<link href="./02-statistics1.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-recap.html">Statistical Analysis</a></li><li class="breadcrumb-item"><a href="./03-statistics2.html">Statistical Analysis II</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./assets/logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/jtvandijk/GEOG0018" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <div id="quarto-search" class="quarto-navigation-tool px-1" title="Search"></div>
+</div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Module overview</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting Started</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Statistical Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-recap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 R for Data Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-statistics1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 Statistical Analysis I</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-statistics2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">3 Statistical Analysis II</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Spatial Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-spatial1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 Spatial Analysis I</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-spatial2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 Spatial Analysis II</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#statistical-analysis-ii" id="toc-statistical-analysis-ii" class="nav-link active" data-scroll-target="#statistical-analysis-ii"><span class="header-section-number">3</span> Statistical Analysis II</a>
+  <ul class="collapse">
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides"><span class="header-section-number">3.1</span> Lecture slides</a></li>
+  <li><a href="#reading-list" id="toc-reading-list" class="nav-link" data-scroll-target="#reading-list"><span class="header-section-number">3.2</span> Reading list</a></li>
+  <li><a href="#elections-results-in-england-and-wales" id="toc-elections-results-in-england-and-wales" class="nav-link" data-scroll-target="#elections-results-in-england-and-wales"><span class="header-section-number">3.3</span> Elections results in England and Wales</a>
+  <ul class="collapse">
+  <li><a href="#data-loading" id="toc-data-loading" class="nav-link" data-scroll-target="#data-loading"><span class="header-section-number">3.3.1</span> Data loading</a></li>
+  <li><a href="#crosstabulation" id="toc-crosstabulation" class="nav-link" data-scroll-target="#crosstabulation"><span class="header-section-number">3.3.2</span> Crosstabulation</a></li>
+  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation"><span class="header-section-number">3.3.3</span> Correlation</a></li>
+  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression"><span class="header-section-number">3.3.4</span> Regression</a></li>
+  </ul></li>
+  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">3.4</span> Homework task</a></li>
+  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">3.5</span> Before you leave</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jtvandijk/GEOG0018/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="statistical-analysis-ii" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">3</span> Statistical Analysis II</h1>
+<p>Last week, we explored methods for comparing groups. This week, our focus shifts to examining relationships between variables, aiming to assess the extent to which two variables <em>covary</em> — in other words, how changes in one variable are associated with changes in another. For example, what is the link between greenhouse gas emissions (<code>x</code>) and global mean temperature (<code>y</code>)? What effect does spending longer in education (<code>x</code>) have on earnings (<code>y</code>)? To what extent are house prices or local health outcomes (<code>y</code>) increased by proximity to urban greenspace (<code>x</code>)? To answer these sorts of questions we need techniques for unpacking relationships between variables.</p>
+<section id="lecture-slides" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="lecture-slides"><span class="header-section-number">3.1</span> Lecture slides</h2>
+<p>You can download the slides of this week’s lecture here: <a href="https://github.com/jtvandijk/GEOG0018/raw/master/slides/w08-mhg.pdf">[Link]</a>.</p>
+</section>
+<section id="reading-list" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="reading-list"><span class="header-section-number">3.2</span> Reading list</h2>
+<section id="essential-readings" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="essential-readings">Essential readings</h4>
+<ul>
+<li>Field, A. Discovering Statistics using R, <strong>Chapter 6</strong>: <em>Correlation</em>, pp.&nbsp;205-244. <a href="https://read.kortext.com/reader/epub/2039249?page=205">[Link]</a></li>
+<li>Field, A. Discovering Statistics using R, <strong>Chapter 7</strong>: <em>Regression</em>, pp.&nbsp;245-311. <a href="https://read.kortext.com/reader/epub/2039249?page=245">[Link]</a></li>
+</ul>
+</section>
+<section id="suggested-readings" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="suggested-readings">Suggested readings</h4>
+<ul>
+<li>Field, A. Discovering Statistics using R, <strong>Chapter 2</strong>: <em>Everything you ever wanted to know about statistics (well, sort of)</em>, pp.&nbsp;32-61. <a href="https://read.kortext.com/reader/epub/2039249?page=32">[Link]</a></li>
+</ul>
+</section>
+</section>
+<section id="elections-results-in-england-and-wales" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="elections-results-in-england-and-wales"><span class="header-section-number">3.3</span> Elections results in England and Wales</h2>
+<p>Today, we will investigate the political geography of England and Wales, focusing on the results of the July 2024 General Election, which was won by the Labour Party led by Keir Starmer. You will work with data extracted from two data sources: the <a href="https://commonslibrary.parliament.uk/research-briefings/cbp-10009/">constituency results from the election</a> and socio-demographic information relating to age groups, economic status, and ethnic background from the 2021 Census, extracted using the <a href="https://www.ons.gov.uk/datasets/create">Custom Dataset Tool</a>. These datasets have been prepared and merged. Please download the file using the link below and save it in your project folder within the <code>data</code> directory.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">File</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">England and Wales Parliamentary Constituencies GE2024</td>
+<td style="text-align: left;"><code>csv</code></td>
+<td style="text-align: left;"><a href="https://github.com/jtvandijk/GEOG0018/tree/master/data/EW-GE2024-Constituency-Vars.csv">Download</a></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>To download a <code>csv</code> file that is hosted on GitHub, click on the <strong>Download raw file</strong> button on the top right of your screen and it should download directly to your computer.</p>
+</div>
+</div>
+</div>
+<p>To get started, open your <code>GEOG0018</code> <strong>R Project</strong> and create a new script: <strong>File</strong> -&gt; <strong>New File</strong> -&gt; <strong>R Script</strong>. Save your script as <code>w08-election-analysis.r</code>.</p>
+<p>We will start by loading the libraries that we will need:</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/03-load-libraries_ef16cfdbd06e221b0b515e5ac04780ef">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(descr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<section id="data-loading" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="data-loading"><span class="header-section-number">3.3.1</span> Data loading</h3>
+<p>Now we have setup again, we can load the <code>EW-GE2024-Constituency-Vars.csv</code> file into R.</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/03-load-data_739a84f3a8db80dc5e039809a3e63ead">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load election data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>elec_vars <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/EW-GE2024-Constituency-Vars.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 575 Columns: 28
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (6): constituency_code, constituency_name, region_name, winning_party, ...
+dbl (22): eligible_voters, valid_votes, conservative_votes, labour_votes, li...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p>As always, we will start by inspecting the dataset to understand its structure and the variables it contains:</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/03-inspect-data_99cf945e238fead438ba8a51033b2ce0">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(elec_vars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 28
+  constituency_code constituency_name  region_name winning_party eligible_voters
+  &lt;chr&gt;             &lt;chr&gt;              &lt;chr&gt;       &lt;chr&gt;                   &lt;dbl&gt;
+1 W07000081         Aberafan Maesteg   Wales       Lab                     72580
+2 E14001063         Aldershot          South East  Lab                     78553
+3 E14001064         Aldridge-Brownhil… West Midla… Con                     70268
+4 E14001065         Altrincham and Sa… North West  Lab                     74025
+5 W07000082         Alyn and Deeside   Wales       Lab                     75790
+6 E14001066         Amber Valley       East Midla… Lab                     71546
+# ℹ 23 more variables: valid_votes &lt;dbl&gt;, conservative_votes &lt;dbl&gt;,
+#   labour_votes &lt;dbl&gt;, libdem_votes &lt;dbl&gt;, conservative_vote_share &lt;dbl&gt;,
+#   labour_vote_share &lt;dbl&gt;, libdem_vote_share &lt;dbl&gt;,
+#   aged_15_years_and_under &lt;dbl&gt;, aged_16_to_24_years &lt;dbl&gt;,
+#   aged_25_to_34_years &lt;dbl&gt;, aged_35_to_49_years &lt;dbl&gt;,
+#   aged_50_years_and_over &lt;dbl&gt;, eco_not_applicable &lt;dbl&gt;,
+#   eco_active_employed &lt;dbl&gt;, eco_active_unemployed &lt;dbl&gt;, …</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect column names</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(elec_vars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "constituency_code"       "constituency_name"      
+ [3] "region_name"             "winning_party"          
+ [5] "eligible_voters"         "valid_votes"            
+ [7] "conservative_votes"      "labour_votes"           
+ [9] "libdem_votes"            "conservative_vote_share"
+[11] "labour_vote_share"       "libdem_vote_share"      
+[13] "aged_15_years_and_under" "aged_16_to_24_years"    
+[15] "aged_25_to_34_years"     "aged_35_to_49_years"    
+[17] "aged_50_years_and_over"  "eco_not_applicable"     
+[19] "eco_active_employed"     "eco_active_unemployed"  
+[21] "eco_inactive"            "eth_asian"              
+[23] "eth_black"               "eth_mixed"              
+[25] "eth_white"               "eth_other"              
+[27] "pop_50plus_40percent"    "pop_white_90percent"    </code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>You can further inspect the dataset using the <code>View()</code> function.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="crosstabulation" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="crosstabulation"><span class="header-section-number">3.3.2</span> Crosstabulation</h3>
+<p>In geography, we frequently work with categorical variables. One technique for assessing relationships between two categorical variables is crosstabulation. For example, if we hypothesise that older voters predominantly support the Conservative Party, we could crosstabulate the winning party against constituencies where more than 40% of the population is over 50 years old (<code>pop_50plus_40percent</code>).</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/03-crosstab_d37f6c3dbad4aed3ac3c75eac505e90c">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># crosstabulation</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">crosstab</span>(elec_vars<span class="sc">$</span>winning_party, elec_vars<span class="sc">$</span>pop_50plus_40percent, <span class="at">prop.r =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Cell Contents 
+|-------------------------|
+|                   Count | 
+|             Row Percent | 
+|-------------------------|
+
+================================================
+                           elec_vars$pop_50plus_40percent
+elec_vars$winning_party       no     yes   Total
+------------------------------------------------
+Con                          25      91     116 
+                           21.6%   78.4%   20.2%
+------------------------------------------------
+Lab                         243     131     374 
+                           65.0%   35.0%   65.0%
+------------------------------------------------
+LD                           24      42      66 
+                           36.4%   63.6%   11.5%
+------------------------------------------------
+Other                         8      11      19 
+                           42.1%   57.9%    3.3%
+------------------------------------------------
+Total                       300     275     575 
+================================================</code></pre>
+</div>
+</div>
+<p>We observe that in the 116 constituencies won by the Conservatives, 78.4% have more than 40% of their population aged over 50. In contrast, only 35% of the 374 constituencies won by the Labour Party have a similar demographic. This suggests an <em>association</em> between a large (&gt; 40%) proportion of individuals over 50 years old (<code>x</code>) and the election results (<code>y</code>).</p>
+<p>We can use a Chi-square test to assess the strength of this association:</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/03-chi-square_6a981d7ecb83978202530dbcf7022bd6">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># chi-square</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">crosstab</span>(elec_vars<span class="sc">$</span>winning_party, elec_vars<span class="sc">$</span>pop_50plus_40percent, <span class="at">expected =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot =</span> <span class="cn">FALSE</span>, <span class="at">chisq =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Cell Contents 
+|-------------------------|
+|                   Count | 
+|         Expected Values | 
+|-------------------------|
+
+================================================
+                           elec_vars$pop_50plus_40percent
+elec_vars$winning_party       no     yes   Total
+------------------------------------------------
+Con                           25      91     116
+                            60.5    55.5        
+------------------------------------------------
+Lab                          243     131     374
+                           195.1   178.9        
+------------------------------------------------
+LD                            24      42      66
+                            34.4    31.6        
+------------------------------------------------
+Other                          8      11      19
+                             9.9     9.1        
+------------------------------------------------
+Total                        300     275     575
+================================================
+
+Statistics for All Table Factors
+
+Pearson's Chi-squared test 
+------------------------------------------------------------
+Chi^2 = 75.53043      d.f. = 3      p = 2.79e-16 
+
+        Minimum expected frequency: 9.086957 </code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The Chi-square test is a statistical method used to assess whether there is a significant association between two categorical variables.It compares the observed frequencies in each category to the expected frequencies, which are based on the assumption that there is no relationship between the variables (the <em>null hypothesis</em>). If the differences between observed and expected values are large enough, we reject the <em>null hypothesis</em>, indicating a significant association between the variables.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The <span class="math inline">\(p\)</span>-value of the Chi-square test is <code>&lt; 0.001</code>, so the association is statistically significant.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Crosstabulations are very useful if you have gathered your own survey data, where many variables will often be categorical.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="correlation" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="correlation"><span class="header-section-number">3.3.3</span> Correlation</h3>
+<p>With continuous data, we can explore associations more deeply. For example, we could investigate the relationship between the proportion of individuals over 50 years old in each parliamentary constituency (<code>aged_50_years_and_over</code>) and the proportion of votes cast for the Conservative Party (<code>conservative_vote_share</code>). A scatterplot is an ideal starting point for comparing two continuous variables.</p>
+<p>We can create a scatterplot as follows:</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/fig-03-plot-data-scatter_32dbd5e7dea95bbfc7ac0d19d5437fed">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># scatterplot</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(elec_vars<span class="sc">$</span>aged_50_years_and_over, elec_vars<span class="sc">$</span>conservative_vote_share, <span class="at">xlab =</span> <span class="st">"Proportion of population over 50 years old"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">"Proportion of votes for the Conservative party"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output-display">
+<div id="fig-03-plot-data-scatter" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-statistics2_files/figure-html/fig-03-plot-data-scatter-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Quick scatterplot</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The scatterplot supports our earlier hypothesis that the Conservative vote is higher in constituencies with a larger population of individuals over 50 years old. The next step is to quantify the strength and direction of this relationship. We can assess whether the variables are <em>correlated</em> using Pearson’s Correlation Coefficient, which ranges from <code>-1</code> (perfect negative correlation) to <code>0</code> (no correlation) to <code>+1</code> (perfect positive correlation).</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Pearson’s Correlation Coefficient measures the linear relationship between two continuous variables. A coefficient close to <code>1</code> indicates a strong positive correlation, meaning that as one variable increases, the other tends to increase as well. Conversely, a coefficient close to <code>-1</code> signifies a strong negative correlation, where an increase in one variable is associated with a decrease in the other. A coefficient near <code>0</code> suggests little to no linear relationship between the variables.</p>
+</div>
+</div>
+</div>
+<p>We can run a correlation as follows:</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/03-pearson_dc2d3fc536305f6bce35126a46630581">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># correlation</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(elec_vars<span class="sc">$</span>aged_50_years_and_over, elec_vars<span class="sc">$</span>conservative_vote_share, <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  elec_vars$aged_50_years_and_over and elec_vars$conservative_vote_share
+t = 16.472, df = 573, p-value &lt; 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.5086971 0.6199173
+sample estimates:
+      cor 
+0.5668849 </code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The Pearson test is parametric and requires interval or ratio variables with a linear relationship. If the data are <em>ordinal</em> or <em>skewed</em>, Spearman’s rank correlation (<code>method = 'spearman'</code>) is a better option, as it provides a non-parametric alternative.</p>
+</div>
+</div>
+</div>
+<p>It can be useful to look at a matrix of correlation coefficients between a selection of variables within your dataset. To generate this, we can use the <code>cor()</code> function and subsequently visualise the results:</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/fig-03-correlation-matrix_2809b2bf95cb8038ca648413c54cf55f">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select variables</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>elec_vars_sel <span class="ot">&lt;-</span> elec_vars <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="st">"conservative_vote_share"</span>, <span class="st">"labour_vote_share"</span>, <span class="st">"libdem_vote_share"</span>, <span class="fu">starts_with</span>(<span class="st">"aged"</span>),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">starts_with</span>(<span class="st">"eco"</span>), <span class="fu">starts_with</span>(<span class="st">"eth"</span>))</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># correlation matrix</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">cor</span>(elec_vars_sel)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># correlation plot</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggcorrplot</span>(cor_mat, <span class="at">outline.col =</span> <span class="st">"#ffffff"</span>, <span class="at">tl.cex =</span> <span class="dv">8</span>, <span class="at">legend.title =</span> <span class="st">"Correlation"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output-display">
+<div id="fig-03-correlation-matrix" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-statistics2_files/figure-html/fig-03-correlation-matrix-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Correlation plot of selected variables.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="regression" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="regression"><span class="header-section-number">3.3.4</span> Regression</h3>
+<section id="univeriate-regression" class="level4" data-number="1.3.4.1">
+<h4 data-number="1.3.4.1" class="anchored" data-anchor-id="univeriate-regression"><span class="header-section-number">3.3.4.1</span> Univeriate regression</h4>
+<p>A Pearson’s correlation describes the strength and direction of a linear relationship, but we can also quantify the change in the dependent variable (<code>y</code>) for a one-unit change in the independent variable (<code>x</code>) with an Ordinary Least Squares (OLS) regression.</p>
+<p>Let us run a model with the proportion of the population that is over 50 years old as <code>x</code> and the Conservative vote share as <code>y</code>:</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/03-regression-uni_1c32eb48ab95bd0d10a6d29f045130f0">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># regression</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>lm_voteshare <span class="ot">&lt;-</span> <span class="fu">lm</span>(conservative_vote_share <span class="sc">~</span> aged_50_years_and_over, <span class="at">data =</span> elec_vars)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summary</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_voteshare)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = conservative_vote_share ~ aged_50_years_and_over, 
+    data = elec_vars)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.26274 -0.05384  0.00359  0.05877  0.31701 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)            -0.03884    0.01772  -2.192   0.0288 *  
+aged_50_years_and_over  0.74008    0.04493  16.472   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.08345 on 573 degrees of freedom
+Multiple R-squared:  0.3214,    Adjusted R-squared:  0.3202 
+F-statistic: 271.3 on 1 and 573 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>The <em>Estimates</em> column shows the regression coefficients: -0.039 for the <code>intercept</code> (where the line crosses the y-axis when <code>x = 0</code>) and 0.740 for <code>aged_50_years_and_over</code> (the slope of the line, indicating how <code>y</code> changes on average as <code>x</code> increases by 1). This means that for every percentage point increase in the share of people over 50 in a constituency, the Conservative vote share increases by 0.740.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The <span class="math inline">\(R^2\)</span> (R-squared) of a regression model shows how well the independent variables explain the variation in the dependent variable. It ranges from 0 to 1, where 0 means the model explains none of the variation, and 1 means it explains all of it. Our model suggests that 32% of variation in the dependent variable is explained by the model. The remaining 68% is due to factors not captured by the model or random error.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="multivariate-regression" class="level4" data-number="1.3.4.2">
+<h4 data-number="1.3.4.2" class="anchored" data-anchor-id="multivariate-regression"><span class="header-section-number">3.3.4.2</span> Multivariate regression</h4>
+<p>Now, let us include additional predictors in our regression model to see if we can better explain the variation in the Conservative vote share. We will include <code>eco_active_employed</code> (the proportion of economically active employed individuals) and <code>eth_white</code> (the proportion of the population that identifies as white):</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/03-regression-multi1_4e16f305675a58a125cb926812d8d73f">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># regression</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>lm_voteshare <span class="ot">&lt;-</span> <span class="fu">lm</span>(conservative_vote_share <span class="sc">~</span> aged_50_years_and_over <span class="sc">+</span> eco_active_employed <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    eth_white, <span class="at">data =</span> elec_vars)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># summary</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_voteshare)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = conservative_vote_share ~ aged_50_years_and_over + 
+    eco_active_employed + eth_white, data = elec_vars)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.271771 -0.045878  0.006598  0.053589  0.218631 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)            -0.50862    0.04462 -11.399  &lt; 2e-16 ***
+aged_50_years_and_over  1.20724    0.06972  17.315  &lt; 2e-16 ***
+eco_active_employed     1.01807    0.08674  11.737  &lt; 2e-16 ***
+eth_white              -0.22281    0.03096  -7.197 1.95e-12 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.07408 on 571 degrees of freedom
+Multiple R-squared:  0.4671,    Adjusted R-squared:  0.4643 
+F-statistic: 166.8 on 3 and 571 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The model <span class="math inline">\(R^2\)</span> has increased to 46%, indicating that adding both <code>eco_active_employed</code> and <code>eth_white</code> has improved our ability to predict Conservative vote share in 2024.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The coefficients in a multivariate regression model represent the predicted change in the dependent variable (<code>y</code>) with a one-unit increase in each independent variable (<code>x</code>), while holding all other variables in the model constant. This makes the coefficients <em>partial</em> regression coefficients, meaning they show the effect of each predictor after accounting for the influence of the others.</p>
+</div>
+</div>
+</div>
+<p>This is a good start, but as geographers, we should also consider whether regional patterns influence voter share. We can use a boxplot to split out the vote shares by region to see whether there is any evidence of regional differentiation:</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/fig-03-plot-data-boxplot_8b10b5f12c480836bad63beaa2984dec">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change region variable order</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>elec_vars <span class="ot">&lt;-</span> elec_vars <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">region_name =</span> <span class="fu">factor</span>(region_name, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"London"</span>, <span class="st">"South East"</span>, <span class="st">"South West"</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"North East"</span>, <span class="st">"North West"</span>, <span class="st">"East Midlands"</span>, <span class="st">"West Midlands"</span>, <span class="st">"East of England"</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Yorkshire and The Humber"</span>, <span class="st">"Wales"</span>)))</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(elec_vars<span class="sc">$</span>conservative_vote_share <span class="sc">~</span> elec_vars<span class="sc">$</span>region_name, <span class="at">xlab =</span> <span class="st">"Region"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">"Conservative vote share"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output-display">
+<div id="fig-03-plot-data-boxplot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-statistics2_files/figure-html/fig-03-plot-data-boxplot-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Boxplot on the Conservative voter share by region.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The boxplots suggest some regional variation and so we will add the <code>region_name</code> variable to our regression model. To do this, we need to transform the categorical variable into <a href="https://en.wikipedia.org/wiki/Dummy_variable_(statistics)">dummy variables</a>, one for each region, resulting in 10 new variables. Each observation will be coded as 1 for its corresponding region and 0 for all other regions.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>By including all but one of the regional dummy variables in the regression model, we control for regional differences, with the omitted category serving as the <em>reference category</em>. R will detect that you have a categorical variable if it is stored as a character or factor and will do the dummy generation for you. The coefficients for the included dummy variables indicate how much the predicted value of the dependent variable differs for constituencies in that region compared to the <em>reference</em> region.</p>
+</div>
+</div>
+</div>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/03-regression-multi2_1b834d91399f60fea9fac091836d6845">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># regression</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>lm_voteshare <span class="ot">&lt;-</span> <span class="fu">lm</span>(conservative_vote_share <span class="sc">~</span> aged_50_years_and_over <span class="sc">+</span> eco_active_employed <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    eth_white <span class="sc">+</span> region_name, <span class="at">data =</span> elec_vars)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># summary</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_voteshare)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = conservative_vote_share ~ aged_50_years_and_over + 
+    eco_active_employed + eth_white + region_name, data = elec_vars)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.212739 -0.040914 -0.000956  0.036534  0.251386 
+
+Coefficients:
+                                     Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                         -0.387395   0.049488  -7.828 2.48e-14 ***
+aged_50_years_and_over               1.096071   0.065739  16.673  &lt; 2e-16 ***
+eco_active_employed                  0.747208   0.101295   7.377 5.86e-13 ***
+eth_white                           -0.183626   0.037209  -4.935 1.06e-06 ***
+region_nameSouth East                0.056109   0.013387   4.191 3.22e-05 ***
+region_nameSouth West                0.013635   0.015542   0.877  0.38067    
+region_nameNorth East               -0.020671   0.020219  -1.022  0.30705    
+region_nameNorth West               -0.039032   0.015201  -2.568  0.01049 *  
+region_nameEast Midlands             0.046112   0.015404   2.993  0.00288 ** 
+region_nameWest Midlands             0.042555   0.014559   2.923  0.00361 ** 
+region_nameEast of England           0.059563   0.014387   4.140 4.00e-05 ***
+region_nameYorkshire and The Humber -0.002996   0.015842  -0.189  0.85006    
+region_nameWales                    -0.053131   0.019101  -2.782  0.00559 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.06529 on 562 degrees of freedom
+Multiple R-squared:  0.5925,    Adjusted R-squared:  0.5838 
+F-statistic:  68.1 on 12 and 562 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The coefficient for each region represents the average difference in the predicted Conservative vote share compared to the <em>reference</em> region, which is London in this case.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="diagnostics" class="level4" data-number="1.3.4.3">
+<h4 data-number="1.3.4.3" class="anchored" data-anchor-id="diagnostics"><span class="header-section-number">3.3.4.3</span> Diagnostics</h4>
+<p>The validity of a regression relies on several assumptions being met. One of the most important assumptions is that the residuals (the differences between predicted and observed values) should be independent and normally distributed. The <code>easystats</code> package provides tools to quickly generate relevant figures and diagnostics to help your assess your mode.</p>
+<p>Check for normality of the residuals:</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/fig-03-diagnose-normality_755b0121efcb4e11baa2f90bd8f70c3b">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run diagnostics</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(lm_voteshare, <span class="at">check =</span> <span class="fu">c</span>(<span class="st">"qq"</span>, <span class="st">"normality"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output-display">
+<div id="fig-03-diagnose-normality" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-statistics2_files/figure-html/fig-03-diagnose-normality-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;4: Check for normality of residuals.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Another important assumption is <a href="https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity">homoscedasticity</a>, which occurs when the residuals exhibit constant variance across all levels of the independent variable(s). In contrast, <a href="https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity">heteroscedasticity</a> arises when the variance of the residuals is not constant. Linearity, of course, is another key assumption in linear regression, signifying that a straight-line relationship exists between the independent and dependent variables.</p>
+<p>Check for linearity and heteroscedasticity:</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/fig-03-diagnose-linearity_da1d2bfe57200294042ba2be07955636">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run diagnostics</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(lm_voteshare, <span class="at">check =</span> <span class="fu">c</span>(<span class="st">"linearity"</span>, <span class="st">"homogeneity"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output-display">
+<div id="fig-03-diagnose-linearity" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-statistics2_files/figure-html/fig-03-diagnose-linearity-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;5: Check for linearity and homogeneity</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The diagnostics indicate that the relationship between the independent and dependent variables might not be linear. This suggests the <em>possibility</em> of a curvilinear relationship, where the regression line can bend rather than being constrained to a straight line.</p>
+</div>
+</div>
+</div>
+<p>Multicollinearity is another potential issue. Multicollinearity arises when independent variables are highly correlated with each other. This situation can complicate regression analysis, as it makes it challenging to isolate the individual effects of each correlated variable on the dependent variable. Finally, outliers can skew the results and affect the overall model fit.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Multicollinearity can be assessed using Variance Inflation Factors (VIF). VIF measures how much the variance of an estimated regression coefficient increases when your predictors are correlated. It is calculated by fitting a regression model for each independent variable against all the other independent variables and then assessing how much the R-squared value increases. A VIF value greater than 10 typically indicates problematic multicollinearity.</p>
+</div>
+</div>
+</div>
+<p>We can check for influential observations and multicollinearity as follows:</p>
+<div class="cell styled-output" data-hash="03-statistics2_cache/html/fig-03-diagnose-vif_777c1f8e58de6778b7d563c2d8ec2722">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run diagnostics</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(lm_voteshare, <span class="at">check =</span> <span class="fu">c</span>(<span class="st">"vif"</span>, <span class="st">"outliers"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output-display">
+<div id="fig-03-diagnose-vif" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="03-statistics2_files/figure-html/fig-03-diagnose-vif-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;6: Check for influential observations and multicollinearity.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If you encounter multicollinearity issues, you have several options to address them. One straightforward approach is to remove one of the correlated predictors from your model. Alternatively, you could recode one or more of the collinear variables into ordinal or categorical forms. For example, converting a continuous variable into categories such as <em>High</em> and <em>Low</em> percentages of individuals over 50 may reduce correlation and improve model performance.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="homework-task" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">3.4</span> Homework task</h2>
+<p>This concludes this week’s tutorial. Now complete the following homework tasks making use of <code>elec_vars</code> dataset:</p>
+<ol type="1">
+<li>Analyse the association between the <code>pop_white_90percent</code> and <code>winning_party</code> variable.</li>
+<li>Build a <em>multiple</em> regression model with the <code>labour_vote_share</code> as dependent variable for constituencies in <em>England</em>.</li>
+</ol>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Paste the test outputs in the appendix of your assignment, include a few sentences summarising what your model shows.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="before-you-leave" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">3.5</span> Before you leave</h2>
+<p>This week, we focused on statistically assessing associations between different variables.Because this week’s material was a little technical, we will be shifting our focus away from R next week and turn our attention to QGIS. Time to sit down and process this weeks material before some <a href="https://www.youtube.com/watch?v=L_TXvjDE5Ec">more relaxed content</a> next week!</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-statistics1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Statistical Analysis I</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04-spatial1.html" class="pagination-link">
+        <span class="nav-page-text">Spatial Analysis I</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Course material by <a href="https://www.mappingdutchman.com">Justin van Dijk</a>. Available under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
