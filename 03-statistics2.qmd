@@ -4,7 +4,7 @@ Last week, we explored methods for comparing groups. This week, our focus shifts
 ## Lecture slides
 You can download the slides of this week's lecture here: [[Link]]({{< var slides.week08 >}}).
 
-## Reading list 
+## Reading list
 #### Essential readings {.unnumbered}
 - Field, A. Discovering Statistics using R, **Chapter 6**: *Correlation*, pp. 205-244. [[Link]](https://read.kortext.com/reader/epub/2039249?page=205)
 - Field, A. Discovering Statistics using R, **Chapter 7**: *Regression*, pp. 245-311. [[Link]](https://read.kortext.com/reader/epub/2039249?page=245)
@@ -23,7 +23,7 @@ Today, we will investigate the political geography of England and Wales, focusin
 To download a `csv` file that is hosted on GitHub, click on the **Download raw file** button on the top right of your screen and it should download directly to your computer.
 :::
 
-To get started, open your `GEOG0018` **R Project** and create a new script: **File** -> **New File** -> **R Script**. Save your script as `w08-election-analysis.r`. 
+To get started, open your `GEOG0018` **R Project** and create a new script: **File** -> **New File** -> **R Script**. Save your script as `w08-election-analysis.r`.
 
 We will start by loading the libraries that we will need:
 
@@ -34,7 +34,7 @@ We will start by loading the libraries that we will need:
 #| eval: True
 #| output: False
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # load libraries
 library(tidyverse)
 library(janitor)
@@ -44,7 +44,7 @@ library(easystats)
 ```
 
 ### Data loading
-Now we have setup again, we can load the `EW-GE2024-Constituency-Vars.csv` file into R. 
+Now we have setup again, we can load the `EW-GE2024-Constituency-Vars.csv` file into R.
 
 ```{r}
 #| label: 03-load-data
@@ -52,7 +52,7 @@ Now we have setup again, we can load the `EW-GE2024-Constituency-Vars.csv` file 
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # load election data
 elec_vars <- read_csv('data/EW-GE2024-Constituency-Vars.csv')
 ```
@@ -65,7 +65,7 @@ As always, we will start by inspecting the dataset to understand its structure a
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # inspect
 head(elec_vars)
 
@@ -74,7 +74,7 @@ names(elec_vars)
 ```
 
 ::: {.callout-tip}
-You can further inspect the dataset using the `View()` function. 
+You can further inspect the dataset using the `View()` function.
 :::
 
 ### Crosstabulation
@@ -86,7 +86,7 @@ In geography, we frequently work with categorical variables. One technique for a
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # crosstabulation
 crosstab(elec_vars$winning_party, elec_vars$pop_50plus_40percent, prop.r = TRUE, plot = FALSE)
 ```
@@ -101,13 +101,13 @@ We can use a Chi-square test to assess the strength of this association:
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # chi-square
 crosstab(elec_vars$winning_party, elec_vars$pop_50plus_40percent, expected = TRUE, plot = FALSE, chisq = TRUE)
 ```
 
 ::: {.callout-note}
-The Chi-square test is a statistical method used to assess whether there is a significant association between two categorical variables.It compares the observed frequencies in each category to the expected frequencies, which are based on the assumption that there is no relationship between the variables (the *null hypothesis*). If the differences between observed and expected values are large enough, we reject the *null hypothesis*, indicating a significant association between the variables.
+The Chi-square test is a statistical method used to assess whether there is a significant association between two categorical variables. It compares the observed frequencies in each category to the expected frequencies, which are based on the assumption that there is no relationship between the variables (the *null hypothesis*). If the differences between observed and expected values are large enough, we reject the *null hypothesis*, indicating a significant association between the variables.
 :::
 
 ::: {.callout-important}
@@ -130,7 +130,7 @@ We can create a scatterplot as follows:
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # scatterplot
 plot(elec_vars$aged_50_years_and_over, elec_vars$conservative_vote_share, xlab = 'Proportion of population over 50 years old', ylab = 'Proportion of votes for the Conservative party')
 ```
@@ -148,7 +148,7 @@ We can run a correlation as follows:
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # correlation
 cor.test(elec_vars$aged_50_years_and_over, elec_vars$conservative_vote_share, method = 'pearson')
 ```
@@ -167,10 +167,10 @@ It can be useful to look at a matrix of correlation coefficients between a selec
 #| eval: True
 #| tidy: True
 #| cache: True
-#| filename: "R code"
+#| filename: 'R code'
 # select variables
 elec_vars_sel <- elec_vars |>
-  select('conservative_vote_share', 'labour_vote_share', 'libdem_vote_share', 
+  select('conservative_vote_share', 'labour_vote_share', 'libdem_vote_share',
          starts_with('aged'), starts_with('eco'), starts_with('eth'))
 
 # correlation matrix
@@ -181,7 +181,7 @@ ggcorrplot(cor_mat, outline.col = '#ffffff', tl.cex = 8, legend.title = 'Correla
 ```
 
 ### Regression
-#### Univeriate regression
+#### Univariate regression
 A Pearson's correlation describes the strength and direction of a linear relationship, but we can also quantify the change in the dependent variable (`y`) for a one-unit change in the independent variable (`x`) with an Ordinary Least Squares (OLS) regression.
 
 Let us run a model with the proportion of the population that is over 50 years old as `x` and the Conservative vote share as `y`:
@@ -192,7 +192,7 @@ Let us run a model with the proportion of the population that is over 50 years o
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # regression
 lm_voteshare <- lm(conservative_vote_share ~ aged_50_years_and_over, data = elec_vars)
 
@@ -215,7 +215,7 @@ Now, let us include additional predictors in our regression model to see if we c
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # regression
 lm_voteshare <- lm(conservative_vote_share ~ aged_50_years_and_over + eco_active_employed + eth_white, data = elec_vars)
 
@@ -240,19 +240,19 @@ This is a good start, but as geographers, we should also consider whether region
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# change region variable order 
+#| filename: 'R code'
+# change region variable order
 elec_vars <- elec_vars |>
   mutate(region_name = factor(region_name, levels = c('London','South East', 'South West', 'North East', 'North West', 'East Midlands', 'West Midlands', 'East of England', 'Yorkshire and The Humber', 'Wales')))
-  
-# boxplot 
+
+# boxplot
 boxplot(elec_vars$conservative_vote_share ~ elec_vars$region_name, xlab = 'Region', ylab = 'Conservative vote share')
 ```
 
-The boxplots suggest some regional variation and so we will  add the `region_name` variable to our regression model. To do this, we need to transform the categorical variable into [dummy variables](https://en.wikipedia.org/wiki/Dummy_variable_(statistics)), one for each region, resulting in 10 new variables. Each observation will be coded as 1 for its corresponding region and 0 for all other regions.
+The boxplots suggest some regional variation and so we will add the `region_name` variable to our regression model. To do this, we need to transform the categorical variable into [dummy variables](https://en.wikipedia.org/wiki/Dummy_variable_(statistics)), one for each region, resulting in 10 new variables. Each observation will be coded as 1 for its corresponding region and 0 for all other regions.
 
 ::: {.callout-note}
-By including all but one of the regional dummy variables in the regression model, we control for regional differences, with the omitted category serving as the *reference category*. R will detect that you have a categorical variable if it is stored as a character or factor and will do the dummy generation for you. The coefficients for the included dummy variables indicate how much the predicted value of the dependent variable differs for constituencies in that region compared to the *reference* region. 
+By including all but one of the regional dummy variables in the regression model, we control for regional differences, with the omitted category serving as the *reference category*. R will detect that you have a categorical variable if it is stored as a character or factor and will do the dummy generation for you. The coefficients for the included dummy variables indicate how much the predicted value of the dependent variable differs for constituencies in that region compared to the *reference* region.
 :::
 
 ```{r}
@@ -261,7 +261,7 @@ By including all but one of the regional dummy variables in the regression model
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # regression
 lm_voteshare <- lm(conservative_vote_share ~ aged_50_years_and_over + eco_active_employed + eth_white + region_name, data = elec_vars)
 
@@ -274,7 +274,7 @@ The coefficient for each region represents the average difference in the predict
 :::
 
 #### Diagnostics
-The validity of a regression relies on several assumptions being met. One of the most important assumptions is that the residuals (the differences between predicted and observed values) should be independent and normally distributed. The `easystats` package provides tools to quickly generate relevant figures and diagnostics to help your assess your mode.
+The validity of a regression relies on several assumptions being met. One of the most important assumptions is that the residuals (the differences between predicted and observed values) should be independent and normally distributed. The `easystats` package provides tools to quickly generate relevant figures and diagnostics to help you assess your model.
 
 Check for normality of the residuals:
 
@@ -285,8 +285,8 @@ Check for normality of the residuals:
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# run diagnostics 
+#| filename: 'R code'
+# run diagnostics
 performance::check_model(lm_voteshare, check = c('qq', 'normality'))
 ```
 
@@ -301,8 +301,8 @@ Check for linearity and heteroscedasticity:
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# run diagnostics 
+#| filename: 'R code'
+# run diagnostics
 performance::check_model(lm_voteshare, check = c('linearity', 'homogeneity'))
 ```
 
@@ -325,24 +325,24 @@ We can check for influential observations and multicollinearity as follows:
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# run diagnostics 
-performance::check_model(lm_voteshare, check = c('vif', 'outliers')) 
+#| filename: 'R code'
+# run diagnostics
+performance::check_model(lm_voteshare, check = c('vif', 'outliers'))
 ```
 
 ::: {.callout-tip}
 If you encounter multicollinearity issues, you have several options to address them. One straightforward approach is to remove one of the correlated predictors from your model. Alternatively, you could recode one or more of the collinear variables into ordinal or categorical forms. For example, converting a continuous variable into categories such as *High* and *Low* percentages of individuals over 50 may reduce correlation and improve model performance.
 :::
 
-## Homework task 
+## Homework task
 This concludes this week's tutorial. Now complete the following homework tasks making use of `elec_vars` dataset:
 
 1. Analyse the association between the `pop_white_90percent` and `winning_party` variable.
-2. Build a *multiple* regression model with the `labour_vote_share` as dependent variable for constituencies in *England*. 
+2. Build a *multiple* regression model with the `labour_vote_share` as dependent variable for constituencies in *England*.
 
 ::: {.callout-warning}
-Paste the test outputs in the appendix of your assignment, include a few sentences summarising what your model shows. 
+Paste the test outputs in the appendix of your assignment, include a few sentences summarising what your model shows.
 :::
 
 ## Before you leave
-This week, we focused on statistically assessing associations between different variables.Because this week's material was a little technical, we will be shifting our focus away from R next week and turn our attention to QGIS. Time to sit down and process this weeks material before some [more relaxed content](https://www.youtube.com/watch?v=L_TXvjDE5Ec) next week!
+This week, we focused on statistically assessing associations between different variables. Because this week's material was a little technical, we will be shifting our focus away from R next week and turn our attention to QGIS. Time to sit down and process this weeks material before some [more relaxed content](https://www.youtube.com/watch?v=L_TXvjDE5Ec) next week!
