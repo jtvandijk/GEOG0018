@@ -23,13 +23,13 @@ After this, start **RStudio** to see if the installation was successful. Your sc
 #| echo: False
 #| eval: True
 options(max.print=50)
-``` 
+```
 
 ```{r}
 #| label: fig-rstudio-interface
 #| echo: False
 #| cache: True
-#| fig-cap: "The RStudio interface."
+#| fig-cap: 'The RStudio interface.'
 knitr::include_graphics('images/w06/rstudio-interface.png')
 ```
 
@@ -43,7 +43,7 @@ The main panes that we will be using are:
 | *Plots*       | Where the outputs of our graphs, charts and maps are shown.         |
 
 ## Customisation of R {.unnumbered}
-Now we have installed R and RStudio, we need to customise R. Many useful R functions come in packages, these are free libraries of code written and made available by other R users. This includes packages specifically developed for data cleaning, data wrangling, visualisation, mapping, and spatial analysis. To save us some time later on, we will install the R packages that we will need during the module in one go. 
+Now we have installed R and RStudio, we need to customise R. Many useful R functions come in packages, these are free libraries of code written and made available by other R users. This includes packages specifically developed for data cleaning, data wrangling, visualisation, mapping, and spatial analysis. To save us some time later on, we will install the R packages that we will need during the module in one go.
 
 Start RStudio, and copy and paste the following code into the **console** window. You can execute the code by pressing the **Return** button on your keyboard. Depending on your computer's specifications and the internet connection, this may take a short while.
 
@@ -54,7 +54,7 @@ Start RStudio, and copy and paste the following code into the **console** window
 #| message: True
 #| eval: False
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # install packages
 install.packages(c('tidyverse', 'janitor', 'descr', 'ggcorrplot', 'patchwork', 'easystats'))
 ```
@@ -73,7 +73,7 @@ Once you have installed the packages, we need to check whether we can in fact lo
 #| eval: False
 #| verbose: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # load packages
 library(tidyverse)
 library(janitor)
@@ -110,7 +110,7 @@ At its core, every programming language can be used as a powerful calculator. Ty
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # multiplication
 10 * 12
 ```
@@ -118,7 +118,7 @@ At its core, every programming language can be used as a powerful calculator. Ty
 Once you press return, you should see the answer of `120` returned below.
 
 ### Storing variables {.unnumbered}
-Instead of using raw numbers or standalone values, it is more effective to store these values in variables, which allows for easy reference later. In R, this process is known as **creating an object**, and the object is stored as a variable. To assign a value to a variable, use the `<-` syntax. Let us create two variables to experiment with this
+Instead of using raw numbers or standalone values, it is more effective to store these values in variables, which allows for easy reference later. In R, this process is known as **creating an object**, and the object is stored as a variable. To assign a value to a variable, use the `<-` syntax. Let us create two variables to experiment with this.
 
 Type in `ten <- 10` into the **console** and execute.
 
@@ -128,7 +128,7 @@ Type in `ten <- 10` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # store a variable
 ten <- 10
 ```
@@ -143,12 +143,12 @@ Type in `twelve <- 12` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # store a variable
 twelve <- 12
 ```
 
-Again, nothing will be returned to the **console**, but be sure to check your environment window for the newly created variable. We have now stored two numbers in our environment and assigned them variable names for easy reference. R stores these objects as variables in your computer's [RAM memory](https://en.wikipedia.org/wiki/Random-access_memory), allowing for quick processing. Keep in mind that without saving your environment, these variables will be lost when you close R and you would need to run your code again. 
+Again, nothing will be returned to the **console**, but be sure to check your environment window for the newly created variable. We have now stored two numbers in our environment and assigned them variable names for easy reference. R stores these objects as variables in your computer's [RAM memory](https://en.wikipedia.org/wiki/Random-access_memory), allowing for quick processing. Keep in mind that without saving your environment, these variables will be lost when you close R and you would need to run your code again.
 
 Now that we have our variables, let us proceed with a simple multiplication. Type in `ten * twelve` into the **console** and execute.
 
@@ -158,7 +158,7 @@ Now that we have our variables, let us proceed with a simple multiplication. Typ
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # using variables
 ten * twelve
 ```
@@ -173,7 +173,7 @@ Next, type in `ten * twelve * 8` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # using variables and values
 ten * twelve * 8
 ```
@@ -188,8 +188,8 @@ Type `output <- ten * twelve * 8` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# store output 
+#| filename: 'R code'
+# store output
 output <- ten * twelve * 8
 ```
 
@@ -204,8 +204,8 @@ We can ask R to return the value of the `output` variable by simply typing its n
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# return value 
+#| filename: 'R code'
+# return value
 output
 ```
 
@@ -220,7 +220,7 @@ Type in `str_variable <- "Hello GEOG0018"` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # store a variable
 str_variable <- 'Hello GEOG0018'
 ```
@@ -235,7 +235,7 @@ Type in `str_variable` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # return variable
 str_variable
 ```
@@ -253,14 +253,14 @@ Type in `print(str_variable)` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # printing a variable
 print(str_variable)
 ```
 
 ::: {.callout-tip}
 You can type `?print` into the **console** to learn more about the `print()` function. This method works with any function, giving you access to its documentation. Understanding this documentation is crucial for using the function correctly and interpreting its output.
-::: 
+:::
 
 ```{r}
 #| label: 01-str4
@@ -268,7 +268,7 @@ You can type `?print` into the **console** to learn more about the `print()` fun
 #| echo: True
 #| eval: False
 #| tidy: False
-#| filename: "R code"
+#| filename: 'R code'
 # open documentation of the print function
 ?print
 ```
@@ -288,7 +288,7 @@ Type in `typeof(str_variable)` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # call the typeof() function
 typeof(str_variable)
 ```
@@ -303,8 +303,8 @@ Type in `typeof(ten)` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# call the typeof() function 
+#| filename: 'R code'
+# call the typeof() function
 typeof(ten)
 ```
 
@@ -318,8 +318,8 @@ Type in `class(str_variable)` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# call the class() function 
+#| filename: 'R code'
+# call the class() function
 class(str_variable)
 ```
 
@@ -333,8 +333,8 @@ Type in `class(ten)` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# call the class() function 
+#| filename: 'R code'
+# call the class() function
 class(ten)
 ```
 
@@ -348,7 +348,7 @@ Type in `is.integer(ten)` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # call the integer() function
 is.integer(ten)
 ```
@@ -356,10 +356,10 @@ is.integer(ten)
 You should see the result `FALSE`. As we know from the `typeof()` function, the `ten` variable is stored as a `double`, so it cannot be an `integer`.
 
 ::: {.callout-note}
-Whilst knowing how to distinguish between different data types might not seem important now, the difference betwee a `double` and an `integer` can quite easily lead to unexpected errors.
+Whilst knowing how to distinguish between different data types might not seem important now, the difference between a `double` and an `integer` can quite easily lead to unexpected errors.
 :::
 
-We can also check the length of our a variable.
+We can also check the length of our variable.
 
 Type in `length(str_variable)` into the **console** and execute.
 
@@ -369,12 +369,12 @@ Type in `length(str_variable)` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# call the length() function 
+#| filename: 'R code'
+# call the length() function
 length(str_variable)
 ```
 
-You should get the answer `1` because we only have one *set* of characters.  We can also determine the length of each set of characters, which tells us the length of the string contained in the variable.
+You should get the answer `1` because we only have one *set* of characters. We can also determine the length of each set of characters, which tells us the length of the string contained in the variable.
 
 Type in `nchar(str_variable)` into the **console** and execute.
 
@@ -384,7 +384,7 @@ Type in `nchar(str_variable)` into the **console** and execute.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # call the nchar() function
 nchar(str_variable)
 ```
@@ -392,7 +392,7 @@ nchar(str_variable)
 You should get an answer of `14`.
 
 ### Creating multi-value objects {.unnumbered}
-Variables are not constricted to one value, but can be combined to create larger objects. Type in `two_str_variable <- c("This is our second variable", "It has two parts to it")` into the **console** and execute.
+Variables are not constricted to one value, but can be combined to create larger objects. Type in `two_str_variable <- c("This is our second string variable", "It has two parts to it")` into the **console** and execute.
 
 ```{r}
 #| label: 01-var4
@@ -400,8 +400,8 @@ Variables are not constricted to one value, but can be combined to create larger
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# store a new variable 
+#| filename: 'R code'
+# store a new variable
 two_str_variable <- c("This is our second string variable", "It has two parts to it")
 ```
 
@@ -415,8 +415,8 @@ Let us now try both our `length()` and `nchar()` on our new variable and see wha
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# call the length() function 
+#| filename: 'R code'
+# call the length() function
 length(two_str_variable)
 
 # call the nchar() function
@@ -429,7 +429,7 @@ You should notice that the `length()` function now returned a `2` and the `nchar
 You may have noticed that each line of code in the examples includes a comment explaining its purpose. In R, comments are created using the hash symbol `#`. This symbol instructs R to ignore the commented line when executing the code. Comments are useful for understanding your code when you revisit it later or when sharing it with others.
 :::
 
-Extending the concept of multi-value objects to two dimensions results in a `dataframe.` A dataframe is the *de facto* data structure for most tabular data. We will use functions from the `tidyverse` library, a suite of packages to load tabular data and conduct data analysis. 
+Extending the concept of multi-value objects to two dimensions results in a `dataframe.` A dataframe is the *de facto* data structure for most tabular data. We will use functions from the `tidyverse` library, a suite of packages to load tabular data and conduct data analysis.
 
 Within the `tidyverse`, `dataframes` are referred to as `tibbles.` Some of the most important and useful functions come from the `tidyr` and `dplyr` packages, including:
 
