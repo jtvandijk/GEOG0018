@@ -1,11 +1,11 @@
 # Methods in Human Geography {.unnumbered}
 
-```{r} 
+```{r}
 #| label: 00-welcome
 #| echo: False
 #| cache: True
-#| out.width: "100%"
-knitr::include_graphics('images/w00/methods-welcome.png') 
+#| out.width: '100%'
+knitr::include_graphics('images/w00/methods-welcome.png')
 ```
 
 ## Welcome {.unnumbered}
@@ -21,8 +21,8 @@ The topics covered over the next five weeks are:
 | :--- |:---------|:------------------ |
 | 1    | Getting Started               | [Getting Started]({{< var urls.w00 >}}) |
 | 1    | R for Data Analysis           | [R for Data Analysis]({{< var urls.w01 >}}) |
-| 2    | Statistical Analysis          | [Statistical Analysis I]({{< var urls.w02 >}}) | 
-| 3    | Statistical Analysis          | [Statistical Analysis II]({{< var urls.w03 >}}) | 
+| 2    | Statistical Analysis          | [Statistical Analysis I]({{< var urls.w02 >}}) |
+| 3    | Statistical Analysis          | [Statistical Analysis II]({{< var urls.w03 >}}) |
 | 4    | Spatial Analysis              | [Spatial Analysis I]({{< var urls.w04 >}}) |
 | 5    | Spatial Analysis              | [Spatial Analysis II]({{< var urls.w05 >}}) |
 
@@ -30,7 +30,7 @@ The topics covered over the next five weeks are:
 ::: {.callout-note}
 This year's version features the following **minor** updates:
 
-- Partial rewrite of W04s data cleaning material.
+- Partial rewrite of W04's data cleaning material.
 - Minor changes, typos.
 :::
 
@@ -39,7 +39,7 @@ This workbook is created using the [Quarto](https://quarto.org/) publishing syst
 
 - The [GEOG0018: Methods in Human Geography 2024-2025](https://jtvandijk.github.io/GEOG0018_20242025/) workbook by [Justin van Dijk](https://www.mappingdutchman.com)
 - The [GEOG0030: Geocomputation 2023-2024](https://jtvandijk.github.io/GEOG0030_20232024/) workbook by [Justin van Dijk](https://www.mappingdutchman.com)
-- Previous [GEOG018: Methods in Human Geography](https://www.ucl.ac.uk/module-catalogue/modules/methods-in-human-geography-GEOG0018) content created by [Rory Coulter](https://www.ucl.ac.uk/geography/rory-coulter)
+- Previous [GEOG018: Methods in Human Geography](https://www.ucl.ac.uk/module-catalogue/modules/methods-in-human-geography-GEOG0018) content created by [Rory Coulter](https://profiles.ucl.ac.uk/61688-rory-coulter)
 - Previous [POLS0008: Introduction to Quantitative Research Methods](https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-quantitative-research-methods-POLS0008) content created by [Stephen Jivraj](https://profiles.ucl.ac.uk/44867-stephen-jivraj)
 
 The datasets used in this workbook contain:
