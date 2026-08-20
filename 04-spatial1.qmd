@@ -20,7 +20,7 @@ QGIS is available through [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/servi
 :::
 
 ::: {.callout-note}
-If you want to install QGIS on your personal computer, we recommend installing the **Long Term Release** (*QGIS 3.34 LTR*), as this version is the most current and stable. For Windows users, please note that the QGIS installation process may take some time, so be patient during the setup.
+If you want to install QGIS on your personal computer, we recommend installing the **Long Term Release** (*QGIS 3.44 LTR*), as this version is the most current and stable. For Windows users, please note that the QGIS installation process may take some time, so be patient during the setup.
 :::
 
 After installation, launch QGIS to confirm that the installation was successful.

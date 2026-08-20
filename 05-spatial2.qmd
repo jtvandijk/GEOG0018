@@ -222,7 +222,7 @@ On the left-hand side of the window, you will find buttons to add various print 
 On the right-hand side of the window, there are two sets of panels. The upper panel contains the *Items* and *Undo History* panels, while the lower panel includes *Layout*, *Item Properties*, and *Guides*. For our purposes today, we will focus on the bottom panel, as the *Layout* panel controls the overall appearance of our map, while the *Item Properties* panel allows us to customise elements such as titles and legends that we may add to our map.
 
 ::: {.callout-note}
-Working with maps in the *Print Layout* is relatively straightforward, but it can become a bit fiddly, especially when creating more complex maps. To effectively manage your layout, it is important to understand features like locking items to prevent accidental changes. If you get stuck, have a look at the [training manual](https://docs.qgis.org/3.34/en/docs/training_manual/map_composer/map_composer.html) or the detailed [documentation](https://docs.qgis.org/3.34/en/docs/user_manual/print_composer/index.html).
+Working with maps in the *Print Layout* is relatively straightforward, but it can become a bit fiddly, especially when creating more complex maps. To effectively manage your layout, it is important to understand features like locking items to prevent accidental changes. If you get stuck, have a look at the [training manual](https://docs.qgis.org/3.44/en/docs/training_manual/map_composer/map_composer.html) or the detailed [documentation](https://docs.qgis.org/3.44/en/docs/user_manual/print_composer/index.html).
 :::
 
 To begin creating your map, use the **Add Map** tool to draw a box where a snapshot of the currently active map displayed in your QGIS main window will be loaded.

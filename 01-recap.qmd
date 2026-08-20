@@ -7,11 +7,11 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 ## Reading list
 #### Essential readings {.unnumbered}
 - Brunsdon, C. and Comber, A. 2020. Opening practice: Supporting reproducibility and critical spatial data science. *Journal of Geographical Systems* 23: 477–496. [[Link]](https://doi.org/10.1007/s10109-020-00334-2)
-- Franklin, R. 2023. Quantitative methods III: Strength in numbers? *Progress in Human Geography*. Online First. [[Link]](https://doi.org/10.1177/03091325231210512).
+- Franklin, R. 2024. Quantitative methods III: Strength in numbers? *Progress in Human Geography* 48(2): 236-244. [[Link]](https://doi.org/10.1177/03091325231210512).
 
 #### Suggested readings {.unnumbered}
 - Field, A. Discovering Statistics using R, **Chapter 1**: *Why is my evil lecturer forcing me to learn statistics?*, pp. 1-31. [[Link]](https://read.kortext.com/reader/epub/2039249?page=1)
-- Hadley, W. 2017. R for Data Science. **Chapter 3**: *Workflow: basics*. [[Link]](https://r4ds.hadley.nz/workflow-basics)
+- Wickham, H. *et al.* 2023. R for Data Science, **Chapter 2**: *Workflow: basics*. [[Link]](https://r4ds.hadley.nz/workflow-basics)
 - Miller, H. and Goodchild, M. 2015. Data-driven geography. *GeoJournal* 80: 449–461. [[Link]](https://doi.org/10.1007/s10708-014-9602-6)
 
 ## Age groups in Camden
