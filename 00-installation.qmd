@@ -5,11 +5,11 @@ R is a programming language originally designed for conducting statistical analy
 Installing R takes a few relatively simple steps involving two pieces of software. First there is the R programming language itself. Follow these steps to get it installed on your computer:
 
 1.  Navigate in your browser to the download page: [[Link]](https://cran.r-project.org/)
-2.  If you use a Windows computer, click on *Download R for Windows*. Then click on *base*. Download and install **R 4.5.x for Windows**. If you use a Mac computer, click on *Download R for macOS* and download and install **R-4.5.x.arm64.pkg** for [Apple silicon Macs](https://support.apple.com/en-gb/HT211814) or **R-4.5.x.x86_64.pkg** for older [Intel-based Macs](https://support.apple.com/en-gb/HT211814).
+2.  If you use a Windows computer, click on *Download R for Windows*. Then click on *base*. Download and install **R 4.6.x for Windows**. If you use a Mac computer, click on *Download R for macOS* and download and install **R-4.6.x-arm64.pkg** for [Apple silicon Macs](https://support.apple.com/en-gb/HT211814) or **R-4.6.x-x86_64.pkg** for older [Intel-based Macs](https://support.apple.com/en-gb/HT211814).
 
-That is it! You now have successfully installed R onto your computer. To make working with the R language a little bit easier we also need to install something called an [Integrated Development Environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment). We will use [RStudio Desktop](https://posit.co/download/rstudio-desktop/):
+That is it! You now have successfully installed R onto your computer. To make working with the R language a little bit easier we also need to install something called an [Integrated Development Environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment). We will use [RStudio Desktop](https://posit.co/downloads/):
 
-1.  Navigate to the official webpage of RStudio: [[Link]](https://posit.co/download/rstudio-desktop/#download)
+1.  Navigate to the official webpage of RStudio: [[Link]](https://posit.co/downloads/)
 2.  Download and install RStudio on your computer.
 
 ::: {.callout-tip}
@@ -60,7 +60,7 @@ install.packages(c('tidyverse', 'janitor', 'descr', 'ggcorrplot', 'patchwork', '
 ```
 
 ::: callout-warning
-R libraries installed through [CRAN](https://cran.r-project.org/) are typically pre-compiled, meaning that these packages can be easily installed on your machine without additional steps. However, when attempting to install an R library that requires [compilation](https://en.wikipedia.org/wiki/Compiler), additional software must be installed. For Windows users, [RTools](https://cran.r-project.org/) provides the necessary tools for building R packages from source. MacOS users should install [Xcode](https://mac.r-project.org/tools/) as well as the [GNU Fortran compiler](https://mac.r-project.org/tools/).
+R libraries installed through [CRAN](https://cran.r-project.org/) are typically pre-compiled, meaning that these packages can be easily installed on your machine without additional steps. However, when attempting to install an R library that requires [compilation](https://en.wikipedia.org/wiki/Compiler), additional software must be installed. For Windows users, [RTools](https://cran.r-project.org/bin/windows/Rtools/) provides the necessary tools for building R packages from source. MacOS users should install [Xcode](https://mac.r-project.org/tools/) as well as the [GNU Fortran compiler](https://mac.r-project.org/tools/).
 :::
 
 Once you have installed the packages, we need to check whether we can in fact load them into R. Copy and paste the following code into the **console**, and execute by pressing **Return** on your keyboard.
