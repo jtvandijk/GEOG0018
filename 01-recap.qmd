@@ -1,12 +1,12 @@
 # R for Data Analysis
-This week, we will start easy with a refresher on how to use R and RStudio for working with quantitative data. We will revisit some key concepts introduced in last year, but from next week we will build on these foundations by introducing more advanced statistical techniques.
+This week, we will start easy with a refresher on how to use R and RStudio for working with quantitative data. We will revisit some key concepts introduced last year, but from next week we will build on these foundations by introducing more advanced statistical techniques.
 
 ## Lecture slides
 You can download the slides of this week's lecture here: [[Link]]({{< var slides.week06 >}}).
 
-## Reading list 
-#### Essential readings {.unnumbered} 
-- Brundson, C. and Comber, A. 2020. Opening practice: Supporting reproducibility and critical spatial data science. *Journal of Geographical Systems* 23: 477–496. [[Link]](https://doi.org/10.1007/s10109-020-00334-2)
+## Reading list
+#### Essential readings {.unnumbered}
+- Brunsdon, C. and Comber, A. 2020. Opening practice: Supporting reproducibility and critical spatial data science. *Journal of Geographical Systems* 23: 477–496. [[Link]](https://doi.org/10.1007/s10109-020-00334-2)
 - Franklin, R. 2023. Quantitative methods III: Strength in numbers? *Progress in Human Geography*. Online First. [[Link]](https://doi.org/10.1177/03091325231210512).
 
 #### Suggested readings {.unnumbered}
@@ -17,7 +17,7 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 ## Age groups in Camden
 In RStudio, scripts allow us to build and save code that can be run repeatedly. We can organise these scripts into RStudio projects, which consolidate all files related to an analysis such as input data, R scripts, results, figures, and more. This organisation helps keep track of all data, input, and output, while enabling us to create standalone scripts for each part of our analysis. Additionally, it simplifies managing [directories and filepaths](https://en.wikipedia.org/wiki/Path_(computing)).
 
-Navigate to **File** -> **New Project** -> **New Directory**. Choose a directory name, such as `GEOG0018`, and select the location on your computer where you want to save this project by clicking on **Browse...**. 
+Navigate to **File** -> **New Project** -> **New Directory**. Choose a directory name, such as `GEOG0018`, and select the location on your computer where you want to save this project by clicking on **Browse...**.
 
 ::: {.callout-important}
 Ensure you select an appropriate folder to store your `GEOG0018` project. For example, you might use your *Methods in Human Geography* folder, if you have one, or another location within your `Documents` directory on your computer.
@@ -49,7 +49,7 @@ You will have to create a folder named `data` inside the folder where you saved 
 To download a `csv` file that is hosted on GitHub, click on the **Download raw file** button on the top right of your screen and it should download directly to your computer.
 :::
 
-To get started, let us create our first script. **File** -> **New File** -> **R Script**. Save your script as `w06-age-group-analysis.r`. 
+To get started, let us create our first script. **File** -> **New File** -> **R Script**. Save your script as `w06-age-group-analysis.r`.
 
 We will start by loading the libraries that we will need:
 
@@ -60,7 +60,7 @@ We will start by loading the libraries that we will need:
 #| eval: True
 #| output: False
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # load libraries
 library(tidyverse)
 library(janitor)
@@ -76,14 +76,14 @@ To run line-by-line:
 
 To run the whole script:
 
-- By clicking:  In the scripting window, click **Run** in the top-right corner and choose **Run All**.
+- By clicking: In the scripting window, click **Run** in the top-right corner and choose **Run All**.
 - By key commands: Press `Option` + `Ctrl` (or `Cmd`) + `R`.
 
 If a script gets stuck or you realise there is an error in your code, you may need to interrupt R. To do this, go to **Session** -> **Interrupt R**. If the interruption does not work, you might need to terminate and restart R.
 :::
 
 ### Data loading
-Next, we can load the `London-LSOA-AgeGroup.csv` file into R. 
+Next, we can load the `London-LSOA-AgeGroup.csv` file into R.
 
 ```{r}
 #| label: 01-load-data
@@ -91,7 +91,7 @@ Next, we can load the `London-LSOA-AgeGroup.csv` file into R.
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # load age data
 lsoa_age <- read_csv('data/London-LSOA-AgeGroup.csv')
 ```
@@ -108,7 +108,7 @@ Let us have a look at the dataframe:
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # inspect number of columns
 ncol(lsoa_age)
 
@@ -123,7 +123,7 @@ names(lsoa_age)
 ```
 
 ::: {.callout-tip}
-You can further inspect the dataset using the `View()` function. 
+You can further inspect the dataset using the `View()` function.
 :::
 
 To access specific columns or rows in a dataframe, we can use indexing. Indexing refers to the numbering assigned to each element within a data structure, allowing us to precisely select and manipulate data.
@@ -131,7 +131,7 @@ To access specific columns or rows in a dataframe, we can use indexing. Indexing
 To access the first row of a dataframe, you would use `dataframe[1, ]`, and to access the first column, you would use `dataframe[, 1]`. The comma separates the row and column indices, with the absence of a number indicating all rows or columns.
 
 ::: {.callout-warning}
-In R, indexing begins at 1, meaning that the first element of any data structure is accessed with the index `[1]`. This is different from many other programming languages, such as Python or Java, where indexing typically starts at `0`. 
+In R, indexing begins at 1, meaning that the first element of any data structure is accessed with the index `[1]`. This is different from many other programming languages, such as Python or Java, where indexing typically starts at `0`.
 :::
 
 ```{r}
@@ -140,7 +140,7 @@ In R, indexing begins at 1, meaning that the first element of any data structure
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # index columns
 lsoa_age[ ,1]
 
@@ -166,8 +166,8 @@ We can do this as follows:
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# clean names 
+#| filename: 'R code'
+# clean names
 lsoa_age <- lsoa_age |>
   clean_names()
 
@@ -175,7 +175,7 @@ lsoa_age <- lsoa_age |>
 lsoa_age <- lsoa_age |>
   pivot_wider(id_cols = c('lower_layer_super_output_areas_code', 'lower_layer_super_output_areas'),
               names_from = 'age_5_categories',
-              values_from = 'observation') 
+              values_from = 'observation')
 
 # clean names
 lsoa_age <- lsoa_age |>
@@ -191,10 +191,10 @@ The code above uses a pipe function: `|>`. The pipe operator allows you to pass 
 :::
 
 ::: {.callout-tip}
-You can further inspect the results using the `View()` function. 
+You can further inspect the results using the `View()` function.
 :::
 
-A common issue with data tied to spatial units, such as Lower Super Output Areas (LSOAs), often vary in size, meaning some areas will have more residents than others. This variation makes it challenging to compare absolute counts fairly across different areas. To address this, we can first sum the counts across all age groups to get the total number of residents in each LSOA, and then calculate the proportion of people within each age group by dividing the counts by the total number of people in each LSOA.
+A common issue with data tied to spatial units, such as Lower Super Output Areas (LSOAs), is that they often vary in size, meaning some areas will have more residents than others. This variation makes it challenging to compare absolute counts fairly across different areas. To address this, we can first sum the counts across all age groups to get the total number of residents in each LSOA, and then calculate the proportion of people within each age group by dividing the counts by the total number of people in each LSOA.
 
 ```{r}
 #| label: 01-calc-prop-data-age
@@ -202,7 +202,7 @@ A common issue with data tied to spatial units, such as Lower Super Output Areas
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # calculate total population
 lsoa_age <- lsoa_age |>
     rowwise() |>
@@ -214,11 +214,11 @@ lsoa_age <- lsoa_age |>
 ```
 
 ::: {.callout-tip}
-You can further inspect the results using the `View()` function. 
+You can further inspect the results using the `View()` function.
 :::
 
 ### Data exploration
-Now that we have loaded and inspected our data, we can start by analysing its distribution. We will begin by examining the proportion of people *aged 16 to 24* across London, using basic descriptive statistics such as the mean, median, and range. These measures will give us an idea of the central tendency and spread of the data. 
+Now that we have loaded and inspected our data, we can start by analysing its distribution. We will begin by examining the proportion of people *aged 16 to 24* across London, using basic descriptive statistics such as the mean, median, and range. These measures will give us an idea of the central tendency and spread of the data.
 
 ```{r}
 #| label: 01-explore-data
@@ -226,8 +226,8 @@ Now that we have loaded and inspected our data, we can start by analysing its di
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# mean 
+#| filename: 'R code'
+# mean
 mean(lsoa_age$aged_16_to_24_years)
 
 # median
@@ -240,7 +240,7 @@ range(lsoa_age$aged_16_to_24_years)
 summary(lsoa_age$aged_16_to_24_years)
 ```
 
-Further to these standard descriptive statistics, graphs provide a useful visual summary of the distribution of values on a variable. Graphs can help us assess, for instance, whether it our data are [normally distributed](https://en.wikipedia.org/wiki/Normal_distribution), whether there are *outlying* values, and whether there are any missing values or errors we should deal with before running our analyses. Histograms are a good first step when it comes to looking at the distribution of values of a variable. 
+Further to these standard descriptive statistics, graphs provide a useful visual summary of the distribution of values on a variable. Graphs can help us assess, for instance, whether our data are [normally distributed](https://en.wikipedia.org/wiki/Normal_distribution), whether there are *outlying* values, and whether there are any missing values or errors we should deal with before running our analyses. Histograms are a good first step when it comes to looking at the distribution of values of a variable.
 
 We can create a histogram as follows:
 
@@ -251,7 +251,7 @@ We can create a histogram as follows:
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # histogram
 hist(lsoa_age$aged_16_to_24_years, breaks = 30, xlab = 'Proportions', main = 'Proportion of people aged between 16 and 24')
 ```
@@ -260,7 +260,7 @@ hist(lsoa_age$aged_16_to_24_years, breaks = 30, xlab = 'Proportions', main = 'Pr
 A histogram is particularly useful for checking whether a variable is [normally distributed](https://en.wikipedia.org/wiki/Normal_distribution) because it visually displays the frequency of data points across different intervals. In a normal distribution, the histogram will show a symmetric bell-shaped curve, with most data points clustering around the mean and fewer points in the tails.
 :::
 
-Boxplots provide another method for examining the distribution of values in a continuous variable. The *box* itself represents the interquartile range (IQR), bounded by the lower quartile (Q1) and upper quartile (Q3), with the median displayed as a line inside the box. The *whiskers* extend 1.5 times the IQR above Q3 and below Q1, indicating the range within which most of the data lies, while any points outside this range are plotted as outliers. 
+Boxplots provide another method for examining the distribution of values in a continuous variable. The *box* itself represents the interquartile range (IQR), bounded by the lower quartile (Q1) and upper quartile (Q3), with the median displayed as a line inside the box. The *whiskers* extend 1.5 times the IQR above Q3 and below Q1, indicating the range within which most of the data lies, while any points outside this range are plotted as outliers.
 
 A boxplot can be created as follows:
 
@@ -271,10 +271,10 @@ A boxplot can be created as follows:
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
-# boxplot 
+#| filename: 'R code'
+# boxplot
 boxplot(lsoa_age$aged_16_to_24_years, horizontal = TRUE,
-        xlab = 'Proportions', 
+        xlab = 'Proportions',
         main = 'Proportion of people aged between 16 and 24')
 ```
 
@@ -287,7 +287,7 @@ So far we have only looked at the dataset for London as a whole. So, let us zoom
 #| echo: True
 #| eval: True
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # filter out camden
 lsoa_age_camden <- lsoa_age |>
   filter(str_detect(lower_layer_super_output_areas, 'Camden'))
@@ -297,11 +297,11 @@ head(lsoa_age_camden)
 ```
 
 ::: {.callout-tip}
-The `str_detect()` function searches for a *substring* within a larger string and returns a logical value indicating whether the searched text is present. In turn, te `filter()` function uses this to subset the dataset.
+The `str_detect()` function searches for a *substring* within a larger string and returns a logical value indicating whether the searched text is present. In turn, the `filter()` function uses this to subset the dataset.
 :::
 
 ::: {.callout-tip}
-You can further inspect the results using the `View()` function. 
+You can further inspect the results using the `View()` function.
 :::
 
 We can save this dataset so that we can easily load it the next time we want to work with this by writing it to a `csv` file.
@@ -312,12 +312,12 @@ We can save this dataset so that we can easily load it the next time we want to 
 #| echo: True
 #| eval: False
 #| tidy: True
-#| filename: "R code"
+#| filename: 'R code'
 # write data
 write_csv(x = lsoa_age_camden, file = 'data/Camden-LSOA-AgeGroup.csv')
 ```
 
-## Homework task 
+## Homework task
 This concludes this week's tutorial. Now complete the following homework tasks:
 
 1. Filter the London LSOAs to any of the [London boroughs](https://en.wikipedia.org/wiki/London_boroughs) other than Camden.
@@ -325,7 +325,7 @@ This concludes this week's tutorial. Now complete the following homework tasks:
 3. Save your visualisation as an image.
 
 ::: {.callout-warning}
-Paste your visualisation output in the appendix of your assignment, include a few sentences interpreting the results. 
+Paste your visualisation output in the appendix of your assignment, include a few sentences interpreting the results.
 :::
 
 ## Before you leave
