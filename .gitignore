@@ -1,2 +1,12 @@
-/.quarto/
 .Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+
+/.quarto/
+
+# Claude Code session notes — internal, not for publication
+CLAUDE.md
+
+**/*.quarto_ipynb
