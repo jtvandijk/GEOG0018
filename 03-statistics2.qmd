@@ -6,18 +6,18 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 
 ## Reading list
 #### Essential readings {.unnumbered}
-- Field, A. Discovering Statistics using R, **Chapter 6**: *Correlation*, pp. 205-244. [[Link]](https://read.kortext.com/reader/epub/2039249?page=205)
-- Field, A. Discovering Statistics using R, **Chapter 7**: *Regression*, pp. 245-311. [[Link]](https://read.kortext.com/reader/epub/2039249?page=245)
+- Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), **Chapter 7**: *Correlation*. [[Link]]({{< var readings.field >}})
+- Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), **Chapter 8**: *The linear model (regression)*. [[Link]]({{< var readings.field >}})
 
 #### Suggested readings {.unnumbered}
-- Field, A. Discovering Statistics using R, **Chapter 2**: *Everything you ever wanted to know about statistics (well, sort of)*, pp. 32-61. [[Link]](https://read.kortext.com/reader/epub/2039249?page=32)
+- Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), **Chapter 2**: *The SPINE of statistics*. [[Link]]({{< var readings.field >}})
 
-## Elections results in England and Wales
+## Election results in England and Wales
 Today, we will investigate the political geography of England and Wales, focusing on the results of the July 2024 General Election, which was won by the Labour Party led by Keir Starmer. You will work with data extracted from two data sources: the [constituency results from the election](https://commonslibrary.parliament.uk/research-briefings/cbp-10009/) and socio-demographic information relating to age groups, economic status, and ethnic background from the 2021 Census, extracted using the [Custom Dataset Tool](https://www.ons.gov.uk/datasets/create). These datasets have been prepared and merged. Please download the file using the link below and save it in your project folder within the `data` directory.
 
 | File                                                        | Type   | Link |
 | :------                                                     | :------| :------ |
-| England and Wales Parliamentary Constituencies GE2024       | `csv` | [Download](https://github.com/jtvandijk/GEOG0018/tree/master/data/EW-GE2024-Constituency-Vars.csv) |
+| England and Wales Parliamentary Constituencies GE2024       | `csv` | [Download](https://github.com/jtvandijk/GEOG0018/blob/master/data/EW-GE2024-Constituency-Vars.csv) |
 
 ::: {.callout-tip}
 To download a `csv` file that is hosted on GitHub, click on the **Download raw file** button on the top right of your screen and it should download directly to your computer.
@@ -44,7 +44,7 @@ library(easystats)
 ```
 
 ### Data loading
-Now we have setup again, we can load the `EW-GE2024-Constituency-Vars.csv` file into R.
+Now that we are set up again, we can load the `EW-GE2024-Constituency-Vars.csv` file into R.
 
 ```{r}
 #| label: 03-load-data
@@ -93,7 +93,7 @@ crosstab(elec_vars$winning_party, elec_vars$pop_50plus_40percent, prop.r = TRUE,
 
 We observe that in the 116 constituencies won by the Conservatives, 78.4% have more than 40% of their population aged over 50. In contrast, only 35% of the 374 constituencies won by the Labour Party have a similar demographic. This suggests an *association* between a large (> 40%) proportion of individuals over 50 years old (`x`) and the election results (`y`).
 
-We can use a Chi-square test to assess the strength of this association:
+We can use a Chi-square test to assess whether this association is statistically significant:
 
 ```{r}
 #| label: 03-chi-square
@@ -107,11 +107,11 @@ crosstab(elec_vars$winning_party, elec_vars$pop_50plus_40percent, expected = TRU
 ```
 
 ::: {.callout-note}
-The Chi-square test is a statistical method used to assess whether there is a significant association between two categorical variables. It compares the observed frequencies in each category to the expected frequencies, which are based on the assumption that there is no relationship between the variables (the *null hypothesis*). If the differences between observed and expected values are large enough, we reject the *null hypothesis*, indicating a significant association between the variables.
+The Chi-square test is a statistical method used to assess whether there is a significant association between two categorical variables. It compares the observed frequencies in each category to the expected frequencies, which are based on the assumption that there is no relationship between the variables (the *null hypothesis*). If the differences between observed and expected values are large enough, we reject the *null hypothesis*, indicating a significant association between the variables. Note that the test tells us whether an association exists, not how strong it is.
 :::
 
 ::: {.callout-important}
-The $p$-value of the Chi-square test is `< 0.001`, so the association is statistically significant.
+The $p$-value of the Chi-square test is `< 0.001`, so the association is statistically significant. The test assumes that the expected counts are large enough (conventionally at least 5 in every cell). The smallest expected count here is 9.1, so this assumption is met.
 :::
 
 ::: {.callout-tip}
@@ -134,7 +134,7 @@ We can create a scatterplot as follows:
 # scatterplot
 plot(elec_vars$aged_50_years_and_over, elec_vars$conservative_vote_share, xlab = 'Proportion of population over 50 years old', ylab = 'Proportion of votes for the Conservative party')
 ```
-The scatterplot supports our earlier hypothesis that the Conservative vote is higher in constituencies with a larger population of individuals over 50 years old. The next step is to quantify the strength and direction of this relationship. We can assess whether the variables are *correlated* using Pearson’s Correlation Coefficient, which ranges from `-1` (perfect negative correlation) to `0` (no correlation) to `+1` (perfect positive correlation).
+The scatterplot supports our earlier hypothesis that the Conservative vote is higher in constituencies with a larger population of individuals over 50 years old. The next step is to quantify the strength and direction of this relationship. We can assess whether the variables are *correlated* using Pearson's Correlation Coefficient, which ranges from `-1` (perfect negative correlation) to `0` (no correlation) to `+1` (perfect positive correlation).
 
 ::: {.callout-note}
 Pearson's Correlation Coefficient measures the linear relationship between two continuous variables. A coefficient close to `1` indicates a strong positive correlation, meaning that as one variable increases, the other tends to increase as well. Conversely, a coefficient close to `-1` signifies a strong negative correlation, where an increase in one variable is associated with a decrease in the other. A coefficient near `0` suggests little to no linear relationship between the variables.
@@ -152,6 +152,10 @@ We can run a correlation as follows:
 # correlation
 cor.test(elec_vars$aged_50_years_and_over, elec_vars$conservative_vote_share, method = 'pearson')
 ```
+
+::: {.callout-important}
+The correlation coefficient is `0.57` (95% confidence interval: 0.51 to 0.62) with a $p$-value `< 0.001`. This indicates a moderately strong, statistically significant positive correlation: constituencies with a larger share of people over 50 tend to have a higher Conservative vote share.
+:::
 
 ::: {.callout-tip}
 The Pearson test is parametric and requires interval or ratio variables with a linear relationship. If the data are *ordinal* or *skewed*, Spearman's rank correlation (`method = 'spearman'`) is a better option, as it provides a non-parametric alternative.
@@ -200,7 +204,7 @@ lm_voteshare <- lm(conservative_vote_share ~ aged_50_years_and_over, data = elec
 summary(lm_voteshare)
 ```
 
-The *Estimates* column shows the regression coefficients: -0.039 for the `intercept` (where the line crosses the y-axis when `x = 0`) and 0.740 for `aged_50_years_and_over` (the slope of the line, indicating how `y` changes on average as `x` increases by 1). This means that for every percentage point increase in the share of people over 50 in a constituency, the Conservative vote share increases by 0.740.
+The *Estimates* column shows the regression coefficients: -0.039 for the `intercept` (where the line crosses the y-axis when `x = 0`) and 0.740 for `aged_50_years_and_over` (the slope of the line, indicating how `y` changes on average as `x` increases by 1). Both variables are measured as proportions between 0 and 1, so an increase of 1 in `x` would mean going from no one to everyone being over 50. The intercept is not substantively meaningful here, as no constituency has a share of people over 50 anywhere near zero. A more useful reading is per percentage point: for every additional percentage point of people over 50 in a constituency, the Conservative vote share is on average 0.74 percentage points higher.
 
 ::: {.callout-tip}
 The $R^2$ (R-squared) of a regression model shows how well the independent variables explain the variation in the dependent variable. It ranges from 0 to 1, where 0 means the model explains none of the variation, and 1 means it explains all of it. Our model suggests that 32% of variation in the dependent variable is explained by the model. The remaining 68% is due to factors not captured by the model or random error.
@@ -224,7 +228,7 @@ summary(lm_voteshare)
 ```
 
 ::: {.callout-important}
-The model $R^2$ has increased to 46%, indicating that adding both `eco_active_employed` and `eth_white` has improved our ability to predict Conservative vote share in 2024.
+The model $R^2$ has increased to 47%, and the adjusted $R^2$, which accounts for the number of predictors in the model, to 46%. This indicates that adding both `eco_active_employed` and `eth_white` has improved our ability to predict Conservative vote share in 2024.
 :::
 
 ::: {.callout-note}
@@ -249,7 +253,7 @@ elec_vars <- elec_vars |>
 boxplot(elec_vars$conservative_vote_share ~ elec_vars$region_name, xlab = 'Region', ylab = 'Conservative vote share')
 ```
 
-The boxplots suggest some regional variation and so we will add the `region_name` variable to our regression model. To do this, we need to transform the categorical variable into [dummy variables](https://en.wikipedia.org/wiki/Dummy_variable_(statistics)), one for each region, resulting in 10 new variables. Each observation will be coded as 1 for its corresponding region and 0 for all other regions.
+The boxplots suggest some regional variation and so we will add the `region_name` variable to our regression model. To do this, we need to transform the categorical variable into [dummy variables](https://en.wikipedia.org/wiki/Dummy_variable_(statistics)), one for each of the 10 regions. Each observation will be coded as 1 for its corresponding region and 0 for all other regions.
 
 ::: {.callout-note}
 By including all but one of the regional dummy variables in the regression model, we control for regional differences, with the omitted category serving as the *reference category*. R will detect that you have a categorical variable if it is stored as a character or factor and will do the dummy generation for you. The coefficients for the included dummy variables indicate how much the predicted value of the dependent variable differs for constituencies in that region compared to the *reference* region.
@@ -274,7 +278,7 @@ The coefficient for each region represents the average difference in the predict
 :::
 
 #### Diagnostics
-The validity of a regression relies on several assumptions being met. One of the most important assumptions is that the residuals (the differences between predicted and observed values) should be independent and normally distributed. The `easystats` package provides tools to quickly generate relevant figures and diagnostics to help you assess your model.
+The validity of a regression relies on several assumptions being met. One of the most important assumptions is that the residuals (the differences between predicted and observed values) should be independent and approximately normally distributed. The `easystats` package provides tools to quickly generate relevant figures and diagnostics to help you assess your model.
 
 Check for normality of the residuals:
 
@@ -290,13 +294,15 @@ Check for normality of the residuals:
 performance::check_model(lm_voteshare, check = c('qq', 'normality'))
 ```
 
+The dots in the left-hand panel follow the line closely, with only small deviations in the upper tail, and the distribution of the residuals in the right-hand panel is close to the normal curve. There is no serious cause for concern.
+
 Another important assumption is [homoscedasticity](https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity), which occurs when the residuals exhibit constant variance across all levels of the independent variable(s). In contrast, [heteroscedasticity](https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity) arises when the variance of the residuals is not constant. Linearity, of course, is another key assumption in linear regression, signifying that a straight-line relationship exists between the independent and dependent variables.
 
-Check for linearity and heteroscedasticity:
+Check for linearity and homogeneity of variance (homoscedasticity):
 
 ```{r}
 #| label: fig-03-diagnose-linearity
-#| fig-cap: Check for linearity and homogeneity
+#| fig-cap: Check for linearity and homogeneity of variance.
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -306,14 +312,14 @@ Check for linearity and heteroscedasticity:
 performance::check_model(lm_voteshare, check = c('linearity', 'homogeneity'))
 ```
 
-::: {.callout-warning}
-The diagnostics indicate that the relationship between the independent and dependent variables might not be linear. This suggests the *possibility* of a curvilinear relationship, where the regression line can bend rather than being constrained to a straight line.
+::: {.callout-note}
+In the linearity panel the reference line should be flat and horizontal. Here it is close to flat across the bulk of the data, and the bends at either end rest on very few constituencies (note the wide grey bands), so this is at most a mild deviation from linearity rather than a clear violation. In the homogeneity of variance panel the reference line is also roughly flat, so there is no clear sign of heteroscedasticity.
 :::
 
 Multicollinearity is another potential issue. Multicollinearity arises when independent variables are highly correlated with each other. This situation can complicate regression analysis, as it makes it challenging to isolate the individual effects of each correlated variable on the dependent variable. Finally, outliers can skew the results and affect the overall model fit.
 
 ::: {.callout-note}
-Multicollinearity can be assessed using Variance Inflation Factors (VIF). VIF measures how much the variance of an estimated regression coefficient increases when your predictors are correlated. It is calculated by fitting a regression model for each independent variable against all the other independent variables and then assessing how much the R-squared value increases. A VIF value greater than 10 typically indicates problematic multicollinearity.
+Multicollinearity can be assessed using Variance Inflation Factors (VIF). VIF measures how much the variance of an estimated regression coefficient increases because your predictors are correlated. For each predictor it is calculated by regressing that predictor on all the other predictors and taking $1 / (1 - R^2)$ of that regression. A VIF of 1 means that a predictor is not correlated with the others. As a rule of thumb, values above 5 indicate moderate and values above 10 indicate problematic multicollinearity.
 :::
 
 We can check for influential observations and multicollinearity as follows:
@@ -330,19 +336,21 @@ We can check for influential observations and multicollinearity as follows:
 performance::check_model(lm_voteshare, check = c('vif', 'outliers'))
 ```
 
+All VIF values are below 10, and none of the constituencies fall outside the contour lines in the influential observations panel. The predictor `eth_white` has the highest VIF, slightly above 5, which is moderate and not a reason for concern here.
+
 ::: {.callout-tip}
-If you encounter multicollinearity issues, you have several options to address them. One straightforward approach is to remove one of the correlated predictors from your model. Alternatively, you could recode one or more of the collinear variables into ordinal or categorical forms. For example, converting a continuous variable into categories such as *High* and *Low* percentages of individuals over 50 may reduce correlation and improve model performance.
+If you encounter multicollinearity issues, you have several options to address them. One straightforward approach is to remove one of the correlated predictors from your model. Alternatively, you could combine the correlated predictors into a single measure, such as an index. Converting a continuous variable into categories is not usually a good solution, as it discards information.
 :::
 
 ## Homework task
-This concludes this week's tutorial. Now complete the following homework tasks making use of `elec_vars` dataset:
+This concludes this week's tutorial. Now complete the following homework tasks making use of the `elec_vars` dataset:
 
-1. Analyse the association between the `pop_white_90percent` and `winning_party` variable.
+1. Analyse the association between the `pop_white_90percent` and `winning_party` variables.
 2. Build a *multiple* regression model with the `labour_vote_share` as dependent variable for constituencies in *England*.
 
 ::: {.callout-warning}
-Paste the test outputs in the appendix of your assignment, include a few sentences summarising what your model shows.
+Paste the test outputs in the appendix of your assignment and include a few sentences summarising what your model shows.
 :::
 
 ## Before you leave
-This week, we focused on statistically assessing associations between different variables. Because this week's material was a little technical, we will be shifting our focus away from R next week and turn our attention to QGIS. Time to sit down and process this weeks material before some [more relaxed content](https://www.youtube.com/watch?v=L_TXvjDE5Ec) next week!
+This week, we focused on statistically assessing associations between different variables. Because this week's material was a little technical, we will shift our focus away from R next week and turn our attention to QGIS. Time to sit down and process this week's material before some [more relaxed content](https://www.youtube.com/watch?v=L_TXvjDE5Ec) next week!
