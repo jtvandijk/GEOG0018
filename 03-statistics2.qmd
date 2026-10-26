@@ -295,6 +295,29 @@ summary(lm_voteshare)
 The coefficient for each region represents the average difference in the predicted Conservative vote share compared to the *reference* region, which is London in this case.
 :::
 
+The `summary()` output gives a separate $t$-test for each region compared to London, but none of these tests tells us whether region matters overall. We can answer that question with an $F$-test, which compares the model with and without the `region_name` variable. This is the same logic as the ANOVA from last week:
+
+::: {.callout-note}
+**ANOVA is a regression too**
+
+An ANOVA is a linear regression with only a categorical predictor. The coefficients are then the differences between each group mean and the mean of the reference group, and the *F-statistic* at the bottom of the `summary()` output is the *F-statistic* of the ANOVA. Our model also contains continuous predictors, but the idea is the same.
+:::
+
+```{r}
+#| label: 03-regression-anova
+#| classes: styled-output
+#| echo: True
+#| eval: True
+#| tidy: True
+#| filename: 'R code'
+# test each variable
+drop1(lm_voteshare, test = 'F')
+```
+
+::: {.callout-important}
+Each row shows what happens to the model if that variable is removed. The row for `region_name` has an *F-statistic* of 19.2 with a $p$-value `< 0.001`. We can conclude that region helps to explain the Conservative vote share, even after accounting for age, employment and ethnicity. This does not mean that every region differs from London: in the `summary()` output, for example, the South West does not.
+:::
+
 #### Diagnostics
 The validity of a regression relies on several assumptions being met. One of the most important assumptions is that the residuals (the differences between predicted and observed values) should be independent and approximately normally distributed. The `easystats` package provides tools to quickly generate relevant figures and diagnostics to help you assess your model.
 
