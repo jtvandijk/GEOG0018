@@ -12,6 +12,12 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 #### Suggested readings {.unnumbered}
 - Yuan, M. 2001. Representing complex geographic phenomena in GIS. *Cartography and Geographic Information Science* 28(2): 83-96. [[Link]](https://doi.org/10.1559/152304001782173718)
 
+## Start of session
+Before working through the tutorial, we will spend a few minutes looking at:
+
+- The raw spreadsheet as downloaded from Nomis, before any cleaning
+- Row counts and missing values after an attribute join
+
 ## Installation of QGIS
 QGIS is an open-source graphic user interface GIS with many community developed add-on packages that provide additional functionality to the software. You can download and install QGIS on your personal machine by going to the QGIS website: [[Link]](https://qgis.org/en/site/forusers/download.html).
 
@@ -67,6 +73,10 @@ To get the 2021 Census population counts, you should:
 
 ### Data preparation
 When opening the LSOA spreadsheets in Excel, you will notice additional rows of information at the top. This extra data can cause issues in QGIS, so we need to clean the dataset. To avoid errors later on, we will also save the cleaned data in `csv` format.
+
+::: {.callout-tip}
+The preparation of the 2011 data is repetitive, because the 2011 file is not grouped by borough. If you are short of time, you can download a prepared version of the 2011 file ([Download](https://github.com/jtvandijk/GEOG0018/blob/master/data/LSOA2011-population.csv)) and continue with the preparation of the 2021 data.
+:::
 
 #### London population in 2011 {.unnumbered}
 Open the `LSOA2011-population.xlsx` file in Excel. We have two main columns: one with identifying information that distinguishes each area from one another and one with population counts. In addition, there are some less informative rows at the top of the spreadsheet. To prepare the data we need to take several steps.

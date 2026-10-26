@@ -12,6 +12,12 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 #### Suggested readings {.unnumbered}
 - Longley, P. *et al.* 2015. Geographic Information Science & Systems, **Chapter 12**: *Geovisualization*, pp. 266-289. [[Link]](https://ucl.rl.talis.com/link?url=https%3A%2F%2Fapp.knovel.com%2Fhotlink%2Ftoc%2Fid%3AkpGISSE001%2Fgeographic-information-science%3Fkpromoter%3Dmarc&sig=e437927b963cc591dcb65491eccdd3869cc31aef80e1443cb2ba12d8f3bb031a)
 
+## Start of session
+Before working through the tutorial, we will spend a few minutes looking at:
+
+- Crime records without coordinates
+- The boroughs with the highest crime rates
+
 ## Crime in London
 In this week's practical we will explore the spatial patterns of crime, specifically `theft from the person` across London boroughs in 2021. For our crime data, we will use data extracted from the [Police Data Portal](https://data.police.uk/), which provides access to tabular data for crimes recorded by various UK police forces. The portal currently only offers the most recent 36 months of data, so we have prepared an extract of the 2021 data for you. You can download this dataset via the link provided below.
 
@@ -73,6 +79,10 @@ knitr::include_graphics('images/w10/london-borough-csv.png')
 
 ::: {.callout-tip}
 If you are struggling with the data preparation of the borough population, refer back to [last week's data cleaning section](04-spatial1.html#cleaning-data).
+:::
+
+::: {.callout-tip}
+If you fall behind, you can continue from a later point with prepared files. The reprojected crime data ([`London-Crime-2021-BNG.gpkg`](https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Crime-2021-BNG.gpkg)) replaces the reprojection step, and the borough layer with the crime counts and crime rates ([`London-Borough-Crime.gpkg`](https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Borough-Crime.gpkg)) replaces the aggregation and the crime rate calculation.
 :::
 
 Now we have our datasets sorted out, we can move to QGIS to analyse our crime dataset.
