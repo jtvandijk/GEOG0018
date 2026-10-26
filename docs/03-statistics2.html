@@ -1099,6 +1099,52 @@ F-statistic:  68.1 on 12 and 562 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
+<p>The <code>summary()</code> output gives a separate <span class="math inline">\(t\)</span>-test for each region compared to London, but none of these tests tells us whether region matters overall. We can answer that question with an <span class="math inline">\(F\)</span>-test, which compares the model with and without the <code>region_name</code> variable. This is the same logic as the ANOVA from last week:</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>ANOVA is a regression too</strong></p>
+<p>An ANOVA is a linear regression with only a categorical predictor. The coefficients are then the differences between each group mean and the mean of the reference group, and the <em>F-statistic</em> at the bottom of the <code>summary()</code> output is the <em>F-statistic</em> of the ANOVA. Our model also contains continuous predictors, but the idea is the same.</p>
+</div>
+</div>
+</div>
+<div class="cell styled-output">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R code</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># test each variable</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">drop1</span>(lm_voteshare, <span class="at">test =</span> <span class="st">"F"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Single term deletions
+
+Model:
+conservative_vote_share ~ aged_50_years_and_over + eco_active_employed + 
+    eth_white + region_name
+                       Df Sum of Sq    RSS     AIC F value    Pr(&gt;F)    
+&lt;none&gt;                              2.3958 -3125.4                      
+aged_50_years_and_over  1   1.18511 3.5809 -2896.3 277.995 &lt; 2.2e-16 ***
+eco_active_employed     1   0.23197 2.6278 -3074.2  54.414 5.863e-13 ***
+eth_white               1   0.10383 2.4997 -3103.0  24.355 1.057e-06 ***
+region_name             9   0.73757 3.1334 -2989.0  19.224 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Each row shows what happens to the model if that variable is removed. The row for <code>region_name</code> has an <em>F-statistic</em> of 19.2 with a <span class="math inline">\(p\)</span>-value <code>&lt; 0.001</code>. We can conclude that region helps to explain the Conservative vote share, even after accounting for age, employment and ethnicity. This does not mean that every region differs from London: in the <code>summary()</code> output, for example, the South West does not.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="diagnostics" class="level4" data-number="1.4.4.3">
 <h4 data-number="1.4.4.3" class="anchored" data-anchor-id="diagnostics"><span class="header-section-number">3.4.4.3</span> Diagnostics</h4>
@@ -1109,8 +1155,8 @@ F-statistic:  68.1 on 12 and 562 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run diagnostics</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(lm_voteshare, <span class="at">check =</span> <span class="fu">c</span>(<span class="st">"qq"</span>, <span class="st">"normality"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run diagnostics</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(lm_voteshare, <span class="at">check =</span> <span class="fu">c</span>(<span class="st">"qq"</span>, <span class="st">"normality"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell-output-display">
 <div id="fig-03-diagnose-normality" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1133,8 +1179,8 @@ Figure&nbsp;4: Check for normality of residuals.
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run diagnostics</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(lm_voteshare, <span class="at">check =</span> <span class="fu">c</span>(<span class="st">"linearity"</span>, <span class="st">"homogeneity"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run diagnostics</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(lm_voteshare, <span class="at">check =</span> <span class="fu">c</span>(<span class="st">"linearity"</span>, <span class="st">"homogeneity"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell-output-display">
 <div id="fig-03-diagnose-linearity" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1176,8 +1222,8 @@ Figure&nbsp;5: Check for linearity and homogeneity of variance.
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run diagnostics</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(lm_voteshare, <span class="at">check =</span> <span class="fu">c</span>(<span class="st">"vif"</span>, <span class="st">"outliers"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run diagnostics</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>performance<span class="sc">::</span><span class="fu">check_model</span>(lm_voteshare, <span class="at">check =</span> <span class="fu">c</span>(<span class="st">"vif"</span>, <span class="st">"outliers"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell-output-display">
 <div id="fig-03-diagnose-vif" class="quarto-float quarto-figure quarto-figure-center anchored">
