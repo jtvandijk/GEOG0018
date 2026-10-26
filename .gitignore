@@ -11,3 +11,7 @@
 CLAUDE.md
 
 **/*.quarto_ipynb
+
+# Private review notes (slides, curriculum) — not for publication.
+# The underscore stops Quarto from rendering them into docs/.
+_notes/
