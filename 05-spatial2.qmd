@@ -13,13 +13,13 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 - Longley, P. *et al.* 2015. Geographic Information Science & Systems, **Chapter 12**: *Geovisualization*, pp. 266-289. [[Link]](https://ucl.rl.talis.com/link?url=https%3A%2F%2Fapp.knovel.com%2Fhotlink%2Ftoc%2Fid%3AkpGISSE001%2Fgeographic-information-science%3Fkpromoter%3Dmarc&sig=e437927b963cc591dcb65491eccdd3869cc31aef80e1443cb2ba12d8f3bb031a)
 
 ## Crime in London
-In this week's practical we will explore the spatial patterns of crime, specifically `theft from persons` across London boroughs in 2021. For our crime data, we will use data extracted from the [Police Data Portal](https://data.police.uk/), which provides access to tabular data for crimes recorded by various UK police forces since 2017. You can download the relevant dataset via the link provided below.
+In this week's practical we will explore the spatial patterns of crime, specifically `theft from the person` across London boroughs in 2021. For our crime data, we will use data extracted from the [Police Data Portal](https://data.police.uk/), which provides access to tabular data for crimes recorded by various UK police forces. The portal currently only offers the most recent 36 months of data, so we have prepared an extract of the 2021 data for you. You can download this dataset via the link provided below.
 
 Save the file inside your `data` folder.
 
 | File                            | Type     | Link |
 | :------                         | :------  | :------ |
-| Theft from persons in 2021      | `csv`    | [Download](https://github.com/jtvandijk/GEOG0018/tree/master/data/London-Crime-2021.csv) |
+| Theft from the person in 2021   | `csv`    | [Download](https://github.com/jtvandijk/GEOG0018/blob/master/data/London-Crime-2021.csv) |
 
 ::: {.callout-note}
 You may remember that we used this data portal as part of some of your year 1 material.
@@ -137,15 +137,15 @@ To ensure that our analysis is both accurate and efficient, it is best to reproj
 5. You can now also remove the original `London-Crime-2021` dataset, only keeping the reprojected version.
 
 ### Data aggregation
-The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the **Count Points in Polygons** in the **Analysis** toolset to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a *crime rate* statistic.
+The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the **Count Points in Polygon** tool in the **Analysis Tools** menu to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a *crime rate* statistic.
 
-1. Click on **Vector** -> **Analysis Tools** -> **Count Points in Polygons**.
+1. Click on **Vector** -> **Analysis Tools** -> **Count Points in Polygon**.
 2. Within the toolbox, select the parameters as follows:
     - **Polygons:** `London-Borough`
     - **Points:** `London-Crime-2021-BNG` [Note how both our data layers state the same CRS.]
     - **Weight field:** *leave blank*
     - **Class field:** *leave blank*
-    - **Count field names:** `theft2021`
+    - **Count field name:** `theft2021`
     - Click on the three dot button and select **Save to GeoPackage:**.
     - Save the output as `London-Borough-Crime.gpkg`, with `London-Borough-Crime` as **Layer Name**.
 3. Click **Run** and **Close** the dialogue box. You should now see the `London-Borough-Crime` layer added to your *Layers* panel
@@ -253,14 +253,14 @@ knitr::include_graphics('images/w10/map-layout.png')
     - Move the legend to an appropriate position on the canvas - resize if necessary.
 
 ::: {.callout-tip}
-You can further customise the legend’s appearance, including the type, size, and alignment of the font.
+You can further customise the legend's appearance, including the type, size, and alignment of the font.
 :::
 
 4. Now that we have our two maps ready, we can add the main map elements using the tools in the left-hand toolbar:
     - Add a scale bar: Use the **Item Properties** to adjust the style, number of segments, font, and other settings.
     - Add a north arrow: Use the **North Arrow** tool to draw a box where you want the arrow to appear, then customise its appearance using the **Item Properties** panel.
     - Create a title at the top of the page using the **Add Label** tool. You can format the title as needed.
-    - Finally add a box detailing the data sources that have been used: *Contains data from Office for National Statistics licensed under the Open Government Licence v.3.0. Contains Ordnance Survey data © Crown copyright and database right [2024]. Crime data obtained from data.police.uk (Open Government Licence).* You can again use the **Add Label** tool for this.
+    - Finally add a box detailing the data sources that have been used: *Contains data from Office for National Statistics licensed under the Open Government Licence v.3.0. Contains Ordnance Survey data © Crown copyright and database right 2026. Crime data obtained from data.police.uk (Open Government Licence).* You can again use the **Add Label** tool for this.
 
 Once you have added these map elements, you should have a map canvas that could look something like this:
 
@@ -278,14 +278,14 @@ The only remaining step is to export our map as an image. Navigate to **Layout**
 This concludes this week's tutorial. Now complete the following homework tasks:
 
 1. Load last week's `London-LSOA-2021.gpkg` into QGIS.
-2. Aggregate the `London-Crime-2021-BNG.gpkg` point dataset to the 2021 London LSOAs using the **Count Points in Polygons** tool.
+2. Aggregate the `London-Crime-2021-BNG.gpkg` point dataset to the 2021 London LSOAs using the **Count Points in Polygon** tool.
 3. Calculate the crime rate per `1000` people using the **Field Calculator**.
 4. Decide on an appropriate data classification and colour scheme.
 5. Create a publishable map that includes all essential map elements.
 6. Export your map as an image.
 
 ::: {.callout-warning}
-Paste the exported map into the appendix of your assignment, include a few sentences interpreting the results. Consider how different levels of aggregation that we have used affect your perception of theft rates in London.
+Paste the exported map into the appendix of your assignment and include a few sentences interpreting the results. Consider how different levels of aggregation that we have used affect your perception of theft rates in London.
 :::
 
 ## Before you leave

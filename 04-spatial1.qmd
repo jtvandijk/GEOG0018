@@ -16,11 +16,11 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 QGIS is an open-source graphic user interface GIS with many community developed add-on packages that provide additional functionality to the software. You can download and install QGIS on your personal machine by going to the QGIS website: [[Link]](https://qgis.org/en/site/forusers/download.html).
 
 ::: {.callout-important}
-QGIS is available through [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) as well as that it can be accessed on UCL computers across campus. Instead of installing the software, you may want to consider using this version.
+QGIS is available through [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) and on UCL computers across campus. Instead of installing the software, you may want to consider using this version. Note that Desktop@UCL Anywhere currently provides QGIS 3.34, which is slightly older than the version recommended below but can be used for everything in this workbook.
 :::
 
 ::: {.callout-note}
-If you want to install QGIS on your personal computer, we recommend installing the **Long Term Release** (*QGIS 3.44 LTR*), as this version is the most current and stable. For Windows users, please note that the QGIS installation process may take some time, so be patient during the setup.
+If you want to install QGIS on your personal computer, we recommend installing the **Long Term Release** (*QGIS 3.44 LTR*), as this is the most stable version. A newer QGIS 4 release is also available on the download page, but its menus and tools may differ from the instructions in this workbook, so please choose the LTR. For Windows users, please note that the QGIS installation process may take some time, so be patient during the setup.
 :::
 
 After installation, launch QGIS to confirm that the installation was successful.
@@ -224,7 +224,7 @@ knitr::include_graphics('images/w09/attribute-joins.png')
 
 Because both our datasets contain both LSOA names and LSOA codes, we will use the LSOA codes as basis for our join. Unlike names, codes reduce the likelihood of errors and mismatches since they are not dependent on spelling.
 
-10. Open up the **Attribute Tables** of each layer to confirm the columnnames that we can use for the join.
+10. Open up the **Attribute Tables** of each layer to confirm the column names that we can use for the join.
 11. *Right-click* on your `LSOA2011` spatial layer, click on **Properties** and then click on the **Joins** tab.
     - Click on the **+** button. Make sure the **Join Layer** is set to `LSOA2011-population`.
     - Set the **Join field** to `lsoa11_code`.
@@ -272,7 +272,7 @@ This concludes this week's tutorial. Now complete the following homework tasks:
 5. Export your map as an image.
 
 ::: {.callout-warning}
-Paste the exported map into the appendix of your assignment, include a few sentences interpreting the results. Consider whether there are any noticeable changes in the population distribution between 2011 and 2021.
+Paste the exported map into the appendix of your assignment and include a few sentences interpreting the results. Consider whether there are any noticeable changes in the population distribution between 2011 and 2021.
 :::
 
 ## Before you leave
