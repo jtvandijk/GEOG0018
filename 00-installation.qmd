@@ -12,14 +12,18 @@ That is it! You now have successfully installed R onto your computer. To make wo
 1.  Navigate to the official webpage of RStudio: [[Link]](https://posit.co/downloads/)
 2.  Download and install RStudio on your computer.
 
+::: {.callout-note}
+The current versions of R and RStudio require a reasonably recent operating system. RStudio Desktop needs Windows 11 or macOS 14 (Sonoma) or later, and R 4.6 for Apple silicon Macs needs macOS 14 (Sonoma) or later. If your computer does not meet these requirements, use the option described in the tip below.
+:::
+
 ::: {.callout-tip}
-In case you do not have access to a laptop or encounter issues with the installation process, RStudio is also available through [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) as well as that it can be accessed on UCL computers across campus.
+In case you do not have access to a laptop or encounter issues with the installation process, RStudio is also available through [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) and on UCL computers across campus.
 :::
 
 After this, start **RStudio** to see if the installation was successful. Your screen should look something like what is shown in @fig-rstudio-interface.
 
 ```{r}
-#| label: 01-maxprint
+#| label: 00-maxprint
 #| echo: False
 #| eval: True
 options(max.print=50)
@@ -48,9 +52,9 @@ Now we have installed R and RStudio, we need to customise R. Many useful R funct
 Start RStudio, and copy and paste the following code into the **console** window. You can execute the code by pressing the **Return** button on your keyboard. Depending on your computer's specifications and the internet connection, this may take a short while.
 
 ```{r}
-#| label: 01-install-libaries
+#| label: 00-install-libraries
 #| echo: True
-#| warnings: True
+#| warning: True
 #| message: True
 #| eval: False
 #| tidy: True
@@ -66,12 +70,11 @@ R libraries installed through [CRAN](https://cran.r-project.org/) are typically 
 Once you have installed the packages, we need to check whether we can in fact load them into R. Copy and paste the following code into the **console**, and execute by pressing **Return** on your keyboard.
 
 ```{r}
-#| label: 01-load-libaries
+#| label: 00-load-libraries
 #| echo: True
-#| warnings: True
+#| warning: True
 #| message: True
 #| eval: False
-#| verbose: True
 #| tidy: True
 #| filename: 'R code'
 # load packages
@@ -105,7 +108,7 @@ In your RStudio **console**, you will notice a prompt sign `>` on the left-hand 
 At its core, every programming language can be used as a powerful calculator. Type in `10 * 12` into the **console** and execute.
 
 ```{r}
-#| label: 01-math1
+#| label: 00-math1
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -123,7 +126,7 @@ Instead of using raw numbers or standalone values, it is more effective to store
 Type in `ten <- 10` into the **console** and execute.
 
 ```{r}
-#| label: 01-math2
+#| label: 00-math2
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -138,7 +141,7 @@ You will see nothing is returned to the **console**. However, if you check your 
 Type in `twelve <- 12` into the **console** and execute.
 
 ```{r}
-#| label: 01-math3
+#| label: 00-math3
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -153,7 +156,7 @@ Again, nothing will be returned to the **console**, but be sure to check your en
 Now that we have our variables, let us proceed with a simple multiplication. Type in `ten * twelve` into the **console** and execute.
 
 ```{r}
-#| label: 01-math4
+#| label: 00-math4
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -168,7 +171,7 @@ You should see the output in the **console** of `120`. While this calculation ma
 Next, type in `ten * twelve * 8` into the **console** and execute.
 
 ```{r}
-#| label: 01-math5
+#| label: 00-math5
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -183,7 +186,7 @@ You should get an answer of `960`. As you can see, we can mix variables with raw
 Type `output <- ten * twelve * 8` into the **console** and execute.
 
 ```{r}
-#| label: 01-math6
+#| label: 00-math6
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -199,7 +202,7 @@ Because we are storing the output of our calculation to a new variable, the answ
 We can ask R to return the value of the `output` variable by simply typing its name into the **console**. You should see that it returns the same value as the earlier calculation.
 
 ```{r}
-#| label: 01-math7
+#| label: 00-math7
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -215,7 +218,7 @@ We can also store variables of different data types, not just numbers but text a
 Type in `str_variable <- "Hello GEOG0018"` into the **console** and execute.
 
 ```{r}
-#| label: 01-str1
+#| label: 00-str1
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -230,7 +233,7 @@ We have just stored our sentence made from a combination of characters. A variab
 Type in `str_variable` into the **console** and execute.
 
 ```{r}
-#| label: 01-str2
+#| label: 00-str2
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -248,7 +251,7 @@ We can call functions on our variable. For example, we can ask R to **print** ou
 Type in `print(str_variable)` into the **console** and execute.
 
 ```{r}
-#| label: 01-str3
+#| label: 00-str3
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -263,7 +266,7 @@ You can type `?print` into the **console** to learn more about the `print()` fun
 :::
 
 ```{r}
-#| label: 01-str4
+#| label: 00-str4
 #| classes: styled-output
 #| echo: True
 #| eval: False
@@ -283,7 +286,7 @@ Within the base R language, there are various functions that have been written t
 Type in `typeof(str_variable)` into the **console** and execute.
 
 ```{r}
-#| label: 01-str5
+#| label: 00-str5
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -298,7 +301,7 @@ You should see the answer: `character`. As evident, our `str_variable` is a `cha
 Type in `typeof(ten)` into the **console** and execute.
 
 ```{r}
-#| label: 01-str6
+#| label: 00-str6
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -313,7 +316,7 @@ You should see the answer: `double`. Alternatively, we can check the `class` of 
 Type in `class(str_variable)` into the **console** and execute.
 
 ```{r}
-#| label: 01-str7
+#| label: 00-str7
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -328,7 +331,7 @@ In this case, you will see the same result as before because, in R, both the `cl
 Type in `class(ten)` into the **console** and execute.
 
 ```{r}
-#| label: 01-str8
+#| label: 00-str8
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -343,7 +346,7 @@ In this case, you will get a different result because the `class` of this variab
 Type in `is.integer(ten)` into the **console** and execute.
 
 ```{r}
-#| label: 01-var1
+#| label: 00-var1
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -364,7 +367,7 @@ We can also check the length of our variable.
 Type in `length(str_variable)` into the **console** and execute.
 
 ```{r}
-#| label: 01-var2
+#| label: 00-var2
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -379,7 +382,7 @@ You should get the answer `1` because we only have one *set* of characters. We c
 Type in `nchar(str_variable)` into the **console** and execute.
 
 ```{r}
-#| label: 01-var3
+#| label: 00-var3
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -395,7 +398,7 @@ You should get an answer of `14`.
 Variables are not constricted to one value, but can be combined to create larger objects. Type in `two_str_variable <- c("This is our second string variable", "It has two parts to it")` into the **console** and execute.
 
 ```{r}
-#| label: 01-var4
+#| label: 00-var4
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -410,7 +413,7 @@ In this code, we have created a new variable using the `c()` function, which com
 Let us now try both our `length()` and `nchar()` on our new variable and see what the results are:
 
 ```{r}
-#| label: 01-var5
+#| label: 00-var5
 #| classes: styled-output
 #| echo: True
 #| eval: True
