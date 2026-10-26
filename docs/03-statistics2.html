@@ -1111,6 +1111,7 @@ F-statistic:  68.1 on 12 and 562 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
+<p>We use the <code>drop1()</code> function for this, which removes one variable at a time from the model and tests how much the fit changes. You may come across <code>anova(model)</code> used for the same purpose, but that function adds the variables in the order in which they appear in the formula, so only the row of the last variable gives the same result. Focus on the <code>F value</code> and <code>Pr(&gt;F)</code> columns.</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1141,7 +1142,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Each row shows what happens to the model if that variable is removed. The row for <code>region_name</code> has an <em>F-statistic</em> of 19.2 with a <span class="math inline">\(p\)</span>-value <code>&lt; 0.001</code>. We can conclude that region helps to explain the Conservative vote share, even after accounting for age, employment and ethnicity. This does not mean that every region differs from London: in the <code>summary()</code> output, for example, the South West does not.</p>
+<p>The row for <code>region_name</code> has an <em>F-statistic</em> of 19.2 with a <span class="math inline">\(p\)</span>-value <code>&lt; 0.001</code>. We can conclude that region helps to explain the Conservative vote share, even after accounting for age, employment and ethnicity. This does not mean that every region differs from London: in the <code>summary()</code> output, for example, the South West does not.</p>
 </div>
 </div>
 </div>
