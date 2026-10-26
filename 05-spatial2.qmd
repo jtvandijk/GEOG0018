@@ -19,7 +19,7 @@ Before working through the tutorial, we will spend a few minutes looking at:
 - The boroughs with the highest crime rates
 
 ## Crime in London
-In this week's practical we will explore the spatial patterns of crime, specifically `theft from the person` across London boroughs in 2021. For our crime data, we will use data extracted from the [Police Data Portal](https://data.police.uk/), which provides access to tabular data for crimes recorded by various UK police forces. The portal currently only offers the most recent 36 months of data, so we have prepared an extract of the 2021 data for you. You can download this dataset via the link provided below.
+In this week's practical we will explore the spatial patterns of crime, specifically `theft from the person` across London boroughs in 2021. For our crime data, we will use data extracted from the [Police Data Portal](https://data.police.uk/), which provides access to tabular data for crimes recorded by various UK police forces. The portal currently only offers the most recent 36 months of data, so we have prepared an extract of the 2021 data for you. We use 2021 because it matches the year of the Census population counts that we use further on to calculate crime rates. You can download this dataset via the link provided below.
 
 Save the file inside your `data` folder.
 
