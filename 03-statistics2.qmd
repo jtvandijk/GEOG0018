@@ -303,6 +303,8 @@ The `summary()` output gives a separate $t$-test for each region compared to Lon
 An ANOVA is a linear regression with only a categorical predictor. The coefficients are then the differences between each group mean and the mean of the reference group, and the *F-statistic* at the bottom of the `summary()` output is the *F-statistic* of the ANOVA. Our model also contains continuous predictors, but the idea is the same.
 :::
 
+We use the `drop1()` function for this, which removes one variable at a time from the model and tests how much the fit changes. You may come across `anova(model)` used for the same purpose, but that function adds the variables in the order in which they appear in the formula, so only the row of the last variable gives the same result. Focus on the `F value` and `Pr(>F)` columns.
+
 ```{r}
 #| label: 03-regression-anova
 #| classes: styled-output
@@ -315,7 +317,7 @@ drop1(lm_voteshare, test = 'F')
 ```
 
 ::: {.callout-important}
-Each row shows what happens to the model if that variable is removed. The row for `region_name` has an *F-statistic* of 19.2 with a $p$-value `< 0.001`. We can conclude that region helps to explain the Conservative vote share, even after accounting for age, employment and ethnicity. This does not mean that every region differs from London: in the `summary()` output, for example, the South West does not.
+The row for `region_name` has an *F-statistic* of 19.2 with a $p$-value `< 0.001`. We can conclude that region helps to explain the Conservative vote share, even after accounting for age, employment and ethnicity. This does not mean that every region differs from London: in the `summary()` output, for example, the South West does not.
 :::
 
 #### Diagnostics
