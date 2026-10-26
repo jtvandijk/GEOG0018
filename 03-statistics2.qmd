@@ -12,6 +12,12 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 #### Suggested readings {.unnumbered}
 - Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), **Chapter 2**: *The SPINE of statistics*. [[Link]]({{< var readings.field >}})
 
+## Start of session
+Before working through the tutorial, we will spend a few minutes looking at:
+
+- Anscombe's quartet
+- The units of the variables in a regression output
+
 ## Election results in England and Wales
 Today, we will investigate the political geography of England and Wales, focusing on the results of the July 2024 General Election, which was won by the Labour Party led by Keir Starmer. You will work with data extracted from two data sources: the [constituency results from the election](https://commonslibrary.parliament.uk/research-briefings/cbp-10009/) and socio-demographic information relating to age groups, economic status, and ethnic background from the 2021 Census, extracted using the [Custom Dataset Tool](https://www.ons.gov.uk/datasets/create). These datasets have been prepared and merged. Please download the file using the link below and save it in your project folder within the `data` directory.
 
@@ -154,7 +160,7 @@ cor.test(elec_vars$aged_50_years_and_over, elec_vars$conservative_vote_share, me
 ```
 
 ::: {.callout-important}
-The correlation coefficient is `0.57` (95% confidence interval: 0.51 to 0.62) with a $p$-value `< 0.001`. This indicates a moderately strong, statistically significant positive correlation: constituencies with a larger share of people over 50 tend to have a higher Conservative vote share.
+The correlation coefficient is `0.57` (95% confidence interval: 0.51 to 0.62) with a $p$-value `< 0.001`. This indicates a modest (0.40 to 0.69 on the scale used in the lecture), statistically significant positive correlation: constituencies with a larger share of people over 50 tend to have a higher Conservative vote share.
 :::
 
 ::: {.callout-tip}
@@ -185,6 +191,18 @@ ggcorrplot(cor_mat, outline.col = '#ffffff', tl.cex = 8, legend.title = 'Correla
 ```
 
 ### Regression
+Before running a regression, we need to know what type of variable we want to explain (the dependent variable, `y`) and what types of variables we use to explain it (the independent variables, `x`). The type of the dependent variable determines which type of regression we can use. The independent variables can be of any type, although categorical variables need to be converted into dummy variables. In this chapter we only use linear regression, but @tbl-variables also lists the other types of regression that the lecture mentions. The methods from the previous chapter are summarised in the [table in that chapter](02-statistics1.html#tbl-methods).
+
+| Type of variable | Example | As dependent variable (`y`) | As independent variable (`x`) |
+| :------ | :------ | :------ | :------ |
+| Continuous | Conservative vote share | Linear regression | Used as it is |
+| Binary | Whether the Conservatives won (yes or no) | Logistic regression | Dummy variable (0 or 1) |
+| Count | Number of crimes | Poisson regression | Used as it is, often transformed |
+| Categorical with more than two categories | Region | Multinomial logistic regression | Dummy variables, with one reference category |
+| Ordinal | Agreement on a five-point scale | Ordinal logistic regression | Treated as categorical, or as numeric if the steps between the categories can be assumed to be equal |
+
+: Types of variables in regression models. {#tbl-variables}
+
 #### Univariate regression
 A Pearson's correlation describes the strength and direction of a linear relationship, but we can also quantify the change in the dependent variable (`y`) for a one-unit change in the independent variable (`x`) with an Ordinary Least Squares (OLS) regression.
 
@@ -340,6 +358,17 @@ All VIF values are below 10, and none of the constituencies fall outside the con
 
 ::: {.callout-tip}
 If you encounter multicollinearity issues, you have several options to address them. One straightforward approach is to remove one of the correlated predictors from your model. Alternatively, you could combine the correlated predictors into a single measure, such as an index. Converting a continuous variable into categories is not usually a good solution, as it discards information.
+:::
+
+::: {.callout-warning}
+**Common misconceptions about regression**
+
+- *"The variables need to be normally distributed."* The assumption concerns the residuals of the model, not the variables themselves. The variables can be skewed.
+- *"A high $R^2$ means that the model is a good model."* The $R^2$ only tells us how much of the variation the model explains. It says nothing about whether the assumptions hold or whether the relationships are causal.
+- *"A significant coefficient means that the effect is large."* A small $p$-value tells us that the coefficient is unlikely to be zero, not that it is large. Look at the size of the coefficient in the units of the variables.
+- *"A significant regression shows that `x` causes `y`."* A regression describes associations. Whether an association is causal depends on the research design and on what is not in the model.
+- *"Linear regression can only describe straight lines."* The model has to be linear in its coefficients. Transformations or squared terms of the independent variables can describe curved relationships.
+- *"If the diagnostic plots look fine, the model is correct."* The plots check only some of the assumptions. They cannot tell us whether we have left out an important variable, or whether neighbouring constituencies resemble each other, which makes the observations not fully independent.
 :::
 
 ## Homework task
