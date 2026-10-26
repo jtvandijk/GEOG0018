@@ -14,10 +14,9 @@ The packages called via `library()` in the `.qmd` files. A student running the c
 | easystats | 0.7.6 |
 | ggcorrplot | 0.3.0 |
 | janitor | 2.2.1 |
-| patchwork | 1.3.2 |
 | tidyverse | 2.0.0 |
 
-The diagnostic plots in the Statistical Analysis II chapter call `performance::check_model()`. `performance` (`0.17.1`) is installed as part of `easystats`.
+The diagnostic plots in the Statistical Analysis II chapter call `performance::check_model()`. `performance` (`0.17.1`) and `patchwork` (`1.3.2`) are installed automatically as dependencies of `easystats`.
 
 ## Additional packages required to build the site
 
