@@ -6,18 +6,18 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 
 ## Reading list
 #### Essential readings {.unnumbered}
-- Brunsdon, C. and Comber, A. 2020. Opening practice: Supporting reproducibility and critical spatial data science. *Journal of Geographical Systems* 23: 477–496. [[Link]](https://doi.org/10.1007/s10109-020-00334-2)
-- Franklin, R. 2024. Quantitative methods III: Strength in numbers? *Progress in Human Geography* 48(2): 236-244. [[Link]](https://doi.org/10.1177/03091325231210512).
+- Brunsdon, C. and Comber, A. 2021. Opening practice: Supporting reproducibility and critical spatial data science. *Journal of Geographical Systems* 23(4): 477–496. [[Link]](https://doi.org/10.1007/s10109-020-00334-2)
+- Franklin, R. 2024. Quantitative methods III: Strength in numbers? *Progress in Human Geography* 48(2): 236–244. [[Link]](https://doi.org/10.1177/03091325231210512)
 
 #### Suggested readings {.unnumbered}
-- Field, A. Discovering Statistics using R, **Chapter 1**: *Why is my evil lecturer forcing me to learn statistics?*, pp. 1-31. [[Link]](https://read.kortext.com/reader/epub/2039249?page=1)
+- Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), **Chapter 1**: *Why Is My Evil Lecturer Forcing Me to Learn Statistics?* [[Link]]({{< var readings.field >}})
 - Wickham, H. *et al.* 2023. R for Data Science, **Chapter 2**: *Workflow: basics*. [[Link]](https://r4ds.hadley.nz/workflow-basics)
 - Miller, H. and Goodchild, M. 2015. Data-driven geography. *GeoJournal* 80: 449–461. [[Link]](https://doi.org/10.1007/s10708-014-9602-6)
 
 ## Age groups in Camden
 In RStudio, scripts allow us to build and save code that can be run repeatedly. We can organise these scripts into RStudio projects, which consolidate all files related to an analysis such as input data, R scripts, results, figures, and more. This organisation helps keep track of all data, input, and output, while enabling us to create standalone scripts for each part of our analysis. Additionally, it simplifies managing [directories and filepaths](https://en.wikipedia.org/wiki/Path_(computing)).
 
-Navigate to **File** -> **New Project** -> **New Directory**. Choose a directory name, such as `GEOG0018`, and select the location on your computer where you want to save this project by clicking on **Browse...**.
+Navigate to **File** -> **New Project** -> **New Directory** -> **New Project**. Enter a directory name, such as `GEOG0018`, and select the location on your computer where you want to save this project by clicking on **Browse...** next to **Create project as subdirectory of**. Leave the other options, such as **Create a git repository** and **Use renv with this project**, unticked.
 
 ::: {.callout-important}
 Ensure you select an appropriate folder to store your `GEOG0018` project. For example, you might use your *Methods in Human Geography* folder, if you have one, or another location within your `Documents` directory on your computer.
@@ -27,23 +27,23 @@ Ensure you select an appropriate folder to store your `GEOG0018` project. For ex
 Please ensure that **folder names** and **file names** do not contain spaces or special characters such as `*` `.` `"` `/` `\` `[` `]` `:` `;` `|` `=` `,` `<` `?` `>` `&` `$` `#` `!` `'` `{` `}` `(` `)`. Different operating systems and programming languages deal differently with spaces and special characters and as such including these in your folder names and file names can cause many problems and unexpected errors. As an alternative to using white space you can use an underscore (`_`) or hyphen (`-`) if you like.
 :::
 
-Click on **Create Project**. You should now see your main RStudio window switch to this new project and when you check your **files** pane, you should see a new **R Project** called `GEOG0018`.
+Click on **Create Project**. You should now see your main RStudio window switch to this new project: the project name `GEOG0018` appears in the top-right corner and your **Files** pane shows a file called `GEOG0018.Rproj`.
 
-With the basics covered, let us dive into loading a real dataset, perform some data cleaning, and conducting some exploratory data analysis on the distribution of age groups in Camden. The data covers all usual residents across London, as recorded in the 2021 Census for England and Wales, aggregated at the [Lower Super Output Area (LSOA)](https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeographies/census2021geographies) level.
+With the basics covered, let us dive into loading a real dataset, performing some data cleaning, and conducting some exploratory data analysis on the distribution of age groups in Camden. The data covers all usual residents across London, as recorded in the 2021 Census for England and Wales, aggregated at the [Lower Super Output Area (LSOA)](https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeographies/census2021geographies) level.
 
 ::: {.callout-note}
 An LSOA is a geographic unit used in the UK for statistical analysis. It typically represents small areas with populations of around 1,000 to 3,000 people and is designed to ensure consistent data reporting. LSOAs are commonly used to report on census data, deprivation indices, and other socio-economic statistics.
 :::
 
-The dataset has been extracted using the [Custom Dataset Tool](https://www.ons.gov.uk/datasets/create), and you can download the file via the link provided below. Save the files in your project folder under `data`.
+The dataset has been extracted using the [Custom Dataset Tool](https://www.ons.gov.uk/datasets/create), and you can download the file via the link provided below. Save the file in a folder called `data` inside your project folder.
 
 ::: {.callout-note}
-You will have to create a folder named `data` inside the folder where you saved your **RStudio Project**.
+You will have to create a folder named `data` inside the folder where you saved your **RStudio Project**. You can do this with the **New Folder** button in the **Files** pane.
 :::
 
 | File                                        | Type   | Link |
 | :------                                     | :------| :------ |
-| London LSOA Census 2021 Age Groups          | `csv` | [Download](https://github.com/jtvandijk/GEOG0018/tree/master/data/London-LSOA-AgeGroup.csv) |
+| London LSOA Census 2021 Age Groups          | `csv` | [Download](https://github.com/jtvandijk/GEOG0018/blob/master/data/London-LSOA-AgeGroup.csv) |
 
 ::: {.callout-tip}
 To download a `csv` file that is hosted on GitHub, click on the **Download raw file** button on the top right of your screen and it should download directly to your computer.
@@ -72,12 +72,12 @@ In RStudio, there are two primary ways to run a script: all at once or by execut
 To run line-by-line:
 
 - By clicking: Highlight the line or chunk of code you want to run, then go to **Code** and select **Run selected lines**.
-- By key commands: Highlight the code, then press `Ctl` (or `Cmd` on Mac) + `Return`.
+- By key commands: Place your cursor on the line, or highlight the code, then press `Ctrl` + `Enter` (or `Cmd` + `Return` on Mac).
 
 To run the whole script:
 
 - By clicking: In the scripting window, click **Run** in the top-right corner and choose **Run All**.
-- By key commands: Press `Option` + `Ctrl` (or `Cmd`) + `R`.
+- By key commands: Press `Ctrl` + `Alt` + `R` (or `Option` + `Cmd` + `R` on Mac).
 
 If a script gets stuck or you realise there is an error in your code, you may need to interrupt R. To do this, go to **Session** -> **Interrupt R**. If the interruption does not work, you might need to terminate and restart R.
 :::
@@ -97,7 +97,7 @@ lsoa_age <- read_csv('data/London-LSOA-AgeGroup.csv')
 ```
 
 ::: {.callout-warning}
-If using a Windows machine, you may need to substitute your forward-slashes (`/`) with two backslashes (`\\`) whenever you are dealing with file paths.
+R accepts forward slashes (`/`) in file paths on every operating system, including Windows, so the code above works as it is. If you copy a file path from Windows File Explorer, it will contain single backslashes (`\`). R reads these as escape characters, so replace each of them with a forward slash (`/`) or with two backslashes (`\\`).
 :::
 
 Let us have a look at the dataframe:
@@ -194,7 +194,7 @@ The code above uses a pipe function: `|>`. The pipe operator allows you to pass 
 You can further inspect the results using the `View()` function.
 :::
 
-A common issue with data tied to spatial units, such as Lower Super Output Areas (LSOAs), is that they often vary in size, meaning some areas will have more residents than others. This variation makes it challenging to compare absolute counts fairly across different areas. To address this, we can first sum the counts across all age groups to get the total number of residents in each LSOA, and then calculate the proportion of people within each age group by dividing the counts by the total number of people in each LSOA.
+A common issue with data tied to spatial units, such as Lower Super Output Areas (LSOAs), is that they often vary in size, meaning some areas will have more residents than others. This variation makes it challenging to compare absolute counts fairly across different areas. To address this, we can first sum the counts across all age groups to get the total number of residents in each LSOA, and then calculate the proportion of people within each age group by dividing the counts by the total number of people in each LSOA. The five age groups are stored in columns 3 to 7 of the dataframe, which is what `3:7` refers to in the code below.
 
 ```{r}
 #| label: 01-calc-prop-data-age
@@ -325,7 +325,7 @@ This concludes this week's tutorial. Now complete the following homework tasks:
 3. Save your visualisation as an image.
 
 ::: {.callout-warning}
-Paste your visualisation output in the appendix of your assignment, include a few sentences interpreting the results.
+Paste your visualisation output in the appendix of your assignment and include a few sentences interpreting the results.
 :::
 
 ## Before you leave
