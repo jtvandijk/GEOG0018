@@ -14,6 +14,13 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 - Wickham, H. *et al.* 2023. R for Data Science, **Chapter 2**: *Workflow: basics*. [[Link]](https://r4ds.hadley.nz/workflow-basics)
 - Miller, H. and Goodchild, M. 2015. Data-driven geography. *GeoJournal* 80: 449–461. [[Link]](https://doi.org/10.1007/s10708-014-9602-6)
 
+## Start of session
+Before working through the tutorial, we will spend a few minutes looking at:
+
+- The raw `csv` file before it is loaded into R
+- A live example of a "file not found" error, and how to fix it
+- The mean and the median of the same variable
+
 ## Age groups in Camden
 In RStudio, scripts allow us to build and save code that can be run repeatedly. We can organise these scripts into RStudio projects, which consolidate all files related to an analysis such as input data, R scripts, results, figures, and more. This organisation helps keep track of all data, input, and output, while enabling us to create standalone scripts for each part of our analysis. Additionally, it simplifies managing [directories and filepaths](https://en.wikipedia.org/wiki/Path_(computing)).
 
@@ -206,19 +213,24 @@ A common issue with data tied to spatial units, such as Lower Super Output Areas
 # calculate total population
 lsoa_age <- lsoa_age |>
     rowwise() |>
-    mutate(lsoa_pop = sum(across(3:7)))
+    mutate(lsoa_pop = sum(across(3:7))) |>
+    ungroup()
 
 # calculate proportions
 lsoa_age <- lsoa_age |>
     mutate(across(3:7, ~./lsoa_pop))
 ```
 
+::: {.callout-note}
+The `rowwise()` function tells R to carry out the next calculation for each row separately, which is what we need to sum the age groups within each LSOA. We use `ungroup()` afterwards to return to working with the dataframe as a whole.
+:::
+
 ::: {.callout-tip}
 You can further inspect the results using the `View()` function.
 :::
 
 ### Data exploration
-Now that we have loaded and inspected our data, we can start by analysing its distribution. We will begin by examining the proportion of people *aged 16 to 24* across London, using basic descriptive statistics such as the mean, median, and range. These measures will give us an idea of the central tendency and spread of the data.
+Now that we have loaded and inspected our data, we can start by analysing its distribution. We will begin by examining the proportion of people *aged 16 to 24* across London, using basic descriptive statistics such as the mean, median, range, and standard deviation. These measures will give us an idea of the central tendency and spread of the data.
 
 ```{r}
 #| label: 01-explore-data
@@ -235,6 +247,9 @@ median(lsoa_age$aged_16_to_24_years)
 
 # range
 range(lsoa_age$aged_16_to_24_years)
+
+# standard deviation
+sd(lsoa_age$aged_16_to_24_years)
 
 # summary
 summary(lsoa_age$aged_16_to_24_years)
