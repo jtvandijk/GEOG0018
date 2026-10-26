@@ -1,24 +1,24 @@
 # Statistical Analysis I
-Geographers are often interested not only in a specific variable within an area but also in how that variable varies between different areas. Building on last week’s refresher on using R and RStudio for quantitative data analysis, this week we will focus on making inferences about different groups.
+Geographers are often interested not only in a specific variable within an area but also in how that variable varies between different areas. Building on last week's refresher on using R and RStudio for quantitative data analysis, this week we will focus on making inferences about different groups.
 
 ## Lecture slides
 You can download the slides of this week's lecture here: [[Link]]({{< var slides.week07 >}}).
 
 ## Reading list
 #### Essential readings {.unnumbered}
-- Field, A. Discovering Statistics using R, **Chapter 9**: *Comparing two means*, pp. 359-397. [[Link]](https://read.kortext.com/reader/epub/2039249?page=359)
-- Field, A. Discovering Statistics using R, **Chapter 10**: *Comparing several means: ANOVA (GLM1)*, pp. 398-461. [[Link]](https://read.kortext.com/reader/epub/2039249?page=398)
+- Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), **Chapter 9**: *Categorical predictors: Comparing two means*. [[Link]]({{< var readings.field >}})
+- Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), **Chapter 11**: *GLM 1: Comparing several independent means*. [[Link]]({{< var readings.field >}})
 
 #### Suggested readings {.unnumbered}
-- Field, A. Discovering Statistics using R, **Chapter 15**: *Non-parametric tests*, pp. 653-695. [[Link]](https://read.kortext.com/reader/epub/2039249?page=653)
+- Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), **Chapter 6**: *The beast of bias*. [[Link]]({{< var readings.field >}})
 
 ## Unemployment in London
-In this week's tutorial, we will explore unemployment rates in London as reported in the 2021 Census. In addition, we will use of [last week's dataset](01-recap.html#age-groups-in-camden) on age groups in London for the homework task. You can download both files using the links provided below. Make sure to save the files in your project folder in the `data` directory.
+In this week's tutorial, we will explore unemployment rates in London as reported in the 2021 Census. In addition, we will use [last week's dataset](01-recap.html#age-groups-in-camden) on age groups in London for the homework task. You can download both files using the links provided below. Make sure to save the files in your project folder in the `data` directory.
 
 | File                                        | Type   | Link |
 | :------                                     | :------| :------ |
-| London LSOA Census 2021 Age Groups          | `csv` | [Download](https://github.com/jtvandijk/GEOG0018/tree/master/data/London-LSOA-AgeGroup.csv) |
-| London LSOA Census 2021 Economic Status     | `csv` | [Download](https://github.com/jtvandijk/GEOG0018/tree/master/data/London-LSOA-EconomicStatus.csv) |
+| London LSOA Census 2021 Age Groups          | `csv` | [Download](https://github.com/jtvandijk/GEOG0018/blob/master/data/London-LSOA-AgeGroup.csv) |
+| London LSOA Census 2021 Economic Status     | `csv` | [Download](https://github.com/jtvandijk/GEOG0018/blob/master/data/London-LSOA-EconomicStatus.csv) |
 
 ::: {.callout-tip}
 To download a `csv` file that is hosted on GitHub, click on the **Download raw file** button on the top right of your screen and it should download directly to your computer.
@@ -42,7 +42,7 @@ library(janitor)
 ```
 
 ### Data loading
-Next, we can load both the `London-LSOA-AgeGroup.csv` and `London-LSOA-EconomicStatus.csv` file into R.
+Next, we can load both the `London-LSOA-AgeGroup.csv` and `London-LSOA-EconomicStatus.csv` files into R.
 
 ```{r}
 #| label: 02-load-data
@@ -58,7 +58,7 @@ lsoa_age <- read_csv('data/London-LSOA-AgeGroup.csv')
 lsoa_emp <- read_csv('data/London-LSOA-EconomicStatus.csv')
 ```
 
-Because we already worked with the `lsoa_age` dataset last week, we will shift our focus to the `lsoa_emp` dataset. Now we have loaded the data into R, we will start by inspecting the dataset to understand its structure and the variables it contains:
+Because we already worked with the `lsoa_age` dataset last week, we will shift our focus to the `lsoa_emp` dataset. Now that we have loaded the data into R, we will start by inspecting the dataset to understand its structure and the variables it contains:
 
 ```{r}
 #| label: 02-inspect-data
@@ -111,7 +111,7 @@ lsoa_emp <- lsoa_emp |>
 ```
 
 ::: {.callout-note}
-If your `clean_names()` function returns an error, it is likely due to a conflict with another library that also includes a clean_names() function. In such cases, R cannot determine which one to use. To resolve this, you can specify the library explicitly by using `janitor::clean_names()`.
+If your `clean_names()` function returns an error, it is likely due to a conflict with another library that also includes a `clean_names()` function. In such cases, R cannot determine which one to use. To resolve this, you can specify the library explicitly by using `janitor::clean_names()`.
 :::
 
 The new column names of the `lsoa_emp` data are quite lengthy, so let us manually assign more concise column names for ease of use. This will help simplify our code and make it easier to reference the columns in subsequent analyses. Here is how we can do that:
@@ -164,7 +164,7 @@ When we want to compare more than two groups, we can use the Analysis of Varianc
 #### Comparing two groups
 To compare two groups with continuous data, we can run an independent samples [t-test](https://en.wikipedia.org/wiki/Student%27s_t-test), which allows us to statistically assess whether the means of the two groups differ significantly. For instance, we might be interested in whether the proportion of the population that is unemployed in Lower Super Output Areas (LSOAs) in the London Borough of Camden is different, on average, from the proportion of the population that is unemployed in the London Borough of Sutton.
 
-Let us begin by creating two separate datasets to facilitate our comparison: one containing the LSOAs for Camden and containing the LSOAs for Sutton. We can do this by filtering the `lsoa_emp` dataset:
+Let us begin by creating two separate datasets to facilitate our comparison: one containing the LSOAs for Camden and one containing the LSOAs for Sutton. We can do this by filtering the `lsoa_emp` dataset:
 
 ```{r}
 #| label: 02-filter-data
@@ -182,7 +182,7 @@ lsoa_emp_sutton <- lsoa_emp_prop |>
   filter(str_detect(lower_layer_super_output_areas, 'Sutton'))
 ```
 
-We can use the `t.test()` function in R to conduct a two-tailed test, assessing whether the mean proportion of unemployed people in Camden differs from that in Sutton. The *null hypothesis* for this test states that there is no difference in the mean proportions of unemployed individuals between the two areas. We can run the test as follows:
+We can use the `t.test()` function in R to conduct a two-tailed test, assessing whether the mean proportion of unemployed people in Camden differs from that in Sutton. The *null hypothesis* for this test states that there is no difference in the mean proportions of unemployed individuals between the two areas. By default, R performs a Welch t-test, which does not assume that the variances of the two groups are equal. We can run the test as follows:
 
 ```{r}
 #| label: 02-t-test
@@ -205,7 +205,7 @@ The non-parametric alternative to the t-test is the [Mann-Whitney U test](https:
 The Mann-Whitney U test evaluates whether the distributions of the two groups differ by ranking all the data points and then comparing the sums of these ranks, making it suitable for ordinal data or non-normally distributed continuous data.
 :::
 
-If we think our data violates any of the assumption underlying the t-test, we can run the Mann-Whitney U (Wilcoxon rank-sum) test instead:
+If we think our data violates any of the assumptions underlying the t-test, we can run the Mann-Whitney U (Wilcoxon rank-sum) test instead:
 
 ```{r}
 #| label: 02-mann-whitney
@@ -218,14 +218,14 @@ If we think our data violates any of the assumption underlying the t-test, we ca
 wilcox.test(lsoa_emp_camden$active_unemployed, lsoa_emp_sutton$active_unemployed)
 ```
 
-Also the results of the Mann-Whitney U test suggest that the difference in means in these two London boroughs is statistically significant.
+The results of the Mann-Whitney U test also suggest that the distributions of unemployment rates in these two London boroughs differ significantly.
 
 ::: {.callout-important}
-Since the $p$-value is `< 0.05` we can reject the *null hypothesis* that means for Sutton and Camden are the same, and accept the alternative hypothesis.
+Since the $p$-value is `< 0.05` we can reject the *null hypothesis* that the two distributions are the same, and accept the alternative hypothesis.
 :::
 
 ::: {.callout-tip}
-To determine if a variable is normally distributed, visual inspection can be helpful, but the [Shapiro-Wilk test](https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test) (`shapiro.test()`) offers a more formal statistical assessment. This test compares the distribution of your variable to a normal distribution, with the *null hypothesis* stating that they are the same. If the test returns a small $p$-value (typically `< 0.05`), you can conclude that the variable is not normally distributed. However, it is important to note that the test is significantly influenced by sample size; in large datasets, even minor deviations from normality can yield a low $p$-value. The Shapiro-Wilk test should therefore not be considered definitive and should be used alongside visual assessment of the data.
+To determine if a variable is normally distributed, visual inspection can be helpful, but the [Shapiro-Wilk test](https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test) (`shapiro.test()`) offers a more formal statistical assessment. This test compares the distribution of your variable to a normal distribution, with the *null hypothesis* stating that they are the same. If the test returns a small $p$-value (typically `< 0.05`), you can conclude that the variable is not normally distributed. However, it is important to note that the test is strongly influenced by sample size; in large datasets, even minor deviations from normality can yield a low $p$-value. The Shapiro-Wilk test should therefore not be considered definitive and should be used alongside visual assessment of the data.
 :::
 
 #### Comparing more than two groups
@@ -278,7 +278,7 @@ summary(anova_result)
 ```
 
 ::: {.callout-important}
-The ANOVA output shows the *F-statistic* with a value 75.31, with a $p$-value `< 0.001`. We can conclude that there are significant differences in unemployment rates between the boroughs. This means we reject the *null hypothesis* that all group means are equal.
+The ANOVA output shows an *F-statistic* of 75.31 with a $p$-value `< 0.001`. We can conclude that there are significant differences in unemployment rates between the boroughs. This means we reject the *null hypothesis* that all group means are equal.
 :::
 
 What this does not tell us is which groups are significantly different from one another. We can conduct a post hoc Tukey test to identify which specific groups differ from one another:
@@ -299,14 +299,14 @@ tukey_result
 
 The output presents pairwise comparisons between the groups, with the *null hypothesis* stating that the group means are equal. Our analysis indicates significant differences in unemployment rates between Sutton and Camden, as well as between Sutton and Hammersmith and Fulham. However, there is no evidence of a difference in unemployment rates between Camden and Hammersmith and Fulham.
 
-If we think our data violates any of the assumption underlying the ANOVA, we can run the non-parametric [Kruskal-Wallis test](https://en.wikipedia.org/wiki/Kruskal%E2%80%93Wallis_test) instead.
+If we think our data violates any of the assumptions underlying the ANOVA, we can run the non-parametric [Kruskal-Wallis test](https://en.wikipedia.org/wiki/Kruskal%E2%80%93Wallis_test) instead.
 
 ::: {.callout-note}
-The Kruskal-Wallis test is a non-parametric statistical method used to compare the *medians* of three or more independent groups. It is an alternative to one-way ANOVA when the assumptions of normality and homogeneity of variances are not met. The test ranks all the data points and evaluates whether the rank sums of the groups differ significantly.
+The Kruskal-Wallis test is a non-parametric statistical method used to compare the distributions of three or more independent groups, which is often summarised as a comparison of *medians*. It is an alternative to one-way ANOVA when the assumptions of normality and homogeneity of variances are not met. The test ranks all the data points and evaluates whether the rank sums of the groups differ significantly.
 :::
 
 ```{r}
-#| label: 03-kruskal-wallis
+#| label: 02-kruskal-wallis
 #| classes: styled-output
 #| echo: True
 #| eval: True
@@ -316,10 +316,10 @@ The Kruskal-Wallis test is a non-parametric statistical method used to compare t
 kruskal.test(active_unemployed ~ borough_name, data = lsoa_subset)
 ```
 
-The results of the Kruskal-Wallis test suggest that the differences in *medians* among these three London boroughs are statistically significant.
+The results of the Kruskal-Wallis test suggest that the distributions of unemployment rates among these three London boroughs differ significantly.
 
 ::: {.callout-tip}
-To further investigate which specific groups differ, we can conduct a series of pairwise Mann-Whitney U tests for comparisons between each pair of boroughs.
+To further investigate which specific groups differ, we can conduct pairwise Mann-Whitney U tests for each pair of boroughs. Because running several tests increases the chance of a false positive, the $p$-values need to be adjusted for multiple comparisons, which the `pairwise.wilcox.test()` function does for us.
 :::
 
 ## Homework task
@@ -329,7 +329,7 @@ This concludes this week's tutorial. Now complete the following homework tasks m
 2. Apply the relevant test to compare the proportion of people *aged 50 years and over* across the London Boroughs of *Lambeth*, *Southwark*, and *Westminster*.
 
 ::: {.callout-warning}
-Paste the test outputs in the appendix of your assignment, include a few sentences interpreting the results.
+Paste the test outputs in the appendix of your assignment and include a few sentences interpreting the results.
 :::
 
 ## Before you leave
