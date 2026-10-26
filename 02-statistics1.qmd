@@ -12,6 +12,12 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 #### Suggested readings {.unnumbered}
 - Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), **Chapter 6**: *The beast of bias*. [[Link]]({{< var readings.field >}})
 
+## Start of session
+Before working through the tutorial, we will spend a few minutes looking at:
+
+- The distribution of unemployment rates in each borough, before any test is run
+- Statistical significance and the size of a difference
+
 ## Unemployment in London
 In this week's tutorial, we will explore unemployment rates in London as reported in the 2021 Census. In addition, we will use [last week's dataset](01-recap.html#age-groups-in-camden) on age groups in London for the homework task. You can download both files using the links provided below. Make sure to save the files in your project folder in the `data` directory.
 
@@ -139,7 +145,8 @@ To account for the non-uniformity of the areal units, we further need to convert
 # calculate total population
 lsoa_emp <- lsoa_emp |>
   rowwise() |>
-  mutate(lsoa_pop = sum(across(3:6)))
+  mutate(lsoa_pop = sum(across(3:6))) |>
+  ungroup()
 
 # calculate proportions
 lsoa_emp_prop <- lsoa_emp |>
@@ -151,7 +158,16 @@ You can further inspect the results using the `View()` function.
 :::
 
 ### Data comparison
-Now that we have our data prepared, we can begin comparing different groups within it. Various statistical methods exist for this purpose, depending on the nature of the data and the number of groups involved.
+Now that we have our data prepared, we can begin comparing different groups within it. Various statistical methods exist for this purpose, depending on the nature of the data and the number of groups involved. The type of the variables determines which method we can use. @tbl-methods summarises the methods in this and next week's chapters.
+
+| Dependent variable (`y`) | Independent variable (`x`) | Method | Non-parametric alternative |
+| :------ | :------ | :------ | :------ |
+| Continuous | Categorical, two groups | t-test | Mann-Whitney U test |
+| Continuous | Categorical, three or more groups | ANOVA | Kruskal-Wallis test |
+| Categorical | Categorical | Crosstabulation and Chi-square test | |
+| Continuous | Continuous | Correlation and regression | Spearman's correlation |
+
+: Choosing a method based on the type of the variables. {#tbl-methods}
 
 For comparing two groups with continuous data, we can use the t-test, which assesses whether the means of the two groups are significantly different from each other. If the data does not meet the assumptions of normality, the Mann-Whitney U test serves as a non-parametric alternative, comparing the ranks of the values instead.
 
@@ -320,6 +336,17 @@ The results of the Kruskal-Wallis test suggest that the distributions of unemplo
 
 ::: {.callout-tip}
 To further investigate which specific groups differ, we can conduct pairwise Mann-Whitney U tests for each pair of boroughs. Because running several tests increases the chance of a false positive, the $p$-values need to be adjusted for multiple comparisons, which the `pairwise.wilcox.test()` function does for us.
+:::
+
+::: {.callout-warning}
+**Common misconceptions about statistical tests**
+
+- *"A non-significant result shows that there is no difference."* It only shows that we found no evidence of a difference in our sample. A small sample can easily miss a real difference.
+- *"A significant result means that the difference is large or important."* The $p$-value tells us whether a difference is likely to be due to chance, not how big it is. With many observations even very small differences are significant, so always look at the size of the difference as well.
+- *"The $p$-value is the probability that the null hypothesis is true."* It is the probability of finding a difference at least as large as ours if the null hypothesis were true.
+- *"A significant ANOVA tells us which groups are different."* It only tells us that at least one group differs. A post hoc test is needed to find out which.
+- *"A t-test only works with normally distributed data."* Thanks to the Central Limit Theorem from the lecture, the test is fairly robust to non-normality when samples are large enough.
+- *"Non-parametric tests do not make any assumptions."* They make fewer assumptions, but they still assume that the observations are independent.
 :::
 
 ## Homework task
