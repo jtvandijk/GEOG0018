@@ -100,6 +100,10 @@ You will see some information printed to your **console** but as long as you do 
 Many packages require additional software components, known as *dependencies*, to function properly. Occasionally, when you install a package, some of these dependencies are not installed automatically. When you then try to load a package, you might encounter error messages that relate to a package that you did not explicitly loaded or installed. If this is the case, it is likely due to a missing dependency. To resolve this, identify the missing dependency and install it using the command `install.packages('<dependencyname>')`. Afterwards, try loading your packages again.
 :::
 
+::: {.callout-note}
+You only need to install a package once on a computer. You do, however, need to load a package with `library()` at the start of every new R session.
+:::
+
 ## Getting started with R {.unnumbered}
 Unlike traditional statistical analysis software like [Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel) or [IBM SPSS Statistics](https://www.ibm.com/products/spss-statistics), which often rely on point-and-click interfaces, R requires users to input commands to perform tasks such as loading datasets and fitting models. This command-based approach is typically done by writing scripts, which not only document your workflow but also allow for easy repetition of tasks.
 
@@ -458,5 +462,44 @@ For more information on the `tidyverse` you can refer to [www.tidyverse.org](htt
 We will be using these functions in the coming weeks, so ensure you are familiar with what they do and how they work.
 :::
 
+## Working in RStudio {.unnumbered}
+Two settings make RStudio behave more predictably. Go to **Tools** -> **Global Options** -> **General**, untick **Restore .RData into workspace at startup** and set **Save workspace to .RData on exit** to **Never**. Every session then starts with an empty environment, which means that your results always come from your script.
+
+The following shortcuts save time:
+
+| Task | Windows | macOS |
+| :------ | :------ | :------ |
+| Run the current line or selection | `Ctrl` + `Enter` | `Cmd` + `Return` |
+| Run the whole script | `Ctrl` + `Alt` + `R` | `Option` + `Cmd` + `R` |
+| Insert the assignment operator `<-` | `Alt` + `-` | `Option` + `-` |
+| Autocomplete a name | `Tab` | `Tab` |
+| Interrupt a running command | `Esc` | `Esc` |
+| Clear the console | `Ctrl` + `L` | `Ctrl` + `L` |
+| Restart R | `Ctrl` + `Shift` + `F10` | `Shift` + `Cmd` + `0` |
+
+: Useful RStudio shortcuts. {#tbl-shortcuts}
+
+## Getting help {.unnumbered}
+To open the documentation of a function, type `?` followed by its name in the **console**, for example `?mean`, or use the **Help** pane. Error messages are a normal part of working with R. Read the message carefully, check the line that R refers to, and compare it with the common messages in @tbl-errors. Searching the internet for an error message often leads to a useful answer. Information about support sessions is available on Moodle.
+
+| Message | Likely cause |
+| :------ | :------ |
+| `object 'x' not found` | The code that creates the object has not been run, or the name is misspelled. R is case sensitive. |
+| `could not find function "x"` | The function name is misspelled, or the package that contains the function has not been loaded with `library()`. |
+| `there is no package called 'x'` | The package has not been installed yet. Install it with `install.packages()`. |
+| `unexpected symbol` or `unexpected numeric constant` | Something is missing just before the point that R mentions, often a comma, a bracket or a quotation mark. |
+| `'data/x.csv' does not exist in current working directory` | R cannot find the file. Check the spelling, check that the file is in your `data` folder, and check that you have opened your RStudio Project. |
+| `+` instead of `>` in the console | The previous command is unfinished. Press `Esc` to cancel it and try again. |
+
+: Common error messages and their likely causes. {#tbl-errors}
+
 ## Before you leave {.unnumbered}
 This introductory tutorial did not cover anything new that you have not encountered in last year's modules. However, since it has been some time, you should now have R and RStudio installed (again?) and working on your computer, or at the very least, be able to access RStudio via [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) with the necessary libraries installed. Now that you are up to speed, [time for some real action](https://www.youtube.com/watch?v=6j5t6WjtSfk) by using R for some data analysis.
+
+Before the first session, you should be able to:
+
+- Open RStudio and find the **console**, **environment**, **files** and **plots** panes.
+- Run a line of code from a script.
+- Create a variable and call a function on it.
+- Install a package once and load it with `library()`.
+- Open the documentation of a function.
