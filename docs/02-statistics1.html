@@ -434,14 +434,15 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides"><span class="header-section-number">2.1</span> Lecture slides</a></li>
   <li><a href="#reading-list" id="toc-reading-list" class="nav-link" data-scroll-target="#reading-list"><span class="header-section-number">2.2</span> Reading list</a></li>
-  <li><a href="#unemployment-in-london" id="toc-unemployment-in-london" class="nav-link" data-scroll-target="#unemployment-in-london"><span class="header-section-number">2.3</span> Unemployment in London</a>
+  <li><a href="#start-of-session" id="toc-start-of-session" class="nav-link" data-scroll-target="#start-of-session"><span class="header-section-number">2.3</span> Start of session</a></li>
+  <li><a href="#unemployment-in-london" id="toc-unemployment-in-london" class="nav-link" data-scroll-target="#unemployment-in-london"><span class="header-section-number">2.4</span> Unemployment in London</a>
   <ul class="collapse">
-  <li><a href="#data-loading" id="toc-data-loading" class="nav-link" data-scroll-target="#data-loading"><span class="header-section-number">2.3.1</span> Data loading</a></li>
-  <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation"><span class="header-section-number">2.3.2</span> Data manipulation</a></li>
-  <li><a href="#data-comparison" id="toc-data-comparison" class="nav-link" data-scroll-target="#data-comparison"><span class="header-section-number">2.3.3</span> Data comparison</a></li>
+  <li><a href="#data-loading" id="toc-data-loading" class="nav-link" data-scroll-target="#data-loading"><span class="header-section-number">2.4.1</span> Data loading</a></li>
+  <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation"><span class="header-section-number">2.4.2</span> Data manipulation</a></li>
+  <li><a href="#data-comparison" id="toc-data-comparison" class="nav-link" data-scroll-target="#data-comparison"><span class="header-section-number">2.4.3</span> Data comparison</a></li>
   </ul></li>
-  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">2.4</span> Homework task</a></li>
-  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">2.5</span> Before you leave</a></li>
+  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">2.5</span> Homework task</a></li>
+  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">2.6</span> Before you leave</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jtvandijk/GEOG0018/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -476,8 +477,16 @@ window.Quarto = {
 </ul>
 </section>
 </section>
-<section id="unemployment-in-london" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="unemployment-in-london"><span class="header-section-number">2.3</span> Unemployment in London</h2>
+<section id="start-of-session" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="start-of-session"><span class="header-section-number">2.3</span> Start of session</h2>
+<p>Before working through the tutorial, we will spend a few minutes looking at:</p>
+<ul>
+<li>The distribution of unemployment rates in each borough, before any test is run</li>
+<li>Statistical significance and the size of a difference</li>
+</ul>
+</section>
+<section id="unemployment-in-london" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="unemployment-in-london"><span class="header-section-number">2.4</span> Unemployment in London</h2>
 <p>In this week’s tutorial, we will explore unemployment rates in London as reported in the 2021 Census. In addition, we will use <a href="01-recap.html#age-groups-in-camden">last week’s dataset</a> on age groups in London for the homework task. You can download both files using the links provided below. Make sure to save the files in your project folder in the <code>data</code> directory.</p>
 <table class="caption-top table">
 <thead>
@@ -522,8 +531,8 @@ window.Quarto = {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-<section id="data-loading" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="data-loading"><span class="header-section-number">2.3.1</span> Data loading</h3>
+<section id="data-loading" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="data-loading"><span class="header-section-number">2.4.1</span> Data loading</h3>
 <p>Next, we can load both the <code>London-LSOA-AgeGroup.csv</code> and <code>London-LSOA-EconomicStatus.csv</code> files into R.</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
@@ -620,8 +629,8 @@ dbl (2): Economic activity status (4 categories) Code, Observation
 </div>
 </div>
 </section>
-<section id="data-manipulation" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="data-manipulation"><span class="header-section-number">2.3.2</span> Data manipulation</h3>
+<section id="data-manipulation" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="data-manipulation"><span class="header-section-number">2.4.2</span> Data manipulation</h3>
 <p>Because the <code>lsoa_emp</code> dataset was extracted using the <a href="https://www.ons.gov.uk/datasets/create">Custom Dataset Tool</a>, we need to convert the data from long to wide format. Like <a href="01-recap.html#data-manipulation">last week</a>, we can do this by pivoting the table:</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
@@ -672,11 +681,12 @@ dbl (2): Economic activity status (4 categories) Code, Observation
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate total population</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>lsoa_emp <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">lsoa_pop =</span> <span class="fu">sum</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>)))</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate proportions</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>lsoa_emp_prop <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>, <span class="sc">~</span>.<span class="sc">/</span>lsoa_pop))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">lsoa_pop =</span> <span class="fu">sum</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate proportions</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>lsoa_emp_prop <span class="ot">&lt;-</span> lsoa_emp <span class="sc">|&gt;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>, <span class="sc">~</span>.<span class="sc">/</span>lsoa_pop))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip">
@@ -690,9 +700,60 @@ dbl (2): Economic activity status (4 categories) Code, Observation
 </div>
 </div>
 </section>
-<section id="data-comparison" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="data-comparison"><span class="header-section-number">2.3.3</span> Data comparison</h3>
-<p>Now that we have our data prepared, we can begin comparing different groups within it. Various statistical methods exist for this purpose, depending on the nature of the data and the number of groups involved.</p>
+<section id="data-comparison" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="data-comparison"><span class="header-section-number">2.4.3</span> Data comparison</h3>
+<p>Now that we have our data prepared, we can begin comparing different groups within it. Various statistical methods exist for this purpose, depending on the nature of the data and the number of groups involved. The type of the variables determines which method we can use. <a href="#tbl-methods" class="quarto-xref">Table&nbsp;1</a> summarises the methods in this and next week’s chapters.</p>
+<div id="tbl-methods" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-methods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Choosing a method based on the type of the variables.
+</figcaption>
+<div aria-describedby="tbl-methods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dependent variable (<code>y</code>)</th>
+<th style="text-align: left;">Independent variable (<code>x</code>)</th>
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Non-parametric alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Continuous</td>
+<td style="text-align: left;">Categorical, two groups</td>
+<td style="text-align: left;">t-test</td>
+<td style="text-align: left;">Mann-Whitney U test</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Continuous</td>
+<td style="text-align: left;">Categorical, three or more groups</td>
+<td style="text-align: left;">ANOVA</td>
+<td style="text-align: left;">Kruskal-Wallis test</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Categorical</td>
+<td style="text-align: left;">Crosstabulation and Chi-square test</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Continuous</td>
+<td style="text-align: left;">Continuous</td>
+<td style="text-align: left;">Correlation and regression</td>
+<td style="text-align: left;">Spearman’s correlation</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 <p>For comparing two groups with continuous data, we can use the t-test, which assesses whether the means of the two groups are significantly different from each other. If the data does not meet the assumptions of normality, the Mann-Whitney U test serves as a non-parametric alternative, comparing the ranks of the values instead.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -705,8 +766,8 @@ dbl (2): Economic activity status (4 categories) Code, Observation
 </div>
 </div>
 <p>When we want to compare more than two groups, we can use the Analysis of Variance (ANOVA) test. An ANOVA evaluates whether there are any statistically significant differences between the means of multiple groups. If the assumptions of ANOVA are violated, we can use the Kruskal-Wallis test, which is a non-parametric method that compares the ranks across the groups.</p>
-<section id="comparing-two-groups" class="level4" data-number="1.3.3.1">
-<h4 data-number="1.3.3.1" class="anchored" data-anchor-id="comparing-two-groups"><span class="header-section-number">2.3.3.1</span> Comparing two groups</h4>
+<section id="comparing-two-groups" class="level4" data-number="1.4.3.1">
+<h4 data-number="1.4.3.1" class="anchored" data-anchor-id="comparing-two-groups"><span class="header-section-number">2.4.3.1</span> Comparing two groups</h4>
 <p>To compare two groups with continuous data, we can run an independent samples <a href="https://en.wikipedia.org/wiki/Student%27s_t-test">t-test</a>, which allows us to statistically assess whether the means of the two groups differ significantly. For instance, we might be interested in whether the proportion of the population that is unemployed in Lower Super Output Areas (LSOAs) in the London Borough of Camden is different, on average, from the proportion of the population that is unemployed in the London Borough of Sutton.</p>
 <p>Let us begin by creating two separate datasets to facilitate our comparison: one containing the LSOAs for Camden and one containing the LSOAs for Sutton. We can do this by filtering the <code>lsoa_emp</code> dataset:</p>
 <div class="cell styled-output">
@@ -807,8 +868,8 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
 </section>
-<section id="comparing-more-than-two-groups" class="level4" data-number="1.3.3.2">
-<h4 data-number="1.3.3.2" class="anchored" data-anchor-id="comparing-more-than-two-groups"><span class="header-section-number">2.3.3.2</span> Comparing more than two groups</h4>
+<section id="comparing-more-than-two-groups" class="level4" data-number="1.4.3.2">
+<h4 data-number="1.4.3.2" class="anchored" data-anchor-id="comparing-more-than-two-groups"><span class="header-section-number">2.4.3.2</span> Comparing more than two groups</h4>
 <p>If we want to compare more than two groups, we can use an <a href="https://en.wikipedia.org/wiki/Analysis_of_variance">Analysis of Variance (ANOVA) test</a>. An ANOVA is a statistical method used to compare the means of three or more groups to determine if at least one group mean significantly differs from the others. For instance, if we extend our analysis from Camden and Sutton to include the London Borough of Hammersmith and Fulham, we can test for differences in means among these three areas.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -942,11 +1003,29 @@ Kruskal-Wallis chi-squared = 117.37, df = 2, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Common misconceptions about statistical tests</strong></p>
+<ul>
+<li><em>“A non-significant result shows that there is no difference.”</em> It only shows that we found no evidence of a difference in our sample. A small sample can easily miss a real difference.</li>
+<li><em>“A significant result means that the difference is large or important.”</em> The <span class="math inline">\(p\)</span>-value tells us whether a difference is likely to be due to chance, not how big it is. With many observations even very small differences are significant, so always look at the size of the difference as well.</li>
+<li><em>“The <span class="math inline">\(p\)</span>-value is the probability that the null hypothesis is true.”</em> It is the probability of finding a difference at least as large as ours if the null hypothesis were true.</li>
+<li><em>“A significant ANOVA tells us which groups are different.”</em> It only tells us that at least one group differs. A post hoc test is needed to find out which.</li>
+<li><em>“A t-test only works with normally distributed data.”</em> Thanks to the Central Limit Theorem from the lecture, the test is fairly robust to non-normality when samples are large enough.</li>
+<li><em>“Non-parametric tests do not make any assumptions.”</em> They make fewer assumptions, but they still assume that the observations are independent.</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
-<section id="homework-task" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">2.4</span> Homework task</h2>
+<section id="homework-task" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">2.5</span> Homework task</h2>
 <p>This concludes this week’s tutorial. Now complete the following homework tasks making use of both the <code>lsoa_emp</code> and <code>lsoa_age</code> datasets:</p>
 <ol type="1">
 <li>Use an appropriate statistical test to determine whether the average proportion of the <em>employed population</em> differs between LSOAs in the <em>London Borough of Bexley</em> and the <em>London Borough of Harrow</em>.</li>
@@ -963,8 +1042,8 @@ Kruskal-Wallis chi-squared = 117.37, df = 2, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="before-you-leave" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">2.5</span> Before you leave</h2>
+<section id="before-you-leave" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">2.6</span> Before you leave</h2>
 <p>This week, we explored how to statistically compare different groups to assess whether they are different, using both parametric and non-parametric methods. Next week, we will shift our focus from group comparisons to analysing associations and relationships between variables. Looking forward? Good. For now, take <a href="https://www.youtube.com/watch?v=KMxucpLOF5s">some time to unwind</a> and get ready for what is next!</p>
 
 

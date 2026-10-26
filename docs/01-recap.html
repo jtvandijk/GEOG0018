@@ -405,15 +405,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides"><span class="header-section-number">1.1</span> Lecture slides</a></li>
   <li><a href="#reading-list" id="toc-reading-list" class="nav-link" data-scroll-target="#reading-list"><span class="header-section-number">1.2</span> Reading list</a></li>
-  <li><a href="#age-groups-in-camden" id="toc-age-groups-in-camden" class="nav-link" data-scroll-target="#age-groups-in-camden"><span class="header-section-number">1.3</span> Age groups in Camden</a>
+  <li><a href="#start-of-session" id="toc-start-of-session" class="nav-link" data-scroll-target="#start-of-session"><span class="header-section-number">1.3</span> Start of session</a></li>
+  <li><a href="#age-groups-in-camden" id="toc-age-groups-in-camden" class="nav-link" data-scroll-target="#age-groups-in-camden"><span class="header-section-number">1.4</span> Age groups in Camden</a>
   <ul class="collapse">
-  <li><a href="#data-loading" id="toc-data-loading" class="nav-link" data-scroll-target="#data-loading"><span class="header-section-number">1.3.1</span> Data loading</a></li>
-  <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation"><span class="header-section-number">1.3.2</span> Data manipulation</a></li>
-  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration"><span class="header-section-number">1.3.3</span> Data exploration</a></li>
-  <li><a href="#data-filtering" id="toc-data-filtering" class="nav-link" data-scroll-target="#data-filtering"><span class="header-section-number">1.3.4</span> Data filtering</a></li>
+  <li><a href="#data-loading" id="toc-data-loading" class="nav-link" data-scroll-target="#data-loading"><span class="header-section-number">1.4.1</span> Data loading</a></li>
+  <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation"><span class="header-section-number">1.4.2</span> Data manipulation</a></li>
+  <li><a href="#data-exploration" id="toc-data-exploration" class="nav-link" data-scroll-target="#data-exploration"><span class="header-section-number">1.4.3</span> Data exploration</a></li>
+  <li><a href="#data-filtering" id="toc-data-filtering" class="nav-link" data-scroll-target="#data-filtering"><span class="header-section-number">1.4.4</span> Data filtering</a></li>
   </ul></li>
-  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">1.4</span> Homework task</a></li>
-  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">1.5</span> Before you leave</a></li>
+  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">1.5</span> Homework task</a></li>
+  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">1.6</span> Before you leave</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jtvandijk/GEOG0018/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -450,8 +451,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="age-groups-in-camden" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="age-groups-in-camden"><span class="header-section-number">1.3</span> Age groups in Camden</h2>
+<section id="start-of-session" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="start-of-session"><span class="header-section-number">1.3</span> Start of session</h2>
+<p>Before working through the tutorial, we will spend a few minutes looking at:</p>
+<ul>
+<li>The raw <code>csv</code> file before it is loaded into R</li>
+<li>A live example of a “file not found” error, and how to fix it</li>
+<li>The mean and the median of the same variable</li>
+</ul>
+</section>
+<section id="age-groups-in-camden" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="age-groups-in-camden"><span class="header-section-number">1.4</span> Age groups in Camden</h2>
 <p>In RStudio, scripts allow us to build and save code that can be run repeatedly. We can organise these scripts into RStudio projects, which consolidate all files related to an analysis such as input data, R scripts, results, figures, and more. This organisation helps keep track of all data, input, and output, while enabling us to create standalone scripts for each part of our analysis. Additionally, it simplifies managing <a href="https://en.wikipedia.org/wiki/Path_(computing)">directories and filepaths</a>.</p>
 <p>Navigate to <strong>File</strong> -&gt; <strong>New Project</strong> -&gt; <strong>New Directory</strong> -&gt; <strong>New Project</strong>. Enter a directory name, such as <code>GEOG0018</code>, and select the location on your computer where you want to save this project by clicking on <strong>Browse…</strong> next to <strong>Create project as subdirectory of</strong>. Leave the other options, such as <strong>Create a git repository</strong> and <strong>Use renv with this project</strong>, unticked.</p>
 <div class="callout callout-style-simple callout-important">
@@ -556,8 +566,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="data-loading" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="data-loading"><span class="header-section-number">1.3.1</span> Data loading</h3>
+<section id="data-loading" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="data-loading"><span class="header-section-number">1.4.1</span> Data loading</h3>
 <p>Next, we can load the <code>London-LSOA-AgeGroup.csv</code> file into R.</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
@@ -706,8 +716,8 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 </div>
 </section>
-<section id="data-manipulation" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="data-manipulation"><span class="header-section-number">1.3.2</span> Data manipulation</h3>
+<section id="data-manipulation" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="data-manipulation"><span class="header-section-number">1.4.2</span> Data manipulation</h3>
 <p>Because all the data are stored in <a href="https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb">long format</a>, we need to transform the data to a <a href="https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb">wide format</a>. This means that instead of having multiple rows for an LSOA showing counts for different age groups, all the information for each LSOA will be consolidated into a single row. We will further clean up the column names with the <code>janitor</code> package to make them easier to work with.</p>
 <p>We can do this as follows:</p>
 <div class="cell styled-output">
@@ -768,11 +778,22 @@ dbl (2): Age (5 categories) Code, Observation
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate total population</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">lsoa_pop =</span> <span class="fu">sum</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>)))</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate proportions</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>, <span class="sc">~</span>.<span class="sc">/</span>lsoa_pop))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">lsoa_pop =</span> <span class="fu">sum</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate proportions</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>lsoa_age <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">7</span>, <span class="sc">~</span>.<span class="sc">/</span>lsoa_pop))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The <code>rowwise()</code> function tells R to carry out the next calculation for each row separately, which is what we need to sum the age groups within each LSOA. We use <code>ungroup()</code> afterwards to return to working with the dataframe as a whole.</p>
+</div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip">
@@ -786,9 +807,9 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 </div>
 </section>
-<section id="data-exploration" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="data-exploration"><span class="header-section-number">1.3.3</span> Data exploration</h3>
-<p>Now that we have loaded and inspected our data, we can start by analysing its distribution. We will begin by examining the proportion of people <em>aged 16 to 24</em> across London, using basic descriptive statistics such as the mean, median, and range. These measures will give us an idea of the central tendency and spread of the data.</p>
+<section id="data-exploration" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="data-exploration"><span class="header-section-number">1.4.3</span> Data exploration</h3>
+<p>Now that we have loaded and inspected our data, we can start by analysing its distribution. We will begin by examining the proportion of people <em>aged 16 to 24</em> across London, using basic descriptive statistics such as the mean, median, range, and standard deviation. These measures will give us an idea of the central tendency and spread of the data.</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -810,8 +831,13 @@ dbl (2): Age (5 categories) Code, Observation
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.03403141 0.59242902</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standard deviation</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04009675</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 0.03403 0.08679 0.10364 0.11013 0.12420 0.59243 </code></pre>
@@ -824,8 +850,8 @@ dbl (2): Age (5 categories) Code, Observation
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">xlab =</span> <span class="st">"Proportions"</span>, <span class="at">main =</span> <span class="st">"Proportion of people aged between 16 and 24"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">xlab =</span> <span class="st">"Proportions"</span>, <span class="at">main =</span> <span class="st">"Proportion of people aged between 16 and 24"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell-output-display">
 <div id="fig-01-plot-data-histogram" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -857,8 +883,8 @@ Figure&nbsp;1: Quick histogram.
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">"Proportions"</span>, <span class="at">main =</span> <span class="st">"Proportion of people aged between 16 and 24"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(lsoa_age<span class="sc">$</span>aged_16_to_24_years, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">"Proportions"</span>, <span class="at">main =</span> <span class="st">"Proportion of people aged between 16 and 24"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell-output-display">
 <div id="fig-01-plot-data-boxplot" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -874,24 +900,23 @@ Figure&nbsp;2: Quick boxplot.
 </div>
 </div>
 </section>
-<section id="data-filtering" class="level3" data-number="1.3.4">
-<h3 data-number="1.3.4" class="anchored" data-anchor-id="data-filtering"><span class="header-section-number">1.3.4</span> Data filtering</h3>
+<section id="data-filtering" class="level3" data-number="1.4.4">
+<h3 data-number="1.4.4" class="anchored" data-anchor-id="data-filtering"><span class="header-section-number">1.4.4</span> Data filtering</h3>
 <p>So far we have only looked at the dataset for London as a whole. So, let us zoom in to Camden by filtering our dataset:</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter out camden</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>lsoa_age_camden <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">str_detect</span>(lower_layer_super_output_areas, <span class="st">"Camden"</span>))</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lsoa_age_camden)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter out camden</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>lsoa_age_camden <span class="ot">&lt;-</span> lsoa_age <span class="sc">|&gt;</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">str_detect</span>(lower_layer_super_output_areas, <span class="st">"Camden"</span>))</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lsoa_age_camden)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 8
-# Rowwise: 
   lower_layer_super_output_areas…¹ lower_layer_super_ou…² aged_15_years_and_un…³
   &lt;chr&gt;                            &lt;chr&gt;                                   &lt;dbl&gt;
 1 E01000842                        Camden 011A                             0.147
@@ -932,14 +957,14 @@ Figure&nbsp;2: Quick boxplot.
 <div class="code-with-filename-file">
 <pre><strong>R code</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># write data</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="at">x =</span> lsoa_age_camden, <span class="at">file =</span> <span class="st">"data/Camden-LSOA-AgeGroup.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># write data</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="at">x =</span> lsoa_age_camden, <span class="at">file =</span> <span class="st">"data/Camden-LSOA-AgeGroup.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
 </section>
-<section id="homework-task" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">1.4</span> Homework task</h2>
+<section id="homework-task" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">1.5</span> Homework task</h2>
 <p>This concludes this week’s tutorial. Now complete the following homework tasks:</p>
 <ol type="1">
 <li>Filter the London LSOAs to any of the <a href="https://en.wikipedia.org/wiki/London_boroughs">London boroughs</a> other than Camden.</li>
@@ -957,8 +982,8 @@ Figure&nbsp;2: Quick boxplot.
 </div>
 </div>
 </section>
-<section id="before-you-leave" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">1.5</span> Before you leave</h2>
+<section id="before-you-leave" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">1.6</span> Before you leave</h2>
 <p>This week, we revisited the basics of conducting quantitative analysis in R and RStudio, building on the material introduced last year. Now that everyone is back up to speed, next week we will move on to using R for statistical analysis. But for now, it is <a href="https://www.youtube.com/watch?v=dmxJIc3M7LI">time to kick back and relax</a>!</p>
 
 

@@ -369,14 +369,15 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link" data-scroll-target="#lecture-slides"><span class="header-section-number">5.1</span> Lecture slides</a></li>
   <li><a href="#reading-list" id="toc-reading-list" class="nav-link" data-scroll-target="#reading-list"><span class="header-section-number">5.2</span> Reading list</a></li>
-  <li><a href="#crime-in-london" id="toc-crime-in-london" class="nav-link" data-scroll-target="#crime-in-london"><span class="header-section-number">5.3</span> Crime in London</a>
+  <li><a href="#start-of-session" id="toc-start-of-session" class="nav-link" data-scroll-target="#start-of-session"><span class="header-section-number">5.3</span> Start of session</a></li>
+  <li><a href="#crime-in-london" id="toc-crime-in-london" class="nav-link" data-scroll-target="#crime-in-london"><span class="header-section-number">5.4</span> Crime in London</a>
   <ul class="collapse">
-  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation"><span class="header-section-number">5.3.1</span> Data preparation</a></li>
-  <li><a href="#data-aggregation" id="toc-data-aggregation" class="nav-link" data-scroll-target="#data-aggregation"><span class="header-section-number">5.3.2</span> Data aggregation</a></li>
-  <li><a href="#data-mapping" id="toc-data-mapping" class="nav-link" data-scroll-target="#data-mapping"><span class="header-section-number">5.3.3</span> Data mapping</a></li>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation"><span class="header-section-number">5.4.1</span> Data preparation</a></li>
+  <li><a href="#data-aggregation" id="toc-data-aggregation" class="nav-link" data-scroll-target="#data-aggregation"><span class="header-section-number">5.4.2</span> Data aggregation</a></li>
+  <li><a href="#data-mapping" id="toc-data-mapping" class="nav-link" data-scroll-target="#data-mapping"><span class="header-section-number">5.4.3</span> Data mapping</a></li>
   </ul></li>
-  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">5.4</span> Homework task</a></li>
-  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">5.5</span> Before you leave</a></li>
+  <li><a href="#homework-task" id="toc-homework-task" class="nav-link" data-scroll-target="#homework-task"><span class="header-section-number">5.5</span> Homework task</a></li>
+  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">5.6</span> Before you leave</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jtvandijk/GEOG0018/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -411,8 +412,16 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="crime-in-london" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="crime-in-london"><span class="header-section-number">5.3</span> Crime in London</h2>
+<section id="start-of-session" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="start-of-session"><span class="header-section-number">5.3</span> Start of session</h2>
+<p>Before working through the tutorial, we will spend a few minutes looking at:</p>
+<ul>
+<li>Crime records without coordinates</li>
+<li>The boroughs with the highest crime rates</li>
+</ul>
+</section>
+<section id="crime-in-london" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="crime-in-london"><span class="header-section-number">5.4</span> Crime in London</h2>
 <p>In this week’s practical we will explore the spatial patterns of crime, specifically <code>theft from the person</code> across London boroughs in 2021. For our crime data, we will use data extracted from the <a href="https://data.police.uk/">Police Data Portal</a>, which provides access to tabular data for crimes recorded by various UK police forces. The portal currently only offers the most recent 36 months of data, so we have prepared an extract of the 2021 data for you. You can download this dataset via the link provided below.</p>
 <p>Save the file inside your <code>data</code> folder.</p>
 <table class="caption-top table">
@@ -484,8 +493,8 @@ Figure&nbsp;1: The downloaded London Borough population dataset.
 </div>
 </div>
 </div>
-<section id="data-preparation" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="data-preparation"><span class="header-section-number">5.3.1</span> Data preparation</h3>
+<section id="data-preparation" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="data-preparation"><span class="header-section-number">5.4.1</span> Data preparation</h3>
 <p>To prepare the borough population data for use in QGIS, you should:</p>
 <ol type="1">
 <li>Open the dataset in your spreadsheet editing software. Locate the columns containing the borough names and their associated population counts. Copy these two columns into a new spreadsheet, and rename the columns to <code>BoroughNames</code> and <code>pop2021</code> respectively.</li>
@@ -513,6 +522,16 @@ Figure&nbsp;2: The prepared London Borough population dataset.
 </div>
 <div class="callout-body-container">
 <p>If you are struggling with the data preparation of the borough population, refer back to <a href="04-spatial1.html#cleaning-data">last week’s data cleaning section</a>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If you fall behind, you can continue from a later point with prepared files. The reprojected crime data (<a href="https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Crime-2021-BNG.gpkg"><code>London-Crime-2021-BNG.gpkg</code></a>) replaces the reprojection step, and the borough layer with the crime counts and crime rates (<a href="https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Borough-Crime.gpkg"><code>London-Borough-Crime.gpkg</code></a>) replaces the aggregation and the crime rate calculation.</p>
 </div>
 </div>
 </div>
@@ -608,8 +627,8 @@ Figure&nbsp;4: The London boroughs together with the crime dataset.
 <li>You can now also remove the original <code>London-Crime-2021</code> dataset, only keeping the reprojected version.</li>
 </ol>
 </section>
-<section id="data-aggregation" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="data-aggregation"><span class="header-section-number">5.3.2</span> Data aggregation</h3>
+<section id="data-aggregation" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="data-aggregation"><span class="header-section-number">5.4.2</span> Data aggregation</h3>
 <p>The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the <strong>Count Points in Polygon</strong> tool in the <strong>Analysis Tools</strong> menu to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a <em>crime rate</em> statistic.</p>
 <ol type="1">
 <li>Click on <strong>Vector</strong> -&gt; <strong>Analysis Tools</strong> -&gt; <strong>Count Points in Polygon</strong>.</li>
@@ -685,8 +704,8 @@ Figure&nbsp;5: The attribute table of the <code>London-Borough-Crime</code> laye
 </div>
 </div>
 </section>
-<section id="data-mapping" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="data-mapping"><span class="header-section-number">5.3.3</span> Data mapping</h3>
+<section id="data-mapping" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="data-mapping"><span class="header-section-number">5.4.3</span> Data mapping</h3>
 <p>Now the dataset has been prepared, it is time to make a map. First thing we need to do is symbolise the map with an appropriate colour scheme. Go to <strong>Properties</strong> and symbolise your map with <strong>Graduated</strong> colours. You need to decide on an appropriate data classification and colour scheme. For reference, <a href="#fig-map-styled" class="quarto-xref">Figure&nbsp;6</a> shows an example of a possible classification and colour scheme.</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
@@ -830,8 +849,8 @@ Figure&nbsp;9: Crime rates across London Boroughs.
 <p>The only remaining step is to export our map as an image. Navigate to <strong>Layout</strong> -&gt; <strong>Export as Image</strong> and then save it as <code>London-Borough-2021-crime-rate.png</code>.</p>
 </section>
 </section>
-<section id="homework-task" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">5.4</span> Homework task</h2>
+<section id="homework-task" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">5.5</span> Homework task</h2>
 <p>This concludes this week’s tutorial. Now complete the following homework tasks:</p>
 <ol type="1">
 <li>Load last week’s <code>London-LSOA-2021.gpkg</code> into QGIS.</li>
@@ -852,8 +871,8 @@ Figure&nbsp;9: Crime rates across London Boroughs.
 </div>
 </div>
 </section>
-<section id="before-you-leave" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">5.5</span> Before you leave</h2>
+<section id="before-you-leave" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">5.6</span> Before you leave</h2>
 <p><a href="https://www.youtube.com/watch?v=3wxyN3z9PL4">That is us all done</a>. Remember to save your project. Perhaps time to focus on your final assignment?</p>
 
 
