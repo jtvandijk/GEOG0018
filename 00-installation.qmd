@@ -1,6 +1,10 @@
 # Getting started {.unnumbered}
 R is a programming language originally designed for conducting statistical analysis and creating graphics. The major advantage of using R is that it can be used on any computer operating system, and is free for anyone to use and contribute to. Because of this, it has rapidly become the statistical language of choice for many academics and has a large user community with people constantly contributing new packages to carry out all manner of statistical, graphical, and geographical tasks. In this tutorial, we will guide you through installing R on your computer and review the basics of interacting with the language and its functions.
 
+::: {.callout-note}
+This chapter is a refresher for anyone who needs one. You will have used R and RStudio during your first year, so if you are comfortable with installing and using them, you can skip this chapter. If you have not used R for a while, or if you are using a new computer, please work through it **before the first session**. Everyone needs a working installation of R and RStudio in the first session.
+:::
+
 ## Installation of R {.unnumbered}
 Installing R takes a few relatively simple steps involving two pieces of software. First there is the R programming language itself. Follow these steps to get it installed on your computer:
 
@@ -455,4 +459,4 @@ We will be using these functions in the coming weeks, so ensure you are familiar
 :::
 
 ## Before you leave {.unnumbered}
-This introductory tutorial did not cover anything new that you have not encountered in last year's modules. However, since it has been some time, you should now have R and RStudio installed (again?) and working on your computer, or at the very least, be able to access RStudio via [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) with the necessary libraries installed. Now that you are up to speed, [time for some real action](https://www.youtube.com/watch?v=6j5t6WjtSfk) by using R for some data analysis
+This introductory tutorial did not cover anything new that you have not encountered in last year's modules. However, since it has been some time, you should now have R and RStudio installed (again?) and working on your computer, or at the very least, be able to access RStudio via [Desktop@UCL Anywhere](https://www.ucl.ac.uk/isd/services/computers/remote-access/desktopucl-anywhere) with the necessary libraries installed. Now that you are up to speed, [time for some real action](https://www.youtube.com/watch?v=6j5t6WjtSfk) by using R for some data analysis.
