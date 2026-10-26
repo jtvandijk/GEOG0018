@@ -1,13 +1,13 @@
 #! /bin/bash
 
 # clear
-rm -r *_cache *_files
+# rm -r *_cache *_files
 
 # render
-quarto render
+quarto render --no-clean
 
 # fix section numbers
-python _section_numbers.py
+python3 _section_numbers.py
 
 # track changes
 git add .

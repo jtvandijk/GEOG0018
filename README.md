@@ -12,6 +12,8 @@ quarto render --no-clean
 
 `--no-clean` is required: a plain `quarto render` clears `docs/` before rendering, which would delete the archived year snapshots stored under `docs/<year>/`.
 
+After rendering, run `python3 _section_numbers.py` once to fix the section numbers. Package versions are listed in [REPRODUCIBILITY.md](REPRODUCIBILITY.md).
+
 This work is licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
 
