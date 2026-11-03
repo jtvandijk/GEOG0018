@@ -1,5 +1,5 @@
 # Statistical Analysis II
-Last week, we explored methods for comparing groups. This week, our focus shifts to examining relationships between variables, aiming to assess the extent to which two variables *covary* — in other words, how changes in one variable are associated with changes in another. For example, what is the link between greenhouse gas emissions (`x`) and global mean temperature (`y`)? What effect does spending longer in education (`x`) have on earnings (`y`)? To what extent are house prices or local health outcomes (`y`) increased by proximity to urban greenspace (`x`)? To answer these sorts of questions we need techniques for unpacking relationships between variables.
+Last week, we explored methods for comparing groups. This week, our focus shifts to examining relationships between variables, aiming to assess the extent to which two variables *covary*: how changes in one variable are associated with changes in another. For example, what is the link between greenhouse gas emissions (`x`) and global mean temperature (`y`)? How are earnings (`y`) related to the time spent in education (`x`)? To what extent are house prices or local health outcomes (`y`) associated with proximity to urban greenspace (`x`)? To answer these sorts of questions we need techniques for unpacking relationships between variables.
 
 ## Lecture slides
 You can download the slides of this week's lecture here: [[Link]]({{< var slides.week08 >}}).
@@ -15,8 +15,8 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 ## Start of session
 Before working through the tutorial, we will spend a few minutes looking at:
 
-- Anscombe's quartet
-- The units of the variables in a regression output
+- The unit of a regression coefficient, such as `0.740`
+- The error "object 'aged_50' not found"
 
 ## Election results in England and Wales
 Today, we will investigate the political geography of England and Wales, focusing on the results of the July 2024 General Election, which was won by the Labour Party led by Keir Starmer. You will work with data extracted from two data sources: the [constituency results from the election](https://commonslibrary.parliament.uk/research-briefings/cbp-10009/) and socio-demographic information relating to age groups, economic status, and ethnic background from the 2021 Census, extracted using the [Custom Dataset Tool](https://www.ons.gov.uk/datasets/create). These datasets have been prepared and merged. Please download the file using the link below and save it in your project folder within the `data` directory.
@@ -84,7 +84,7 @@ You can further inspect the dataset using the `View()` function.
 :::
 
 ### Crosstabulation
-In geography, we frequently work with categorical variables. One technique for assessing relationships between two categorical variables is crosstabulation. For example, if we hypothesise that older voters predominantly support the Conservative Party, we could crosstabulate the winning party against constituencies where more than 40% of the population is over 50 years old (`pop_50plus_40percent`).
+In geography, we frequently work with categorical variables. One technique for assessing relationships between two categorical variables is crosstabulation. For example, if we hypothesise that constituencies with an older population are more likely to be won by the Conservative Party, we could crosstabulate the winning party against constituencies where more than 40% of the population is over 50 years old (`pop_50plus_40percent`).
 
 ```{r}
 #| label: 03-crosstab
@@ -97,7 +97,9 @@ In geography, we frequently work with categorical variables. One technique for a
 crosstab(elec_vars$winning_party, elec_vars$pop_50plus_40percent, prop.r = TRUE, plot = FALSE)
 ```
 
-We observe that in the 116 constituencies won by the Conservatives, 78.4% have more than 40% of their population aged over 50. In contrast, only 35% of the 374 constituencies won by the Labour Party have a similar demographic. This suggests an *association* between a large (> 40%) proportion of individuals over 50 years old (`x`) and the election results (`y`).
+We observe that in the 116 constituencies won by the Conservatives, 78.4% have more than 40% of their population aged over 50. In contrast, only 35.0% of the 374 constituencies won by the Labour Party have a similar demographic. This suggests an *association* between a large (> 40%) proportion of individuals over 50 years old (`x`) and the election results (`y`).
+
+Note that these data describe constituencies, not individual voters. We can say that constituencies with an older population tend to be won by the Conservatives, but not that older people vote for the Conservatives. Drawing conclusions about individuals from data about areas is called the *ecological fallacy*.
 
 We can use a Chi-square test to assess whether this association is statistically significant:
 
@@ -113,7 +115,7 @@ crosstab(elec_vars$winning_party, elec_vars$pop_50plus_40percent, expected = TRU
 ```
 
 ::: {.callout-note}
-The Chi-square test is a statistical method used to assess whether there is a significant association between two categorical variables. It compares the observed frequencies in each category to the expected frequencies, which are based on the assumption that there is no relationship between the variables (the *null hypothesis*). If the differences between observed and expected values are large enough, we reject the *null hypothesis*, indicating a significant association between the variables. Note that the test tells us whether an association exists, not how strong it is.
+The Chi-square test is a statistical method used to assess whether there is a significant association between two categorical variables. It compares the observed frequencies in each category to the expected frequencies, which are based on the assumption that there is no relationship between the variables (the *null hypothesis*). If the differences between observed and expected values are large enough, we reject the *null hypothesis*, indicating a significant association between the variables. Note that the test tells us whether an association exists, not how strong it is: for that, compare the percentages in the crosstab.
 :::
 
 ::: {.callout-important}
@@ -203,7 +205,7 @@ Before running a regression, we need to know what type of variable we want to ex
 
 : Types of variables in regression models. {#tbl-variables}
 
-#### Univariate regression
+#### Bivariate regression
 A Pearson's correlation describes the strength and direction of a linear relationship, but we can also quantify the change in the dependent variable (`y`) for a one-unit change in the independent variable (`x`) with an Ordinary Least Squares (OLS) regression.
 
 Let us run a model with the proportion of the population that is over 50 years old as `x` and the Conservative vote share as `y`:
@@ -228,7 +230,7 @@ The *Estimates* column shows the regression coefficients: -0.039 for the `interc
 The $R^2$ (R-squared) of a regression model shows how well the independent variables explain the variation in the dependent variable. It ranges from 0 to 1, where 0 means the model explains none of the variation, and 1 means it explains all of it. Our model suggests that 32% of variation in the dependent variable is explained by the model. The remaining 68% is due to factors not captured by the model or random error.
 :::
 
-#### Multivariate regression
+#### Multiple regression
 Now, let us include additional predictors in our regression model to see if we can better explain the variation in the Conservative vote share. We will include `eco_active_employed` (the proportion of economically active employed individuals) and `eth_white` (the proportion of the population that identifies as white):
 
 ```{r}
@@ -250,7 +252,9 @@ The model $R^2$ has increased to 47%, and the adjusted $R^2$, which accounts for
 :::
 
 ::: {.callout-note}
-The coefficients in a multivariate regression model represent the predicted change in the dependent variable (`y`) with a one-unit increase in each independent variable (`x`), while holding all other variables in the model constant. This makes the coefficients *partial* regression coefficients, meaning they show the effect of each predictor after accounting for the influence of the others.
+The coefficients in a multiple regression model represent the predicted change in the dependent variable (`y`) with a one-unit increase in each independent variable (`x`), while holding all other variables in the model constant. This makes the coefficients *partial* regression coefficients, meaning they show the association between each predictor and the dependent variable after accounting for the others.
+
+This is why the coefficient for `aged_50_years_and_over` has changed from 0.74 to 1.2. The share of people over 50 is strongly related to the other predictors (its correlation with `eth_white` is 0.80), so its association with the Conservative vote share looks different once they are held constant.
 :::
 
 This is a good start, but as geographers, we should also consider whether regional patterns influence voter share. We can use a boxplot to split out the vote shares by region to see whether there is any evidence of regional differentiation:
@@ -271,10 +275,10 @@ elec_vars <- elec_vars |>
 boxplot(elec_vars$conservative_vote_share ~ elec_vars$region_name, xlab = 'Region', ylab = 'Conservative vote share')
 ```
 
-The boxplots suggest some regional variation and so we will add the `region_name` variable to our regression model. To do this, we need to transform the categorical variable into [dummy variables](https://en.wikipedia.org/wiki/Dummy_variable_(statistics)), one for each of the 10 regions. Each observation will be coded as 1 for its corresponding region and 0 for all other regions.
+The boxplots suggest some regional variation and so we will add the `region_name` variable to our regression model. To do this, we need to transform the categorical variable into [dummy variables](https://en.wikipedia.org/wiki/Dummy_variable_(statistics)): variables that are coded 1 for the constituencies in a region and 0 for all other constituencies. With 10 regions, R creates nine dummy variables, because one region has to be left out as the *reference category*. In the code above we put London first in the order of the regions, so London is the reference category.
 
 ::: {.callout-note}
-By including all but one of the regional dummy variables in the regression model, we control for regional differences, with the omitted category serving as the *reference category*. R will detect that you have a categorical variable if it is stored as a character or factor and will do the dummy generation for you. The coefficients for the included dummy variables indicate how much the predicted value of the dependent variable differs for constituencies in that region compared to the *reference* region.
+R will detect that you have a categorical variable if it is stored as a character or factor and will do the dummy generation for you. The coefficients for the included dummy variables indicate how much the predicted value of the dependent variable differs for constituencies in that region compared to the *reference* region, with the other variables in the model held constant.
 :::
 
 ```{r}
@@ -321,7 +325,7 @@ The row for `region_name` has an *F-statistic* of 19.2 with a $p$-value `< 0.001
 :::
 
 #### Diagnostics
-The validity of a regression relies on several assumptions being met. One of the most important assumptions is that the residuals (the differences between predicted and observed values) should be independent and approximately normally distributed. The `easystats` package provides tools to quickly generate relevant figures and diagnostics to help you assess your model.
+The validity of a regression relies on several assumptions being met. One of the most important assumptions is that the residuals (the errors of the model: the differences between observed and predicted values) should be independent and approximately normally distributed. The `easystats` package provides tools to quickly generate relevant figures and diagnostics to help you assess your model.
 
 Check for normality of the residuals:
 
@@ -339,7 +343,7 @@ performance::check_model(lm_voteshare, check = c('qq', 'normality'))
 
 The dots in the left-hand panel follow the line closely, with only small deviations in the upper tail, and the distribution of the residuals in the right-hand panel is close to the normal curve. There is no serious cause for concern.
 
-Another important assumption is [homoscedasticity](https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity), which occurs when the residuals exhibit constant variance across all levels of the independent variable(s). In contrast, [heteroscedasticity](https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity) arises when the variance of the residuals is not constant. Linearity, of course, is another key assumption in linear regression, signifying that a straight-line relationship exists between the independent and dependent variables.
+Another important assumption is [homoscedasticity](https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity), which occurs when the residuals exhibit constant variance across all levels of the independent variable(s). In contrast, [heteroscedasticity](https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity) arises when the variance of the residuals is not constant. Linearity is another key assumption in linear regression: each extra unit of an independent variable is assumed to add the same amount to the dependent variable. If the relationship curves, the model misses part of it.
 
 Check for linearity and homogeneity of variance (homoscedasticity):
 
@@ -359,7 +363,7 @@ performance::check_model(lm_voteshare, check = c('linearity', 'homogeneity'))
 In the linearity panel the reference line should be flat and horizontal. Here it is close to flat across the bulk of the data, and the bends at either end rest on very few constituencies (note the wide grey bands), so this is at most a mild deviation from linearity rather than a clear violation. In the homogeneity of variance panel the reference line is also roughly flat, so there is no clear sign of heteroscedasticity.
 :::
 
-Multicollinearity is another potential issue. Multicollinearity arises when independent variables are highly correlated with each other. This situation can complicate regression analysis, as it makes it challenging to isolate the individual effects of each correlated variable on the dependent variable. Finally, outliers can skew the results and affect the overall model fit.
+Multicollinearity is another potential issue. Multicollinearity arises when independent variables are highly correlated with each other. This situation can complicate regression analysis, as it makes it challenging to isolate the individual effects of each correlated variable on the dependent variable. Finally, a few influential observations can skew the results and affect the overall model fit.
 
 ::: {.callout-note}
 Multicollinearity can be assessed using Variance Inflation Factors (VIF). VIF measures how much the variance of an estimated regression coefficient increases because your predictors are correlated. For each predictor it is calculated by regressing that predictor on all the other predictors and taking $1 / (1 - R^2)$ of that regression. A VIF of 1 means that a predictor is not correlated with the others. As a rule of thumb, values above 5 indicate moderate and values above 10 indicate problematic multicollinearity.
