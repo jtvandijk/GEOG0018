@@ -474,6 +474,7 @@ window.Quarto = {
 <h4 class="unnumbered anchored" data-anchor-id="suggested-readings">Suggested readings</h4>
 <ul>
 <li>Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), <strong>Chapter 6</strong>: <em>The beast of bias</em>. <a href="https://ucl.primo.exlibrisgroup.com/discovery/openurl?institution=44UCL_INST&amp;vid=44UCL_INST:UCL_VU2&amp;rft.aulast=Field&amp;rft.pub=Sage&amp;rft.place=London&amp;rft.date=2026&amp;ctx_ver=Z39.88-2004&amp;rft.isbn=9781529740165&amp;rft.isbn=9781526461353&amp;rft.btitle=Discovering%20statistics%20using%20R%20%26%20RStudio&amp;rft.edition=2nd%20edition&amp;rft.aufirst=Andy">[Link]</a></li>
+<li>Kitchin, R. 2014. Big Data, new epistemologies and paradigm shifts. <em>Big Data &amp; Society</em> 1(1): 1–12. <a href="https://doi.org/10.1177/2053951714528481">[Link]</a></li>
 </ul>
 </section>
 </section>
@@ -768,7 +769,7 @@ Table&nbsp;1: Choosing a method based on the type of the variables.
 <p>When we want to compare more than two groups, we can use the Analysis of Variance (ANOVA) test. An ANOVA evaluates whether there are any statistically significant differences between the means of multiple groups. If the assumptions of ANOVA are violated, we can use the Kruskal-Wallis test, which is a non-parametric method that compares the ranks across the groups.</p>
 <section id="comparing-two-groups" class="level4" data-number="1.4.3.1">
 <h4 data-number="1.4.3.1" class="anchored" data-anchor-id="comparing-two-groups"><span class="header-section-number">2.4.3.1</span> Comparing two groups</h4>
-<p>To compare two groups with continuous data, we can run an independent samples <a href="https://en.wikipedia.org/wiki/Student%27s_t-test">t-test</a>, which allows us to statistically assess whether the means of the two groups differ significantly. For instance, we might be interested in whether the proportion of the population that is unemployed in Lower Super Output Areas (LSOAs) in the London Borough of Camden is different, on average, from the proportion of the population that is unemployed in the London Borough of Sutton.</p>
+<p>To compare two groups with continuous data, we can run a two-sample <a href="https://en.wikipedia.org/wiki/Student%27s_t-test">t-test</a> (also called an independent samples t-test), which allows us to statistically assess whether the means of the two groups differ significantly. For instance, we might be interested in whether the proportion of the population that is unemployed in Lower Super Output Areas (LSOAs) in the London Borough of Camden is different, on average, from the proportion of the population that is unemployed in the London Borough of Sutton.</p>
 <p>Let us begin by creating two separate datasets to facilitate our comparison: one containing the LSOAs for Camden and one containing the LSOAs for Sutton. We can do this by filtering the <code>lsoa_emp</code> dataset:</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
