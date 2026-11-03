@@ -1,62 +1,70 @@
+# load packages
+library(tidyverse)
+
 # set seed
 set.seed(123)
 
-# random height data
-# first-year students: mean = 168 cm, sd = 8, sample size = 20
-# second-year students: mean = 172 cm, sd = 8, sample size = 20
-first_year_heights <- rnorm(20, mean = 168, sd = 8)
-second_year_heights <- rnorm(20, mean = 172, sd = 8)
+# simulated height data (the heights are made up for this demonstration)
+# UCL Year 2 Geography students: mean = 168 cm, sd = 8, sample size = 20
+# KCL Year 2 Geography students: mean = 172 cm, sd = 8, sample size = 20
+ucl_heights <- rnorm(20, mean = 168, sd = 8)
+kcl_heights <- rnorm(20, mean = 172, sd = 8)
 
 # to dataframe
 student_heights <- data.frame(
-  height = c(first_year_heights, second_year_heights),
-  year = factor(rep(c('First Year', 'Second Year'), each = 20))
+  height = c(ucl_heights, kcl_heights),
+  university = factor(rep(c('UCL', 'KCL'), each = 20), levels = c('UCL', 'KCL'))
 )
 
+# histogram
+hist(student_heights[student_heights$university=='UCL',]$height,
+     main = 'UCL', xlab = 'Height (cm)')
+hist(student_heights[student_heights$university=='KCL',]$height,
+     main = 'KCL', xlab = 'Height (cm)')
+
 # boxplot
-boxplot(height ~ year, data = student_heights,
-        main = 'Boxplot of Heights by Year',
-        xlab = 'Student Year', ylab = 'Height (cm)')
+boxplot(height ~ university, data = student_heights,
+        main = 'Boxplot of Heights by University',
+        xlab = 'University', ylab = 'Height (cm)')
 
 # ranks
 student_heights$rank <- rank(student_heights$height)
 
 # boxplot
-boxplot(rank ~ year, data = student_heights,
-        main = 'Boxplot of Heights (Ranked) by Year',
-        xlab = 'Student Year', ylab = 'Rank')
+boxplot(rank ~ university, data = student_heights,
+        main = 'Boxplot of Heights (Ranked) by University',
+        xlab = 'University', ylab = 'Rank')
 
-# mann-whitney 
-wilcox.test(height ~ year, data = student_heights)
+# mann-whitney
+wilcox.test(height ~ university, data = student_heights)
 
-# random height data
-# third-year students: mean = 170, sd = 8, sample size = 20
-third_year_heights <- rnorm(20, mean = 170, sd = 8)
+# simulated height data for a third university
+# LSE Year 2 Geography students: mean = 170 cm, sd = 8, sample size = 20
+lse_heights <- rnorm(20, mean = 170, sd = 8)
 
 # to dataframe
 student_heights <- data.frame(
-  height = c(first_year_heights, second_year_heights, third_year_heights),
-  year = factor(rep(c('First Year', 'Second Year', 'Third Year'), each = 20))
+  height = c(ucl_heights, kcl_heights, lse_heights),
+  university = factor(rep(c('UCL', 'KCL', 'LSE'), each = 20), levels = c('UCL', 'KCL', 'LSE'))
 )
 
 # boxplot
-boxplot(height ~ year, data = student_heights,
-        main = 'Boxplot of Heights by Year',
-        xlab = 'Student Year', ylab = 'Height (cm)')
+boxplot(height ~ university, data = student_heights,
+        main = 'Boxplot of Heights by University',
+        xlab = 'University', ylab = 'Height (cm)')
 
 # ranks
 student_heights$rank <- rank(student_heights$height)
 
 # boxplot
-boxplot(rank ~ year, data = student_heights,
-        main = 'Boxplot of Heights (Ranked) by Year',
-        xlab = 'Student Year', ylab = 'Rank')
+boxplot(rank ~ university, data = student_heights,
+        main = 'Boxplot of Heights (Ranked) by University',
+        xlab = 'University', ylab = 'Rank')
 
 # kruskal-wallis
-kruskal.test(height ~ year, data = student_heights)
+kruskal.test(height ~ university, data = student_heights)
 
 # means
-mean_rank <- student_heights |> 
-  group_by(year) |>
+mean_rank <- student_heights |>
+  group_by(university) |>
   summarise(mean_rank = mean(rank))
-  
