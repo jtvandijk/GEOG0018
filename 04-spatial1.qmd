@@ -1,5 +1,5 @@
 # Spatial Analysis I
-This week's lecture introduced foundational concepts in GIScience and GIS software, with a focus on how spatial data is represented. Building on these ideas, the practical component allows you to apply this knowledge by creating thematic maps using [QGIS](https://qgis.org/).
+This week's lecture introduced how spatial data is represented in GIScience and GIS software, where to find spatial data, and how to link a table to spatial data with an attribute join. In the practical, you will prepare Census population counts, join them to the boundaries of small areas in London, and map the result using [QGIS](https://qgis.org/).
 
 ## Lecture slides
 You can download the slides of this week's lecture here: [[Link]]({{< var slides.week09 >}}).
@@ -10,6 +10,7 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 - Longley, P. *et al.* 2015. Geographic Information Science & Systems, **Chapter 3**: *Representing Geography*, pp. 55-76. [[Link]](https://ucl.rl.talis.com/link?url=https%3A%2F%2Fapp.knovel.com%2Fhotlink%2Ftoc%2Fid%3AkpGISSE001%2Fgeographic-information-science%3Fkpromoter%3Dmarc&sig=e437927b963cc591dcb65491eccdd3869cc31aef80e1443cb2ba12d8f3bb031a)
 
 #### Suggested readings {.unnumbered}
+- Longley, P. *et al.* 2015. Geographic Information Science & Systems, **Chapter 4**: *Georeferencing*. [[Link]](https://ucl.rl.talis.com/link?url=https%3A%2F%2Fapp.knovel.com%2Fhotlink%2Ftoc%2Fid%3AkpGISSE001%2Fgeographic-information-science%3Fkpromoter%3Dmarc&sig=e437927b963cc591dcb65491eccdd3869cc31aef80e1443cb2ba12d8f3bb031a)
 - Yuan, M. 2001. Representing complex geographic phenomena in GIS. *Cartography and Geographic Information Science* 28(2): 83-96. [[Link]](https://doi.org/10.1559/152304001782173718)
 
 ## Installation of QGIS
@@ -28,7 +29,7 @@ After installation, launch QGIS to confirm that the installation was successful.
 ## Population in London
 In this tutorial, we will map the population distribution in London using Census estimates from 2011 and 2021. When working with quantitative data, much of the effort goes into data preparation rather than analysis. It is often said that 80% of the time is spent on tasks like finding, retrieving, managing, and processing data. This is because the data you need is rarely in the format required for analysis. Before we can create our maps, we therefore have to go through several data preparation and cleaning steps.
 
-To get started, download a copy of the 2011 and 2021 London LSOAs spatial boundaries via the links provided below. Save these files in your project folder under `data`.
+We will work with Lower layer Super Output Areas (LSOAs), small census areas with roughly 1,000 to 3,000 residents that we also used in [week 1](01-recap.html). To get started, download a copy of the 2011 and 2021 London LSOA spatial boundaries via the links provided below. Save these files in your project folder under `data`.
 
 | File                                        | Type   | Link |
 | :------                                     | :------| :------ |
@@ -53,7 +54,7 @@ To get the 2011 Census population counts, you should:
 4. Click on **KS101EW - Usual resident population**.
 5. Select **Geography** and set **2011 super output areas - lower layer** to **All**.
 6. Click on **Download data** at the left hand side of the screen.
-8. Once the data is ready for download, save it to your computer in your `data` folder as `LSOA2011-population.xlsx`.
+7. Once the data is ready for download, save it to your computer in your `data` folder as `LSOA2011-population.xlsx`.
 
 To get the 2021 Census population counts, you should:
 
@@ -63,7 +64,7 @@ To get the 2021 Census population counts, you should:
 4. Click on **TS007A - Age by five-year age bands**.
 5. Select **Geography** and set **2021 super output areas - lower layer** to **All**.
 6. Click on **Download data** at the left hand side of the screen.
-8. Once the data is ready for download, save it to your computer in your `data` folder as `LSOA2021-population.xlsx`.
+7. Once the data is ready for download, save it to your computer in your `data` folder as `LSOA2021-population.xlsx`.
 
 ### Data preparation
 When opening the LSOA spreadsheets in Excel, you will notice additional rows of information at the top. This extra data can cause issues in QGIS, so we need to clean the dataset. To avoid errors later on, we will also save the cleaned data in `csv` format.
@@ -117,6 +118,10 @@ knitr::include_graphics('images/w09/almost-there.png')
 
 ::: {.callout-tip}
 You can make this process a bit less tedious by using keyboard shortcuts. On MacOS you can use: `cmd + f` to open up the find menu, `cmd + x` to cut data, and `cmd + v` to paste data. On Windows you can use: `ctrl + f` to open up the find menu, `ctrl + x` to cut data, and `ctrl + v` to paste data.
+:::
+
+::: {.callout-warning}
+Searching for *Brent* also finds the LSOAs of *Brentwood*, a local authority in Essex. Only cut the rows named *Brent 001A*, *Brent 001B*, and so on (173 LSOAs in total).
 :::
 
 ::: {.callout-warning}
@@ -174,7 +179,7 @@ Now the 2011 data is prepared, we can move on to the 2021 data. Open the `LSOA20
 
 1. Open a new Excel spreadsheet.
 2. From the `LSOA2021-population.xlsx` spreadsheet, cut (**Edit** -> **Cut**) all cells from columns **A to B** and rows **19,790 to 24,783** and paste these into this new spreadsheet.
-3. Take the remaining steps to prepare the 2021 population steps: split the `lsoa` column, remove the trailing `whitespace` characters from the LSOA code column, and remove the decimal commas in the population count column.
+3. Take the remaining steps to prepare the 2021 population data: split the `lsoa` column, remove the trailing `whitespace` characters from the LSOA code column, and remove the commas in the population count column.
 4. Save the file as `csv` into your `data` folder as `LSOA2021-population.csv` with the following column names: `lsoa21_code`, `lsoa21_name`, and `pop2021`.
 
 ::: {.callout-warning}
@@ -186,10 +191,10 @@ We will now use QGIS to map our prepared population data. To achieve this, we fi
 
 1. Start **QGIS**.
 2. Click on **Project** -> **New**. Save your project as `w09-population-analysis`. Remember to save your work throughout the practical.
-3. Before we add our data, we will first set the Coordinate Reference System (CRS) of our Project. Click on **Project** -> **Properties -- CRS**. In the Filter box, type **British National Grid**. Select **OSGB 1936 / British National Grid - EPSG:27700** and click **Apply**. Click **OK**.
+3. Before we add our data, we will first set the Coordinate Reference System (CRS) of our Project. Click on **Project** -> **Properties** -> **CRS**. In the Filter box, type **British National Grid**. Select **OSGB36 / British National Grid - EPSG:27700** (older versions of QGIS call this *OSGB 1936 / British National Grid*) and click **Apply**. Click **OK**.
 
 ::: {.callout-note}
-A CRS is a framework that defines how spatial data is represented in relation to the Earth's surface. It includes both a coordinate system (which specifies how points in space are represented using numbers) and a set of parameters that define the relationship between those coordinates and actual locations on the Earth.
+A CRS is a framework that defines how spatial data is represented in relation to the Earth's surface. It includes both a coordinate system (which specifies how points in space are represented using numbers) and a set of parameters that define the relationship between those coordinates and actual locations on the Earth. The LSOA boundary files we use are stored in the British National Grid, so we give our project the same CRS.
 :::
 
 Now the project is set up, we can start by loading our 2011 spatial layer.
@@ -215,7 +220,7 @@ knitr::include_graphics('images/w09/all-lsoa-london.png')
 We can now join this table data to our spatial data using an *attribute join*.
 
 ::: {.callout-note}
-An *attribute join* allows you to link two datasets together based on a common attribute that facilitates the matching of rows. To perform an attribute join, you need a single unique identifying field for your records in both datasets. This can be a code, a name, or any other string of information. For the join to work, it is essential that the ID field is consistent across both datasets, meaning there should be no typos or spelling mistakes.
+An *attribute join* allows you to link two datasets together based on a common attribute that facilitates the matching of rows. To perform an attribute join, you need a single unique identifying field for your records in both datasets. This can be a code, a name, or any other string of information. For the join to work, it is essential that the ID field is consistent across both datasets, meaning there should be no typos or spelling mistakes. In QGIS, the identifier in the table is called the **Join field** and the identifier in the spatial layer the **Target field**.
 
 ```{r}
 #| label: fig-join-those-attributes
@@ -229,7 +234,7 @@ knitr::include_graphics('images/w09/attribute-joins.png')
 Because both our datasets contain both LSOA names and LSOA codes, we will use the LSOA codes as basis for our join. Unlike names, codes reduce the likelihood of errors and mismatches since they are not dependent on spelling.
 
 10. Open up the **Attribute Tables** of each layer to confirm the column names that we can use for the join.
-11. *Right-click* on your `LSOA2011` spatial layer, click on **Properties** and then click on the **Joins** tab.
+11. *Right-click* on your `London-LSOA-2011` spatial layer, click on **Properties** and then click on the **Joins** tab.
     - Click on the **+** button. Make sure the **Join Layer** is set to `LSOA2011-population`.
     - Set the **Join field** to `lsoa11_code`.
     - Set the **Target field** to `lsoa11cd`.
@@ -238,7 +243,11 @@ Because both our datasets contain both LSOA names and LSOA codes, we will use th
     - Click on **OK**.
     - Click on **Apply** in the main Join tab and then click **OK** to return to the main QGIS window.
 
-We can now check to see if our join has worked by opening up the **Attribute Table** of our `LSOA2011` spatial layer. We should see that the spatial layer has a new **Population** field attached to it.
+We can now check to see if our join has worked by opening up the **Attribute Table** of our `London-LSOA-2011` spatial layer. We should see that the spatial layer has a new `pop2011` field attached to it.
+
+::: {.callout-tip}
+QGIS keeps every polygon of the spatial layer when it joins a table. If a code does not match, the polygon stays on the map but its `pop2011` value is empty (`NULL`). Click on the header of the `pop2011` column to sort it: all **4,835** LSOAs should have a population count. Empty values point to codes that do not match, for example because of a stray space or because the table and the boundaries come from different years.
+:::
 
 ### Data mapping
 We can now finally map the 2011 population distribution of London.
@@ -246,8 +255,8 @@ We can now finally map the 2011 population distribution of London.
 12. *Right-click* on the `London-LSOA-2011` layer and click on **Properties** -> **Symbology**.
     - In the dropdown menu at the top of the window, select **Graduated** as symbology.
     - Under **Value** choose `pop2011` as your column.
-    - We can then change the color ramp to suit our aesthetic preferences. In the **Colour ramp** dropdown menu select *Magma*.
-    - The final step is to classify our data, which involves deciding how to group the values in our dataset to create a graduated representation. Today we will use the **Natural Breaks** option. Open the drop-down menu next to **Mode**, select **Natural Breaks**, change it to **7** classes and then click **Classify**.
+    - We can then change the colour ramp to suit our aesthetic preferences. In the **Color ramp** dropdown menu select *Magma*.
+    - The final step is to classify our data, which involves deciding how to group the values in our dataset to create a graduated representation. Today we will use the **Natural Breaks (Jenks)** option. Open the drop-down menu next to **Mode**, select **Natural Breaks (Jenks)**, change it to **7** classes and then click **Classify**.
     - Finally click **Apply** to style your dataset.
 
 You should now be looking at something like this:
@@ -261,17 +270,17 @@ knitr::include_graphics('images/w09/lsoa-population-2011.png')
 ```
 
 ::: {.callout-warning}
-While the map above is acceptable for today, it is technically incorrect because it displays absolute numbers on a choropleth. You should never do this unless the spatial units are identical in size, as larger areas will draw disproportionate attention and skew the visualisation.
+While the map above is acceptable for today, it is technically incorrect because it displays absolute numbers on a choropleth. You should never do this unless the spatial units are identical in size, as larger areas will draw disproportionate attention and skew the visualisation. Next week, we return to this problem when we calculate rates.
 :::
 
-To export your map to an image, click on **Project** -> **Import/Export** -> **Export to Image**.
+To export your map to an image, click on **Project** -> **Import/Export** -> **Export Map to Image**.
 
 ## Homework task
 This concludes this week's tutorial. Now complete the following homework tasks:
 
 1. Load the `London-LSOA-2021.gpkg` into QGIS.
 2. Load the `LSOA2021-population.csv` into QGIS.
-3. Join the two datasets together using an **Attribute Join**.
+3. Join the two datasets together using an **Attribute Join** and check that no LSOA is left without a population count.
 4. Style your data appropriately.
 5. Export your map as an image.
 
