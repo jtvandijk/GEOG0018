@@ -457,7 +457,7 @@ window.Quarto = {
 
 <section id="statistical-analysis-ii" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">3</span> Statistical Analysis II</h1>
-<p>Last week, we explored methods for comparing groups. This week, our focus shifts to examining relationships between variables, aiming to assess the extent to which two variables <em>covary</em> — in other words, how changes in one variable are associated with changes in another. For example, what is the link between greenhouse gas emissions (<code>x</code>) and global mean temperature (<code>y</code>)? What effect does spending longer in education (<code>x</code>) have on earnings (<code>y</code>)? To what extent are house prices or local health outcomes (<code>y</code>) increased by proximity to urban greenspace (<code>x</code>)? To answer these sorts of questions we need techniques for unpacking relationships between variables.</p>
+<p>Last week, we explored methods for comparing groups. This week, our focus shifts to examining relationships between variables, aiming to assess the extent to which two variables <em>covary</em>: how changes in one variable are associated with changes in another. For example, what is the link between greenhouse gas emissions (<code>x</code>) and global mean temperature (<code>y</code>)? How are earnings (<code>y</code>) related to the time spent in education (<code>x</code>)? To what extent are house prices or local health outcomes (<code>y</code>) associated with proximity to urban greenspace (<code>x</code>)? To answer these sorts of questions we need techniques for unpacking relationships between variables.</p>
 <section id="lecture-slides" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="lecture-slides"><span class="header-section-number">3.1</span> Lecture slides</h2>
 <p>You can download the slides of this week’s lecture here: <a href="https://github.com/jtvandijk/GEOG0018/raw/master/slides/w08-mhg.pdf">[Link]</a>.</p>
@@ -482,8 +482,8 @@ window.Quarto = {
 <h2 data-number="1.3" class="anchored" data-anchor-id="start-of-session"><span class="header-section-number">3.3</span> Start of session</h2>
 <p>Before working through the tutorial, we will spend a few minutes looking at:</p>
 <ul>
-<li>Anscombe’s quartet</li>
-<li>The units of the variables in a regression output</li>
+<li>The unit of a regression coefficient, such as <code>0.740</code></li>
+<li>The error “object ‘aged_50’ not found”</li>
 </ul>
 </section>
 <section id="election-results-in-england-and-wales" class="level2" data-number="1.4">
@@ -611,7 +611,7 @@ dbl (22): eligible_voters, valid_votes, conservative_votes, labour_votes, li...
 </section>
 <section id="crosstabulation" class="level3" data-number="1.4.2">
 <h3 data-number="1.4.2" class="anchored" data-anchor-id="crosstabulation"><span class="header-section-number">3.4.2</span> Crosstabulation</h3>
-<p>In geography, we frequently work with categorical variables. One technique for assessing relationships between two categorical variables is crosstabulation. For example, if we hypothesise that older voters predominantly support the Conservative Party, we could crosstabulate the winning party against constituencies where more than 40% of the population is over 50 years old (<code>pop_50plus_40percent</code>).</p>
+<p>In geography, we frequently work with categorical variables. One technique for assessing relationships between two categorical variables is crosstabulation. For example, if we hypothesise that constituencies with an older population are more likely to be won by the Conservative Party, we could crosstabulate the winning party against constituencies where more than 40% of the population is over 50 years old (<code>pop_50plus_40percent</code>).</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -648,7 +648,8 @@ Total                       300     275     575
 ================================================</code></pre>
 </div>
 </div>
-<p>We observe that in the 116 constituencies won by the Conservatives, 78.4% have more than 40% of their population aged over 50. In contrast, only 35% of the 374 constituencies won by the Labour Party have a similar demographic. This suggests an <em>association</em> between a large (&gt; 40%) proportion of individuals over 50 years old (<code>x</code>) and the election results (<code>y</code>).</p>
+<p>We observe that in the 116 constituencies won by the Conservatives, 78.4% have more than 40% of their population aged over 50. In contrast, only 35.0% of the 374 constituencies won by the Labour Party have a similar demographic. This suggests an <em>association</em> between a large (&gt; 40%) proportion of individuals over 50 years old (<code>x</code>) and the election results (<code>y</code>).</p>
+<p>Note that these data describe constituencies, not individual voters. We can say that constituencies with an older population tend to be won by the Conservatives, but not that older people vote for the Conservatives. Drawing conclusions about individuals from data about areas is called the <em>ecological fallacy</em>.</p>
 <p>We can use a Chi-square test to assess whether this association is statistically significant:</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
@@ -700,7 +701,7 @@ Chi^2 = 75.53043      d.f. = 3      p = 2.79e-16
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>The Chi-square test is a statistical method used to assess whether there is a significant association between two categorical variables. It compares the observed frequencies in each category to the expected frequencies, which are based on the assumption that there is no relationship between the variables (the <em>null hypothesis</em>). If the differences between observed and expected values are large enough, we reject the <em>null hypothesis</em>, indicating a significant association between the variables. Note that the test tells us whether an association exists, not how strong it is.</p>
+<p>The Chi-square test is a statistical method used to assess whether there is a significant association between two categorical variables. It compares the observed frequencies in each category to the expected frequencies, which are based on the assumption that there is no relationship between the variables (the <em>null hypothesis</em>). If the differences between observed and expected values are large enough, we reject the <em>null hypothesis</em>, indicating a significant association between the variables. Note that the test tells us whether an association exists, not how strong it is: for that, compare the percentages in the crosstab.</p>
 </div>
 </div>
 </div>
@@ -896,8 +897,8 @@ Table&nbsp;1: Types of variables in regression models.
 </div>
 </figure>
 </div>
-<section id="univariate-regression" class="level4" data-number="1.4.4.1">
-<h4 data-number="1.4.4.1" class="anchored" data-anchor-id="univariate-regression"><span class="header-section-number">3.4.4.1</span> Univariate regression</h4>
+<section id="bivariate-regression" class="level4" data-number="1.4.4.1">
+<h4 data-number="1.4.4.1" class="anchored" data-anchor-id="bivariate-regression"><span class="header-section-number">3.4.4.1</span> Bivariate regression</h4>
 <p>A Pearson’s correlation describes the strength and direction of a linear relationship, but we can also quantify the change in the dependent variable (<code>y</code>) for a one-unit change in the independent variable (<code>x</code>) with an Ordinary Least Squares (OLS) regression.</p>
 <p>Let us run a model with the proportion of the population that is over 50 years old as <code>x</code> and the Conservative vote share as <code>y</code>:</p>
 <div class="cell styled-output">
@@ -945,8 +946,8 @@ F-statistic: 271.3 on 1 and 573 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="multivariate-regression" class="level4" data-number="1.4.4.2">
-<h4 data-number="1.4.4.2" class="anchored" data-anchor-id="multivariate-regression"><span class="header-section-number">3.4.4.2</span> Multivariate regression</h4>
+<section id="multiple-regression" class="level4" data-number="1.4.4.2">
+<h4 data-number="1.4.4.2" class="anchored" data-anchor-id="multiple-regression"><span class="header-section-number">3.4.4.2</span> Multiple regression</h4>
 <p>Now, let us include additional predictors in our regression model to see if we can better explain the variation in the Conservative vote share. We will include <code>eco_active_employed</code> (the proportion of economically active employed individuals) and <code>eth_white</code> (the proportion of the population that identifies as white):</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
@@ -1000,7 +1001,8 @@ F-statistic: 166.8 on 3 and 571 DF,  p-value: &lt; 2.2e-16</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>The coefficients in a multivariate regression model represent the predicted change in the dependent variable (<code>y</code>) with a one-unit increase in each independent variable (<code>x</code>), while holding all other variables in the model constant. This makes the coefficients <em>partial</em> regression coefficients, meaning they show the effect of each predictor after accounting for the influence of the others.</p>
+<p>The coefficients in a multiple regression model represent the predicted change in the dependent variable (<code>y</code>) with a one-unit increase in each independent variable (<code>x</code>), while holding all other variables in the model constant. This makes the coefficients <em>partial</em> regression coefficients, meaning they show the association between each predictor and the dependent variable after accounting for the others.</p>
+<p>This is why the coefficient for <code>aged_50_years_and_over</code> has changed from 0.74 to 1.2. The share of people over 50 is strongly related to the other predictors (its correlation with <code>eth_white</code> is 0.80), so its association with the Conservative vote share looks different once they are held constant.</p>
 </div>
 </div>
 </div>
@@ -1033,14 +1035,14 @@ Figure&nbsp;3: Boxplot on the Conservative voter share by region.
 </div>
 </div>
 </div>
-<p>The boxplots suggest some regional variation and so we will add the <code>region_name</code> variable to our regression model. To do this, we need to transform the categorical variable into <a href="https://en.wikipedia.org/wiki/Dummy_variable_(statistics)">dummy variables</a>, one for each of the 10 regions. Each observation will be coded as 1 for its corresponding region and 0 for all other regions.</p>
+<p>The boxplots suggest some regional variation and so we will add the <code>region_name</code> variable to our regression model. To do this, we need to transform the categorical variable into <a href="https://en.wikipedia.org/wiki/Dummy_variable_(statistics)">dummy variables</a>: variables that are coded 1 for the constituencies in a region and 0 for all other constituencies. With 10 regions, R creates nine dummy variables, because one region has to be left out as the <em>reference category</em>. In the code above we put London first in the order of the regions, so London is the reference category.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>By including all but one of the regional dummy variables in the regression model, we control for regional differences, with the omitted category serving as the <em>reference category</em>. R will detect that you have a categorical variable if it is stored as a character or factor and will do the dummy generation for you. The coefficients for the included dummy variables indicate how much the predicted value of the dependent variable differs for constituencies in that region compared to the <em>reference</em> region.</p>
+<p>R will detect that you have a categorical variable if it is stored as a character or factor and will do the dummy generation for you. The coefficients for the included dummy variables indicate how much the predicted value of the dependent variable differs for constituencies in that region compared to the <em>reference</em> region, with the other variables in the model held constant.</p>
 </div>
 </div>
 </div>
@@ -1149,7 +1151,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </section>
 <section id="diagnostics" class="level4" data-number="1.4.4.3">
 <h4 data-number="1.4.4.3" class="anchored" data-anchor-id="diagnostics"><span class="header-section-number">3.4.4.3</span> Diagnostics</h4>
-<p>The validity of a regression relies on several assumptions being met. One of the most important assumptions is that the residuals (the differences between predicted and observed values) should be independent and approximately normally distributed. The <code>easystats</code> package provides tools to quickly generate relevant figures and diagnostics to help you assess your model.</p>
+<p>The validity of a regression relies on several assumptions being met. One of the most important assumptions is that the residuals (the errors of the model: the differences between observed and predicted values) should be independent and approximately normally distributed. The <code>easystats</code> package provides tools to quickly generate relevant figures and diagnostics to help you assess your model.</p>
 <p>Check for normality of the residuals:</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
@@ -1173,7 +1175,7 @@ Figure&nbsp;4: Check for normality of residuals.
 </div>
 </div>
 <p>The dots in the left-hand panel follow the line closely, with only small deviations in the upper tail, and the distribution of the residuals in the right-hand panel is close to the normal curve. There is no serious cause for concern.</p>
-<p>Another important assumption is <a href="https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity">homoscedasticity</a>, which occurs when the residuals exhibit constant variance across all levels of the independent variable(s). In contrast, <a href="https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity">heteroscedasticity</a> arises when the variance of the residuals is not constant. Linearity, of course, is another key assumption in linear regression, signifying that a straight-line relationship exists between the independent and dependent variables.</p>
+<p>Another important assumption is <a href="https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity">homoscedasticity</a>, which occurs when the residuals exhibit constant variance across all levels of the independent variable(s). In contrast, <a href="https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity">heteroscedasticity</a> arises when the variance of the residuals is not constant. Linearity is another key assumption in linear regression: each extra unit of an independent variable is assumed to add the same amount to the dependent variable. If the relationship curves, the model misses part of it.</p>
 <p>Check for linearity and homogeneity of variance (homoscedasticity):</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
@@ -1206,7 +1208,7 @@ Figure&nbsp;5: Check for linearity and homogeneity of variance.
 </div>
 </div>
 </div>
-<p>Multicollinearity is another potential issue. Multicollinearity arises when independent variables are highly correlated with each other. This situation can complicate regression analysis, as it makes it challenging to isolate the individual effects of each correlated variable on the dependent variable. Finally, outliers can skew the results and affect the overall model fit.</p>
+<p>Multicollinearity is another potential issue. Multicollinearity arises when independent variables are highly correlated with each other. This situation can complicate regression analysis, as it makes it challenging to isolate the individual effects of each correlated variable on the dependent variable. Finally, a few influential observations can skew the results and affect the overall model fit.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
