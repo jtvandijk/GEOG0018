@@ -1,5 +1,5 @@
 # Getting started {.unnumbered}
-R is a programming language originally designed for conducting statistical analysis and creating graphics. The major advantage of using R is that it can be used on any computer operating system, and is free for anyone to use and contribute to. Because of this, it has rapidly become the statistical language of choice for many academics and has a large user community with people constantly contributing new packages to carry out all manner of statistical, graphical, and geographical tasks. In this tutorial, we will guide you through installing R on your computer and review the basics of interacting with the language and its functions.
+R is a programming language originally designed for conducting statistical analysis and creating graphics. The major advantage of using R over many other tools is that it can be used on any computer operating system, and is free for anyone to use and contribute to. Because of this, it has rapidly become the statistical language of choice for many academics and has a large user community with people constantly contributing new packages to carry out all manner of statistical, graphical, and geographical tasks. In this tutorial, we will guide you through installing R on your computer and review the basics of interacting with the language and its functions.
 
 ::: {.callout-note}
 This chapter is a refresher for anyone who needs one. You will have used R and RStudio during your first year, so if you are comfortable with installing and using them, you can skip this chapter. If you have not used R for a while, or if you are using a new computer, please work through it **before the first session**. Everyone needs a working installation of R and RStudio in the first session.
@@ -45,13 +45,14 @@ The main panes that we will be using are:
 
 | Window        | Purpose                                                             |
 |:---------------|:-------------------------------------------------------|
+| *Script*      | Where we write and save code that we want to run again. It appears once you create or open a script. |
 | *Console*     | Where we write one-off code such as installing packages.            |
 | *Files*       | Where we can see where our files are stored on our computer system. |
 | *Environment* | Where our variables or objects are kept in memory.                  |
 | *Plots*       | Where the outputs of our graphs, charts and maps are shown.         |
 
 ## Customisation of R {.unnumbered}
-Now we have installed R and RStudio, we need to customise R. Many useful R functions come in packages, these are free libraries of code written and made available by other R users. This includes packages specifically developed for data cleaning, data wrangling, visualisation, mapping, and spatial analysis. To save us some time later on, we will install the R packages that we will need during the module in one go.
+Now we have installed R and RStudio, we need to customise R. Many useful R functions come in packages, which are free libraries of code written and made available by other R users. This includes packages specifically developed for data cleaning, data wrangling, visualisation, mapping, and spatial analysis. To save us some time later on, we will install the R packages that we will need during the module in one go.
 
 Start RStudio, and copy and paste the following code into the **console** window. You can execute the code by pressing the **Return** button on your keyboard. Depending on your computer's specifications and the internet connection, this may take a short while.
 
@@ -96,7 +97,7 @@ You will see some information printed to your **console** but as long as you do 
 -   `Error in library(<packagename>) : there is no package called '<packagename>'`
 
 ::: {.callout-note}
-Many packages require additional software components, known as *dependencies*, to function properly. Occasionally, when you install a package, some of these dependencies are not installed automatically. When you then try to load a package, you might encounter error messages that relate to a package that you did not explicitly loaded or installed. If this is the case, it is likely due to a missing dependency. To resolve this, identify the missing dependency and install it using the command `install.packages('<dependencyname>')`. Afterwards, try loading your packages again.
+Many packages require additional software components, known as *dependencies*, to function properly. Occasionally, when you install a package, some of these dependencies are not installed automatically. When you then try to load a package, you might encounter error messages that relate to a package that you did not explicitly load or install. If this is the case, it is likely due to a missing dependency. To resolve this, identify the missing dependency and install it using the command `install.packages('<dependencyname>')`. Afterwards, try loading your packages again.
 :::
 
 ::: {.callout-note}
@@ -129,6 +130,10 @@ Once you press return, you should see the answer of `120` returned below.
 
 ### Storing variables {.unnumbered}
 Instead of using raw numbers or standalone values, it is more effective to store these values in variables, which allows for easy reference later. In R, this process is known as **creating an object**, and the object is stored as a variable. To assign a value to a variable, use the `<-` syntax. Let us create two variables to experiment with this.
+
+::: {.callout-note}
+In R, a *variable* is a name that refers to a stored value, which R keeps as an object. In the lecture and later in this module, a *variable* also means a characteristic measured in a dataset, such as a column in a dataframe (for example the proportion of people aged 16 to 24). The context makes clear which meaning is intended.
+:::
 
 Type in `ten <- 10` into the **console** and execute.
 
@@ -497,7 +502,7 @@ This introductory tutorial did not cover anything new that you have not encounte
 
 Before the first session, you should be able to:
 
-- Open RStudio and find the **console**, **environment**, **files** and **plots** panes.
+- Open RStudio and find the **script**, **console**, **environment**, **files** and **plots** panes.
 - Run a line of code from a script.
 - Create a variable and call a function on it.
 - Install a package once and load it with `library()`.

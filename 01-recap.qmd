@@ -19,7 +19,6 @@ Before working through the tutorial, we will spend a few minutes looking at:
 
 - The raw `csv` file before it is loaded into R
 - A live example of a "file not found" error, and how to fix it
-- The mean and the median of the same variable
 
 ## Age groups in Camden
 In RStudio, scripts allow us to build and save code that can be run repeatedly. We can organise these scripts into RStudio projects, which consolidate all files related to an analysis such as input data, R scripts, results, figures, and more. This organisation helps keep track of all data, input, and output, while enabling us to create standalone scripts for each part of our analysis. Additionally, it simplifies managing [directories and filepaths](https://en.wikipedia.org/wiki/Path_(computing)).
@@ -230,7 +229,7 @@ You can further inspect the results using the `View()` function.
 :::
 
 ### Data exploration
-Now that we have loaded and inspected our data, we can start by analysing its distribution. We will begin by examining the proportion of people *aged 16 to 24* across London, using basic descriptive statistics such as the mean, median, range, and standard deviation. These measures will give us an idea of the central tendency and spread of the data.
+Now that we have loaded and inspected our data, we can start by analysing its distribution. We will begin by examining the proportion of people *aged 16 to 24* across London, using basic descriptive statistics such as the mean, median, range, interquartile range, and standard deviation. These measures will give us an idea of the central tendency and spread of the data.
 
 ```{r}
 #| label: 01-explore-data
@@ -248,12 +247,19 @@ median(lsoa_age$aged_16_to_24_years)
 # range
 range(lsoa_age$aged_16_to_24_years)
 
+# interquartile range
+IQR(lsoa_age$aged_16_to_24_years)
+
 # standard deviation
 sd(lsoa_age$aged_16_to_24_years)
 
 # summary
 summary(lsoa_age$aged_16_to_24_years)
 ```
+
+::: {.callout-tip}
+R has no built-in function for the mode. The `mode()` function returns the storage type of an object, such as `numeric`. For a categorical variable, you can count how often each value occurs with `table()`.
+:::
 
 Further to these standard descriptive statistics, graphs provide a useful visual summary of the distribution of values on a variable. Graphs can help us assess, for instance, whether our data are [normally distributed](https://en.wikipedia.org/wiki/Normal_distribution), whether there are *outlying* values, and whether there are any missing values or errors we should deal with before running our analyses. Histograms are a good first step when it comes to looking at the distribution of values of a variable.
 

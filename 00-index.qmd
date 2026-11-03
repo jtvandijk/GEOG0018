@@ -9,17 +9,17 @@ knitr::include_graphics('images/w00/methods-welcome.png')
 ```
 
 ## Welcome {.unnumbered}
-Welcome to the second half of **Methods in Human Geography**. In this part of the module, you will delve into essential statistical analysis techniques and gain a basic foundation in creating thematic maps. We will be using R and the RStudio environment for statistical analysis, and the open-source programme QGIS for handling spatial data.
+Welcome to the second half of **Methods in Human Geography**. In this part of the module, you will delve into essential statistical analysis techniques and gain a basic foundation in creating thematic maps. We will be using R and the RStudio environment for statistical analysis, and the open-source program QGIS for handling spatial data.
 
 ## Moodle {.unnumbered}
 [Moodle](https://moodle.ucl.ac.uk/) is the central point of contact for GEOG0018 and it is where all important information will be communicated such as key module and assessment information. This workbook provides links to all reading materials and includes the content for all computer tutorials.
 
 ## Module overview {.unnumbered}
-The topics covered over the next five weeks are:
+The topics covered over the next five weeks are listed below. Week 0 is a refresher that you can work through before the first session if you need it.
 
 | Week | Section  | Topic |
 | :--- |:---------|:------------------ |
-| 1    | Getting Started               | [Getting Started]({{< var urls.w00 >}}) |
+| 0    | Getting Started               | [Getting Started]({{< var urls.w00 >}}) |
 | 1    | R for Data Analysis           | [R for Data Analysis]({{< var urls.w01 >}}) |
 | 2    | Statistical Analysis          | [Statistical Analysis I]({{< var urls.w02 >}}) |
 | 3    | Statistical Analysis          | [Statistical Analysis II]({{< var urls.w03 >}}) |
@@ -28,10 +28,14 @@ The topics covered over the next five weeks are:
 
 ## Major updates {.unnumbered}
 ::: {.callout-note}
-This year's version features the following **minor** updates:
+This year's version features the following updates:
 
 - Updated software instructions (R 4.6 and QGIS 3.44 LTR).
-- Corrected file names and links, and updated the reading lists.
+- A refresher chapter, *Getting started*, with RStudio shortcuts and common error messages.
+- A short *Start of session* section in each week, listing what we will look at before working through the tutorial.
+- Tables on choosing a statistical test and on variable types in regression, a short section on how ANOVA relates to regression, and boxes on common misconceptions.
+- Prepared files in the spatial analysis weeks for anyone who falls behind.
+- Corrected file names and links, and updated reading lists.
 - Minor changes, typos.
 :::
 
