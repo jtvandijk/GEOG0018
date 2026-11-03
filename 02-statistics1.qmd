@@ -11,6 +11,7 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 
 #### Suggested readings {.unnumbered}
 - Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), **Chapter 6**: *The beast of bias*. [[Link]]({{< var readings.field >}})
+- Kitchin, R. 2014. Big Data, new epistemologies and paradigm shifts. *Big Data & Society* 1(1): 1–12. [[Link]](https://doi.org/10.1177/2053951714528481)
 
 ## Start of session
 Before working through the tutorial, we will spend a few minutes looking at:
@@ -178,7 +179,7 @@ Parametric tests assume that the data follows a specific distribution, usually n
 When we want to compare more than two groups, we can use the Analysis of Variance (ANOVA) test. An ANOVA evaluates whether there are any statistically significant differences between the means of multiple groups. If the assumptions of ANOVA are violated, we can use the Kruskal-Wallis test, which is a non-parametric method that compares the ranks across the groups.
 
 #### Comparing two groups
-To compare two groups with continuous data, we can run an independent samples [t-test](https://en.wikipedia.org/wiki/Student%27s_t-test), which allows us to statistically assess whether the means of the two groups differ significantly. For instance, we might be interested in whether the proportion of the population that is unemployed in Lower Super Output Areas (LSOAs) in the London Borough of Camden is different, on average, from the proportion of the population that is unemployed in the London Borough of Sutton.
+To compare two groups with continuous data, we can run a two-sample [t-test](https://en.wikipedia.org/wiki/Student%27s_t-test) (also called an independent samples t-test), which allows us to statistically assess whether the means of the two groups differ significantly. For instance, we might be interested in whether the proportion of the population that is unemployed in Lower Super Output Areas (LSOAs) in the London Borough of Camden is different, on average, from the proportion of the population that is unemployed in the London Borough of Sutton.
 
 Let us begin by creating two separate datasets to facilitate our comparison: one containing the LSOAs for Camden and one containing the LSOAs for Sutton. We can do this by filtering the `lsoa_emp` dataset:
 
