@@ -32,7 +32,7 @@ This year's version features the following updates:
 
 - Updated software instructions (R 4.6 and QGIS 3.44 LTR).
 - A refresher chapter, *Getting started*, with RStudio shortcuts and common error messages.
-- A short *Start of session* section in each week, listing what we will look at before working through the tutorial.
+- A short *Start of session* section in the first three weeks, listing what we will look at before working through the tutorial.
 - Tables on choosing a statistical test and on variable types in regression, a short section on how ANOVA relates to regression, and boxes on common misconceptions.
 - Prepared files in the spatial analysis weeks for anyone who falls behind.
 - Corrected file names and links, and updated reading lists.

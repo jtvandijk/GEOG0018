@@ -12,12 +12,6 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 #### Suggested readings {.unnumbered}
 - Yuan, M. 2001. Representing complex geographic phenomena in GIS. *Cartography and Geographic Information Science* 28(2): 83-96. [[Link]](https://doi.org/10.1559/152304001782173718)
 
-## Start of session
-Before working through the tutorial, we will spend a few minutes looking at:
-
-- The raw spreadsheet as downloaded from Nomis, before any cleaning
-- Row counts and missing values after an attribute join
-
 ## Installation of QGIS
 QGIS is an open-source graphic user interface GIS with many community developed add-on packages that provide additional functionality to the software. You can download and install QGIS on your personal machine by going to the QGIS website: [[Link]](https://qgis.org/en/site/forusers/download.html).
 

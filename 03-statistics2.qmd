@@ -15,7 +15,7 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 ## Start of session
 Before working through the tutorial, we will spend a few minutes looking at:
 
-- The unit of a regression coefficient, such as `0.740`
+- A regression prediction worked out by hand
 - The error "object 'aged_50' not found"
 
 ## Election results in England and Wales
