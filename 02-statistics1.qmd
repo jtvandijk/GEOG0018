@@ -16,8 +16,8 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 ## Start of session
 Before working through the tutorial, we will spend a few minutes looking at:
 
-- The distribution of unemployment rates in each borough, before any test is run
-- Statistical significance and the size of a difference
+- P-values in scientific notation, such as `2.2e-16`
+- The error "grouping factor must have exactly 2 levels"
 
 ## Unemployment in London
 In this week's tutorial, we will explore unemployment rates in London as reported in the 2021 Census. In addition, we will use [last week's dataset](01-recap.html#age-groups-in-camden) on age groups in London for the homework task. You can download both files using the links provided below. Make sure to save the files in your project folder in the `data` directory.
