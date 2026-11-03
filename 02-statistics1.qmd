@@ -6,6 +6,7 @@ You can download the slides of this week's lecture here: [[Link]]({{< var slides
 
 ## Reading list
 #### Essential readings {.unnumbered}
+- Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), **Chapter 2**: *The SPINE of statistics*. [[Link]]({{< var readings.field >}})
 - Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), **Chapter 9**: *Categorical predictors: Comparing two means*. [[Link]]({{< var readings.field >}})
 - Field, A. 2026. Discovering Statistics Using R and RStudio (2nd edition), **Chapter 11**: *GLM 1: Comparing several independent means*. [[Link]]({{< var readings.field >}})
 
