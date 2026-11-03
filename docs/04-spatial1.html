@@ -392,7 +392,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="spatial-analysis-i" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">4</span> Spatial Analysis I</h1>
-<p>This week’s lecture introduced how spatial data is represented in GIScience and GIS software, where to find spatial data, and how to link a table to spatial data with an attribute join. In the practical, you will prepare Census population counts, join them to the boundaries of small areas in London, and map the result using <a href="https://qgis.org/">QGIS</a>.</p>
+<p>This week’s lecture introduced how spatial data is represented in GIScience and GIS software, where to find spatial data, and how to link a table to spatial data with an attribute join. In the practical, you will prepare Census population counts, join them to the boundaries of small areas in London, and map the result using <a href="https://qgis.org/">QGIS</a>. The result is a <em>choropleth map</em>, a thematic map that shades areas by a value.</p>
 <section id="lecture-slides" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="lecture-slides"><span class="header-section-number">4.1</span> Lecture slides</h2>
 <p>You can download the slides of this week’s lecture here: <a href="https://github.com/jtvandijk/GEOG0018/raw/master/slides/w09-mhg.pdf">[Link]</a>.</p>
@@ -873,7 +873,7 @@ Figure&nbsp;5: Attribute Joins.
 <li>In the dropdown menu at the top of the window, select <strong>Graduated</strong> as symbology.</li>
 <li>Under <strong>Value</strong> choose <code>pop2011</code> as your column.</li>
 <li>We can then change the colour ramp to suit our aesthetic preferences. In the <strong>Color ramp</strong> dropdown menu select <em>Magma</em>.</li>
-<li>The final step is to classify our data, which involves deciding how to group the values in our dataset to create a graduated representation. Today we will use the <strong>Natural Breaks (Jenks)</strong> option. Open the drop-down menu next to <strong>Mode</strong>, select <strong>Natural Breaks (Jenks)</strong>, change it to <strong>7</strong> classes and then click <strong>Classify</strong>.</li>
+<li>The final step is to classify our data, which involves deciding how to group the values in our dataset to create a graduated representation. Today we will use the <strong>Natural Breaks (Jenks)</strong> option; next week’s lecture explains the different classification options. Open the drop-down menu next to <strong>Mode</strong>, select <strong>Natural Breaks (Jenks)</strong>, change it to <strong>7</strong> classes and then click <strong>Classify</strong>.</li>
 <li>Finally click <strong>Apply</strong> to style your dataset.</li>
 </ul></li>
 </ol>
@@ -921,7 +921,7 @@ Figure&nbsp;6: The population distribution of London in 2011.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Paste the exported map into the appendix of your assignment and include a few sentences interpreting the results. Consider whether there are any noticeable changes in the population distribution between 2011 and 2021.</p>
+<p>Paste the exported map into the appendix of your assignment and include a few sentences interpreting the results. The exported map has no legend, so also state what the colours mean, using the class ranges shown in the <strong>Symbology</strong> tab. Next week, we add a legend, title, scale bar and north arrow using the print layout. Consider whether there are any noticeable changes in the population distribution between 2011 and 2021.</p>
 </div>
 </div>
 </div>
