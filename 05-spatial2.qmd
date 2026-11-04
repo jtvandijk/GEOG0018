@@ -34,7 +34,7 @@ In addition to the crime data, we will also need the spatial boundaries of the L
 5. Rename the file to `London-Borough.gpkg` and save it in your `data` folder.
 
 ::: {.callout-tip}
-A lot of data about London is collated by the [Greater London Authority](https://www.london.gov.uk/) and made available through the [London Datastore](https://data.london.gov.uk/about/). Whereas some of the data is a bit outdated, it is a good place to get some data specific to London.
+A lot of data about London is collated by the [Greater London Authority](https://www.london.gov.uk/) and made available through the [London Datastore](https://data.london.gov.uk/about/). Although some of the data is a bit outdated, it is a good place to get data specific to London.
 :::
 
 When studying aggregated point event data, it is important to normalise the data using an appropriate denominator. We therefore also need the population figures for each borough. To get the 2021 borough population counts, you should:
@@ -76,14 +76,14 @@ If you are struggling with the data preparation of the borough population, refer
 :::
 
 ::: {.callout-tip}
-If you fall behind, you can continue from a later point with prepared files. The reprojected crime data ([`London-Crime-2021-BNG.gpkg`](https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Crime-2021-BNG.gpkg)) replaces the reprojection step, and the borough layer with the crime counts and crime rates ([`London-Borough-Crime.gpkg`](https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Borough-Crime.gpkg)) replaces the aggregation and the crime rate calculation.
+If you fall behind, you can continue from a later point with prepared files. The prepared borough population table ([`London-Borough-Population.csv`](https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Borough-Population.csv)) replaces the data preparation, the reprojected crime data ([`London-Crime-2021-BNG.gpkg`](https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Crime-2021-BNG.gpkg)) replaces the reprojection step, and the borough layer with the crime counts and crime rates ([`London-Borough-Crime.gpkg`](https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Borough-Crime.gpkg)) replaces the aggregation and the crime rate calculation.
 :::
 
-Now we have our datasets sorted out, we can move to QGIS to analyse our crime dataset.
+Now that we have our datasets sorted out, we can move to QGIS to analyse our crime dataset.
 
 1. Start **QGIS**.
 2. Click on **Project** -> **New**. Save your project as `w10-crime-analysis`. Remember to save your work throughout the practical.
-3. Before we get started with adding data, we will first set the Coordinate Reference System of our Project. Click on **Project** -> **Properties -- CRS**. In the Filter box, type **British National Grid**. Select **OSGB 1936 / British National Grid - EPSG:27700** and click **Apply**. Click **OK**.
+3. Before we get started with adding data, we will first set the Coordinate Reference System of our Project. Click on **Project** -> **Properties** -> **CRS**. In the Filter box, type **British National Grid**. Select **OSGB36 / British National Grid - EPSG:27700** (older versions of QGIS call this *OSGB 1936 / British National Grid*) and click **Apply**. Click **OK**.
 
 We will start by adding the spatial layer containing the London boroughs.
 
@@ -100,22 +100,22 @@ knitr::include_graphics('images/w10/london-borough.png')
 
 To link the spatial data to the population data, we need to join the datasets. Since we covered the [steps for joining datasets last week](04-spatial1.html#joining-data), we will only provide a broad overview of the process:
 
-1. Load the `London-Borough-Population.csv` dataset you just created as a **Delimited Text File Layer** in QGIS.
-2. Join the two datasets together using the **Joins** tab in the **Properties** box of the borough layer. Use the `BoroughNames` field as the unique identifier for the join.
+1. Load the `London-Borough-Population.csv` dataset you just created as a **Delimited Text Layer** in QGIS.
+2. Join the two datasets together using the **Joins** tab in the **Properties** box of the borough layer. Set the **Join field** to `BoroughNames` and the **Target field** to `name`. Afterwards, open the **Attribute Table** of the borough layer and check that every borough has a `pop2021` value.
 
 ::: {.callout-warning}
 Because the population file does not include borough codes, we have to use borough names to join the datasets together. While this approach works here (and is easy to manually verify since there are only 33 records), using codes is generally preferred to reduce the risk of errors or incomplete joins. It is often worth taking the time to find these codes, as they ensure more reliable and accurate data linking.
 :::
 
-We will now load and map our crime data. This will be done using the **Delimited Text File Layer** option, similar to how you previously loaded the borough population data, but this time we will be adding point coordinates to visualise the crime data as points on the map.
+We will now load and map our crime data. This will be done using the **Delimited Text Layer** option, similar to how you previously loaded the borough population data, but this time we will be adding point coordinates to visualise the crime data as points on the map.
 
-1. Click on **Layer** -> **Add Layer** -> **Add Delimited Text File Layer**.
+1. Click on **Layer** -> **Add Layer** -> **Add Delimited Text Layer**.
     - Click on the three dots button next to **File Name** and navigate to your `London-Crime-2021.csv` in your `data` folder.
     - Your file format should be set to `csv`. In **Record and Fields Options** tick `Decimal separator is comma`, `First record has field names`, `Detect field types` and `Discard empty fields`.
     - Under **Geometry Definition**, select `Point coordinates` and set the **X field** to `Longitude` and the **Y field** to `Latitude`. The **Geometry CRS** should be: `EPSG:4326 - WGS84`. Click **Add**.
 
 ::: {.callout-note}
-After clicking Add, you will receive a pop-up in QGIS regarding transformations. Transformations are algorithms used to convert data from one Coordinate Reference System (CRS) to another. In this case, QGIS recognises that the Project CRS is set to the *British National Grid*, while the Layer you are adding uses the *WGS84* CRS. QGIS is asking which transformation it should apply to align the Layer with the Project CRS. One of the key strengths of QGIS is its ability to project data *on the fly*. This means that once QGIS knows which transformation to use, it will automatically convert all Layers to match the Project CRS, ensuring they are rendered accurately in relation to one another.
+After clicking Add, you will receive a pop-up in QGIS regarding transformations. Transformations are algorithms used to convert data from one Coordinate Reference System (CRS) to another. As introduced in last week's lecture, the British National Grid measures locations in metres, whereas WGS84 uses longitude and latitude in degrees. In this case, QGIS recognises that the Project CRS is set to the *British National Grid*, while the Layer you are adding uses the *WGS84* CRS. QGIS is asking which transformation it should apply to align the Layer with the Project CRS. One of the key strengths of QGIS is its ability to project data *on the fly*. This means that once QGIS knows which transformation to use, it will automatically convert all Layers to match the Project CRS, ensuring they are rendered accurately in relation to one another.
 :::
 
 2. Click **OK** to accept QGIS' suggested on-the-fly projection. You should now see your crime dataset displayed as points, layered on top of the London borough polygons.
@@ -132,27 +132,27 @@ knitr::include_graphics('images/w10/london-borough-crime.png')
 
 To ensure that our analysis is both accurate and efficient, it is best to reproject the crime data to the same CRS as our administrative datasets.
 
-4. Back in the main QGIS window, click on **Vector** -> **Data Management Tools** -> **Reproject Layer**. Fill in the parameters as follows:
-    - **Input Layer:** `London-Crime-2021`
+4. Back in the main QGIS window, click on **Vector** -> **Data Management Tools** -> **Reproject layer**. Fill in the parameters as follows:
+    - **Input layer:** `London-Crime-2021`
     - **Target CRS:** `Project CRS: EPSG: 27700`
-    - **Reprojected:** Click on the three buttons and **Save to GeoPackage** to create a new data file.
+    - **Reprojected:** Click on the three dots button and **Save to GeoPackage** to create a new data file.
     - **Save** it in your `data` folder as `London-Crime-2021-BNG.gpkg`, using `London-Crime-2021-BNG` as **Layer Name**.
     - Click **Run**. You should now see the new data layer added to your project. You can now close the **Reproject Layer** tool.
 5. You can now also remove the original `London-Crime-2021` dataset, only keeping the reprojected version.
 
 ### Data aggregation
-The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the **Count Points in Polygon** tool in the **Analysis Tools** menu to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a *crime rate* statistic.
+The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the **Count points in polygon** tool in the **Analysis Tools** menu to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a *crime rate* statistic.
 
-1. Click on **Vector** -> **Analysis Tools** -> **Count Points in Polygon**.
+1. Click on **Vector** -> **Analysis Tools** -> **Count points in polygon**.
 2. Within the toolbox, select the parameters as follows:
     - **Polygons:** `London-Borough`
-    - **Points:** `London-Crime-2021-BNG` [Note how both our data layers state the same CRS.]
+    - **Points:** `London-Crime-2021-BNG` (note how both layers now state the same CRS)
     - **Weight field:** *leave blank*
     - **Class field:** *leave blank*
     - **Count field name:** `theft2021`
-    - Click on the three dot button and select **Save to GeoPackage:**.
+    - Click on the three dots button and select **Save to GeoPackage**.
     - Save the output as `London-Borough-Crime.gpkg`, with `London-Borough-Crime` as **Layer Name**.
-3. Click **Run** and **Close** the dialogue box. You should now see the `London-Borough-Crime` layer added to your *Layers* panel
+3. Click **Run** and **Close** the dialogue box. You should now see the `London-Borough-Crime` layer added to your *Layers* panel.
 4. Right-click on the `London-Borough-Crime` layer and open the **Attribute Table**. If all went well, you should see a `theft2021` column next to your `pop2021` column.
 
 We can now calculate the crime rate:
@@ -187,11 +187,15 @@ knitr::include_graphics('images/w10/london-borough-crime-rate.png')
 ```
 
 ::: {.callout-tip}
-The `crime-rate` is stored as a decimal as this is required for the calculation to succeed, but ultimately you cannot have half a crime. You can convert the decimal values to integers by creating a new field using the **Field Calculator**. Instead of ticking the **Update existing field** box you would now keep the **Create a new field** box ticked. Name the new field `crime-rate-int`, make sure the **Output field type** is set to `Whole number (integer)`, and in the Expression editor enter the following expression: `to_int("crime-rate")`. You can save these changes by clicking the **Save** button.
+The `crime-rate` is stored as a decimal number so that the fractions are kept, but ultimately you cannot have half a crime. You can convert the decimal values to integers by creating a new field using the **Field Calculator**. Instead of ticking the **Update existing field** box you would now keep the **Create a new field** box ticked. Name the new field `crime-rate-int`, make sure the **Output field type** is set to `Whole number (integer)`, and in the Expression editor enter the following expression: `to_int("crime-rate")`. You can save these changes by clicking the **Save** button.
 :::
 
 ### Data mapping
 Now the dataset has been prepared, it is time to make a map. First thing we need to do is symbolise the map with an appropriate colour scheme. Go to **Properties** and symbolise your map with **Graduated** colours. You need to decide on an appropriate data classification and colour scheme. For reference, @fig-map-styled shows an example of a possible classification and colour scheme.
+
+::: {.callout-tip}
+Before you choose your classes, look at the highest and lowest crime rates in the attribute table. The City of London has 854 thefts per 10,000 residents, whereas the median across the 33 boroughs is about 21: few people live in the City of London, but many more work in or visit it. With five **Equal Interval** classes, 31 of the 33 boroughs end up in the first class. Try **Equal Interval** and **Equal Count (Quantile)** and compare what happens to the City of London and to the other boroughs.
+:::
 
 ::: {.callout-tip}
 If you are looking for inspiration beyond the default colour selection, have a look at the online [Colorbrewer 2.0](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) tool.
@@ -245,7 +249,7 @@ When you hover your cursor over the icons in the *Print Layout* toolbox, the nam
 knitr::include_graphics('images/w10/map-layout.png')
 ```
 
-2. With your map selected, head to the **Items Properties** panel and look for the **Scale** parameter.
+2. With your map selected, head to the **Item Properties** panel and look for the **Scale** parameter.
     - Here we can manually edit the **scale** of our map to find the right zoom level.
     - Have a go at entering different values and see what level you think suits the size of your map.
     - If you need to move the position of the map within the box, look for the **Move Item Content** tool in the left-hand side toolbar.
@@ -260,7 +264,7 @@ knitr::include_graphics('images/w10/map-layout.png')
 You can further customise the legend's appearance, including the type, size, and alignment of the font.
 :::
 
-4. Now that we have our two maps ready, we can add the main map elements using the tools in the left-hand toolbar:
+4. Now that we have our map and legend ready, we can add the main map elements using the tools in the left-hand toolbar:
     - Add a scale bar: Use the **Item Properties** to adjust the style, number of segments, font, and other settings.
     - Add a north arrow: Use the **North Arrow** tool to draw a box where you want the arrow to appear, then customise its appearance using the **Item Properties** panel.
     - Create a title at the top of the page using the **Add Label** tool. You can format the title as needed.
@@ -281,10 +285,10 @@ The only remaining step is to export our map as an image. Navigate to **Layout**
 ## Homework task
 This concludes this week's tutorial. Now complete the following homework tasks:
 
-1. Load last week's `London-LSOA-2021.gpkg` into QGIS.
-2. Aggregate the `London-Crime-2021-BNG.gpkg` point dataset to the 2021 London LSOAs using the **Count Points in Polygon** tool.
-3. Calculate the crime rate per `1000` people using the **Field Calculator**.
-4. Decide on an appropriate data classification and colour scheme.
+1. Load last week's `London-LSOA-2021.gpkg` into QGIS and join the `LSOA2021-population.csv` to it again (or continue in your `w09-population-analysis` project if you saved the join there), so that every LSOA has a `pop2021` value.
+2. Aggregate the `London-Crime-2021-BNG.gpkg` point dataset to the 2021 London LSOAs using the **Count points in polygon** tool.
+3. Calculate the crime rate per 10,000 people using the **Field Calculator**.
+4. Decide on an appropriate data classification and colour scheme. Check the highest and lowest values first: about a third of the LSOAs (1,636 of 4,994) have no recorded theft, whereas a few LSOAs in central London have extremely high rates.
 5. Create a publishable map that includes all essential map elements.
 6. Export your map as an image.
 
