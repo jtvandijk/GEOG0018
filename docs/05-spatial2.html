@@ -455,7 +455,7 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>A lot of data about London is collated by the <a href="https://www.london.gov.uk/">Greater London Authority</a> and made available through the <a href="https://data.london.gov.uk/about/">London Datastore</a>. Whereas some of the data is a bit outdated, it is a good place to get some data specific to London.</p>
+<p>A lot of data about London is collated by the <a href="https://www.london.gov.uk/">Greater London Authority</a> and made available through the <a href="https://data.london.gov.uk/about/">London Datastore</a>. Although some of the data is a bit outdated, it is a good place to get data specific to London.</p>
 </div>
 </div>
 </div>
@@ -522,15 +522,15 @@ Figure&nbsp;2: The prepared London Borough population dataset.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>If you fall behind, you can continue from a later point with prepared files. The reprojected crime data (<a href="https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Crime-2021-BNG.gpkg"><code>London-Crime-2021-BNG.gpkg</code></a>) replaces the reprojection step, and the borough layer with the crime counts and crime rates (<a href="https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Borough-Crime.gpkg"><code>London-Borough-Crime.gpkg</code></a>) replaces the aggregation and the crime rate calculation.</p>
+<p>If you fall behind, you can continue from a later point with prepared files. The prepared borough population table (<a href="https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Borough-Population.csv"><code>London-Borough-Population.csv</code></a>) replaces the data preparation, the reprojected crime data (<a href="https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Crime-2021-BNG.gpkg"><code>London-Crime-2021-BNG.gpkg</code></a>) replaces the reprojection step, and the borough layer with the crime counts and crime rates (<a href="https://github.com/jtvandijk/GEOG0018/raw/master/data/London-Borough-Crime.gpkg"><code>London-Borough-Crime.gpkg</code></a>) replaces the aggregation and the crime rate calculation.</p>
 </div>
 </div>
 </div>
-<p>Now we have our datasets sorted out, we can move to QGIS to analyse our crime dataset.</p>
+<p>Now that we have our datasets sorted out, we can move to QGIS to analyse our crime dataset.</p>
 <ol type="1">
 <li>Start <strong>QGIS</strong>.</li>
 <li>Click on <strong>Project</strong> -&gt; <strong>New</strong>. Save your project as <code>w10-crime-analysis</code>. Remember to save your work throughout the practical.</li>
-<li>Before we get started with adding data, we will first set the Coordinate Reference System of our Project. Click on <strong>Project</strong> -&gt; <strong>Properties – CRS</strong>. In the Filter box, type <strong>British National Grid</strong>. Select <strong>OSGB 1936 / British National Grid - EPSG:27700</strong> and click <strong>Apply</strong>. Click <strong>OK</strong>.</li>
+<li>Before we get started with adding data, we will first set the Coordinate Reference System of our Project. Click on <strong>Project</strong> -&gt; <strong>Properties</strong> -&gt; <strong>CRS</strong>. In the Filter box, type <strong>British National Grid</strong>. Select <strong>OSGB36 / British National Grid - EPSG:27700</strong> (older versions of QGIS call this <em>OSGB 1936 / British National Grid</em>) and click <strong>Apply</strong>. Click <strong>OK</strong>.</li>
 </ol>
 <p>We will start by adding the spatial layer containing the London boroughs.</p>
 <ol type="1">
@@ -553,8 +553,8 @@ Figure&nbsp;3: The London boroughs.
 </div>
 <p>To link the spatial data to the population data, we need to join the datasets. Since we covered the <a href="04-spatial1.html#joining-data">steps for joining datasets last week</a>, we will only provide a broad overview of the process:</p>
 <ol type="1">
-<li>Load the <code>London-Borough-Population.csv</code> dataset you just created as a <strong>Delimited Text File Layer</strong> in QGIS.</li>
-<li>Join the two datasets together using the <strong>Joins</strong> tab in the <strong>Properties</strong> box of the borough layer. Use the <code>BoroughNames</code> field as the unique identifier for the join.</li>
+<li>Load the <code>London-Borough-Population.csv</code> dataset you just created as a <strong>Delimited Text Layer</strong> in QGIS.</li>
+<li>Join the two datasets together using the <strong>Joins</strong> tab in the <strong>Properties</strong> box of the borough layer. Set the <strong>Join field</strong> to <code>BoroughNames</code> and the <strong>Target field</strong> to <code>name</code>. Afterwards, open the <strong>Attribute Table</strong> of the borough layer and check that every borough has a <code>pop2021</code> value.</li>
 </ol>
 <div class="callout callout-style-simple callout-warning">
 <div class="callout-body d-flex">
@@ -566,9 +566,9 @@ Figure&nbsp;3: The London boroughs.
 </div>
 </div>
 </div>
-<p>We will now load and map our crime data. This will be done using the <strong>Delimited Text File Layer</strong> option, similar to how you previously loaded the borough population data, but this time we will be adding point coordinates to visualise the crime data as points on the map.</p>
+<p>We will now load and map our crime data. This will be done using the <strong>Delimited Text Layer</strong> option, similar to how you previously loaded the borough population data, but this time we will be adding point coordinates to visualise the crime data as points on the map.</p>
 <ol type="1">
-<li>Click on <strong>Layer</strong> -&gt; <strong>Add Layer</strong> -&gt; <strong>Add Delimited Text File Layer</strong>.
+<li>Click on <strong>Layer</strong> -&gt; <strong>Add Layer</strong> -&gt; <strong>Add Delimited Text Layer</strong>.
 <ul>
 <li>Click on the three dots button next to <strong>File Name</strong> and navigate to your <code>London-Crime-2021.csv</code> in your <code>data</code> folder.</li>
 <li>Your file format should be set to <code>csv</code>. In <strong>Record and Fields Options</strong> tick <code>Decimal separator is comma</code>, <code>First record has field names</code>, <code>Detect field types</code> and <code>Discard empty fields</code>.</li>
@@ -581,7 +581,7 @@ Figure&nbsp;3: The London boroughs.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>After clicking Add, you will receive a pop-up in QGIS regarding transformations. Transformations are algorithms used to convert data from one Coordinate Reference System (CRS) to another. In this case, QGIS recognises that the Project CRS is set to the <em>British National Grid</em>, while the Layer you are adding uses the <em>WGS84</em> CRS. QGIS is asking which transformation it should apply to align the Layer with the Project CRS. One of the key strengths of QGIS is its ability to project data <em>on the fly</em>. This means that once QGIS knows which transformation to use, it will automatically convert all Layers to match the Project CRS, ensuring they are rendered accurately in relation to one another.</p>
+<p>After clicking Add, you will receive a pop-up in QGIS regarding transformations. Transformations are algorithms used to convert data from one Coordinate Reference System (CRS) to another. As introduced in last week’s lecture, the British National Grid measures locations in metres, whereas WGS84 uses longitude and latitude in degrees. In this case, QGIS recognises that the Project CRS is set to the <em>British National Grid</em>, while the Layer you are adding uses the <em>WGS84</em> CRS. QGIS is asking which transformation it should apply to align the Layer with the Project CRS. One of the key strengths of QGIS is its ability to project data <em>on the fly</em>. This means that once QGIS knows which transformation to use, it will automatically convert all Layers to match the Project CRS, ensuring they are rendered accurately in relation to one another.</p>
 </div>
 </div>
 </div>
@@ -607,11 +607,11 @@ Figure&nbsp;4: The London boroughs together with the crime dataset.
 </ol>
 <p>To ensure that our analysis is both accurate and efficient, it is best to reproject the crime data to the same CRS as our administrative datasets.</p>
 <ol start="4" type="1">
-<li>Back in the main QGIS window, click on <strong>Vector</strong> -&gt; <strong>Data Management Tools</strong> -&gt; <strong>Reproject Layer</strong>. Fill in the parameters as follows:
+<li>Back in the main QGIS window, click on <strong>Vector</strong> -&gt; <strong>Data Management Tools</strong> -&gt; <strong>Reproject layer</strong>. Fill in the parameters as follows:
 <ul>
-<li><strong>Input Layer:</strong> <code>London-Crime-2021</code></li>
+<li><strong>Input layer:</strong> <code>London-Crime-2021</code></li>
 <li><strong>Target CRS:</strong> <code>Project CRS: EPSG: 27700</code></li>
-<li><strong>Reprojected:</strong> Click on the three buttons and <strong>Save to GeoPackage</strong> to create a new data file.</li>
+<li><strong>Reprojected:</strong> Click on the three dots button and <strong>Save to GeoPackage</strong> to create a new data file.</li>
 <li><strong>Save</strong> it in your <code>data</code> folder as <code>London-Crime-2021-BNG.gpkg</code>, using <code>London-Crime-2021-BNG</code> as <strong>Layer Name</strong>.</li>
 <li>Click <strong>Run</strong>. You should now see the new data layer added to your project. You can now close the <strong>Reproject Layer</strong> tool.</li>
 </ul></li>
@@ -620,20 +620,20 @@ Figure&nbsp;4: The London boroughs together with the crime dataset.
 </section>
 <section id="data-aggregation" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="data-aggregation"><span class="header-section-number">5.3.2</span> Data aggregation</h3>
-<p>The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the <strong>Count Points in Polygon</strong> tool in the <strong>Analysis Tools</strong> menu to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a <em>crime rate</em> statistic.</p>
+<p>The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the <strong>Count points in polygon</strong> tool in the <strong>Analysis Tools</strong> menu to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a <em>crime rate</em> statistic.</p>
 <ol type="1">
-<li>Click on <strong>Vector</strong> -&gt; <strong>Analysis Tools</strong> -&gt; <strong>Count Points in Polygon</strong>.</li>
+<li>Click on <strong>Vector</strong> -&gt; <strong>Analysis Tools</strong> -&gt; <strong>Count points in polygon</strong>.</li>
 <li>Within the toolbox, select the parameters as follows:
 <ul>
 <li><strong>Polygons:</strong> <code>London-Borough</code></li>
-<li><strong>Points:</strong> <code>London-Crime-2021-BNG</code> [Note how both our data layers state the same CRS.]</li>
+<li><strong>Points:</strong> <code>London-Crime-2021-BNG</code> (note how both layers now state the same CRS)</li>
 <li><strong>Weight field:</strong> <em>leave blank</em></li>
 <li><strong>Class field:</strong> <em>leave blank</em></li>
 <li><strong>Count field name:</strong> <code>theft2021</code></li>
-<li>Click on the three dot button and select <strong>Save to GeoPackage:</strong>.</li>
+<li>Click on the three dots button and select <strong>Save to GeoPackage</strong>.</li>
 <li>Save the output as <code>London-Borough-Crime.gpkg</code>, with <code>London-Borough-Crime</code> as <strong>Layer Name</strong>.</li>
 </ul></li>
-<li>Click <strong>Run</strong> and <strong>Close</strong> the dialogue box. You should now see the <code>London-Borough-Crime</code> layer added to your <em>Layers</em> panel</li>
+<li>Click <strong>Run</strong> and <strong>Close</strong> the dialogue box. You should now see the <code>London-Borough-Crime</code> layer added to your <em>Layers</em> panel.</li>
 <li>Right-click on the <code>London-Borough-Crime</code> layer and open the <strong>Attribute Table</strong>. If all went well, you should see a <code>theft2021</code> column next to your <code>pop2021</code> column.</li>
 </ol>
 <p>We can now calculate the crime rate:</p>
@@ -690,7 +690,7 @@ Figure&nbsp;5: The attribute table of the <code>London-Borough-Crime</code> laye
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>The <code>crime-rate</code> is stored as a decimal as this is required for the calculation to succeed, but ultimately you cannot have half a crime. You can convert the decimal values to integers by creating a new field using the <strong>Field Calculator</strong>. Instead of ticking the <strong>Update existing field</strong> box you would now keep the <strong>Create a new field</strong> box ticked. Name the new field <code>crime-rate-int</code>, make sure the <strong>Output field type</strong> is set to <code>Whole number (integer)</code>, and in the Expression editor enter the following expression: <code>to_int("crime-rate")</code>. You can save these changes by clicking the <strong>Save</strong> button.</p>
+<p>The <code>crime-rate</code> is stored as a decimal number so that the fractions are kept, but ultimately you cannot have half a crime. You can convert the decimal values to integers by creating a new field using the <strong>Field Calculator</strong>. Instead of ticking the <strong>Update existing field</strong> box you would now keep the <strong>Create a new field</strong> box ticked. Name the new field <code>crime-rate-int</code>, make sure the <strong>Output field type</strong> is set to <code>Whole number (integer)</code>, and in the Expression editor enter the following expression: <code>to_int("crime-rate")</code>. You can save these changes by clicking the <strong>Save</strong> button.</p>
 </div>
 </div>
 </div>
@@ -698,6 +698,16 @@ Figure&nbsp;5: The attribute table of the <code>London-Borough-Crime</code> laye
 <section id="data-mapping" class="level3" data-number="1.3.3">
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="data-mapping"><span class="header-section-number">5.3.3</span> Data mapping</h3>
 <p>Now the dataset has been prepared, it is time to make a map. First thing we need to do is symbolise the map with an appropriate colour scheme. Go to <strong>Properties</strong> and symbolise your map with <strong>Graduated</strong> colours. You need to decide on an appropriate data classification and colour scheme. For reference, <a href="#fig-map-styled" class="quarto-xref">Figure&nbsp;6</a> shows an example of a possible classification and colour scheme.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Before you choose your classes, look at the highest and lowest crime rates in the attribute table. The City of London has 854 thefts per 10,000 residents, whereas the median across the 33 boroughs is about 21: few people live in the City of London, but many more work in or visit it. With five <strong>Equal Interval</strong> classes, 31 of the 33 boroughs end up in the first class. Try <strong>Equal Interval</strong> and <strong>Equal Count (Quantile)</strong> and compare what happens to the City of London and to the other boroughs.</p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -789,7 +799,7 @@ Figure&nbsp;8: Current active map in the <em>Print Layout</em>.
 </div>
 </div>
 <ol start="2" type="1">
-<li>With your map selected, head to the <strong>Items Properties</strong> panel and look for the <strong>Scale</strong> parameter.
+<li>With your map selected, head to the <strong>Item Properties</strong> panel and look for the <strong>Scale</strong> parameter.
 <ul>
 <li>Here we can manually edit the <strong>scale</strong> of our map to find the right zoom level.</li>
 <li>Have a go at entering different values and see what level you think suits the size of your map.</li>
@@ -814,7 +824,7 @@ Figure&nbsp;8: Current active map in the <em>Print Layout</em>.
 </div>
 </div>
 <ol start="4" type="1">
-<li>Now that we have our two maps ready, we can add the main map elements using the tools in the left-hand toolbar:
+<li>Now that we have our map and legend ready, we can add the main map elements using the tools in the left-hand toolbar:
 <ul>
 <li>Add a scale bar: Use the <strong>Item Properties</strong> to adjust the style, number of segments, font, and other settings.</li>
 <li>Add a north arrow: Use the <strong>North Arrow</strong> tool to draw a box where you want the arrow to appear, then customise its appearance using the <strong>Item Properties</strong> panel.</li>
@@ -844,10 +854,10 @@ Figure&nbsp;9: Crime rates across London Boroughs.
 <h2 data-number="1.4" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">5.4</span> Homework task</h2>
 <p>This concludes this week’s tutorial. Now complete the following homework tasks:</p>
 <ol type="1">
-<li>Load last week’s <code>London-LSOA-2021.gpkg</code> into QGIS.</li>
-<li>Aggregate the <code>London-Crime-2021-BNG.gpkg</code> point dataset to the 2021 London LSOAs using the <strong>Count Points in Polygon</strong> tool.</li>
-<li>Calculate the crime rate per <code>1000</code> people using the <strong>Field Calculator</strong>.</li>
-<li>Decide on an appropriate data classification and colour scheme.</li>
+<li>Load last week’s <code>London-LSOA-2021.gpkg</code> into QGIS and join the <code>LSOA2021-population.csv</code> to it again (or continue in your <code>w09-population-analysis</code> project if you saved the join there), so that every LSOA has a <code>pop2021</code> value.</li>
+<li>Aggregate the <code>London-Crime-2021-BNG.gpkg</code> point dataset to the 2021 London LSOAs using the <strong>Count points in polygon</strong> tool.</li>
+<li>Calculate the crime rate per 10,000 people using the <strong>Field Calculator</strong>.</li>
+<li>Decide on an appropriate data classification and colour scheme. Check the highest and lowest values first: about a third of the LSOAs (1,636 of 4,994) have no recorded theft, whereas a few LSOAs in central London have extremely high rates.</li>
 <li>Create a publishable map that includes all essential map elements.</li>
 <li>Export your map as an image.</li>
 </ol>
