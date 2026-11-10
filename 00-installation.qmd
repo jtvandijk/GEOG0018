@@ -133,7 +133,7 @@ Once you press return, you should see the answer of `120` returned below.
 Instead of using raw numbers or standalone values, it is more effective to store these values in variables, which allows for easy reference later. In R, this process is known as **creating an object**, and the object is stored as a variable. To assign a value to a variable, use the `<-` syntax. Let us create two variables to experiment with this.
 
 ::: {.callout-note}
-In R, a *variable* is a name that refers to a stored value, which R keeps as an object. In the lecture and later in this module, a *variable* also means a characteristic measured in a dataset, such as a column in a dataframe (for example the proportion of people aged 16 to 24). The context makes clear which meaning is intended.
+In R, a *variable* is a name that refers to a stored value, which R keeps as an object. More generally, a *variable* can also refer to a characteristic measured in a dataset, such as a column in a dataframe (for example the proportion of people aged 16 to 24). The context makes clear which meaning is intended.
 :::
 
 Type in `ten <- 10` into the **console** and execute.

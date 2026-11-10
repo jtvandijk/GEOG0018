@@ -162,7 +162,7 @@ cor.test(elec_vars$aged_50_years_and_over, elec_vars$conservative_vote_share, me
 ```
 
 ::: {.callout-important}
-The correlation coefficient is `0.57` (95% confidence interval: 0.51 to 0.62) with a $p$-value `< 0.001`. This indicates a modest (0.40 to 0.69 on the scale used in the lecture), statistically significant positive correlation: constituencies with a larger share of people over 50 tend to have a higher Conservative vote share.
+The correlation coefficient is `0.57` (95% confidence interval: 0.51 to 0.62) with a $p$-value `< 0.001`. This indicates a modest (0.40 to 0.69 on the scale we use), statistically significant positive correlation: constituencies with a larger share of people over 50 tend to have a higher Conservative vote share.
 :::
 
 ::: {.callout-tip}
@@ -193,7 +193,7 @@ ggcorrplot(cor_mat, outline.col = '#ffffff', tl.cex = 8, legend.title = 'Correla
 ```
 
 ### Regression
-Before running a regression, we need to know what type of variable we want to explain (the dependent variable, `y`) and what types of variables we use to explain it (the independent variables, `x`). The type of the dependent variable determines which type of regression we can use. The independent variables can be of any type, although categorical variables need to be converted into dummy variables. In this chapter we only use linear regression, but @tbl-variables also lists the other types of regression that the lecture mentions. The methods from the previous chapter are summarised in the [table in that chapter](02-statistics1.html#tbl-methods).
+Before running a regression, we need to know what type of variable we want to explain (the dependent variable, `y`) and what types of variables we use to explain it (the independent variables, `x`). The type of the dependent variable determines which type of regression we can use. The independent variables can be of any type, although categorical variables need to be converted into dummy variables. In this chapter we only use linear regression, but @tbl-variables also lists other types of regression. The methods from the previous chapter are summarised in the [table in that chapter](02-statistics1.html#tbl-methods).
 
 | Type of variable | Example | As dependent variable (`y`) | As independent variable (`x`) |
 | :------ | :------ | :------ | :------ |

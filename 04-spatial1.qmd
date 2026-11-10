@@ -1,5 +1,5 @@
 # Spatial Analysis I
-This week's lecture introduced how spatial data is represented in GIScience and GIS software, where to find spatial data, and how to link a table to spatial data with an attribute join. In the practical, you will prepare Census population counts, join them to the boundaries of small areas in London, and map the result using [QGIS](https://qgis.org/). The result is a *choropleth map*, a thematic map that shades areas by a value.
+This week introduces how spatial data is represented in GIScience and GIS software, where to find spatial data, and how to link a table to spatial data with an attribute join. In the practical, you will prepare Census population counts, join them to the boundaries of small areas in London, and map the result using [QGIS](https://qgis.org/). The result is a *choropleth map*, a thematic map that shades areas by a value.
 
 ## Lecture slides
 You can download the slides of this week's lecture here: [[Link]]({{< var slides.week09 >}}).
@@ -255,7 +255,7 @@ We can now finally map the 2011 population distribution of London.
     - In the dropdown menu at the top of the window, select **Graduated** as symbology.
     - Under **Value** choose `pop2011` as your column.
     - We can then change the colour ramp to suit our aesthetic preferences. In the **Color ramp** dropdown menu select *Magma*.
-    - The final step is to classify our data, which involves deciding how to group the values in our dataset to create a graduated representation. Today we will use the **Natural Breaks (Jenks)** option; next week's lecture explains the different classification options. Open the drop-down menu next to **Mode**, select **Natural Breaks (Jenks)**, change it to **7** classes and then click **Classify**.
+    - The final step is to classify our data, which involves deciding how to group the values in our dataset to create a graduated representation. Today we will use the **Natural Breaks (Jenks)** option; next week covers the different classification options. Open the drop-down menu next to **Mode**, select **Natural Breaks (Jenks)**, change it to **7** classes and then click **Classify**.
     - Finally click **Apply** to style your dataset.
 
 You should now be looking at something like this:

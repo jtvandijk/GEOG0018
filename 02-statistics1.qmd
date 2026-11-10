@@ -347,7 +347,7 @@ To further investigate which specific groups differ, we can conduct pairwise Man
 - *"A significant result means that the difference is large or important."* The $p$-value tells us whether a difference is likely to be due to chance, not how big it is. With many observations even very small differences are significant, so always look at the size of the difference as well.
 - *"The $p$-value is the probability that the null hypothesis is true."* It is the probability of finding a difference at least as large as ours if the null hypothesis were true.
 - *"A significant ANOVA tells us which groups are different."* It only tells us that at least one group differs. A post hoc test is needed to find out which.
-- *"A t-test only works with normally distributed data."* Thanks to the Central Limit Theorem from the lecture, the test is fairly robust to non-normality when samples are large enough.
+- *"A t-test only works with normally distributed data."* Thanks to the Central Limit Theorem, the test is fairly robust to non-normality when samples are large enough.
 - *"Non-parametric tests do not make any assumptions."* They make fewer assumptions, but they still assume that the observations are independent.
 :::
 
