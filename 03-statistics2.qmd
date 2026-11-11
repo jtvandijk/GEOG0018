@@ -425,7 +425,10 @@ This concludes this week's tutorial. Now complete the following homework tasks m
 1. Analyse the association between the `pop_white_90percent` and `winning_party` variables.
 2. Build a *multiple* regression model with the `labour_vote_share` as dependent variable for constituencies in *England*.
 
+::: {.callout-note .exercise icon=false}
+## Assignment appendix
 Paste the test outputs in the appendix of your assignment and include a few sentences interpreting the results.
+:::
 
 ## Before you leave
 This week, we focused on statistically assessing associations between different variables. Because this week's material was a little technical, we will shift our focus away from R next week and turn our attention to QGIS. Time to sit down and process this week's material before some [more relaxed content](https://www.youtube.com/watch?v=L_TXvjDE5Ec) next week!
