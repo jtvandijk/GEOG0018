@@ -1,3 +1,7 @@
+---
+number-offset: 3
+---
+
 # Spatial Analysis I
 This week introduces how spatial data is represented in GIScience and GIS software, where to find spatial data, and how to link a table to spatial data with an attribute join. In the practical, you will prepare Census population counts, join them to the boundaries of small areas in London, and map the result using [QGIS](https://qgis.org/). The result is a *choropleth map*, a thematic map that shades areas by a value.
 

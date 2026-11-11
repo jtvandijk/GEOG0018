@@ -1,3 +1,7 @@
+---
+number-offset: 0
+---
+
 # R for Data Analysis
 This week, we will start easy with a refresher on how to use R and RStudio for working with quantitative data. We will revisit some key concepts introduced last year, but from next week we will build on these foundations by introducing more advanced statistical techniques.
 

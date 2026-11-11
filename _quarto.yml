@@ -47,12 +47,17 @@ website:
             file: 00-installation.qmd
       - section: "Statistical Analysis"
         contents:
-          - 01-recap.qmd
-          - 02-statistics1.qmd
-          - 03-statistics2.qmd
+          - text: "1 R for Data Analysis"
+            file: 01-recap.qmd
+          - text: "2 Statistical Analysis I"
+            file: 02-statistics1.qmd
+          - text: "3 Statistical Analysis II"
+            file: 03-statistics2.qmd
       - section: "Spatial Analysis"
         contents:
-          - 04-spatial1.qmd
-          - 05-spatial2.qmd
+          - text: "4 Spatial Analysis I"
+            file: 04-spatial1.qmd
+          - text: "5 Spatial Analysis II"
+            file: 05-spatial2.qmd
           
 editor: source

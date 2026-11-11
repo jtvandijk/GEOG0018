@@ -1,3 +1,7 @@
+---
+number-offset: 1
+---
+
 # Statistical Analysis I
 Geographers are often interested not only in a specific variable within an area but also in how that variable varies between different areas. Building on last week's refresher on using R and RStudio for quantitative data analysis, this week we will focus on making inferences about different groups.
 

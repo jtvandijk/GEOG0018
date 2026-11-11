@@ -1,3 +1,8 @@
+---
+aliases:
+  - index.html
+---
+
 # Methods in Human Geography {.unnumbered}
 
 ```{r}

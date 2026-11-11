@@ -1,3 +1,7 @@
+---
+number-offset: 2
+---
+
 # Statistical Analysis II
 Last week, we explored methods for comparing groups. This week, our focus shifts to examining relationships between variables, aiming to assess the extent to which two variables *covary*: how changes in one variable are associated with changes in another. For example, what is the link between greenhouse gas emissions (`x`) and global mean temperature (`y`)? How are earnings (`y`) related to the time spent in education (`x`)? To what extent are house prices or local health outcomes (`y`) associated with proximity to urban greenspace (`x`)? To answer these sorts of questions we need techniques for unpacking relationships between variables.
 

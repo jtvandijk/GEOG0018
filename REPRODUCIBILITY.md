@@ -30,4 +30,4 @@ Required only to render the workbook, not by students. `formatR` is invoked via 
 
 ## Rendering
 
-Render with `quarto render --no-clean` (a plain `quarto render` deletes the archived year snapshots in `docs/`), then run `python3 _section_numbers.py` once to fix the section numbers and the landing page. `_publish.sh` does both. The script uses the Python standard library only.
+Render with `quarto render --no-clean` (a plain `quarto render` deletes the archived year snapshots in `docs/`). Chapter numbers come from `number-offset` in each chapter's front matter and the sidebar labels in `_quarto.yml`; the landing page redirect comes from `aliases` in `00-index.qmd`. No post-render script is needed.
