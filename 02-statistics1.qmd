@@ -206,6 +206,11 @@ lsoa_emp_sutton <- lsoa_emp_prop |>
 
 We can use the `t.test()` function in R to conduct a two-tailed test, assessing whether the mean proportion of unemployed people in Camden differs from that in Sutton. The *null hypothesis* for this test states that there is no difference in the mean proportions of unemployed individuals between the two areas. By default, R performs a Welch t-test, which does not assume that the variances of the two groups are equal. We can run the test as follows:
 
+::: {.callout-note .exercise icon=false}
+## Predict first
+Which borough do you expect to have the higher mean unemployment share, Camden or Sutton? With more than 120 LSOAs in each borough, do you expect the difference to be statistically significant? Note that we have all LSOAs of both boroughs rather than a sample, so we treat these LSOAs as one realisation of the data to practise the method.
+:::
+
 ```{r}
 #| label: 02-t-test
 #| classes: styled-output
@@ -219,6 +224,11 @@ t.test(lsoa_emp_camden$active_unemployed, lsoa_emp_sutton$active_unemployed)
 
 ::: {.callout-important}
 We can see that the mean in Sutton LSOAs (2.64%) is lower than in Camden LSOAs (4.22%). Since the $p$-value is `< 0.05` we can reject the *null hypothesis* that means for Sutton and Camden are the same, and accept the alternative hypothesis.
+:::
+
+::: {.callout-note .exercise icon=false}
+## Try it yourself
+Replace the full datasets by a random sample of five LSOAs per borough, for example `slice_sample(lsoa_emp_camden, n = 5)`, and run the t-test on the `active_unemployed` column of these samples. Do you expect the $p$-value to be larger or smaller than before? Run the code several times. Is the difference always significant?
 :::
 
 The non-parametric alternative to the t-test is the [Mann-Whitney U test](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test) (also known as the Wilcoxon rank-sum test). This test is used to compare differences between two independent groups when the assumptions of the t-test (such as normality of the data) are not met.
@@ -304,6 +314,11 @@ The ANOVA output shows an *F-statistic* of 75.31 with a $p$-value `< 0.001`. We 
 :::
 
 What this does not tell us is which groups are significantly different from one another. We can conduct a post hoc Tukey test to identify which specific groups differ from one another:
+
+::: {.callout-note .exercise icon=false}
+## Predict first
+The ANOVA tells us that at least one borough differs. Looking at the three pairs of boroughs, which ones do you expect to differ significantly? Check your guess against the Tukey output.
+:::
 
 ```{r}
 #| label: 02-tukey-run

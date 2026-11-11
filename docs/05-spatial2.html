@@ -254,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-spatial1.html">Spatial Analysis</a></li><li class="breadcrumb-item"><a href="./05-spatial2.html">Spatial Analysis II</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-spatial1.html">Spatial Analysis</a></li><li class="breadcrumb-item"><a href="./05-spatial2.html">5 Spatial Analysis II</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -382,21 +382,21 @@ ul.task-list li input[type="checkbox"] {
 <div class="toc-actions"><ul><li><a href="https://github.com/jtvandijk/GEOG0018/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-spatial1.html">Spatial Analysis</a></li><li class="breadcrumb-item"><a href="./05-spatial2.html">Spatial Analysis II</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-spatial1.html">Spatial Analysis</a></li><li class="breadcrumb-item"><a href="./05-spatial2.html">5 Spatial Analysis II</a></li></ol></nav></header>
 
 
 
 
 
-<section id="spatial-analysis-ii" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">5</span> Spatial Analysis II</h1>
+<section id="spatial-analysis-ii" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Spatial Analysis II</h1>
 <p>Building on last week’s introduction to creating thematic maps in <a href="https://qgis.org/">QGIS</a>, this week we take it a step further by conducting some basic spatial analysis. Our focus will be on aggregating point event data (such as crime incidents) to administrative geographies and then mapping the aggregated results.</p>
-<section id="lecture-slides" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="lecture-slides"><span class="header-section-number">5.1</span> Lecture slides</h2>
+<section id="lecture-slides" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="lecture-slides"><span class="header-section-number">5.1</span> Lecture slides</h2>
 <p>You can download the slides of this week’s lecture here: <a href="https://github.com/jtvandijk/GEOG0018/raw/master/slides/w10-mhg.pdf">[Link]</a>.</p>
 </section>
-<section id="reading-list" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="reading-list"><span class="header-section-number">5.2</span> Reading list</h2>
+<section id="reading-list" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="reading-list"><span class="header-section-number">5.2</span> Reading list</h2>
 <section id="essential-readings" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="essential-readings">Essential readings</h4>
 <ul>
@@ -411,8 +411,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="crime-in-london" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="crime-in-london"><span class="header-section-number">5.3</span> Crime in London</h2>
+<section id="crime-in-london" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="crime-in-london"><span class="header-section-number">5.3</span> Crime in London</h2>
 <p>In this week’s practical we will explore the spatial patterns of crime, specifically <code>theft from the person</code> across London boroughs in 2021. For our crime data, we will use data extracted from the <a href="https://data.police.uk/">Police Data Portal</a>, which provides access to tabular data for crimes recorded by various UK police forces. The portal currently only offers the most recent 36 months of data, so we have prepared an extract of the 2021 data for you. We use 2021 because it matches the year of the Census population counts that we use further on to calculate crime rates. You can download this dataset via the link provided below.</p>
 <p>Save the file inside your <code>data</code> folder.</p>
 <table class="caption-top table">
@@ -484,8 +484,8 @@ Figure&nbsp;1: The downloaded London Borough population dataset.
 </div>
 </div>
 </div>
-<section id="data-preparation" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="data-preparation"><span class="header-section-number">5.3.1</span> Data preparation</h3>
+<section id="data-preparation" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="data-preparation"><span class="header-section-number">5.3.1</span> Data preparation</h3>
 <p>To prepare the borough population data for use in QGIS, you should:</p>
 <ol type="1">
 <li>Open the dataset in your spreadsheet editing software. Locate the columns containing the borough names and their associated population counts. Copy these two columns into a new spreadsheet, and rename the columns to <code>BoroughNames</code> and <code>pop2021</code> respectively.</li>
@@ -618,8 +618,8 @@ Figure&nbsp;4: The London boroughs together with the crime dataset.
 <li>You can now also remove the original <code>London-Crime-2021</code> dataset, only keeping the reprojected version.</li>
 </ol>
 </section>
-<section id="data-aggregation" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="data-aggregation"><span class="header-section-number">5.3.2</span> Data aggregation</h3>
+<section id="data-aggregation" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="data-aggregation"><span class="header-section-number">5.3.2</span> Data aggregation</h3>
 <p>The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the <strong>Count points in polygon</strong> tool in the <strong>Analysis Tools</strong> menu to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a <em>crime rate</em> statistic.</p>
 <ol type="1">
 <li>Click on <strong>Vector</strong> -&gt; <strong>Analysis Tools</strong> -&gt; <strong>Count points in polygon</strong>.</li>
@@ -636,6 +636,19 @@ Figure&nbsp;4: The London boroughs together with the crime dataset.
 <li>Click <strong>Run</strong> and <strong>Close</strong> the dialogue box. You should now see the <code>London-Borough-Crime</code> layer added to your <em>Layers</em> panel.</li>
 <li>Right-click on the <code>London-Borough-Crime</code> layer and open the <strong>Attribute Table</strong>. If all went well, you should see a <code>theft2021</code> column next to your <code>pop2021</code> column.</li>
 </ol>
+<div class="exercise callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Predict first
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which borough do you expect to have the highest number of thefts per 10,000 residents: a large residential borough or a small central one? Check your guess once you have calculated the crime rate below.</p>
+</div>
+</div>
 <p>We can now calculate the crime rate:</p>
 <ol start="5" type="1">
 <li>With the <strong>Attribute Table</strong> of your <code>London-Borough-Crime</code> layer still open, click on the <strong>pencil</strong> icon in the top left corner to enable <em>Editing</em> mode.</li>
@@ -695,17 +708,20 @@ Figure&nbsp;5: The attribute table of the <code>London-Borough-Crime</code> laye
 </div>
 </div>
 </section>
-<section id="data-mapping" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="data-mapping"><span class="header-section-number">5.3.3</span> Data mapping</h3>
+<section id="data-mapping" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="data-mapping"><span class="header-section-number">5.3.3</span> Data mapping</h3>
 <p>Now the dataset has been prepared, it is time to make a map. First thing we need to do is symbolise the map with an appropriate colour scheme. Go to <strong>Properties</strong> and symbolise your map with <strong>Graduated</strong> colours. You need to decide on an appropriate data classification and colour scheme. For reference, <a href="#fig-map-styled" class="quarto-xref">Figure&nbsp;6</a> shows an example of a possible classification and colour scheme.</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
+<div class="exercise callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-body-container">
-<p>Before you choose your classes, look at the highest and lowest crime rates in the attribute table. The City of London has 854 thefts per 10,000 residents, whereas the median across the 33 boroughs is about 21: few people live in the City of London, but many more work in or visit it. With five <strong>Equal Interval</strong> classes, 31 of the 33 boroughs end up in the first class. Try <strong>Equal Interval</strong> and <strong>Equal Count (Quantile)</strong> and compare what happens to the City of London and to the other boroughs.</p>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Try it yourself
 </div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you choose your classes, look at the highest and lowest crime rates in the attribute table. The City of London has 854 thefts per 10,000 residents, whereas the median across the 33 boroughs is about 21: few people live in the City of London, but many more work in or visit it. With five <strong>Equal Interval</strong> classes, how many of the 33 boroughs do you expect to end up in the first class? Try <strong>Equal Interval</strong> and <strong>Equal Count (Quantile)</strong> and compare what happens to the City of London and to the other boroughs. With <strong>Equal Interval</strong>, 31 of the 33 boroughs end up in the first class.</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip">
@@ -802,9 +818,23 @@ Figure&nbsp;8: Current active map in the <em>Print Layout</em>.
 <li>With your map selected, head to the <strong>Item Properties</strong> panel and look for the <strong>Scale</strong> parameter.
 <ul>
 <li>Here we can manually edit the <strong>scale</strong> of our map to find the right zoom level.</li>
-<li>Have a go at entering different values and see what level you think suits the size of your map.</li>
 <li>If you need to move the position of the map within the box, look for the <strong>Move Item Content</strong> tool in the left-hand side toolbar.</li>
 </ul></li>
+</ol>
+<div class="exercise callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Try it yourself
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Enter a scale that is about 50% larger and one that is about 50% smaller than the current one. Which will cut off part of the map, and which will leave too much empty space? Try both, then choose the scale that suits your map.</p>
+</div>
+</div>
+<ol start="3" type="1">
 <li>Click on the <strong>Add Legend</strong> tool and draw a box on your canvas where you want the legend to appear. You will notice that the legend automatically generates an entry for every layer in the Layers panel of the main QGIS application.
 <ul>
 <li>In the <strong>Item Properties</strong>, uncheck <code>Auto update</code> to prevent QGIS from automatically populating your legend, allowing you to customise it instead.</li>
@@ -850,8 +880,8 @@ Figure&nbsp;9: Crime rates across London Boroughs.
 <p>The only remaining step is to export our map as an image. Navigate to <strong>Layout</strong> -&gt; <strong>Export as Image</strong> and then save it as <code>London-Borough-2021-crime-rate.png</code>.</p>
 </section>
 </section>
-<section id="homework-task" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">5.4</span> Homework task</h2>
+<section id="homework-task" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">5.4</span> Homework task</h2>
 <p>This concludes this week’s tutorial. Now complete the following homework tasks:</p>
 <ol type="1">
 <li>Load last week’s <code>London-LSOA-2021.gpkg</code> into QGIS and join the <code>LSOA2021-population.csv</code> to it again (or continue in your <code>w09-population-analysis</code> project if you saved the join there), so that every LSOA has a <code>pop2021</code> value.</li>
@@ -872,8 +902,8 @@ Figure&nbsp;9: Crime rates across London Boroughs.
 </div>
 </div>
 </section>
-<section id="before-you-leave" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">5.5</span> Before you leave</h2>
+<section id="before-you-leave" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">5.5</span> Before you leave</h2>
 <p><a href="https://www.youtube.com/watch?v=3wxyN3z9PL4">That is us all done</a>. Remember to save your project. Perhaps time to focus on your final assignment?</p>
 
 
@@ -1296,8 +1326,8 @@ Figure&nbsp;9: Crime rates across London Boroughs.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-spatial1.html" class="pagination-link" aria-label="Spatial Analysis I">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Spatial Analysis I</span>
+      <a href="./04-spatial1.html" class="pagination-link" aria-label="4 Spatial Analysis I">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4 Spatial Analysis I</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

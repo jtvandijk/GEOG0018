@@ -154,6 +154,11 @@ Pearson's Correlation Coefficient measures the linear relationship between two c
 
 We can run a correlation as follows:
 
+::: {.callout-note .exercise icon=false}
+## Predict first
+Look at the scatterplot again. Do you expect the correlation coefficient to be positive or negative, and is it closer to `0` or to `1`? Check your guess against the output.
+:::
+
 ```{r}
 #| label: 03-pearson
 #| classes: styled-output
@@ -214,6 +219,11 @@ A Pearson's correlation describes the strength and direction of a linear relatio
 
 Let us run a model with the proportion of the population that is over 50 years old as `x` and the Conservative vote share as `y`:
 
+::: {.callout-note .exercise icon=false}
+## Predict first
+Both variables are proportions. For each extra percentage point of people over 50, do you expect the Conservative vote share to rise by less than one percentage point, by about one, or by more than one? Check your guess against the slope.
+:::
+
 ```{r}
 #| label: 03-regression-uni
 #| classes: styled-output
@@ -259,6 +269,11 @@ The model $R^2$ has increased to 47%, and the adjusted $R^2$, which accounts for
 The coefficients in a multiple regression model represent the predicted change in the dependent variable (`y`) with a one-unit increase in each independent variable (`x`), while holding all other variables in the model constant. This makes the coefficients *partial* regression coefficients, meaning they show the association between each predictor and the dependent variable after accounting for the others.
 
 This is why the coefficient for `aged_50_years_and_over` has changed from 0.74 to 1.2. The share of people over 50 is strongly related to the other predictors (its correlation with `eth_white` is 0.80), so its association with the Conservative vote share looks different once they are held constant.
+:::
+
+::: {.callout-note .exercise icon=false}
+## Try it yourself
+Run the model again without `eth_white`, so with only `aged_50_years_and_over` and `eco_active_employed`. Do you expect $R^2$ to go up or down? Do you expect the coefficient for `aged_50_years_and_over` to stay at 1.2 or to move back towards 0.74? Run it and compare.
 :::
 
 This is a good start, but as geographers, we should also consider whether regional patterns influence voter share. We can use a boxplot to split out the vote shares by region to see whether there is any evidence of regional differentiation:

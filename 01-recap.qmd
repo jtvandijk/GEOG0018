@@ -235,6 +235,11 @@ You can further inspect the results using the `View()` function.
 ### Data exploration
 Now that we have loaded and inspected our data, we can start by analysing its distribution. We will begin by examining the proportion of people *aged 16 to 24* across London, using basic descriptive statistics such as the mean, median, range, interquartile range, and standard deviation. These measures will give us an idea of the central tendency and spread of the data.
 
+::: {.callout-note .exercise icon=false}
+## Predict first
+For the proportion of people aged 16 to 24, do you expect the mean to be higher than, lower than or about equal to the median? Run the code, then check your guess. What does the result tell you about the shape of the distribution?
+:::
+
 ```{r}
 #| label: 01-explore-data
 #| classes: styled-output
@@ -268,6 +273,11 @@ R has no built-in function for the mode. The `mode()` function returns the stora
 Further to these standard descriptive statistics, graphs provide a useful visual summary of the distribution of values on a variable. Graphs can help us assess, for instance, whether our data are [normally distributed](https://en.wikipedia.org/wiki/Normal_distribution), whether there are *outlying* values, and whether there are any missing values or errors we should deal with before running our analyses. Histograms are a good first step when it comes to looking at the distribution of values of a variable.
 
 We can create a histogram as follows:
+
+::: {.callout-note .exercise icon=false}
+## Predict first
+Before you draw the histogram, sketch the shape you expect. Will it be symmetric, or will it have a longer tail on one side? Where will the most extreme values sit?
+:::
 
 ```{r}
 #| label: fig-01-plot-data-histogram
@@ -320,6 +330,11 @@ lsoa_age_camden <- lsoa_age |>
 # inspect
 head(lsoa_age_camden)
 ```
+
+::: {.callout-note .exercise icon=false}
+## Try it yourself
+Camden has a higher mean proportion of 16 to 24 year olds than London as a whole. Change `'Camden'` in the code above to another borough, such as `'Richmond'` or `'Hackney'`, and predict whether its mean will be above or below the London mean before you run `mean()` on the 16 to 24 column of the new dataframe. Does the result match your prediction?
+:::
 
 ::: {.callout-tip}
 The `str_detect()` function searches for a *substring* within a larger string and returns a logical value indicating whether the searched text is present. In turn, the `filter()` function uses this to subset the dataset.

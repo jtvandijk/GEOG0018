@@ -77,3 +77,7 @@ div.sidebar-header {
     max-width: 100%;
     height: auto;
 }
+
+/* exercise callouts: "Predict first" and "Try it yourself" */
+.callout.exercise { border-left-color: var(--main-color) !important; background-color: color-mix(in srgb, var(--main-color) 5%, transparent); }
+.callout.exercise .callout-title-container { color: var(--main-color); }

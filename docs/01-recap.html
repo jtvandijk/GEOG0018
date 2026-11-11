@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-recap.html">Statistical Analysis</a></li><li class="breadcrumb-item"><a href="./01-recap.html">R for Data Analysis</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-recap.html">Statistical Analysis</a></li><li class="breadcrumb-item"><a href="./01-recap.html">1 R for Data Analysis</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -420,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="toc-actions"><ul><li><a href="https://github.com/jtvandijk/GEOG0018/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-recap.html">Statistical Analysis</a></li><li class="breadcrumb-item"><a href="./01-recap.html">R for Data Analysis</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-recap.html">Statistical Analysis</a></li><li class="breadcrumb-item"><a href="./01-recap.html">1 R for Data Analysis</a></li></ol></nav></header>
 
 
 
@@ -809,6 +809,19 @@ dbl (2): Age (5 categories) Code, Observation
 <section id="data-exploration" class="level3" data-number="1.4.3">
 <h3 data-number="1.4.3" class="anchored" data-anchor-id="data-exploration"><span class="header-section-number">1.4.3</span> Data exploration</h3>
 <p>Now that we have loaded and inspected our data, we can start by analysing its distribution. We will begin by examining the proportion of people <em>aged 16 to 24</em> across London, using basic descriptive statistics such as the mean, median, range, interquartile range, and standard deviation. These measures will give us an idea of the central tendency and spread of the data.</p>
+<div class="exercise callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Predict first
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For the proportion of people aged 16 to 24, do you expect the mean to be higher than, lower than or about equal to the median? Run the code, then check your guess. What does the result tell you about the shape of the distribution?</p>
+</div>
+</div>
 <div class="cell styled-output">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -859,6 +872,19 @@ dbl (2): Age (5 categories) Code, Observation
 </div>
 <p>Further to these standard descriptive statistics, graphs provide a useful visual summary of the distribution of values on a variable. Graphs can help us assess, for instance, whether our data are <a href="https://en.wikipedia.org/wiki/Normal_distribution">normally distributed</a>, whether there are <em>outlying</em> values, and whether there are any missing values or errors we should deal with before running our analyses. Histograms are a good first step when it comes to looking at the distribution of values of a variable.</p>
 <p>We can create a histogram as follows:</p>
+<div class="exercise callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Predict first
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you draw the histogram, sketch the shape you expect. Will it be symmetric, or will it have a longer tail on one side? Where will the most extreme values sit?</p>
+</div>
+</div>
 <div class="cell styled-output">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -943,6 +969,19 @@ Figure&nbsp;2: Quick boxplot.
 #   ²​lower_layer_super_output_areas, ³​aged_15_years_and_under
 # ℹ 5 more variables: aged_16_to_24_years &lt;dbl&gt;, aged_25_to_34_years &lt;dbl&gt;,
 #   aged_35_to_49_years &lt;dbl&gt;, aged_50_years_and_over &lt;dbl&gt;, lsoa_pop &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="exercise callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Try it yourself
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Camden has a higher mean proportion of 16 to 24 year olds than London as a whole. Change <code>'Camden'</code> in the code above to another borough, such as <code>'Richmond'</code> or <code>'Hackney'</code>, and predict whether its mean will be above or below the London mean before you run <code>mean()</code> on the 16 to 24 column of the new dataframe. Does the result match your prediction?</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip">
@@ -1425,8 +1464,8 @@ Figure&nbsp;2: Quick boxplot.
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-statistics1.html" class="pagination-link" aria-label="Statistical Analysis I">
-        <span class="nav-page-text">Statistical Analysis I</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-statistics1.html" class="pagination-link" aria-label="2 Statistical Analysis I">
+        <span class="nav-page-text">2 Statistical Analysis I</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

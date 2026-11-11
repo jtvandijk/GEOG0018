@@ -319,7 +319,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-recap.html">Statistical Analysis</a></li><li class="breadcrumb-item"><a href="./03-statistics2.html">Statistical Analysis II</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-recap.html">Statistical Analysis</a></li><li class="breadcrumb-item"><a href="./03-statistics2.html">3 Statistical Analysis II</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -449,21 +449,21 @@ window.Quarto = {
 <div class="toc-actions"><ul><li><a href="https://github.com/jtvandijk/GEOG0018/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-recap.html">Statistical Analysis</a></li><li class="breadcrumb-item"><a href="./03-statistics2.html">Statistical Analysis II</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-recap.html">Statistical Analysis</a></li><li class="breadcrumb-item"><a href="./03-statistics2.html">3 Statistical Analysis II</a></li></ol></nav></header>
 
 
 
 
 
-<section id="statistical-analysis-ii" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">3</span> Statistical Analysis II</h1>
+<section id="statistical-analysis-ii" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Statistical Analysis II</h1>
 <p>Last week, we explored methods for comparing groups. This week, our focus shifts to examining relationships between variables, aiming to assess the extent to which two variables <em>covary</em>: how changes in one variable are associated with changes in another. For example, what is the link between greenhouse gas emissions (<code>x</code>) and global mean temperature (<code>y</code>)? How are earnings (<code>y</code>) related to the time spent in education (<code>x</code>)? To what extent are house prices or local health outcomes (<code>y</code>) associated with proximity to urban greenspace (<code>x</code>)? To answer these sorts of questions we need techniques for unpacking relationships between variables.</p>
-<section id="lecture-slides" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="lecture-slides"><span class="header-section-number">3.1</span> Lecture slides</h2>
+<section id="lecture-slides" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="lecture-slides"><span class="header-section-number">3.1</span> Lecture slides</h2>
 <p>You can download the slides of this week’s lecture here: <a href="https://github.com/jtvandijk/GEOG0018/raw/master/slides/w08-mhg.pdf">[Link]</a>.</p>
 </section>
-<section id="reading-list" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="reading-list"><span class="header-section-number">3.2</span> Reading list</h2>
+<section id="reading-list" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="reading-list"><span class="header-section-number">3.2</span> Reading list</h2>
 <section id="essential-readings" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="essential-readings">Essential readings</h4>
 <ul>
@@ -478,16 +478,16 @@ window.Quarto = {
 </ul>
 </section>
 </section>
-<section id="start-of-session" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="start-of-session"><span class="header-section-number">3.3</span> Start of session</h2>
+<section id="start-of-session" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="start-of-session"><span class="header-section-number">3.3</span> Start of session</h2>
 <p>Before working through the tutorial, we will spend a few minutes looking at:</p>
 <ul>
 <li>A regression prediction worked out by hand</li>
 <li>The error “object ‘aged_50’ not found”</li>
 </ul>
 </section>
-<section id="election-results-in-england-and-wales" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="election-results-in-england-and-wales"><span class="header-section-number">3.4</span> Election results in England and Wales</h2>
+<section id="election-results-in-england-and-wales" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="election-results-in-england-and-wales"><span class="header-section-number">3.4</span> Election results in England and Wales</h2>
 <p>Today, we will investigate the political geography of England and Wales, focusing on the results of the July 2024 General Election, which was won by the Labour Party led by Keir Starmer. You will work with data extracted from two data sources: the <a href="https://commonslibrary.parliament.uk/research-briefings/cbp-10009/">constituency results from the election</a> and socio-demographic information relating to age groups, economic status, and ethnic background from the 2021 Census, extracted using the <a href="https://www.ons.gov.uk/datasets/create">Custom Dataset Tool</a>. These datasets have been prepared and merged. Please download the file using the link below and save it in your project folder within the <code>data</code> directory.</p>
 <table class="caption-top table">
 <thead>
@@ -530,8 +530,8 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-<section id="data-loading" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="data-loading"><span class="header-section-number">3.4.1</span> Data loading</h3>
+<section id="data-loading" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="data-loading"><span class="header-section-number">3.4.1</span> Data loading</h3>
 <p>Now that we are set up again, we can load the <code>EW-GE2024-Constituency-Vars.csv</code> file into R.</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
@@ -609,8 +609,8 @@ dbl (22): eligible_voters, valid_votes, conservative_votes, labour_votes, li...
 </div>
 </div>
 </section>
-<section id="crosstabulation" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="crosstabulation"><span class="header-section-number">3.4.2</span> Crosstabulation</h3>
+<section id="crosstabulation" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="crosstabulation"><span class="header-section-number">3.4.2</span> Crosstabulation</h3>
 <p>In geography, we frequently work with categorical variables. One technique for assessing relationships between two categorical variables is crosstabulation. For example, if we hypothesise that constituencies with an older population are more likely to be won by the Conservative Party, we could crosstabulate the winning party against constituencies where more than 40% of the population is over 50 years old (<code>pop_50plus_40percent</code>).</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
@@ -726,8 +726,8 @@ Chi^2 = 75.53043      d.f. = 3      p = 2.79e-16
 </div>
 </div>
 </section>
-<section id="correlation" class="level3" data-number="1.4.3">
-<h3 data-number="1.4.3" class="anchored" data-anchor-id="correlation"><span class="header-section-number">3.4.3</span> Correlation</h3>
+<section id="correlation" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="correlation"><span class="header-section-number">3.4.3</span> Correlation</h3>
 <p>With continuous data, we can explore associations more deeply. For example, we could investigate the relationship between the proportion of individuals over 50 years old in each parliamentary constituency (<code>aged_50_years_and_over</code>) and the proportion of votes cast for the Conservative Party (<code>conservative_vote_share</code>). A scatterplot is an ideal starting point for comparing two continuous variables.</p>
 <p>We can create a scatterplot as follows:</p>
 <div class="cell styled-output">
@@ -764,6 +764,19 @@ Figure&nbsp;1: Quick scatterplot
 </div>
 </div>
 <p>We can run a correlation as follows:</p>
+<div class="exercise callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Predict first
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Look at the scatterplot again. Do you expect the correlation coefficient to be positive or negative, and is it closer to <code>0</code> or to <code>1</code>? Check your guess against the output.</p>
+</div>
+</div>
 <div class="cell styled-output">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -837,8 +850,8 @@ Figure&nbsp;2: Correlation plot of selected variables.
 </div>
 </div>
 </section>
-<section id="regression" class="level3" data-number="1.4.4">
-<h3 data-number="1.4.4" class="anchored" data-anchor-id="regression"><span class="header-section-number">3.4.4</span> Regression</h3>
+<section id="regression" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="regression"><span class="header-section-number">3.4.4</span> Regression</h3>
 <p>Before running a regression, we need to know what type of variable we want to explain (the dependent variable, <code>y</code>) and what types of variables we use to explain it (the independent variables, <code>x</code>). The type of the dependent variable determines which type of regression we can use. The independent variables can be of any type, although categorical variables need to be converted into dummy variables. In this chapter we only use linear regression, but <a href="#tbl-variables" class="quarto-xref">Table&nbsp;1</a> also lists other types of regression. The methods from the previous chapter are summarised in the <a href="02-statistics1.html#tbl-methods">table in that chapter</a>.</p>
 <div id="tbl-variables" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -897,10 +910,23 @@ Table&nbsp;1: Types of variables in regression models.
 </div>
 </figure>
 </div>
-<section id="bivariate-regression" class="level4" data-number="1.4.4.1">
-<h4 data-number="1.4.4.1" class="anchored" data-anchor-id="bivariate-regression"><span class="header-section-number">3.4.4.1</span> Bivariate regression</h4>
+<section id="bivariate-regression" class="level4" data-number="3.4.4.1">
+<h4 data-number="3.4.4.1" class="anchored" data-anchor-id="bivariate-regression"><span class="header-section-number">3.4.4.1</span> Bivariate regression</h4>
 <p>A Pearson’s correlation describes the strength and direction of a linear relationship, but we can also quantify the change in the dependent variable (<code>y</code>) for a one-unit change in the independent variable (<code>x</code>) with an Ordinary Least Squares (OLS) regression.</p>
 <p>Let us run a model with the proportion of the population that is over 50 years old as <code>x</code> and the Conservative vote share as <code>y</code>:</p>
+<div class="exercise callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Predict first
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both variables are proportions. For each extra percentage point of people over 50, do you expect the Conservative vote share to rise by less than one percentage point, by about one, or by more than one? Check your guess against the slope.</p>
+</div>
+</div>
 <div class="cell styled-output">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -946,8 +972,8 @@ F-statistic: 271.3 on 1 and 573 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
-<section id="multiple-regression" class="level4" data-number="1.4.4.2">
-<h4 data-number="1.4.4.2" class="anchored" data-anchor-id="multiple-regression"><span class="header-section-number">3.4.4.2</span> Multiple regression</h4>
+<section id="multiple-regression" class="level4" data-number="3.4.4.2">
+<h4 data-number="3.4.4.2" class="anchored" data-anchor-id="multiple-regression"><span class="header-section-number">3.4.4.2</span> Multiple regression</h4>
 <p>Now, let us include additional predictors in our regression model to see if we can better explain the variation in the Conservative vote share. We will include <code>eco_active_employed</code> (the proportion of economically active employed individuals) and <code>eth_white</code> (the proportion of the population that identifies as white):</p>
 <div class="cell styled-output">
 <div class="code-with-filename">
@@ -1004,6 +1030,19 @@ F-statistic: 166.8 on 3 and 571 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>The coefficients in a multiple regression model represent the predicted change in the dependent variable (<code>y</code>) with a one-unit increase in each independent variable (<code>x</code>), while holding all other variables in the model constant. This makes the coefficients <em>partial</em> regression coefficients, meaning they show the association between each predictor and the dependent variable after accounting for the others.</p>
 <p>This is why the coefficient for <code>aged_50_years_and_over</code> has changed from 0.74 to 1.2. The share of people over 50 is strongly related to the other predictors (its correlation with <code>eth_white</code> is 0.80), so its association with the Conservative vote share looks different once they are held constant.</p>
 </div>
+</div>
+</div>
+<div class="exercise callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Try it yourself
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Run the model again without <code>eth_white</code>, so with only <code>aged_50_years_and_over</code> and <code>eco_active_employed</code>. Do you expect <span class="math inline">\(R^2\)</span> to go up or down? Do you expect the coefficient for <code>aged_50_years_and_over</code> to stay at 1.2 or to move back towards 0.74? Run it and compare.</p>
 </div>
 </div>
 <p>This is a good start, but as geographers, we should also consider whether regional patterns influence voter share. We can use a boxplot to split out the vote shares by region to see whether there is any evidence of regional differentiation:</p>
@@ -1149,8 +1188,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 </section>
-<section id="diagnostics" class="level4" data-number="1.4.4.3">
-<h4 data-number="1.4.4.3" class="anchored" data-anchor-id="diagnostics"><span class="header-section-number">3.4.4.3</span> Diagnostics</h4>
+<section id="diagnostics" class="level4" data-number="3.4.4.3">
+<h4 data-number="3.4.4.3" class="anchored" data-anchor-id="diagnostics"><span class="header-section-number">3.4.4.3</span> Diagnostics</h4>
 <p>The validity of a regression relies on several assumptions being met. One of the most important assumptions is that the residuals (the errors of the model: the differences between observed and predicted values) should be independent and approximately normally distributed. The <code>easystats</code> package provides tools to quickly generate relevant figures and diagnostics to help you assess your model.</p>
 <p>Check for normality of the residuals:</p>
 <div class="cell styled-output">
@@ -1273,8 +1312,8 @@ Figure&nbsp;6: Check for influential observations and multicollinearity.
 </section>
 </section>
 </section>
-<section id="homework-task" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">3.5</span> Homework task</h2>
+<section id="homework-task" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="homework-task"><span class="header-section-number">3.5</span> Homework task</h2>
 <p>This concludes this week’s tutorial. Now complete the following homework tasks making use of the <code>elec_vars</code> dataset:</p>
 <ol type="1">
 <li>Analyse the association between the <code>pop_white_90percent</code> and <code>winning_party</code> variables.</li>
@@ -1291,8 +1330,8 @@ Figure&nbsp;6: Check for influential observations and multicollinearity.
 </div>
 </div>
 </section>
-<section id="before-you-leave" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">3.6</span> Before you leave</h2>
+<section id="before-you-leave" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">3.6</span> Before you leave</h2>
 <p>This week, we focused on statistically assessing associations between different variables. Because this week’s material was a little technical, we will shift our focus away from R next week and turn our attention to QGIS. Time to sit down and process this week’s material before some <a href="https://www.youtube.com/watch?v=L_TXvjDE5Ec">more relaxed content</a> next week!</p>
 
 
@@ -1715,13 +1754,13 @@ Figure&nbsp;6: Check for influential observations and multicollinearity.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-statistics1.html" class="pagination-link" aria-label="Statistical Analysis I">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Statistical Analysis I</span>
+      <a href="./02-statistics1.html" class="pagination-link" aria-label="2 Statistical Analysis I">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2 Statistical Analysis I</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-spatial1.html" class="pagination-link" aria-label="Spatial Analysis I">
-        <span class="nav-page-text">Spatial Analysis I</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-spatial1.html" class="pagination-link" aria-label="4 Spatial Analysis I">
+        <span class="nav-page-text">4 Spatial Analysis I</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

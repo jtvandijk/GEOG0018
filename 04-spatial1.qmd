@@ -255,6 +255,11 @@ QGIS keeps every polygon of the spatial layer when it joins a table. If a code d
 ### Data mapping
 We can now finally map the 2011 population distribution of London.
 
+::: {.callout-note .exercise icon=false}
+## Predict first
+Before you style the layer, do you expect to see a clear pattern from the centre of London to the edges, or a patchwork of high and low values? Why might that be, given that LSOAs are designed to have similar numbers of residents?
+:::
+
 12. *Right-click* on the `London-LSOA-2011` layer and click on **Properties** -> **Symbology**.
     - In the dropdown menu at the top of the window, select **Graduated** as symbology.
     - Under **Value** choose `pop2011` as your column.
@@ -271,6 +276,11 @@ You should now be looking at something like this:
 #| fig-cap: 'The population distribution of London in 2011.'
 knitr::include_graphics('images/w09/lsoa-population-2011.png')
 ```
+
+::: {.callout-note .exercise icon=false}
+## Try it yourself
+Go back to the **Symbology** tab and change the **Mode** to **Equal Count (Quantile)**, or change the number of classes. Predict how the map and the class ranges will change before you click **Apply**. Which version tells you more about where the high values are?
+:::
 
 ::: {.callout-warning}
 While the map above is acceptable for today, it is technically incorrect because it displays absolute numbers on a choropleth. You should never do this unless the spatial units are identical in size, as larger areas will draw disproportionate attention and skew the visualisation. Next week, we return to this problem when we calculate rates.

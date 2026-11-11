@@ -159,6 +159,11 @@ The next step of our analysis involves aggregating the crime events to our admin
 3. Click **Run** and **Close** the dialogue box. You should now see the `London-Borough-Crime` layer added to your *Layers* panel.
 4. Right-click on the `London-Borough-Crime` layer and open the **Attribute Table**. If all went well, you should see a `theft2021` column next to your `pop2021` column.
 
+::: {.callout-note .exercise icon=false}
+## Predict first
+Which borough do you expect to have the highest number of thefts per 10,000 residents: a large residential borough or a small central one? Check your guess once you have calculated the crime rate below.
+:::
+
 We can now calculate the crime rate:
 
 5. With the **Attribute Table** of your `London-Borough-Crime` layer still open, click on the **pencil** icon in the top left corner to enable *Editing* mode.
@@ -197,8 +202,9 @@ The `crime-rate` is stored as a decimal number so that the fractions are kept, b
 ### Data mapping
 Now the dataset has been prepared, it is time to make a map. First thing we need to do is symbolise the map with an appropriate colour scheme. Go to **Properties** and symbolise your map with **Graduated** colours. You need to decide on an appropriate data classification and colour scheme. For reference, @fig-map-styled shows an example of a possible classification and colour scheme.
 
-::: {.callout-tip}
-Before you choose your classes, look at the highest and lowest crime rates in the attribute table. The City of London has 854 thefts per 10,000 residents, whereas the median across the 33 boroughs is about 21: few people live in the City of London, but many more work in or visit it. With five **Equal Interval** classes, 31 of the 33 boroughs end up in the first class. Try **Equal Interval** and **Equal Count (Quantile)** and compare what happens to the City of London and to the other boroughs.
+::: {.callout-note .exercise icon=false}
+## Try it yourself
+Before you choose your classes, look at the highest and lowest crime rates in the attribute table. The City of London has 854 thefts per 10,000 residents, whereas the median across the 33 boroughs is about 21: few people live in the City of London, but many more work in or visit it. With five **Equal Interval** classes, how many of the 33 boroughs do you expect to end up in the first class? Try **Equal Interval** and **Equal Count (Quantile)** and compare what happens to the City of London and to the other boroughs. With **Equal Interval**, 31 of the 33 boroughs end up in the first class.
 :::
 
 ::: {.callout-tip}
@@ -255,8 +261,12 @@ knitr::include_graphics('images/w10/map-layout.png')
 
 2. With your map selected, head to the **Item Properties** panel and look for the **Scale** parameter.
     - Here we can manually edit the **scale** of our map to find the right zoom level.
-    - Have a go at entering different values and see what level you think suits the size of your map.
     - If you need to move the position of the map within the box, look for the **Move Item Content** tool in the left-hand side toolbar.
+
+::: {.callout-note .exercise icon=false}
+## Try it yourself
+Enter a scale that is about 50% larger and one that is about 50% smaller than the current one. Which will cut off part of the map, and which will leave too much empty space? Try both, then choose the scale that suits your map.
+:::
 
 3. Click on the **Add Legend** tool and draw a box on your canvas where you want the legend to appear. You will notice that the legend automatically generates an entry for every layer in the Layers panel of the main QGIS application.
     - In the **Item Properties**, uncheck `Auto update` to prevent QGIS from automatically populating your legend, allowing you to customise it instead.
