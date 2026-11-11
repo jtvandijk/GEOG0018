@@ -208,7 +208,7 @@ We can use the `t.test()` function in R to conduct a two-tailed test, assessing 
 
 ::: {.callout-note .exercise icon=false}
 ## Predict first
-Which borough do you expect to have the higher mean unemployment share, Camden or Sutton? With more than 120 LSOAs in each borough, do you expect the difference to be statistically significant? Note that we have all LSOAs of both boroughs rather than a sample, so we treat these LSOAs as one realisation of the data to practise the method.
+Which borough do you expect to have the higher mean unemployment share, Camden or Sutton? With more than 120 LSOAs in each borough, do you expect the difference to be statistically significant? Note that we have all LSOAs of both boroughs, not just a sample. For now, we treat them as if they were a sample so that we can practise the method.
 :::
 
 ```{r}
