@@ -46,7 +46,7 @@ code {
 }
 
 div.sidebar-item-container:hover, div.sidebar-item-container:focus {
-    color:rgba(161, 17, 42)
+    color: var(--main-color-hover);
 }
 
 div.sidebar-header {
@@ -66,7 +66,7 @@ div.sidebar-header {
     padding: 1px 3px;
     border: 1px solid var(--accent-color);
     border-radius: 3px;
-    background-color: rgba(37, 180, 151, .05);
+    background-color: color-mix(in srgb, var(--accent-color) 5%, transparent);
 }
 
 .explore {
@@ -81,3 +81,21 @@ div.sidebar-header {
 /* exercise callouts: "Predict first" and "Try it yourself" */
 .callout.exercise { border-left-color: var(--main-color) !important; background-color: color-mix(in srgb, var(--main-color) 5%, transparent); }
 .callout.exercise .callout-title-container { color: var(--main-color); }
+
+/* lighter accent in dark mode so links stay readable */
+body.quarto-dark {
+    --main-color: #E8707F;
+    --main-color-hover: #F09AA5;
+    --accent-color: #E8707F;
+}
+
+/* names of buttons and menu items in apps */
+.ui {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* keep step-by-step lists readable: no justification inside lists */
+main li, main li p {
+    text-align: left;
+}

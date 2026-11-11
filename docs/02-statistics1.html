@@ -828,7 +828,7 @@ sample estimates:
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>We can see that the mean in Sutton LSOAs (2.64%) is lower than in Camden LSOAs (4.22%). Since the <span class="math inline">\(p\)</span>-value is <code>&lt; 0.05</code> we can reject the <em>null hypothesis</em> that means for Sutton and Camden are the same, and accept the alternative hypothesis.</p>
+<p>We can see that the mean in Sutton LSOAs (2.64%) is lower than in Camden LSOAs (4.22%). Since the <span class="math inline">\(p\)</span>-value is <code>&lt; 0.05</code> we can reject the <em>null hypothesis</em> that the means for Sutton and Camden are the same.</p>
 </div>
 </div>
 </div>
@@ -881,7 +881,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Since the <span class="math inline">\(p\)</span>-value is <code>&lt; 0.05</code> we can reject the <em>null hypothesis</em> that the two distributions are the same, and accept the alternative hypothesis.</p>
+<p>Since the <span class="math inline">\(p\)</span>-value is <code>&lt; 0.05</code> we can reject the <em>null hypothesis</em> that the two distributions are the same.</p>
 </div>
 </div>
 </div>
@@ -896,8 +896,15 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
 </section>
-<section id="comparing-more-than-two-groups" class="level4" data-number="2.4.3.2">
-<h4 data-number="2.4.3.2" class="anchored" data-anchor-id="comparing-more-than-two-groups"><span class="header-section-number">2.4.3.2</span> Comparing more than two groups</h4>
+<section id="reporting-your-results" class="level4" data-number="2.4.3.2">
+<h4 data-number="2.4.3.2" class="anchored" data-anchor-id="reporting-your-results"><span class="header-section-number">2.4.3.2</span> Reporting your results</h4>
+<p>When you report a comparison between two groups, for instance in the appendix of your assignment, include the means of both groups, the result of the test, the size of the difference with its confidence interval, and what this means in plain words. Report exact <span class="math inline">\(p\)</span>-values, or <span class="math inline">\(p\)</span> &lt; 0.001 for very small values, rather than only stating that a result is significant. For our comparison, this could look as follows:</p>
+<blockquote class="blockquote">
+<p>On average, 4.2% of the population was unemployed across the 130 LSOAs in Camden, compared with 2.6% across the 123 LSOAs in Sutton. The difference of 1.6 percentage points (95% CI 1.3 to 1.9) is statistically significant (Welch’s <span class="math inline">\(t\)</span> = 11.28, df = 188.3, <span class="math inline">\(p\)</span> &lt; 0.001). Unemployment is therefore higher, on average, in Camden’s neighbourhoods than in Sutton’s; the test does not tell us why.</p>
+</blockquote>
+</section>
+<section id="comparing-more-than-two-groups" class="level4" data-number="2.4.3.3">
+<h4 data-number="2.4.3.3" class="anchored" data-anchor-id="comparing-more-than-two-groups"><span class="header-section-number">2.4.3.3</span> Comparing more than two groups</h4>
 <p>If we want to compare more than two groups, we can use an <a href="https://en.wikipedia.org/wiki/Analysis_of_variance">Analysis of Variance (ANOVA) test</a>. An ANOVA is a statistical method used to compare the means of three or more groups to determine if at least one group mean significantly differs from the others. For instance, if we extend our analysis from Camden and Sutton to include the London Borough of Hammersmith and Fulham, we can test for differences in means among these three areas.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">

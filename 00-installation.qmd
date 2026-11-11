@@ -468,7 +468,7 @@ We will be using these functions in the coming weeks, so ensure you are familiar
 :::
 
 ## Working in RStudio {.unnumbered}
-Two settings make RStudio behave more predictably. Go to **Tools** -> **Global Options** -> **General**, untick **Restore .RData into workspace at startup** and set **Save workspace to .RData on exit** to **Never**. Every session then starts with an empty environment, which means that your results always come from your script.
+Two settings make RStudio behave more predictably. Go to [Tools]{.ui} → [Global Options]{.ui} → [General]{.ui}, untick [Restore .RData into workspace at startup]{.ui} and set [Save workspace to .RData on exit]{.ui} to [Never]{.ui}. Every session then starts with an empty environment, which means that your results always come from your script.
 
 The following shortcuts save time:
 

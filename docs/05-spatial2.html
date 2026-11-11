@@ -444,7 +444,7 @@ ul.task-list li input[type="checkbox"] {
 <p>In addition to the crime data, we will also need the spatial boundaries of the London boroughs. To access the spatial boundaries of the London boroughs, you should:</p>
 <ol type="1">
 <li>Navigate to the London Datastore: <a href="https://data.london.gov.uk/">[Link]</a>.</li>
-<li>Click on <strong>Data</strong> in the navigation menu.</li>
+<li>Click on <span class="ui">Data</span> in the navigation menu.</li>
 <li>Type <em>London Boroughs</em> into the search field.</li>
 <li>Download the <code>GeoPackage</code> containing the boundaries of each of London’s 33 boroughs.</li>
 <li>Rename the file to <code>London-Borough.gpkg</code> and save it in your <code>data</code> folder.</li>
@@ -462,12 +462,12 @@ ul.task-list li input[type="checkbox"] {
 <p>When studying aggregated point event data, it is important to normalise the data using an appropriate denominator. We therefore also need the population figures for each borough. To get the 2021 borough population counts, you should:</p>
 <ol type="1">
 <li>Navigate to the <em>Nomis</em> portal: <a href="https://www.nomisweb.co.uk/">[Link]</a></li>
-<li>Click on <strong>Query data</strong> in the <strong>Data Downloads</strong> panel.</li>
-<li>Click on <strong>Census 2021</strong> -&gt; <strong>Topic Summaries</strong>.</li>
-<li>Click on <strong>TS007A - Age by five-year age bands</strong>.</li>
-<li>Select <strong>Geography</strong> and set <strong>Local authorities: district / unitary (as of April 2023)</strong> to <strong>Some</strong>.</li>
-<li>Under <strong>List areas within</strong> select <strong>London</strong>. Click on <strong>Tick all</strong>.</li>
-<li>Click on <strong>Download data</strong> at the left hand side of the screen.</li>
+<li>Click on <span class="ui">Query data</span> in the <span class="ui">Data Downloads</span> panel.</li>
+<li>Click on <span class="ui">Census 2021</span> → <span class="ui">Topic Summaries</span>.</li>
+<li>Click on <span class="ui">TS007A - Age by five-year age bands</span>.</li>
+<li>Select <span class="ui">Geography</span> and set <span class="ui">Local authorities: district / unitary (as of April 2023)</span> to <span class="ui">Some</span>.</li>
+<li>Under <span class="ui">List areas within</span> select <span class="ui">London</span>. Click on <span class="ui">Tick all</span>.</li>
+<li>Click on <span class="ui">Download data</span> at the left hand side of the screen.</li>
 <li>Once the data is ready for download, save it to your computer in your <code>data</code> folder as <code>London-Borough-Population.xlsx</code>.</li>
 </ol>
 <div class="cell">
@@ -529,13 +529,13 @@ Figure&nbsp;2: The prepared London Borough population dataset.
 <p>Now that we have our datasets sorted out, we can move to QGIS to analyse our crime dataset.</p>
 <ol type="1">
 <li>Start <strong>QGIS</strong>.</li>
-<li>Click on <strong>Project</strong> -&gt; <strong>New</strong>. Save your project as <code>w10-crime-analysis</code>. Remember to save your work throughout the practical.</li>
-<li>Before we get started with adding data, we will first set the Coordinate Reference System of our Project. Click on <strong>Project</strong> -&gt; <strong>Properties</strong> -&gt; <strong>CRS</strong>. In the Filter box, type <strong>British National Grid</strong>. Select <strong>OSGB36 / British National Grid - EPSG:27700</strong> (older versions of QGIS call this <em>OSGB 1936 / British National Grid</em>) and click <strong>Apply</strong>. Click <strong>OK</strong>.</li>
+<li>Click on <span class="ui">Project</span> → <span class="ui">New</span>. Save your project as <code>w10-crime-analysis</code>. Remember to save your work throughout the practical.</li>
+<li>Before we get started with adding data, we will first set the Coordinate Reference System of our Project. Click on <span class="ui">Project</span> → <span class="ui">Properties</span> → <span class="ui">CRS</span>. In the Filter box, type <strong>British National Grid</strong>. Select <span class="ui">OSGB36 / British National Grid - EPSG:27700</span> (older versions of QGIS call this <em>OSGB 1936 / British National Grid</em>) and click <span class="ui">Apply</span>. Click <span class="ui">OK</span>.</li>
 </ol>
 <p>We will start by adding the spatial layer containing the London boroughs.</p>
 <ol type="1">
-<li>Click on <strong>Layer</strong> -&gt; <strong>Add Layer</strong> -&gt; <strong>Add Vector Layer</strong>.</li>
-<li>With <strong>File</strong> select as your source type, click on the small three dots button and navigate to your <code>London-Borough.gpkg</code> file in your <code>data</code> folder. Select the file, then click <strong>Add</strong>. You may need to close the box after adding the layer.</li>
+<li>Click on <span class="ui">Layer</span> → <span class="ui">Add Layer</span> → <span class="ui">Add Vector Layer</span>.</li>
+<li>With <span class="ui">File</span> select as your source type, click on the small three dots button and navigate to your <code>London-Borough.gpkg</code> file in your <code>data</code> folder. Select the file, then click <span class="ui">Add</span>. You may need to close the box after adding the layer.</li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
@@ -553,8 +553,8 @@ Figure&nbsp;3: The London boroughs.
 </div>
 <p>To link the spatial data to the population data, we need to join the datasets. Since we covered the <a href="04-spatial1.html#joining-data">steps for joining datasets last week</a>, we will only provide a broad overview of the process:</p>
 <ol type="1">
-<li>Load the <code>London-Borough-Population.csv</code> dataset you just created as a <strong>Delimited Text Layer</strong> in QGIS.</li>
-<li>Join the two datasets together using the <strong>Joins</strong> tab in the <strong>Properties</strong> box of the borough layer. Set the <strong>Join field</strong> to <code>BoroughNames</code> and the <strong>Target field</strong> to <code>name</code>. Afterwards, open the <strong>Attribute Table</strong> of the borough layer and check that every borough has a <code>pop2021</code> value.</li>
+<li>Load the <code>London-Borough-Population.csv</code> dataset you just created as a <span class="ui">Delimited Text Layer</span> in QGIS.</li>
+<li>Join the two datasets together using the <span class="ui">Joins</span> tab in the <span class="ui">Properties</span> box of the borough layer. Set the <span class="ui">Join field</span> to <code>BoroughNames</code> and the <span class="ui">Target field</span> to <code>name</code>. Afterwards, open the <span class="ui">Attribute Table</span> of the borough layer and check that every borough has a <code>pop2021</code> value.</li>
 </ol>
 <div class="callout callout-style-simple callout-warning">
 <div class="callout-body d-flex">
@@ -566,13 +566,13 @@ Figure&nbsp;3: The London boroughs.
 </div>
 </div>
 </div>
-<p>We will now load and map our crime data. This will be done using the <strong>Delimited Text Layer</strong> option, similar to how you previously loaded the borough population data, but this time we will be adding point coordinates to visualise the crime data as points on the map.</p>
+<p>We will now load and map our crime data. This will be done using the <span class="ui">Delimited Text Layer</span> option, similar to how you previously loaded the borough population data, but this time we will be adding point coordinates to visualise the crime data as points on the map.</p>
 <ol type="1">
-<li>Click on <strong>Layer</strong> -&gt; <strong>Add Layer</strong> -&gt; <strong>Add Delimited Text Layer</strong>.
+<li>Click on <span class="ui">Layer</span> → <span class="ui">Add Layer</span> → <span class="ui">Add Delimited Text Layer</span>.
 <ul>
-<li>Click on the three dots button next to <strong>File Name</strong> and navigate to your <code>London-Crime-2021.csv</code> in your <code>data</code> folder.</li>
-<li>Your file format should be set to <code>csv</code>. In <strong>Record and Fields Options</strong> tick <code>Decimal separator is comma</code>, <code>First record has field names</code>, <code>Detect field types</code> and <code>Discard empty fields</code>.</li>
-<li>Under <strong>Geometry Definition</strong>, select <code>Point coordinates</code> and set the <strong>X field</strong> to <code>Longitude</code> and the <strong>Y field</strong> to <code>Latitude</code>. The <strong>Geometry CRS</strong> should be: <code>EPSG:4326 - WGS84</code>. Click <strong>Add</strong>.</li>
+<li>Click on the three dots button next to <span class="ui">File Name</span> and navigate to your <code>London-Crime-2021.csv</code> in your <code>data</code> folder.</li>
+<li>Your file format should be set to <code>csv</code>. In <span class="ui">Record and Fields Options</span> tick <code>Decimal separator is comma</code>, <code>First record has field names</code>, <code>Detect field types</code> and <code>Discard empty fields</code>.</li>
+<li>Under <span class="ui">Geometry Definition</span>, select <code>Point coordinates</code> and set the <span class="ui">X field</span> to <code>Longitude</code> and the <span class="ui">Y field</span> to <code>Latitude</code>. The <span class="ui">Geometry CRS</span> should be: <code>EPSG:4326 - WGS84</code>. Click <span class="ui">Add</span>.</li>
 </ul></li>
 </ol>
 <div class="callout callout-style-simple callout-note">
@@ -586,7 +586,7 @@ Figure&nbsp;3: The London boroughs.
 </div>
 </div>
 <ol start="2" type="1">
-<li>Click <strong>OK</strong> to accept QGIS’ suggested on-the-fly projection. You should now see your crime dataset displayed as points, layered on top of the London borough polygons.</li>
+<li>Click <span class="ui">OK</span> to accept QGIS’ suggested on-the-fly projection. You should now see your crime dataset displayed as points, layered on top of the London borough polygons.</li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
@@ -603,38 +603,38 @@ Figure&nbsp;4: The London boroughs together with the crime dataset.
 </div>
 </div>
 <ol start="3" type="1">
-<li>We can confirm the temporary nature of the on-the-fly projection by checking the CRS of the <code>London-Crime-2021</code> layer. To do this, right-click on the layer, then select <strong>Properties</strong> -&gt; <strong>Information</strong>. In the information panel, you should see that the CRS of the layer remains as <code>WGS84</code>.</li>
+<li>We can confirm the temporary nature of the on-the-fly projection by checking the CRS of the <code>London-Crime-2021</code> layer. To do this, right-click on the layer, then select <span class="ui">Properties</span> → <span class="ui">Information</span>. In the information panel, you should see that the CRS of the layer remains as <code>WGS84</code>.</li>
 </ol>
 <p>To ensure that our analysis is both accurate and efficient, it is best to reproject the crime data to the same CRS as our administrative datasets.</p>
 <ol start="4" type="1">
-<li>Back in the main QGIS window, click on <strong>Vector</strong> -&gt; <strong>Data Management Tools</strong> -&gt; <strong>Reproject layer</strong>. Fill in the parameters as follows:
+<li>Back in the main QGIS window, click on <span class="ui">Vector</span> → <span class="ui">Data Management Tools</span> → <span class="ui">Reproject layer</span>. Fill in the parameters as follows:
 <ul>
-<li><strong>Input layer:</strong> <code>London-Crime-2021</code></li>
-<li><strong>Target CRS:</strong> <code>Project CRS: EPSG: 27700</code></li>
-<li><strong>Reprojected:</strong> Click on the three dots button and <strong>Save to GeoPackage</strong> to create a new data file.</li>
-<li><strong>Save</strong> it in your <code>data</code> folder as <code>London-Crime-2021-BNG.gpkg</code>, using <code>London-Crime-2021-BNG</code> as <strong>Layer Name</strong>.</li>
-<li>Click <strong>Run</strong>. You should now see the new data layer added to your project. You can now close the <strong>Reproject Layer</strong> tool.</li>
+<li><span class="ui">Input layer</span>: <code>London-Crime-2021</code></li>
+<li><span class="ui">Target CRS</span>: <code>Project CRS: EPSG: 27700</code></li>
+<li><span class="ui">Reprojected</span>: Click on the three dots button and <span class="ui">Save to GeoPackage</span> to create a new data file.</li>
+<li><span class="ui">Save</span> it in your <code>data</code> folder as <code>London-Crime-2021-BNG.gpkg</code>, using <code>London-Crime-2021-BNG</code> as <span class="ui">Layer Name</span>.</li>
+<li>Click <span class="ui">Run</span>. You should now see the new data layer added to your project. You can now close the <span class="ui">Reproject Layer</span> tool.</li>
 </ul></li>
 <li>You can now also remove the original <code>London-Crime-2021</code> dataset, only keeping the reprojected version.</li>
 </ol>
 </section>
 <section id="data-aggregation" class="level3" data-number="5.3.2">
 <h3 data-number="5.3.2" class="anchored" data-anchor-id="data-aggregation"><span class="header-section-number">5.3.2</span> Data aggregation</h3>
-<p>The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the <strong>Count points in polygon</strong> tool in the <strong>Analysis Tools</strong> menu to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a <em>crime rate</em> statistic.</p>
+<p>The next step of our analysis involves aggregating the crime events to our administrative geography. We will use the <span class="ui">Count points in polygon</span> tool in the <span class="ui">Analysis Tools</span> menu to count how many crimes have occurred in each borough. This will provide us with a count statistic that we can subsequently normalise using population data to create a <em>crime rate</em> statistic.</p>
 <ol type="1">
-<li>Click on <strong>Vector</strong> -&gt; <strong>Analysis Tools</strong> -&gt; <strong>Count points in polygon</strong>.</li>
+<li>Click on <span class="ui">Vector</span> → <span class="ui">Analysis Tools</span> → <span class="ui">Count points in polygon</span>.</li>
 <li>Within the toolbox, select the parameters as follows:
 <ul>
-<li><strong>Polygons:</strong> <code>London-Borough</code></li>
-<li><strong>Points:</strong> <code>London-Crime-2021-BNG</code> (note how both layers now state the same CRS)</li>
-<li><strong>Weight field:</strong> <em>leave blank</em></li>
-<li><strong>Class field:</strong> <em>leave blank</em></li>
-<li><strong>Count field name:</strong> <code>theft2021</code></li>
-<li>Click on the three dots button and select <strong>Save to GeoPackage</strong>.</li>
-<li>Save the output as <code>London-Borough-Crime.gpkg</code>, with <code>London-Borough-Crime</code> as <strong>Layer Name</strong>.</li>
+<li><span class="ui">Polygons</span>: <code>London-Borough</code></li>
+<li><span class="ui">Points</span>: <code>London-Crime-2021-BNG</code> (note how both layers now state the same CRS)</li>
+<li><span class="ui">Weight field</span>: <em>leave blank</em></li>
+<li><span class="ui">Class field</span>: <em>leave blank</em></li>
+<li><span class="ui">Count field name</span>: <code>theft2021</code></li>
+<li>Click on the three dots button and select <span class="ui">Save to GeoPackage</span>.</li>
+<li>Save the output as <code>London-Borough-Crime.gpkg</code>, with <code>London-Borough-Crime</code> as <span class="ui">Layer Name</span>.</li>
 </ul></li>
-<li>Click <strong>Run</strong> and <strong>Close</strong> the dialogue box. You should now see the <code>London-Borough-Crime</code> layer added to your <em>Layers</em> panel.</li>
-<li>Right-click on the <code>London-Borough-Crime</code> layer and open the <strong>Attribute Table</strong>. If all went well, you should see a <code>theft2021</code> column next to your <code>pop2021</code> column.</li>
+<li>Click <span class="ui">Run</span> and <span class="ui">Close</span> the dialogue box. You should now see the <code>London-Borough-Crime</code> layer added to your <em>Layers</em> panel.</li>
+<li>Right-click on the <code>London-Borough-Crime</code> layer and open the <span class="ui">Attribute Table</span>. If all went well, you should see a <code>theft2021</code> column next to your <code>pop2021</code> column.</li>
 </ol>
 <div class="exercise callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -651,7 +651,7 @@ Figure&nbsp;4: The London boroughs together with the crime dataset.
 </div>
 <p>We can now calculate the crime rate:</p>
 <ol start="5" type="1">
-<li>With the <strong>Attribute Table</strong> of your <code>London-Borough-Crime</code> layer still open, click on the <strong>pencil</strong> icon in the top left corner to enable <em>Editing</em> mode.</li>
+<li>With the <span class="ui">Attribute Table</span> of your <code>London-Borough-Crime</code> layer still open, click on the <strong>pencil</strong> icon in the top left corner to enable <em>Editing</em> mode.</li>
 </ol>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -659,29 +659,29 @@ Figure&nbsp;4: The London boroughs together with the crime dataset.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><em>Editing</em> mode allows you to modify both the <strong>Attribute Table</strong> values and the geometry of your data.</p>
+<p><em>Editing</em> mode allows you to modify both the <span class="ui">Attribute Table</span> values and the geometry of your data.</p>
 </div>
 </div>
 </div>
 <ol start="6" type="1">
-<li>Whilst in the <em>Editing</em> mode, click on <strong>New Field</strong> button (hotkeys: <code>ctrl + w</code> or <code>cmd + w</code>) and fill in the <strong>Field Parameters</strong> as follows:
+<li>Whilst in the <em>Editing</em> mode, click on <span class="ui">New Field</span> button (hotkeys: <code>ctrl + w</code> or <code>cmd + w</code>) and fill in the <span class="ui">Field Parameters</span> as follows:
 <ul>
-<li><strong>Name:</strong> <code>crime-rate</code></li>
-<li><strong>Comment:</strong> <em>leave blank</em></li>
-<li><strong>Type:</strong> Decimal number</li>
+<li><span class="ui">Name</span>: <code>crime-rate</code></li>
+<li><span class="ui">Comment</span>: <em>leave blank</em></li>
+<li><span class="ui">Type</span>: Decimal number</li>
 </ul></li>
-<li>Click <strong>OK</strong>. You should now see a new field added to the <strong>Attribute Table</strong>.</li>
+<li>Click <span class="ui">OK</span>. You should now see a new field added to the <span class="ui">Attribute Table</span>.</li>
 </ol>
-<p>The new field contains <code>NULL</code> values for each row, so we need to populate the column using the <strong>Field Calculator</strong>.</p>
+<p>The new field contains <code>NULL</code> values for each row, so we need to populate the column using the <span class="ui">Field Calculator</span>.</p>
 <ol start="8" type="1">
-<li>Whilst still in the <em>Editing</em> mode, click on the <strong>Abacus</strong> button (<code>ctrl + i</code> or <code>cmd + i</code>), which is known as the <strong>Field Calculator</strong>.</li>
-<li>In the <strong>Field Calculator</strong> window:
+<li>Whilst still in the <em>Editing</em> mode, click on the <span class="ui">Abacus</span> button (<code>ctrl + i</code> or <code>cmd + i</code>), which is known as the <span class="ui">Field Calculator</span>.</li>
+<li>In the <span class="ui">Field Calculator</span> window:
 <ul>
-<li>Check the <strong>Update existing field</strong> box.</li>
+<li>Check the <span class="ui">Update existing field</span> box.</li>
 <li>Use the drop-down to select the <code>crime-rate</code> field.</li>
-<li>In the Expression editor, add the following expression: <code>( "theft2021" / "pop2021" ) * 10000</code> and click <strong>OK</strong>.</li>
+<li>In the Expression editor, add the following expression: <code>( "theft2021" / "pop2021" ) * 10000</code> and click <span class="ui">OK</span>.</li>
 </ul></li>
-<li>Click on the <strong>Save</strong> button to save these edits. Click again on the <strong>Pencil</strong> button to exit <em>Editing</em> mode.</li>
+<li>Click on the <span class="ui">Save</span> button to save these edits. Click again on the <span class="ui">Pencil</span> button to exit <em>Editing</em> mode.</li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
@@ -703,14 +703,14 @@ Figure&nbsp;5: The attribute table of the <code>London-Borough-Crime</code> laye
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>The <code>crime-rate</code> is stored as a decimal number so that the fractions are kept, but ultimately you cannot have half a crime. You can convert the decimal values to integers by creating a new field using the <strong>Field Calculator</strong>. Instead of ticking the <strong>Update existing field</strong> box you would now keep the <strong>Create a new field</strong> box ticked. Name the new field <code>crime-rate-int</code>, make sure the <strong>Output field type</strong> is set to <code>Whole number (integer)</code>, and in the Expression editor enter the following expression: <code>to_int("crime-rate")</code>. You can save these changes by clicking the <strong>Save</strong> button.</p>
+<p>The <code>crime-rate</code> is stored as a decimal number so that the fractions are kept, but ultimately you cannot have half a crime. You can convert the decimal values to integers by creating a new field using the <span class="ui">Field Calculator</span>. Instead of ticking the <span class="ui">Update existing field</span> box you would now keep the <span class="ui">Create a new field</span> box ticked. Name the new field <code>crime-rate-int</code>, make sure the <span class="ui">Output field type</span> is set to <code>Whole number (integer)</code>, and in the Expression editor enter the following expression: <code>to_int("crime-rate")</code>. You can save these changes by clicking the <span class="ui">Save</span> button.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="data-mapping" class="level3" data-number="5.3.3">
 <h3 data-number="5.3.3" class="anchored" data-anchor-id="data-mapping"><span class="header-section-number">5.3.3</span> Data mapping</h3>
-<p>Now the dataset has been prepared, it is time to make a map. First thing we need to do is symbolise the map with an appropriate colour scheme. Go to <strong>Properties</strong> and symbolise your map with <strong>Graduated</strong> colours. You need to decide on an appropriate data classification and colour scheme. For reference, <a href="#fig-map-styled" class="quarto-xref">Figure&nbsp;6</a> shows an example of a possible classification and colour scheme.</p>
+<p>Now the dataset has been prepared, it is time to make a map. First thing we need to do is symbolise the map with an appropriate colour scheme. Go to <span class="ui">Properties</span> and symbolise your map with <span class="ui">Graduated</span> colours. You need to decide on an appropriate data classification and colour scheme. For reference, <a href="#fig-map-styled" class="quarto-xref">Figure&nbsp;6</a> shows an example of a possible classification and colour scheme.</p>
 <div class="exercise callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -721,7 +721,7 @@ Figure&nbsp;5: The attribute table of the <code>London-Borough-Crime</code> laye
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Before you choose your classes, look at the highest and lowest crime rates in the attribute table. The City of London has 854 thefts per 10,000 residents, whereas the median across the 33 boroughs is about 21: few people live in the City of London, but many more work in or visit it. With five <strong>Equal Interval</strong> classes, how many of the 33 boroughs do you expect to end up in the first class? Try <strong>Equal Interval</strong> and <strong>Equal Count (Quantile)</strong> and compare what happens to the City of London and to the other boroughs. With <strong>Equal Interval</strong>, 31 of the 33 boroughs end up in the first class.</p>
+<p>Before you choose your classes, look at the highest and lowest crime rates in the attribute table. The City of London has 854 thefts per 10,000 residents, whereas the median across the 33 boroughs is about 21: few people live in the City of London, but many more work in or visit it. With five <span class="ui">Equal Interval</span> classes, how many of the 33 boroughs do you expect to end up in the first class? Try <span class="ui">Equal Interval</span> and <span class="ui">Equal Count (Quantile)</span> and compare what happens to the City of London and to the other boroughs. With <span class="ui">Equal Interval</span>, 31 of the 33 boroughs end up in the first class.</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip">
@@ -759,7 +759,7 @@ Figure&nbsp;6: An example of how you can style your crime rate map.
 </div>
 </div>
 </div>
-<p>From the main QGIS window, click on <strong>Project</strong> -&gt; <strong>New Print Layout</strong>. In the small box that first appears, call your new print layout: <code>crime-map-borough</code>. A new window should open up that shows a blank canvas.</p>
+<p>From the main QGIS window, click on <span class="ui">Project</span> → <span class="ui">New Print Layout</span>. In the small box that first appears, call your new print layout: <code>crime-map-borough</code>. A new window should open up that shows a blank canvas.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-print-layout" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -786,7 +786,7 @@ Figure&nbsp;7: The <em>Print Layout</em> workspace in QGIS.
 </div>
 </div>
 </div>
-<p>To begin creating your map, use the <strong>Add Map</strong> tool to draw a box where a snapshot of the currently active map displayed in your QGIS main window will be loaded.</p>
+<p>To begin creating your map, use the <span class="ui">Add Map</span> tool to draw a box where a snapshot of the currently active map displayed in your QGIS main window will be loaded.</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -798,7 +798,7 @@ Figure&nbsp;7: The <em>Print Layout</em> workspace in QGIS.
 </div>
 </div>
 <ol type="1">
-<li>Click on the <strong>Add Map</strong> tool and draw a box on your canvas to load the map layers that are active in the main QGIS window. You can easily move and resize the map box by clicking on it and dragging the corners, just like you would in Word or similar applications.</li>
+<li>Click on the <span class="ui">Add Map</span> tool and draw a box on your canvas to load the map layers that are active in the main QGIS window. You can easily move and resize the map box by clicking on it and dragging the corners, just like you would in Word or similar applications.</li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
@@ -815,10 +815,10 @@ Figure&nbsp;8: Current active map in the <em>Print Layout</em>.
 </div>
 </div>
 <ol start="2" type="1">
-<li>With your map selected, head to the <strong>Item Properties</strong> panel and look for the <strong>Scale</strong> parameter.
+<li>With your map selected, head to the <span class="ui">Item Properties</span> panel and look for the <span class="ui">Scale</span> parameter.
 <ul>
 <li>Here we can manually edit the <strong>scale</strong> of our map to find the right zoom level.</li>
-<li>If you need to move the position of the map within the box, look for the <strong>Move Item Content</strong> tool in the left-hand side toolbar.</li>
+<li>If you need to move the position of the map within the box, look for the <span class="ui">Move Item Content</span> tool in the left-hand side toolbar.</li>
 </ul></li>
 </ol>
 <div class="exercise callout callout-style-simple callout-note no-icon callout-titled">
@@ -835,9 +835,9 @@ Figure&nbsp;8: Current active map in the <em>Print Layout</em>.
 </div>
 </div>
 <ol start="3" type="1">
-<li>Click on the <strong>Add Legend</strong> tool and draw a box on your canvas where you want the legend to appear. You will notice that the legend automatically generates an entry for every layer in the Layers panel of the main QGIS application.
+<li>Click on the <span class="ui">Add Legend</span> tool and draw a box on your canvas where you want the legend to appear. You will notice that the legend automatically generates an entry for every layer in the Layers panel of the main QGIS application.
 <ul>
-<li>In the <strong>Item Properties</strong>, uncheck <code>Auto update</code> to prevent QGIS from automatically populating your legend, allowing you to customise it instead.</li>
+<li>In the <span class="ui">Item Properties</span>, uncheck <code>Auto update</code> to prevent QGIS from automatically populating your legend, allowing you to customise it instead.</li>
 <li>Next, remove all layers from the legend except for the <code>London-Borough-Crime</code> layer by clicking the <code>-</code> (minus) button.</li>
 <li>Finally, change the label of the legend to <em>Crime Rate (per 10,000 people)</em>.</li>
 <li>Move the legend to an appropriate position on the canvas - resize if necessary.</li>
@@ -856,10 +856,10 @@ Figure&nbsp;8: Current active map in the <em>Print Layout</em>.
 <ol start="4" type="1">
 <li>Now that we have our map and legend ready, we can add the main map elements using the tools in the left-hand toolbar:
 <ul>
-<li>Add a scale bar: Use the <strong>Item Properties</strong> to adjust the style, number of segments, font, and other settings.</li>
-<li>Add a north arrow: Use the <strong>North Arrow</strong> tool to draw a box where you want the arrow to appear, then customise its appearance using the <strong>Item Properties</strong> panel.</li>
-<li>Create a title at the top of the page using the <strong>Add Label</strong> tool. You can format the title as needed.</li>
-<li>Finally add a box detailing the data sources that have been used: <em>Contains data from Office for National Statistics licensed under the Open Government Licence v.3.0. Contains Ordnance Survey data © Crown copyright and database right 2026. Crime data obtained from data.police.uk (Open Government Licence).</em> You can again use the <strong>Add Label</strong> tool for this.</li>
+<li>Add a scale bar: Use the <span class="ui">Item Properties</span> to adjust the style, number of segments, font, and other settings.</li>
+<li>Add a north arrow: Use the <span class="ui">North Arrow</span> tool to draw a box where you want the arrow to appear, then customise its appearance using the <span class="ui">Item Properties</span> panel.</li>
+<li>Create a title at the top of the page using the <span class="ui">Add Label</span> tool. You can format the title as needed.</li>
+<li>Finally add a box detailing the data sources that have been used: <em>Contains data from Office for National Statistics licensed under the Open Government Licence v.3.0. Contains Ordnance Survey data © Crown copyright and database right 2026. Crime data obtained from data.police.uk (Open Government Licence).</em> You can again use the <span class="ui">Add Label</span> tool for this.</li>
 </ul></li>
 </ol>
 <p>Once you have added these map elements, you should have a map canvas that could look something like this:</p>
@@ -877,7 +877,7 @@ Figure&nbsp;9: Crime rates across London Boroughs.
 </div>
 </div>
 </div>
-<p>The only remaining step is to export our map as an image. Navigate to <strong>Layout</strong> -&gt; <strong>Export as Image</strong> and then save it as <code>London-Borough-2021-crime-rate.png</code>.</p>
+<p>The only remaining step is to export our map as an image. Navigate to <span class="ui">Layout</span> → <span class="ui">Export as Image</span> and then save it as <code>London-Borough-2021-crime-rate.png</code>.</p>
 </section>
 </section>
 <section id="homework-task" class="level2" data-number="5.4">
@@ -885,8 +885,8 @@ Figure&nbsp;9: Crime rates across London Boroughs.
 <p>This concludes this week’s tutorial. Now complete the following homework tasks:</p>
 <ol type="1">
 <li>Load last week’s <code>London-LSOA-2021.gpkg</code> into QGIS and join the <code>LSOA2021-population.csv</code> to it again (or continue in your <code>w09-population-analysis</code> project if you saved the join there), so that every LSOA has a <code>pop2021</code> value.</li>
-<li>Aggregate the <code>London-Crime-2021-BNG.gpkg</code> point dataset to the 2021 London LSOAs using the <strong>Count points in polygon</strong> tool.</li>
-<li>Calculate the crime rate per 10,000 people using the <strong>Field Calculator</strong>.</li>
+<li>Aggregate the <code>London-Crime-2021-BNG.gpkg</code> point dataset to the 2021 London LSOAs using the <span class="ui">Count points in polygon</span> tool.</li>
+<li>Calculate the crime rate per 10,000 people using the <span class="ui">Field Calculator</span>.</li>
 <li>Decide on an appropriate data classification and colour scheme. Check the highest and lowest values first: about a third of the LSOAs (1,636 of 4,994) have no recorded theft, whereas a few LSOAs in central London have extremely high rates.</li>
 <li>Create a publishable map that includes all essential map elements.</li>
 <li>Export your map as an image.</li>
