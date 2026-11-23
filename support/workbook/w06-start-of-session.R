@@ -10,7 +10,7 @@ lsoa_age <- read_csv('data/London-LSOA-AgeGroup.csv')
 head(lsoa_age)
 
 # file not found
-lsoa_age <- read_csv('data/London-LSOA-AgeGroup.cvs')
+lsoa_age <- read_csv('London-LSOA-AgeGroup.csv')
 
 # fix
 getwd()
