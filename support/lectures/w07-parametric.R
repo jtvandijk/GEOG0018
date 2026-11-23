@@ -14,11 +14,12 @@ student_heights <- data.frame(
 )
 
 # histogram
-hist(student_heights[student_heights$university=='UCL',]$height,
-     main = 'UCL', xlab = 'Height (cm)')
-hist(student_heights[student_heights$university=='KCL',]$height,
-     main = 'KCL', xlab = 'Height (cm)')
-
+# par(mfrow = c(1, 2))
+brks <- seq(140, 200, by = 5)
+hist(student_heights[student_heights$university == 'UCL', ]$height,
+     main = 'UCL', xlab = 'Height (cm)', breaks = brks, xlim = c(140, 200), ylim = c(0, 25))
+hist(student_heights[student_heights$university == 'KCL', ]$height,
+     main = 'KCL', xlab = 'Height (cm)', breaks = brks, xlim = c(140, 200), ylim = c(0, 25))
 # boxplot
 boxplot(height ~ university, data = student_heights,
         main = 'Boxplot of Heights by University',
