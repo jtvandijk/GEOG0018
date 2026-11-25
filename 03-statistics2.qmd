@@ -431,4 +431,4 @@ Paste the test outputs in the appendix of your assignment and include a few sent
 :::
 
 ## Before you leave
-This week, we focused on statistically assessing associations between different variables. Because this week's material was a little technical, we will shift our focus away from R next week and turn our attention to QGIS. Time to sit down and process this week's material before some [more relaxed content](https://www.youtube.com/watch?v=L_TXvjDE5Ec) next week!
+This week, we focused on statistically assessing associations between different variables. Because this week's material was a little technical, we will shift our focus away from R next week and turn our attention to QGIS. Time to sit down and process this week's material before some [more relaxed content](https://www.youtube.com/watch?v=ex5xYf3KMKU&list=RDex5xYf3KMKU) next week!
